@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InterviewDetailsEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="AKMR_INTERVIEW_DETAILS"
+  AliasName="InterviewDetailsEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CandidateEmailId"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="CANDIDATE_EMAIL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEW_DETAILS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InterviewerEmailId"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="INTERVIEWER_EMAIL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEW_DETAILS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EventId"
+    IsNotNull="true"
+    Precision="3"
+    Scale="0"
+    ColumnName="EVENT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="AKMR_INTERVIEW_DETAILS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="FeedbackId"
+    IsNotNull="true"
+    Precision="3"
+    Scale="0"
+    ColumnName="FEEDBACK_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="AKMR_INTERVIEW_DETAILS"/>
+  <Attribute
+    Name="RoundNo"
+    IsNotNull="true"
+    Precision="3"
+    Scale="0"
+    ColumnName="ROUND_NO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="AKMR_INTERVIEW_DETAILS"/>
+  <Attribute
+    Name="Status"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEW_DETAILS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StartTime"
+    IsNotNull="true"
+    ColumnName="START_TIME"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="AKMR_INTERVIEW_DETAILS"/>
+  <Attribute
+    Name="EndTime"
+    IsNotNull="true"
+    ColumnName="END_TIME"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="AKMR_INTERVIEW_DETAILS"/>
+  <AccessorAttribute
+    Name="EventDetailsEO"
+    Association="model.EntityObject.AkmrFkEventId3Assoc"
+    AssociationEnd="model.EntityObject.AkmrFkEventId3Assoc.EventDetailsEO"
+    AssociationOtherEnd="model.EntityObject.AkmrFkEventId3Assoc.InterviewDetailsEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CandidateDataEO"
+    Association="model.EntityObject.AkmrIDetFk2Assoc"
+    AssociationEnd="model.EntityObject.AkmrIDetFk2Assoc.CandidateDataEO"
+    AssociationOtherEnd="model.EntityObject.AkmrIDetFk2Assoc.InterviewDetailsEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="AkmrIDetPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="AKMR_I_DET_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
+      <Item Value="model.EntityObject.InterviewDetailsEO.InterviewerEmailId"/>
+      <Item Value="model.EntityObject.InterviewDetailsEO.EventId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AkmrFkEventId3">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="AKMR_EVENT_DETAILS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="AKMR_FK_EVENT_ID_3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.InterviewDetailsEO.EventId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AkmrIDetFk1">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="AKMR_I_DET_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.InterviewDetailsEO.InterviewerEmailId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AkmrIDetFk2">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="AKMR_CANDIDATE_DATA_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="AKMR_I_DET_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
+    </AttrArray>
+  </Key>
+</Entity>
