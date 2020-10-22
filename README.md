@@ -1,7 +1,9 @@
 # recruitment-management-system
 
-Objective
+#Objective
+
 Develop an application to manage entire recruitment process of an organization. Main objective is to reduce manual processes and execute the recruitment process in efficient manner. Apart from handling recruitment process on site, application should have separate module to conduct online MCQ tests as per the requirement of an organization. This can help to filter candidates at first step whenever required. Application should automate tasks right from applying job/posting job requirement until the rolling out of the final result.
+
 Primary Feature to Focus upon
 While above objective is to develop an application to handle an end-to-end process, our primary focus for this project will be handling interviews for the particular event. Other features can be implemented only after mentor approves completion of this primary feature and extra time is there before you submit the project.
 High level Functionalities of Primary Feature
