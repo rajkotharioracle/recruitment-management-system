@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>adminTemplateDef</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>body</afc:facet-name>
+            </afc:facet>
+            <afc:attribute>
+                <afc:attribute-name>
+                    pageTitle
+                </afc:attribute-name>
+                <afc:attribute-class>
+                    java.lang.String
+                </afc:attribute-class>
+                <afc:default-value>
+                    Hiring Managment System
+                </afc:default-value>
+            </afc:attribute>
+        </afc:component>
+    </af:xmlContent>
+    <af:panelSplitter orientation="vertical" splitterPosition="150" id="pt_ps1">
+        <f:facet name="first">
+            <af:panelGridLayout id="pt_pgl1" inlineStyle="background-color:#302D2A;">
+                <af:gridRow marginTop="5px" height="auto" id="pt_gr1">
+                    <af:gridCell marginStart="5px" width="34%" id="pt_gc1">
+                        <af:image id="pt_i1" source="/Oracle-Emblem-removebg-preview.png"
+                                  inlineStyle="height:100px;margin-left:10px;" shortDesc="Oracle Logo"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" id="pt_gc2">
+                        <af:outputText value="Recruitment Management System" id="pt_ot1"
+                                       inlineStyle="color:White; font-size:xx-large;padding-top:20px;"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="pt_gc3">
+                        <af:panelGroupLayout id="pt_pgl2" layout="horizontal" halign="right">
+                            <af:menuBar id="pt_mb2">
+                                <af:menu text="#{sessionScope.userName}" id="pt_m1">
+                                    <af:commandMenuItem text="Logout" id="pt_cmi1"/>
+                                </af:menu>
+                            </af:menuBar>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" marginBottom="5px" id="pt_gr2">
+                    <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="pt_gc4" width="auto"
+                                 inlineStyle="color:white;background-color:#C54534;width:200%">
+                        <af:menuBar id="pt_mb1" inlineStyle="color:white;background-color:#C54534;">
+                            <af:commandMenuItem text="Dashboard" id="pt_cmi2"/>
+                            <af:menu text="Candidate" id="pt_m3">
+                                <af:commandMenuItem text="Add Candidate" id="pt_cmi3"/>
+                                <af:commandMenuItem text="Modify Existing Candidate" id="pt_cmi4"/>
+                                <af:commandMenuItem text="Delete Existing Candidate" id="pt_cmi5"/>
+                                <af:commandMenuItem text="Search Candidate" id="pt_cmi6"/>
+                            </af:menu>
+                            <af:menu text="Interviewer" id="pt_m4">
+                                <af:commandMenuItem text="Add Interviewer" id="pt_cmi7"/>
+                                <af:commandMenuItem text="Modify Existing Interviewer" id="pt_cmi8"/>
+                                <af:commandMenuItem text="Delete Existing Interviewer" id="pt_cmi9"/>
+                                <af:commandMenuItem text="Search Interviewer" id="pt_cmi10"/>
+                            </af:menu>
+                            <af:menu text="Events" id="pt_m5">
+                                <af:commandMenuItem text="Add Event" id="pt_cmi11"/>
+                                <af:commandMenuItem text="Modify Existing Event" id="pt_cmi12"/>
+                                <af:commandMenuItem text="Delete Existing Event" id="pt_cmi13"/>
+                                <af:commandMenuItem text="Search Event" id="pt_cmi14"/>
+                            </af:menu>
+                            <af:menu text="Reports" id="pt_m2">
+                                <af:commandMenuItem text="Add Event" id="pt_cmi15"/>
+                                <af:commandMenuItem text="Modify Existing Event" id="pt_cmi16"/>
+                                <af:commandMenuItem text="Delete Existing Event" id="pt_cmi17"/>
+                                <af:commandMenuItem text="Search Event" id="pt_cmi18"/>
+                            </af:menu>
+                        </af:menuBar>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelStretchLayout id="pt_psl1" inlineStyle="background-color:#F5EFDF;">
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:facet name="top">
+                    <af:outputText value="#{attrs.pageTitle}" id="pt_ot2"
+                                   inlineStyle="color:#C74633;margin-left:100px;font-size:xx-large;font-family:Roboto Condensed;margin-top:10px;"/>
+                </f:facet>
+                <f:facet name="bottom"/>
+                <f:facet name="center"/>
+            </af:panelStretchLayout>
+        </f:facet>
+    </af:panelSplitter>
+</af:pageTemplateDef>

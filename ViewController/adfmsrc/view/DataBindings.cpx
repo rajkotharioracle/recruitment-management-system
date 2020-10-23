@@ -3,9 +3,11 @@
              SeparateXMLFiles="false" Package="view" ClientType="Generic">
   <pageMap>
     <page path="/admin_template.jsf" usageId="view_admin_templatePageDef"/>
+    <page path="/AddCandidate.jsf" usageId="view_AddCandidatePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_admin_templatePageDef" path="view.pageDefs.admin_templatePageDef"/>
+    <page id="view_AddCandidatePageDef" path="view.pageDefs.AddCandidatePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="RecruitmentAppModuleDataControl" Package="model.EntityObject"

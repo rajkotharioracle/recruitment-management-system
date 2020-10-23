@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="admin-home.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="100px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
+                                 inlineStyle="background-color:#332D29; background-clip:content-box; border-color:Aqua;">
+                        <!-- Header -->
+                        <af:gridRow id="gr3">
+                            <af:gridCell id="gc3"/>
+                        </af:gridRow>
+                        <af:image source="/Oracle-Emblem-removebg-preview.png" id="i1"
+                                  inlineStyle="width:250px; height:103px; margin-left:50px;margin-top:-20px"/>
+                        <af:outputFormatted value="HIRING MANAGEMENT SYSTEM" id="of1"
+                                            inlineStyle="font-family:''Roboto''; color:white; margin-left:160px; font-size:40px;"/>
+                        <af:outputFormatted value="Welcome, Admin" id="of2"
+                                            inlineStyle="font-family:''Roboto''; color:#C74633; margin-left:188px; font-size:20px;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100px" halign="stretch" valign="stretch" id="gc1"
+                                 inlineStyle="background-color:White;">
+                        <af:panelSplitter orientation="horizontal" splitterPosition="219" id="ps1">
+                            <f:facet name="first">
+                                <af:panelAccordion id="pa1" >
+          <af:showDetailItem text="showDetailItem 1" id="sdi1"/>
+          <af:showDetailItem text="showDetailItem 2" id="sdi2"/>
+          <af:showDetailItem text="showDetailItem 3" id="sdi3"/>
+          <af:showDetailItem text="showDetailItem 4" id="sdi4"/>
+  </af:panelAccordion>
+
+
+                            </f:facet>
+                            <f:facet name="second">
+                                <!-- Content -->
+                                <af:gridCell id="gc5" inlineStyle="background-color:#F5EFDF;" width="100%"/>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
