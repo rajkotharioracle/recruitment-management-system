@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+        <f:facet name="body">
+            <af:table value="#{bindings.EventDetailsVO1.collectionModel}" var="row"
+                      rows="#{bindings.EventDetailsVO1.rangeSize}"
+                      emptyText="#{bindings.EventDetailsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.EventDetailsVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.EventDetailsVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.EventDetailsVO1.rangeSize}"
+                      filterModel="#{bindings.EventDetailsVO1Query.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.EventDetailsVO1Query.processQuery}" varStatus="vs" id="t1"
+                      partialTriggers="::b1">
+                <af:column sortProperty="#{bindings.EventDetailsVO1.hints.EventId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.EventDetailsVO1.hints.EventId.label}" id="c1">
+                    <af:link shortDesc="#{bindings.EventDetailsVO1.hints.EventId.tooltip}" id="it1"
+                             text="#{row.bindings.EventId.inputValue}" action="select">
+                        <af:setPropertyListener from="#{row.bindings.EventId.inputValue}" to="#{pageFlowScope.pid}"
+                                                type="action"/>
+                    </af:link>
+                </af:column>
+                <af:column sortProperty="#{bindings.EventDetailsVO1.hints.EventName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.EventDetailsVO1.hints.EventName.label}" id="c2">
+                    <af:inputText value="#{row.bindings.EventName.inputValue}"
+                                  label="#{bindings.EventDetailsVO1.hints.EventName.label}"
+                                  required="#{bindings.EventDetailsVO1.hints.EventName.mandatory}"
+                                  columns="#{bindings.EventDetailsVO1.hints.EventName.displayWidth}"
+                                  maximumLength="#{bindings.EventDetailsVO1.hints.EventName.precision}"
+                                  shortDesc="#{bindings.EventDetailsVO1.hints.EventName.tooltip}" id="it2">
+                        <f:validator binding="#{row.bindings.EventName.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.EventDetailsVO1.hints.EventStatus.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.EventDetailsVO1.hints.EventStatus.label}" id="c3">
+                    <af:inputText value="#{row.bindings.EventStatus.inputValue}"
+                                  label="#{bindings.EventDetailsVO1.hints.EventStatus.label}"
+                                  required="#{bindings.EventDetailsVO1.hints.EventStatus.mandatory}"
+                                  columns="#{bindings.EventDetailsVO1.hints.EventStatus.displayWidth}"
+                                  maximumLength="#{bindings.EventDetailsVO1.hints.EventStatus.precision}"
+                                  shortDesc="#{bindings.EventDetailsVO1.hints.EventStatus.tooltip}" id="it3">
+                        <f:validator binding="#{row.bindings.EventStatus.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.EventDetailsVO1.hints.EventStartTime.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.EventDetailsVO1.hints.EventStartTime.label}" id="c4">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.EventDetailsVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EventStartTime.value}"
+                                      id="id1">
+                            <af:convertDateTime pattern="#{bindings.EventDetailsVO1.hints.EventStartTime.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.EventStartTime.inputValue}"
+                                  label="#{bindings.EventDetailsVO1.hints.EventStartTime.label}"
+                                  required="#{bindings.EventDetailsVO1.hints.EventStartTime.mandatory}"
+                                  columns="#{bindings.EventDetailsVO1.hints.EventStartTime.displayWidth}"
+                                  shortDesc="#{bindings.EventDetailsVO1.hints.EventStartTime.tooltip}" id="id2">
+                        <f:validator binding="#{row.bindings.EventStartTime.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EventDetailsVO1.hints.EventStartTime.format}"/>
+                    </af:inputDate>
+                </af:column>
+                <af:column sortProperty="#{bindings.EventDetailsVO1.hints.EventMaxRounds.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.EventDetailsVO1.hints.EventMaxRounds.label}" id="c5">
+                    <af:inputText value="#{row.bindings.EventMaxRounds.inputValue}"
+                                  label="#{bindings.EventDetailsVO1.hints.EventMaxRounds.label}"
+                                  required="#{bindings.EventDetailsVO1.hints.EventMaxRounds.mandatory}"
+                                  columns="#{bindings.EventDetailsVO1.hints.EventMaxRounds.displayWidth}"
+                                  maximumLength="#{bindings.EventDetailsVO1.hints.EventMaxRounds.precision}"
+                                  shortDesc="#{bindings.EventDetailsVO1.hints.EventMaxRounds.tooltip}" id="it4">
+                        <f:validator binding="#{row.bindings.EventMaxRounds.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.EventDetailsVO1.hints.EventMaxRounds.format}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column id="c6" headerText="Details">
+                    <af:button text="Click for detail" id="b3" action="select"/>
+                </af:column>
+            </af:table>
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                       disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+            <af:button actionListener="#{bindings.Commit.execute}" text="Commit" disabled="#{!bindings.Commit.enabled}"
+                       id="b2"/>
+        </f:facet>
+    </af:pageTemplate>
+</ui:composition>

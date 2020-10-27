@@ -9,4 +9,58 @@
   DBObjectType="table"
   DBObjectName="AKMR_INTERVIEWER_DATA"
   AliasName="InterviewerDataEO"
-  BindingStyle="OracleName"></Entity>
+  BindingStyle="OracleName">
+  <Attribute
+    Name="InterviewerName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="INTERVIEWER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEWER_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InterviewerPosition"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="INTERVIEWER_POSITION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEWER_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InterviewerEmail"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="INTERVIEWER_EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEWER_DATA"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InterviewerMobNo"
+    IsNotNull="true"
+    Precision="14"
+    ColumnName="INTERVIEWER_MOB_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEWER_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="14"/>
+    </DesignTime>
+  </Attribute>
+</Entity>

@@ -48,19 +48,31 @@
   </Attribute>
   <Attribute
     Name="EventStartTime"
-    IsNotNull="true"
     ColumnName="EVENT_START_TIME"
     SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="TIMESTAMP"
-    TableName="AKMR_EVENT_DETAILS"/>
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_EVENT_DETAILS"
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.EntityObject.EventDetailsEO.EventStartTime_FMT_FORMATTER"/>
+        <CONTROLTYPE
+          Value="edit"/>
+        <FMT_FORMAT
+          ResId="model.EntityObject.EventDetailsEO.EventStartTime_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="EventEndTime"
     ColumnName="EVENT_END_TIME"
     SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="TIMESTAMP"
-    TableName="AKMR_EVENT_DETAILS"/>
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_EVENT_DETAILS"
+    PrimaryKey="true"/>
   <Attribute
     Name="EventMaxRounds"
     IsNotNull="true"
@@ -98,6 +110,8 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EntityObject.EventDetailsEO.EventId"/>
+      <Item Value="model.EntityObject.EventDetailsEO.EventStartTime"/>
+      <Item Value="model.EntityObject.EventDetailsEO.EventEndTime"/>
     </AttrArray>
   </Key>
   <Key
@@ -110,4 +124,8 @@
       <Item Value="model.EntityObject.EventDetailsEO.EventName"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>
