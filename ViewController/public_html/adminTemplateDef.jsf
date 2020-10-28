@@ -86,7 +86,9 @@
                                    inlineStyle="color:#C74633;margin-left:100px;font-size:xx-large;font-family:Roboto Condensed;margin-top:10px;"/>
                 </f:facet>
                 <f:facet name="bottom"/>
-                <f:facet name="center"/>
+                <f:facet name="center">
+                <af:facetRef facetName="body"></af:facetRef>
+                </f:facet>
             </af:panelStretchLayout>
         </f:facet>
     </af:panelSplitter>

@@ -6,13 +6,17 @@
   Name="EventDetailsVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="OracleName"
   CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  SelectList="EventDetailsEO.EVENT_ID, 
+       EventDetailsEO.EVENT_NAME, 
+       EventDetailsEO.EVENT_STATUS, 
+       EventDetailsEO.EVENT_START_TIME, 
+       EventDetailsEO.EVENT_END_TIME, 
+       EventDetailsEO.EVENT_MAX_ROUNDS"
+  FromList="AKMR_EVENT_DETAILS EventDetailsEO"
+  Where="EventDetailsEO.EVENT_STATUS in ('ongoing','paused')">
   <EntityUsage
     Name="EventDetailsEO"
     Entity="model.EntityObject.EventDetailsEO"/>

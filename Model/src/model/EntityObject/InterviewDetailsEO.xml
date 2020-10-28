@@ -84,20 +84,29 @@
   </Attribute>
   <Attribute
     Name="StartTime"
-    IsNotNull="true"
     ColumnName="START_TIME"
     SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="TIMESTAMP"
-    TableName="AKMR_INTERVIEW_DETAILS"/>
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_INTERVIEW_DETAILS"
+    PrimaryKey="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="model.EntityObject.InterviewDetailsEO.StartTime_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="model.EntityObject.InterviewDetailsEO.StartTime_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="EndTime"
-    IsNotNull="true"
     ColumnName="END_TIME"
     SQLType="TIMESTAMP"
-    Type="java.sql.Timestamp"
-    ColumnType="TIMESTAMP"
-    TableName="AKMR_INTERVIEW_DETAILS"/>
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_INTERVIEW_DETAILS"
+    PrimaryKey="true"/>
   <AccessorAttribute
     Name="EventDetailsEO"
     Association="model.EntityObject.AkmrFkEventId3Assoc"
@@ -122,6 +131,8 @@
       <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
       <Item Value="model.EntityObject.InterviewDetailsEO.InterviewerEmailId"/>
       <Item Value="model.EntityObject.InterviewDetailsEO.EventId"/>
+      <Item Value="model.EntityObject.InterviewDetailsEO.StartTime"/>
+      <Item Value="model.EntityObject.InterviewDetailsEO.EndTime"/>
     </AttrArray>
   </Key>
   <Key
@@ -159,4 +170,8 @@
       <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

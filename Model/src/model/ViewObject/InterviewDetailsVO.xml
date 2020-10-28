@@ -6,13 +6,23 @@
   Name="InterviewDetailsVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="OracleName"
   CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  SelectList="InterviewDetailsEO.CANDIDATE_EMAIL_ID, 
+       InterviewDetailsEO.INTERVIEWER_EMAIL_ID, 
+       InterviewDetailsEO.EVENT_ID, 
+       InterviewDetailsEO.FEEDBACK_ID, 
+       InterviewDetailsEO.ROUND_NO, 
+       InterviewDetailsEO.STATUS, 
+       InterviewDetailsEO.START_TIME, 
+       InterviewDetailsEO.END_TIME"
+  FromList="AKMR_INTERVIEW_DETAILS InterviewDetailsEO"
+  Where="InterviewDetailsEO.EVENT_ID = :pid">
+  <Variable
+    Name="pid"
+    Kind="where"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="InterviewDetailsEO"
     Entity="model.EntityObject.InterviewDetailsEO"/>

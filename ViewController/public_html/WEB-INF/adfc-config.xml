@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <view id="Dashboard">
-    <page>/Dashboard.jsf</page>
+  <view id="Login"></view>
+  <view id="adminHome">
+    <page>/adminHome.jsf</page>
   </view>
+  <view id="interviewerHome"></view>
+  <view id="eventDetail"></view>
+  <view id="Candidate_Lookup"></view>
+  <view id="Interviewer_Lookup"></view>
+  <view id="Report"></view>
+  <view id="Event_Lookup"></view>
+  <view id="Event_Create"></view>
+  <view id="Candidate_Interview"></view>
+  <view id="Feedback"></view>
+  <control-flow-rule id="__1">
+    <from-activity-id>Login</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>login1</from-outcome>
+      <to-activity-id>adminHome</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>login2</from-outcome>
+      <to-activity-id>interviewerHome</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__4">
+    <from-activity-id>adminHome</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>gotoEvent</from-outcome>
+      <to-activity-id>Event_Lookup</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__6">
+      <from-outcome>gotoCandidate</from-outcome>
+      <to-activity-id>Candidate_Lookup</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome>generateReport</from-outcome>
+      <to-activity-id>Report</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__8">
+      <from-outcome>eventDetail</from-outcome>
+      <to-activity-id>eventDetail</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__9">
+      <from-outcome>gotoInterviewer</from-outcome>
+      <to-activity-id>Interviewer_Lookup</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__10">
+    <from-activity-id>Event_Lookup</from-activity-id>
+    <control-flow-case id="__11">
+      <from-outcome>addEvent</from-outcome>
+      <to-activity-id>Event_Create</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__12">
+    <from-activity-id>interviewerHome</from-activity-id>
+    <control-flow-case id="__13">
+      <from-outcome>Show_Candidate</from-outcome>
+      <to-activity-id>Candidate_Interview</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__14">
+    <from-activity-id>Candidate_Interview</from-activity-id>
+    <control-flow-case id="__15">
+      <from-outcome>Give</from-outcome>
+      <to-activity-id>Feedback</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
 </adfc-config>

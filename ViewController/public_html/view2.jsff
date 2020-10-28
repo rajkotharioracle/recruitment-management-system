@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+        <f:facet name="body">
+            <af:table value="#{bindings.InterviewDetailsVO1.collectionModel}" var="row"
+                      rows="#{bindings.InterviewDetailsVO1.rangeSize}"
+                      emptyText="#{bindings.InterviewDetailsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" fetchSize="#{bindings.InterviewDetailsVO1.rangeSize}"
+                      filterModel="#{bindings.InterviewDetailsVO1Query.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.InterviewDetailsVO1Query.processQuery}" varStatus="vs" id="t1">
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.CandidateEmailId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.InterviewDetailsVO1.hints.CandidateEmailId.label}"
+                           id="c1">
+                    <af:inputText value="#{row.bindings.CandidateEmailId.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.CandidateEmailId.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.CandidateEmailId.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.CandidateEmailId.displayWidth}"
+                                  maximumLength="#{bindings.InterviewDetailsVO1.hints.CandidateEmailId.precision}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.CandidateEmailId.tooltip}" id="it1">
+                        <f:validator binding="#{row.bindings.CandidateEmailId.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.InterviewerEmailId.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.InterviewDetailsVO1.hints.InterviewerEmailId.label}" id="c2">
+                    <af:inputText value="#{row.bindings.InterviewerEmailId.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.InterviewerEmailId.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.InterviewerEmailId.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.InterviewerEmailId.displayWidth}"
+                                  maximumLength="#{bindings.InterviewDetailsVO1.hints.InterviewerEmailId.precision}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.InterviewerEmailId.tooltip}" id="it2">
+                        <f:validator binding="#{row.bindings.InterviewerEmailId.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.EventId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.InterviewDetailsVO1.hints.EventId.label}" id="c3">
+                    <af:inputText value="#{row.bindings.EventId.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.EventId.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.EventId.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.EventId.displayWidth}"
+                                  maximumLength="#{bindings.InterviewDetailsVO1.hints.EventId.precision}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.EventId.tooltip}" id="it3">
+                        <f:validator binding="#{row.bindings.EventId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.InterviewDetailsVO1.hints.EventId.format}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.FeedbackId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.InterviewDetailsVO1.hints.FeedbackId.label}" id="c4">
+                    <af:inputText value="#{row.bindings.FeedbackId.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.FeedbackId.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.FeedbackId.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.FeedbackId.displayWidth}"
+                                  maximumLength="#{bindings.InterviewDetailsVO1.hints.FeedbackId.precision}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.FeedbackId.tooltip}" id="it4">
+                        <f:validator binding="#{row.bindings.FeedbackId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.InterviewDetailsVO1.hints.FeedbackId.format}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.RoundNo.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.InterviewDetailsVO1.hints.RoundNo.label}" id="c5">
+                    <af:inputText value="#{row.bindings.RoundNo.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.RoundNo.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.RoundNo.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.RoundNo.displayWidth}"
+                                  maximumLength="#{bindings.InterviewDetailsVO1.hints.RoundNo.precision}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.RoundNo.tooltip}" id="it5">
+                        <f:validator binding="#{row.bindings.RoundNo.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.InterviewDetailsVO1.hints.RoundNo.format}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.Status.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.InterviewDetailsVO1.hints.Status.label}" id="c6">
+                    <af:inputText value="#{row.bindings.Status.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.Status.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.Status.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.Status.displayWidth}"
+                                  maximumLength="#{bindings.InterviewDetailsVO1.hints.Status.precision}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.Status.tooltip}" id="it6">
+                        <f:validator binding="#{row.bindings.Status.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.StartTime.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.InterviewDetailsVO1.hints.StartTime.label}" id="c7">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.InterviewDetailsVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.StartTime.value}"
+                                      id="id1">
+                            <af:convertDateTime pattern="#{bindings.InterviewDetailsVO1.hints.StartTime.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.StartTime.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.StartTime.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.StartTime.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.StartTime.displayWidth}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.StartTime.tooltip}" id="id2">
+                        <f:validator binding="#{row.bindings.StartTime.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.InterviewDetailsVO1.hints.StartTime.format}"/>
+                    </af:inputDate>
+                </af:column>
+                <af:column sortProperty="#{bindings.InterviewDetailsVO1.hints.EndTime.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.InterviewDetailsVO1.hints.EndTime.label}" id="c8">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.InterviewDetailsVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EndTime.value}"
+                                      id="id3">
+                            <af:convertDateTime pattern="#{bindings.InterviewDetailsVO1.hints.EndTime.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.EndTime.inputValue}"
+                                  label="#{bindings.InterviewDetailsVO1.hints.EndTime.label}"
+                                  required="#{bindings.InterviewDetailsVO1.hints.EndTime.mandatory}"
+                                  columns="#{bindings.InterviewDetailsVO1.hints.EndTime.displayWidth}"
+                                  shortDesc="#{bindings.InterviewDetailsVO1.hints.EndTime.tooltip}" id="id4">
+                        <f:validator binding="#{row.bindings.EndTime.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.InterviewDetailsVO1.hints.EndTime.format}"/>
+                    </af:inputDate>
+                </af:column>
+            </af:table>
+        </f:facet>
+    </af:pageTemplate>
+</ui:composition>

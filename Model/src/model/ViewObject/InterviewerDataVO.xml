@@ -12,8 +12,37 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="InterviewerDataEO"
     Entity="model.EntityObject.InterviewerDataEO"/>
+  <ViewAttribute
+    Name="InterviewerName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerName"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_NAME"/>
+  <ViewAttribute
+    Name="InterviewerPosition"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerPosition"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_POSITION"/>
+  <ViewAttribute
+    Name="InterviewerEmail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerEmail"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_EMAIL"/>
+  <ViewAttribute
+    Name="InterviewerMobNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerMobNo"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_MOB_NO"/>
 </ViewObject>

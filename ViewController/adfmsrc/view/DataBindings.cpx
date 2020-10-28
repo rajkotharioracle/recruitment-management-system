@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
              SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/admin_template.jsf" usageId="view_admin_templatePageDef"/>
     <page path="/AddCandidate.jsf" usageId="view_AddCandidatePageDef"/>
+    <page path="/WEB-INF/event_detail.xml#event_detail@ExecuteWithParams"
+          usageId="view_event_detail_event_detail_ExecuteWithParamsPageDef"/>
+    <page path="/view1.jsff" usageId="view_view1PageDef"/>
+    <page path="/view2.jsff" usageId="view_view2PageDef"/>
+    <page path="/adminHome.jsf" usageId="view_adminHomePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_admin_templatePageDef" path="view.pageDefs.admin_templatePageDef"/>
     <page id="view_AddCandidatePageDef" path="view.pageDefs.AddCandidatePageDef"/>
+    <page id="view_event_detail_event_detail_ExecuteWithParamsPageDef"
+          path="view.pageDefs.event_detail_event_detail_ExecuteWithParamsPageDef"/>
+    <page id="view_view1PageDef" path="view.pageDefs.view1PageDef"/>
+    <page id="view_view2PageDef" path="view.pageDefs.view2PageDef"/>
+    <page id="view_adminHomePageDef" path="view.pageDefs.adminHomePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="RecruitmentAppModuleDataControl" Package="model.EntityObject"
