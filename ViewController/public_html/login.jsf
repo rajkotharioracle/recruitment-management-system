@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Recruitment Management System || Login" id="d1">
+        <af:form id="f1">
+            <af:panelSplitter orientation="vertical" splitterPosition="102" id="pt_ps1">
+        <f:facet name="first">
+            <af:panelGridLayout id="pt_pgl1" inlineStyle="background-color:#302D2A;">
+                <af:gridRow marginTop="5px" height="auto" id="pt_gr1">
+                    <af:gridCell marginStart="5px" width="34%" id="pt_gc1">
+                        <af:image id="pt_i1" source="/Oracle-Emblem-removebg-preview.png"
+                                  inlineStyle="height:100px;margin-left:10px;" shortDesc="Oracle Logo"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" id="pt_gc2">
+                        <af:outputText value="Recruitment Management System" id="pt_ot1"
+                                       inlineStyle="color:White; font-size:xx-large;padding-top:20px;"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="pt_gc3">
+                        <af:panelGroupLayout id="pt_pgl2" layout="horizontal" halign="right">
+                            <af:menuBar id="pt_mb2">
+                                <af:menu text="#{sessionScope.userName}" id="pt_m1">
+                                    <af:commandMenuItem text="Logout" id="pt_cmi1"/>
+                                </af:menu>
+                            </af:menuBar>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelStretchLayout id="pt_psl1" inlineStyle="background-color:#F5EFDF;">
+                <f:facet name="start"/>
+                <f:facet name="end">
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="pid"
+                                      binding="#{loginB.myPopup}">
+                                 <af:dialog id="d2">
+                                     <af:outputText value="A Popup!" id="ot1"/>
+                                    <f:facet name="buttonBar"/>
+                                 </af:dialog>
+                             </af:popup>
+                        </f:facet>
+                <f:facet name="top">
+                    <af:outputText value="Welcome" id="pt_ot2"
+                                   inlineStyle="color:#C74633;margin-left:100px;font-size:xx-large;font-family:Roboto Condensed;margin-top:10px;"/>
+                </f:facet>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                            <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center" valign="middle">
+                                <af:panelFormLayout id="pfl1">
+                                    <f:facet name="footer">
+                                        <af:button text="Login" id="b1" action="#{loginB.loginAction}"/>
+                                    </f:facet>
+                                    <af:inputText label="Username" id="it1" required="true"
+                                                  binding="#{loginB.usernameInputText}"/>
+                                    <af:inputText label="Password" id="it2" required="true" secret="true"
+                                                  binding="#{loginB.passwordInputText}"/>
+                                </af:panelFormLayout>
+                            </af:panelGroupLayout></f:facet>
+            </af:panelStretchLayout>
+        </f:facet>
+    </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>
