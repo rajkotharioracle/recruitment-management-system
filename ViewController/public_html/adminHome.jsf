@@ -1,9 +1,78 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="adminHome.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1">
-            <af:region value="#{bindings.event_detail1.regionModel}" id="r1"/>
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:table value="#{bindings.EventDetails1.collectionModel}" var="row"
+                              rows="#{bindings.EventDetails1.rangeSize}"
+                              emptyText="#{bindings.EventDetails1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.EventDetails1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.EventDetails1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.EventDetails1.rangeSize}"
+                              filterModel="#{bindings.EventDetails1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.EventDetails1Query.processQuery}" varStatus="vs" id="t1">
+                        <af:column sortProperty="#{bindings.EventDetails1.hints.EventId.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.EventDetails1.hints.EventId.label}" id="c1">
+                            <af:outputText value="#{row.EventId}"
+                                           shortDesc="#{bindings.EventDetails1.hints.EventId.tooltip}" id="ot1">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.EventDetails1.hints.EventId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.EventDetails1.hints.EventName.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.EventDetails1.hints.EventName.label}" id="c2">
+                            <af:outputText value="#{row.EventName}"
+                                           shortDesc="#{bindings.EventDetails1.hints.EventName.tooltip}" id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.EventDetails1.hints.EventStatus.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.EventDetails1.hints.EventStatus.label}"
+                                   id="c3">
+                            <af:inputText value="#{row.bindings.EventStatus.inputValue}"
+                                          label="#{bindings.EventDetails1.hints.EventStatus.label}"
+                                          required="#{bindings.EventDetails1.hints.EventStatus.mandatory}"
+                                          columns="#{bindings.EventDetails1.hints.EventStatus.displayWidth}"
+                                          maximumLength="#{bindings.EventDetails1.hints.EventStatus.precision}"
+                                          shortDesc="#{bindings.EventDetails1.hints.EventStatus.tooltip}" id="it1">
+                                <f:validator binding="#{row.bindings.EventStatus.validator}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.EventDetails1.hints.EventStartTime.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.EventDetails1.hints.EventStartTime.label}"
+                                   id="c4">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.EventDetails1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EventStartTime.value}"
+                                              id="id1">
+                                    <af:convertDateTime pattern="#{bindings.EventDetails1.hints.EventStartTime.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.EventStartTime}"
+                                           shortDesc="#{bindings.EventDetails1.hints.EventStartTime.tooltip}" id="ot3">
+                                <af:convertDateTime pattern="#{bindings.EventDetails1.hints.EventStartTime.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.EventDetails1.hints.EventMaxRounds.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.EventDetails1.hints.EventMaxRounds.label}"
+                                   id="c5">
+                            <af:outputText value="#{row.EventMaxRounds}"
+                                           shortDesc="#{bindings.EventDetails1.hints.EventMaxRounds.tooltip}" id="ot4">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.EventDetails1.hints.EventMaxRounds.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column id="c6" headerText="Detail">
+                            <af:button text="See Detail" id="b1" action="select">
+                                <af:setPropertyListener type="action" from="#{row.EventId}" to="#{pageFlowScope.pid}"/>
+                            </af:button>
+                        </af:column>
+                    </af:table>
+                </f:facet>
+                <f:attribute name="pageTitle" value="Admin Dashboard"/>
+            </af:pageTemplate>
         </af:form>
     </af:document>
 </f:view>
