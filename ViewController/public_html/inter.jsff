@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:table value="#{bindings.approinterviewer1.collectionModel}" var="row"
+            rows="#{bindings.approinterviewer1.rangeSize}"
+            emptyText="#{bindings.approinterviewer1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            rowBandingInterval="0" selectedRowKeys="#{bindings.approinterviewer1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.approinterviewer1.collectionModel.makeCurrent}" rowSelection="single"
+            fetchSize="#{bindings.approinterviewer1.rangeSize}"
+            filterModel="#{bindings.approinterviewer1Query.queryDescriptor}" filterVisible="true"
+            queryListener="#{bindings.approinterviewer1Query.processQuery}" varStatus="vs" id="t1">
+    <af:column sortProperty="#{bindings.approinterviewer1.hints.InterviewerName.name}" filterable="true" sortable="true"
+               headerText="#{bindings.approinterviewer1.hints.InterviewerName.label}" id="c1">
+      <af:outputText value="#{row.InterviewerName}"
+                     shortDesc="#{bindings.approinterviewer1.hints.InterviewerName.tooltip}" id="ot1"/>
+    </af:column>
+    <af:column sortProperty="#{bindings.approinterviewer1.hints.InterviewerEmailId.name}" filterable="true"
+               sortable="true" headerText="#{bindings.approinterviewer1.hints.InterviewerEmailId.label}" id="c2">
+      <af:outputText value="#{row.InterviewerEmailId}"
+                     shortDesc="#{bindings.approinterviewer1.hints.InterviewerEmailId.tooltip}" id="ot2"/>
+    </af:column>
+    <af:column sortProperty="#{bindings.approinterviewer1.hints.InterviewerMinLevel.name}" filterable="true"
+               sortable="true" headerText="#{bindings.approinterviewer1.hints.InterviewerMinLevel.label}" id="c3">
+      <af:outputText value="#{row.InterviewerMinLevel}"
+                     shortDesc="#{bindings.approinterviewer1.hints.InterviewerMinLevel.tooltip}" id="ot3">
+        <af:convertNumber groupingUsed="false"
+                          pattern="#{bindings.approinterviewer1.hints.InterviewerMinLevel.format}"/>
+      </af:outputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.approinterviewer1.hints.InterviewerMaxLevel.name}" filterable="true"
+               sortable="true" headerText="#{bindings.approinterviewer1.hints.InterviewerMaxLevel.label}" id="c4">
+      <af:outputText value="#{row.InterviewerMaxLevel}"
+                     shortDesc="#{bindings.approinterviewer1.hints.InterviewerMaxLevel.tooltip}" id="ot4">
+        <af:convertNumber groupingUsed="false"
+                          pattern="#{bindings.approinterviewer1.hints.InterviewerMaxLevel.format}"/>
+      </af:outputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.approinterviewer1.hints.Status.name}" filterable="true" sortable="true"
+               headerText="#{bindings.approinterviewer1.hints.Status.label}" id="c5">
+      <af:outputText value="#{row.Status}" shortDesc="#{bindings.approinterviewer1.hints.Status.tooltip}" id="ot5"/>
+    </af:column>
+  </af:table>
+</jsp:root>

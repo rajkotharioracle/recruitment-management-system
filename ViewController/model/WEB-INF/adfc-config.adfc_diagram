@@ -68,11 +68,13 @@
       <property
          name="activityId">eventDetail</property>
       <property
-         name="x">505.0</property>
+         name="x">757.0</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>eventDetail&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">15.734375</property>
+         name="y">23.335938</property>
+      <property
+         name="page">/eventDetail.jsf</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -160,16 +162,6 @@
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase17"
-      from="View4"
-      to="View14">
-      <property
-         name="fromOutcome">eventDetail</property>
-      <property
-         name="sdm:polyPoints">R50,367.01135,22.636719,464.0,15.667969,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
       id="ControlFlowCase18"
       from="View4"
       to="View11">
@@ -246,5 +238,86 @@
          name="fromOutcome">Give</property>
       <property
          name="sdm:polyPoints">R50,567.0,285.40234,652.0,246.66797,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View28">
+      <property
+         name="activityId">createInterview</property>
+      <property
+         name="x">1065.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>createInterview&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">21.871094</property>
+      <property
+         name="page">/createInterview.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <MethodCall
+      id="MethodCall32">
+      <property
+         name="activityId">ExecuteWithParams</property>
+      <property
+         name="x">588.55176</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">39.30078</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase33"
+      from="View4"
+      to="MethodCall32">
+      <property
+         name="fromOutcome">select</property>
+      <property
+         name="sdm:polyPoints">R50,367.82724,22.636719,547.55176,39.234375,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase36"
+      from="MethodCall32"
+      to="View14">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">R50,629.55176,39.234375,716.0,23.269531,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall33">
+      <property
+         name="activityId">ExecuteWithParams1</property>
+      <property
+         name="x">881.3457</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">167.30078</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="View14"
+      to="MethodCall33">
+      <property
+         name="fromOutcome">createinterviews</property>
+      <property
+         name="sdm:polyPoints">B50,757.0,77.26953,840.3457,167.23438,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="MethodCall33"
+      to="View28">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">T50,881.3457,113.234375,1024.0,21.804688,L50</property>
    </ControlFlowCase>
 </SDM>

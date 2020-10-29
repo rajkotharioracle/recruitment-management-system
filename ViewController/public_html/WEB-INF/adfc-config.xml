@@ -5,7 +5,9 @@
     <page>/adminHome.jsf</page>
   </view>
   <view id="interviewerHome"></view>
-  <view id="eventDetail"></view>
+  <view id="eventDetail">
+    <page>/eventDetail.jsf</page>
+  </view>
   <view id="Candidate_Lookup"></view>
   <view id="Interviewer_Lookup"></view>
   <view id="Report"></view>
@@ -13,6 +15,21 @@
   <view id="Event_Create"></view>
   <view id="Candidate_Interview"></view>
   <view id="Feedback"></view>
+  <view id="createInterview">
+    <page>/createInterview.jsf</page>
+  </view>
+  <method-call id="ExecuteWithParams">
+    <method>#{bindings.ExecuteWithParams.execute}</method>
+    <outcome>
+      <fixed-outcome>ExecuteWithParams</fixed-outcome>
+    </outcome>
+  </method-call>
+  <method-call id="ExecuteWithParams1">
+    <method>#{bindings.ExecuteWithParams.execute}</method>
+    <outcome>
+      <fixed-outcome>ExecuteWithParams</fixed-outcome>
+    </outcome>
+  </method-call>
   <control-flow-rule id="__1">
     <from-activity-id>Login</from-activity-id>
     <control-flow-case id="__2">
@@ -38,13 +55,13 @@
       <from-outcome>generateReport</from-outcome>
       <to-activity-id>Report</to-activity-id>
     </control-flow-case>
-    <control-flow-case id="__8">
-      <from-outcome>eventDetail</from-outcome>
-      <to-activity-id>eventDetail</to-activity-id>
-    </control-flow-case>
     <control-flow-case id="__9">
       <from-outcome>gotoInterviewer</from-outcome>
       <to-activity-id>Interviewer_Lookup</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__8">
+      <from-outcome>select</from-outcome>
+      <to-activity-id>ExecuteWithParams</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__10">
@@ -66,6 +83,27 @@
     <control-flow-case id="__15">
       <from-outcome>Give</from-outcome>
       <to-activity-id>Feedback</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id>ExecuteWithParams</from-activity-id>
+    <control-flow-case id="__17">
+      <from-outcome>ExecuteWithParams</from-outcome>
+      <to-activity-id>eventDetail</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__18">
+    <from-activity-id>eventDetail</from-activity-id>
+    <control-flow-case id="__19">
+      <from-outcome>createinterviews</from-outcome>
+      <to-activity-id>ExecuteWithParams1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__20">
+    <from-activity-id>ExecuteWithParams1</from-activity-id>
+    <control-flow-case id="__21">
+      <from-outcome>ExecuteWithParams</from-outcome>
+      <to-activity-id>createInterview</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
 </adfc-config>

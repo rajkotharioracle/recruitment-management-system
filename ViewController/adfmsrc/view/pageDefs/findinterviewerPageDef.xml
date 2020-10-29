@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="findinterviewerPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ApproInterviewer1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
+              id="ApproInterviewer1Iterator"/>
+    <searchRegion Binds="ApproInterviewer1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ApproInterviewer1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ApproInterviewer1Iterator" id="ApproInterviewer1">
+      <nodeDefinition DefName="model.ViewObjectQB.ApproInterviewer" Name="ApproInterviewer10">
+        <AttrNames>
+          <Item Value="InterviewerName"/>
+          <Item Value="InterviewerEmailId"/>
+          <Item Value="InterviewerMinLevel"/>
+          <Item Value="InterviewerMaxLevel"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -6,13 +6,19 @@
   Name="EventCandidateDetailsVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="OracleName"
   CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  SelectList="EventCandidateDetailsEO.EVENT_ID, 
+       EventCandidateDetailsEO.CANDIDATE_EMAIL_ID, 
+       EventCandidateDetailsEO.CURRENT_ROUND, 
+       EventCandidateDetailsEO.STATUS"
+  FromList="AKMR_EVENT_CANDIDATE_DETAILS EventCandidateDetailsEO"
+  Where="EventCandidateDetailsEO.EVENT_ID = :pid">
+  <Variable
+    Name="pid"
+    Kind="where"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="EventCandidateDetailsEO"
     Entity="model.EntityObject.EventCandidateDetailsEO"/>

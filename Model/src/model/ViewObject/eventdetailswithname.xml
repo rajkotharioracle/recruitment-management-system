@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="eventdetailswithname"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectList="CandidateDataEO.CANDIDATE_NAME, 
+       CandidateDataEO.CANDIDATE_EMAIL, 
+       InterviewerDataEO.INTERVIEWER_NAME, 
+       InterviewerDataEO.INTERVIEWER_EMAIL, 
+       InterviewDetailsEO.INTERVIEWER_EMAIL_ID, 
+       InterviewDetailsEO.CANDIDATE_EMAIL_ID, 
+       InterviewDetailsEO.EVENT_ID, 
+       InterviewDetailsEO.START_TIME, 
+       InterviewDetailsEO.END_TIME, 
+       InterviewDetailsEO.ROUND_NO, 
+       InterviewDetailsEO.STATUS"
+  FromList="AKMR_CANDIDATE_DATA CandidateDataEO, AKMR_INTERVIEWER_DATA InterviewerDataEO, AKMR_INTERVIEW_DETAILS InterviewDetailsEO"
+  Where="InterviewDetailsEO.EVENT_ID = :pid"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObject.eventdetailswithname_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="CandidateDataEO"
+    Entity="model.EntityObject.CandidateDataEO"/>
+  <EntityUsage
+    Name="InterviewerDataEO"
+    Entity="model.EntityObject.InterviewerDataEO"
+    ReadOnly="true"
+    DeleteParticipant="false">
+    <DesignTime>
+      <Attr Name="_customjoin" Value="true"/>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="InterviewDetailsEO"
+    Entity="model.EntityObject.InterviewDetailsEO"
+    Association="model.EntityObject.AkmrIDetFk2Assoc"
+    AssociationEnd="model.EntityObject.AkmrIDetFk2Assoc.InterviewDetailsEO"
+    SourceUsage="model.ViewObject.eventdetailswithname.CandidateDataEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.EntityObject.CandidateDataEO.CandidateEmail"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="CandidateName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateName"
+    EntityUsage="CandidateDataEO"
+    AliasName="CANDIDATE_NAME"/>
+  <ViewAttribute
+    Name="CandidateEmail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateEmail"
+    EntityUsage="CandidateDataEO"
+    AliasName="CANDIDATE_EMAIL"/>
+  <ViewAttribute
+    Name="InterviewerName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerName"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_NAME"/>
+  <ViewAttribute
+    Name="InterviewerEmail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerEmail"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_EMAIL"/>
+  <ViewAttribute
+    Name="InterviewerEmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerEmailId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="INTERVIEWER_EMAIL_ID"/>
+  <ViewAttribute
+    Name="CandidateEmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateEmailId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="CANDIDATE_EMAIL_ID"/>
+  <ViewAttribute
+    Name="EventId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="EVENT_ID"/>
+  <ViewAttribute
+    Name="StartTime"
+    PrecisionRule="true"
+    EntityAttrName="StartTime"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="START_TIME"/>
+  <ViewAttribute
+    Name="EndTime"
+    PrecisionRule="true"
+    EntityAttrName="EndTime"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="END_TIME"/>
+  <ViewAttribute
+    Name="RoundNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoundNo"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="ROUND_NO"/>
+  <ViewAttribute
+    Name="Status"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="STATUS"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="CandidateEmail"/>
+    <Item Value="InterviewerEmail"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -4,8 +4,22 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="event_detail1" taskFlowId="/WEB-INF/event_detail.xml#event_detail" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="EventDetails1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="EventDetails1Iterator"/>
+    <searchRegion Binds="EventDetails1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EventDetails1Query"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="EventDetails1Iterator" id="EventDetails1">
+      <nodeDefinition DefName="model.ViewObject.EventDetailsVO" Name="EventDetails10">
+        <AttrNames>
+          <Item Value="EventId"/>
+          <Item Value="EventName"/>
+          <Item Value="EventStatus"/>
+          <Item Value="EventStartTime"/>
+          <Item Value="EventMaxRounds"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

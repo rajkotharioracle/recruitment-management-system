@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="adfc_config___ExecuteWithParamsPageDef" Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="interviewdetailQB1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="interviewdetailQB1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="interviewdetailQB1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pid" NDValue="#{pageFlowScope.pid}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:table value="#{bindings.EventCandidateDatawithName1.collectionModel}" var="row"
+            rows="#{bindings.EventCandidateDatawithName1.rangeSize}"
+            emptyText="#{bindings.EventCandidateDatawithName1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            rowBandingInterval="0" selectedRowKeys="#{bindings.EventCandidateDatawithName1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.EventCandidateDatawithName1.collectionModel.makeCurrent}"
+            rowSelection="single" fetchSize="#{bindings.EventCandidateDatawithName1.rangeSize}"
+            filterModel="#{bindings.EventCandidateDatawithName1Query.queryDescriptor}" filterVisible="true"
+            queryListener="#{bindings.EventCandidateDatawithName1Query.processQuery}" varStatus="vs" id="t1">
+    <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CandidateName.name}" filterable="true"
+               sortable="true" headerText="#{bindings.EventCandidateDatawithName1.hints.CandidateName.label}" id="c1">
+      <af:outputText value="#{row.CandidateName}"
+                     shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateName.tooltip}" id="ot1"/>
+    </af:column>
+    <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.name}" filterable="true"
+               sortable="true" headerText="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.label}"
+               id="c2">
+      <af:outputText value="#{row.CandidateEmailId}"
+                     shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.tooltip}" id="ot2"/>
+    </af:column>
+    <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.name}" filterable="true"
+               sortable="true" headerText="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.label}" id="c3">
+      <af:outputText value="#{row.CurrentRound}"
+                     shortDesc="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.tooltip}" id="ot3">
+        <af:convertNumber groupingUsed="false"
+                          pattern="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.format}"/>
+      </af:outputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.Status.name}" filterable="true"
+               sortable="true" headerText="#{bindings.EventCandidateDatawithName1.hints.Status.label}" id="c4">
+      <af:outputText value="#{row.Status}" shortDesc="#{bindings.EventCandidateDatawithName1.hints.Status.tooltip}"
+                     id="ot4"/>
+    </af:column>
+    <af:column id="c5" headerText="Find Interviewer">
+      <af:button text="search" id="b1" action="search">
+        <af:setPropertyListener to="#{pageFlowScope.pid}" from="#{pageFlowScope.pid}" type="action"/>
+        <af:setPropertyListener to="#{pageFlowScope.emid}" from="#{row.CandidateEmailId}" type="action"/>
+      </af:button>
+    </af:column>
+  </af:table>
+</jsp:root>

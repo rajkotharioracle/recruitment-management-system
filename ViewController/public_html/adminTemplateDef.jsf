@@ -47,7 +47,7 @@
                     <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="pt_gc4" width="auto"
                                  inlineStyle="color:white;background-color:#C54534;width:200%">
                         <af:menuBar id="pt_mb1" inlineStyle="color:white;background-color:#C54534;">
-                            <af:commandMenuItem text="Dashboard" id="pt_cmi2"/>
+                            <af:commandMenuItem text="Dashboard" id="pt_cmi2" action="/adminHome.jsf"/>
                             <af:menu text="Candidate" id="pt_m3">
                                 <af:commandMenuItem text="Add Candidate" id="pt_cmi3"/>
                                 <af:commandMenuItem text="Modify Existing Candidate" id="pt_cmi4"/>

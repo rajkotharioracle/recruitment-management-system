@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="eventDetail.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                    <h:outputText value="Ongoing Interviews" id="ot6" style="font-size:large;"/>
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="50%" id="gc1" halign="stretch" valign="stretch">
+                                <af:table value="#{bindings.interviewdetailQB1.collectionModel}" var="row"
+                                          rows="#{bindings.interviewdetailQB1.rangeSize}"
+                                          emptyText="#{bindings.interviewdetailQB1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" fetchSize="#{bindings.interviewdetailQB1.rangeSize}"
+                                          filterModel="#{bindings.interviewdetailQB1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.interviewdetailQB1Query.processQuery}"
+                                          varStatus="vs" id="t1">
+                                    <af:column sortProperty="#{bindings.interviewdetailQB1.hints.CandidateName.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.interviewdetailQB1.hints.CandidateName.label}"
+                                               id="c1">
+                                        <af:outputText value="#{row.CandidateName}"
+                                                       shortDesc="#{bindings.interviewdetailQB1.hints.CandidateName.tooltip}"
+                                                       id="ot1"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.interviewdetailQB1.hints.InterviewerName.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.interviewdetailQB1.hints.InterviewerName.label}"
+                                               id="c2">
+                                        <af:outputText value="#{row.InterviewerName}"
+                                                       shortDesc="#{bindings.interviewdetailQB1.hints.InterviewerName.tooltip}"
+                                                       id="ot2"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.interviewdetailQB1.hints.RoundNo.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.interviewdetailQB1.hints.RoundNo.label}" id="c3">
+                                        <af:outputText value="#{row.RoundNo}"
+                                                       shortDesc="#{bindings.interviewdetailQB1.hints.RoundNo.tooltip}"
+                                                       id="ot3">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.interviewdetailQB1.hints.RoundNo.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.interviewdetailQB1.hints.StartTime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.interviewdetailQB1.hints.StartTime.label}"
+                                               id="c4">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.interviewdetailQB1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.StartTime.value}"
+                                                          id="id1">
+                                                <af:convertDateTime pattern="#{bindings.interviewdetailQB1.hints.StartTime.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.StartTime}"
+                                                       shortDesc="#{bindings.interviewdetailQB1.hints.StartTime.tooltip}"
+                                                       id="ot4">
+                                            <af:convertDateTime pattern="#{bindings.interviewdetailQB1.hints.StartTime.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.interviewdetailQB1.hints.Status.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.interviewdetailQB1.hints.Status.label}" id="c5">
+                                        <af:outputText value="#{row.Status}"
+                                                       shortDesc="#{bindings.interviewdetailQB1.hints.Status.tooltip}"
+                                                       id="ot5"/>
+                                    </af:column>
+                                </af:table>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                                <af:button text="Asign Interview" id="b1" action="createinterviews"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell marginStart="5px" columnSpan="2" marginEnd="5px" id="gc3"/>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

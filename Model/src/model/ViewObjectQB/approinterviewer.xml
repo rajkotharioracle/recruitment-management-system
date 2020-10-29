@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="approinterviewer"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="model.ViewObjectQB.approinterviewerRowImpl"
+  ComponentClass="model.ViewObjectQB.approinterviewerImpl"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObjectQB.approinterviewer_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="emid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select
+    AKMR_INTERVIEWER_DATA.INTERVIEWER_NAME INTERVIEWER_NAME,
+    AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_EMAIL_ID INTERVIEWER_EMAIL_ID,
+    AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MIN_LEVEL INTERVIEWER_MIN_LEVEL,
+    AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MAX_LEVEL INTERVIEWER_MAX_LEVEL,
+    AKMR_EVENT_INTERVIEWER_DETAILS.STATUS STATUS
+    from AKMR_EVENT_INTERVIEWER_DETAILS join AKMR_INTERVIEWER_DATA
+    on AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_EMAIL_ID = AKMR_INTERVIEWER_DATA.INTERVIEWER_EMAIL
+    where (select CURRENT_ROUND from AKMR_EVENT_CANDIDATE_DETAILS
+    where AKMR_EVENT_CANDIDATE_DETAILS.CANDIDATE_EMAIL_ID=  :emid) >= AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MIN_LEVEL and
+  (select CURRENT_ROUND from AKMR_EVENT_CANDIDATE_DETAILS
+  where AKMR_EVENT_CANDIDATE_DETAILS.CANDIDATE_EMAIL_ID= :emid )<= AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MAX_LEVEL and
+    AKMR_EVENT_INTERVIEWER_DETAILS.EVENT_ID = :pid and
+    AKMR_EVENT_INTERVIEWER_DETAILS.STATUS = 'available']]></SQLQuery>
+  <ViewAttribute
+    Name="InterviewerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INTERVIEWER_NAME"
+    Expression="INTERVIEWER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InterviewerEmailId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INTERVIEWER_EMAIL_ID"
+    Expression="INTERVIEWER_EMAIL_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InterviewerMinLevel"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="INTERVIEWER_MIN_LEVEL"
+    Expression="INTERVIEWER_MIN_LEVEL"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="InterviewerMaxLevel"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="INTERVIEWER_MAX_LEVEL"
+    Expression="INTERVIEWER_MAX_LEVEL"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Status"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATUS"
+    Expression="STATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

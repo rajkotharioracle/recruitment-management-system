@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="interviewdetailQB"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="model.ViewObjectQB.interviewdetailQBRowImpl"
+  ComponentClass="model.ViewObjectQB.interviewdetailQBImpl"
+  AccessMode="DEFAULT"
+  PageIterMode="Full"
+  AutoRefresh = "true">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObjectQB.interviewdetailQB_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT AKMR_CANDIDATE_DATA.CANDIDATE_NAME CANDIDATE_NAME,  
+    AKMR_INTERVIEWER_DATA.INTERVIEWER_NAME INTERVIEWER_NAME,
+    AKMR_INTERVIEW_DETAILS.ROUND_NO ROUND_NO, 
+    AKMR_INTERVIEW_DETAILS.START_TIME START_TIME, 
+    AKMR_INTERVIEW_DETAILS.STATUS STATUS 
+     from AKMR_INTERVIEW_DETAILS join AKMR_CANDIDATE_DATA 
+     on AKMR_INTERVIEW_DETAILS.CANDIDATE_EMAIL_ID = AKMR_CANDIDATE_DATA.CANDIDATE_EMAIL
+     join AKMR_INTERVIEWER_DATA ON AKMR_INTERVIEW_DETAILS.INTERVIEWER_EMAIL_ID = AKMR_INTERVIEWER_DATA.INTERVIEWER_EMAIL
+     where AKMR_INTERVIEW_DETAILS.EVENT_ID= :pid and AKMR_INTERVIEW_DETAILS.STATUS = 'ongoing']]></SQLQuery>
+  <ViewAttribute
+    Name="CandidateName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CANDIDATE_NAME"
+    Expression="CANDIDATE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InterviewerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INTERVIEWER_NAME"
+    Expression="INTERVIEWER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RoundNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="ROUND_NO"
+    Expression="ROUND_NO"
+    SQLType="INTEGER"/>
+  <ViewAttribute
+    Name="StartTime"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="TIMESTAMP"
+    AliasName="START_TIME"
+    Expression="START_TIME"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="model.ViewObjectQB.interviewdetailQB.StartTime_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="model.ViewObjectQB.interviewdetailQB.StartTime_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Status"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATUS"
+    Expression="STATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

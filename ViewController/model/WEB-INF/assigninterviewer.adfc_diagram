@@ -3,72 +3,72 @@
    <OverallProperties
       id="OverallProperties1"/>
    <View
-      id="View2">
+      id="View8">
       <property
-         name="activityId">view1</property>
+         name="activityId">candi</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">206.0</property>
+         name="x">236.5</property>
       <property
          name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>view1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>candi&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">172.9414</property>
+         name="y">169.5039</property>
       <property
-         name="page">/view1.jsff</property>
+         name="page">/candi.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
    <View
-      id="View3">
+      id="View9">
       <property
-         name="activityId">view2</property>
+         name="activityId">inter</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">619.0</property>
+         name="x">529.5</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>view2&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>inter&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">172.60156</property>
+         name="y">171.36719</property>
       <property
-         name="page">/view2.jsff</property>
+         name="page">/inter.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
    <MethodCall
-      id="MethodCall4">
+      id="MethodCall7">
       <property
          name="activityId">ExecuteWithParams</property>
       <property
-         name="x">397.55176</property>
+         name="x">420.55176</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">298.30078</property>
+         name="y">331.4336</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase5"
-      from="View2"
-      to="MethodCall4">
+      id="ControlFlowCase8"
+      from="View8"
+      to="MethodCall7">
       <property
-         name="fromOutcome">select</property>
+         name="fromOutcome">search</property>
       <property
-         name="sdm:polyPoints">R50,247.0,172.875,356.55176,298.23438,L50</property>
+         name="sdm:polyPoints">B50,236.5,223.4375,379.55176,331.3672,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase6"
-      from="MethodCall4"
-      to="View3">
+      id="ControlFlowCase9"
+      from="MethodCall7"
+      to="View9">
       <property
          name="fromOutcome">ExecuteWithParams</property>
       <property
-         name="sdm:polyPoints">R50,438.55176,298.23438,578.0,172.53516,L50</property>
+         name="sdm:polyPoints">T50,420.55176,277.3672,529.5,225.30078,B50</property>
    </ControlFlowCase>
 </SDM>
