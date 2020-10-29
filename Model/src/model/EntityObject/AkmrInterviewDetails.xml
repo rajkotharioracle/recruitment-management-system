@@ -3,12 +3,12 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="InterviewDetailsEO"
+  Name="AkmrInterviewDetails"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="AKMR_INTERVIEW_DETAILS"
-  AliasName="InterviewDetailsEO"
+  AliasName="AkmrInterviewDetails"
   BindingStyle="OracleName">
   <Attribute
     Name="CandidateEmailId"
@@ -84,43 +84,20 @@
   </Attribute>
   <Attribute
     Name="StartTime"
+    IsNotNull="true"
     ColumnName="START_TIME"
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="AKMR_INTERVIEW_DETAILS"
-    IsNotNull="true">
-    <Properties>
-      <SchemaBasedProperties>
-        <FMT_FORMAT
-          ResId="model.EntityObject.InterviewDetailsEO.StartTime_FMT_FORMAT"/>
-        <FMT_FORMATTER
-          ResId="model.EntityObject.InterviewDetailsEO.StartTime_FMT_FORMATTER"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
+    TableName="AKMR_INTERVIEW_DETAILS"/>
   <Attribute
     Name="EndTime"
+    IsNotNull="true"
     ColumnName="END_TIME"
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="AKMR_INTERVIEW_DETAILS"
-    IsNotNull="true"/>
-  <AccessorAttribute
-    Name="EventDetailsEO"
-    Association="model.EntityObject.AkmrFkEventId3Assoc"
-    AssociationEnd="model.EntityObject.AkmrFkEventId3Assoc.EventDetailsEO"
-    AssociationOtherEnd="model.EntityObject.AkmrFkEventId3Assoc.InterviewDetailsEO"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="CandidateDataEO"
-    Association="model.EntityObject.AkmrIDetFk2Assoc"
-    AssociationEnd="model.EntityObject.AkmrIDetFk2Assoc.CandidateDataEO"
-    AssociationOtherEnd="model.EntityObject.AkmrIDetFk2Assoc.InterviewDetailsEO"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
+    TableName="AKMR_INTERVIEW_DETAILS"/>
   <Key
     Name="AkmrIDetPk"
     PrimaryKey="true">
@@ -128,33 +105,9 @@
       <Attr Name="_DBObjectName" Value="AKMR_I_DET_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
-      <Item Value="model.EntityObject.InterviewDetailsEO.InterviewerEmailId"/>
-      <Item Value="model.EntityObject.InterviewDetailsEO.EventId"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="AkmrInterviewDetailsEndTimeCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"END_TIME" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="AKMR_INTERVIEW_DETAILS_END_TIM"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewDetailsEO.EndTime"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="AkmrInterviewDetailsStartTimeCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"START_TIME" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="AKMR_INTERVIEW_DETAILS_START_T"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewDetailsEO.StartTime"/>
+      <Item Value="model.EntityObject.AkmrInterviewDetails.CandidateEmailId"/>
+      <Item Value="model.EntityObject.AkmrInterviewDetails.InterviewerEmailId"/>
+      <Item Value="model.EntityObject.AkmrInterviewDetails.EventId"/>
     </AttrArray>
   </Key>
   <Key
@@ -166,19 +119,19 @@
       <Attr Name="_DBObjectName" Value="AKMR_FK_EVENT_ID_3"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewDetailsEO.EventId"/>
+      <Item Value="model.EntityObject.AkmrInterviewDetails.EventId"/>
     </AttrArray>
   </Key>
   <Key
     Name="AkmrIDetFk1">
     <DesignTime>
       <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="AKMR_I_DATA_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="AKMR_I_DET_FK1"/>
-      <Attr Name="_referencedKey" Value="AKMR_I_DATA_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewDetailsEO.InterviewerEmailId"/>
+      <Item Value="model.EntityObject.AkmrInterviewDetails.InterviewerEmailId"/>
     </AttrArray>
   </Key>
   <Key
@@ -190,11 +143,7 @@
       <Attr Name="_DBObjectName" Value="AKMR_I_DET_FK2"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
+      <Item Value="model.EntityObject.AkmrInterviewDetails.CandidateEmailId"/>
     </AttrArray>
   </Key>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="model.ModelBundle"/>
-  </ResourceBundle>
 </Entity>

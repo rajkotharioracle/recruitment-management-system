@@ -13,6 +13,8 @@
       <property
          name="y">153.66797</property>
       <property
+         name="page">/login.jsf</property>
+      <property
          name="exceptionHandler">false</property>
    </View>
    <View
@@ -40,6 +42,8 @@
          name="description">&lt;html>&lt;p>&lt;b>interviewerHome&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="y">247.33594</property>
+      <property
+         name="page">/interviewer_dashboard.jsf</property>
       <property
          name="exceptionHandler">false</property>
    </View>

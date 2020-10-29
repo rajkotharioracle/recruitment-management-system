@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="adfc_config___ExecuteWithParamsPageDef" Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CandidatesAssignedInterviewer1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CandidatesAssignedInterviewer1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CandidatesAssignedInterviewer1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="intid" NDType="java.lang.String"/>
+      <NamedData NDName="eventid" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

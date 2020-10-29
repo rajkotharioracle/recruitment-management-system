@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <view id="Login"></view>
+  <view id="Login">
+    <page>/login.jsf</page>
+  </view>
   <view id="adminHome">
     <page>/adminHome.jsf</page>
   </view>
-  <view id="interviewerHome"></view>
+  <view id="interviewerHome">
+    <page>/interviewer_dashboard.jsf</page>
+  </view>
   <view id="eventDetail"></view>
   <view id="Candidate_Lookup"></view>
   <view id="Interviewer_Lookup"></view>

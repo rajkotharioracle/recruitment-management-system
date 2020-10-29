@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="interviewer_dashboardPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidatesAssignedInterviewer1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CandidatesAssignedInterviewer1Iterator"/>
+    <searchRegion Binds="CandidatesAssignedInterviewer1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CandidatesAssignedInterviewer1Query"/>
+    <iterator Binds="GetEventId1" RangeSize="25" DataControl="AppModuleDataControl" id="GetEventId1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CandidatesAssignedInterviewer1Iterator" id="CandidatesAssignedInterviewer1">
+      <nodeDefinition DefName="model.ViewObject.CandidatesAssignedInterviewer" Name="CandidatesAssignedInterviewer10">
+        <AttrNames>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="RoundNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="GetEventId1Iterator" id="EventId">
+      <AttrNames>
+        <Item Value="EventId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="GetEventId1Iterator" id="EventName">
+      <AttrNames>
+        <Item Value="EventName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

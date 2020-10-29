@@ -1,7 +1,9 @@
 package view.bean;
 
 
-
+import java.io.IOException;
+import java.io.OutputStream;
+import sun.misc.IOUtils;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +18,6 @@ import javax.naming.InitialContext;
 
 import javax.servlet.http.HttpSession;
 
-import view.common.MyADFUtil;
 import view.common.SessionUtils;
 import view.common.LoginDAO;
 import javax.faces.bean.ManagedBean;
@@ -24,11 +25,15 @@ import java.io.Serializable;
 import javax.swing.JOptionPane;
 import java.io.Serializable;
 
+import java.util.Iterator;
+
 import javax.faces.bean.SessionScoped;
 
 import javax.swing.JFrame;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+
+import oracle.jbo.domain.BlobDomain;
 
 @ManagedBean
 @SessionScoped
@@ -153,6 +158,24 @@ public class LoginBean implements Serializable{
     public RichPopup getMyPopup() {
         return myPopup;
     }
+    
+    public void downloadResume(FacesContext facesContext, OutputStream outputStream)                             {
+                              // get row containing file that you want to download
+                             
+                             Iterator<Row> rowiterator = sheet.iterator();
+                             while(rowIterator.hasNext()){
+                             Row row = rowIterator.next();
+                             BlobDomain blob = (BlobDomain) row.getAttribute("CandidateResume");
+                               try {
+                                 IOUtils.copy(blob.getInputStream(), outputStream);
+                                blob.closeInputStream();
+                                    outputStream.flush();
+                              } catch (IOException e) {
+                                   e.printStackTrace();
+       FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,                  e.getMessage(), "");
+                                facesContext.addMessage(null, msg);
+                              }}
+                           }
 
 
 }

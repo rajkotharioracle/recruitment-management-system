@@ -48,7 +48,7 @@
                             <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center" valign="middle">
                                 <af:panelFormLayout id="pfl1">
                                     <f:facet name="footer">
-                                        <af:button text="Login" id="b1" action="#{loginB.loginAction}"/>
+                                        <af:button text="Login" id="b1"/>
                                     </f:facet>
                                     <af:inputText label="Username" id="it1" required="true"
                                                   binding="#{loginB.usernameInputText}"/>

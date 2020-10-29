@@ -3,12 +3,12 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="EventDetailsEO"
+  Name="AkmrEventDetails"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="AKMR_EVENT_DETAILS"
-  AliasName="EventDetailsEO"
+  AliasName="AkmrEventDetails"
   BindingStyle="OracleName">
   <Attribute
     Name="EventId"
@@ -48,23 +48,12 @@
   </Attribute>
   <Attribute
     Name="EventStartTime"
+    IsNotNull="true"
     ColumnName="EVENT_START_TIME"
     SQLType="TIMESTAMPLTZ"
     Type="oracle.jbo.domain.TimestampLTZ"
     ColumnType="TIMESTAMP WITH LOCAL TIME ZONE"
-    TableName="AKMR_EVENT_DETAILS"
-    IsNotNull="true">
-    <Properties>
-      <SchemaBasedProperties>
-        <FMT_FORMATTER
-          ResId="model.EntityObject.EventDetailsEO.EventStartTime_FMT_FORMATTER"/>
-        <CONTROLTYPE
-          Value="edit"/>
-        <FMT_FORMAT
-          ResId="model.EntityObject.EventDetailsEO.EventStartTime_FMT_FORMAT"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
+    TableName="AKMR_EVENT_DETAILS"/>
   <Attribute
     Name="EventEndTime"
     ColumnName="EVENT_END_TIME"
@@ -81,38 +70,12 @@
     ColumnType="NUMBER"
     TableName="AKMR_EVENT_DETAILS"/>
   <AccessorAttribute
-    Name="EventCandidateDetailsEO"
-    Association="model.EntityObject.AkmrFkEventIdAssoc"
-    AssociationEnd="model.EntityObject.AkmrFkEventIdAssoc.EventCandidateDetailsEO"
-    AssociationOtherEnd="model.EntityObject.AkmrFkEventIdAssoc.EventDetailsEO"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="EventInterviewerDetailsEO"
+    Name="AkmrEventInterviewerDetails"
     Association="model.EntityObject.AkmrFkEventId2Assoc"
-    AssociationEnd="model.EntityObject.AkmrFkEventId2Assoc.EventInterviewerDetailsEO"
-    AssociationOtherEnd="model.EntityObject.AkmrFkEventId2Assoc.EventDetailsEO"
+    AssociationEnd="model.EntityObject.AkmrFkEventId2Assoc.AkmrEventInterviewerDetails"
+    AssociationOtherEnd="model.EntityObject.AkmrFkEventId2Assoc.AkmrEventDetails"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="InterviewDetailsEO"
-    Association="model.EntityObject.AkmrFkEventId3Assoc"
-    AssociationEnd="model.EntityObject.AkmrFkEventId3Assoc.InterviewDetailsEO"
-    AssociationOtherEnd="model.EntityObject.AkmrFkEventId3Assoc.EventDetailsEO"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <Key
-    Name="AkmrEventDetailsEventStartTimeCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"EVENT_START_TIME" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="AKMR_EVENT_DETAILS_EVENT_START"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.EventDetailsEO.EventStartTime"/>
-    </AttrArray>
-  </Key>
   <Key
     Name="AkmrEventDetailsPk"
     PrimaryKey="true">
@@ -120,7 +83,7 @@
       <Attr Name="_DBObjectName" Value="AKMR_EVENT_DETAILS_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.EventDetailsEO.EventId"/>
+      <Item Value="model.EntityObject.AkmrEventDetails.EventId"/>
     </AttrArray>
   </Key>
   <Key
@@ -130,11 +93,7 @@
       <Attr Name="_DBObjectName" Value="AKMR_EVENT_DETAILS_UK1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.EventDetailsEO.EventName"/>
+      <Item Value="model.EntityObject.AkmrEventDetails.EventName"/>
     </AttrArray>
   </Key>
-  <ResourceBundle>
-    <PropertiesBundle
-      PropertiesFile="model.ModelBundle"/>
-  </ResourceBundle>
 </Entity>

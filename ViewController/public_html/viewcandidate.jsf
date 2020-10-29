@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Dashboard | Interviewer" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter orientation="vertical" splitterPosition="102" id="pt_ps1">
+        <f:facet name="first">
+            <af:panelGridLayout id="pt_pgl1" inlineStyle="background-color:#302D2A;">
+                <af:gridRow marginTop="5px" height="auto" id="pt_gr1">
+                    <af:gridCell marginStart="5px" width="34%" id="pt_gc1">
+                        <af:image id="pt_i1" source="/Oracle-Emblem-removebg-preview.png"
+                                  inlineStyle="height:100px;margin-left:10px;" shortDesc="Oracle Logo"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" id="pt_gc2">
+                        <af:outputText value="Recuritment Managment System" id="pt_ot1"
+                                       inlineStyle="color:White; font-size:xx-large;padding-top:20px;"/><br/>
+                                <af:panelGroupLayout id="pgl2">
+                                    <af:panelFormLayout id="pfl1" inlineStyle="color:White;">
+                                        
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="pt_gc3">
+                        <af:panelGroupLayout id="pt_pgl2" layout="horizontal" halign="right">
+                            <af:menuBar id="pt_mb2">
+                                <af:menu text="#{sessionScope.userName}" id="pt_m1">
+                                    <af:commandMenuItem text="Logout" id="pt_cmi1"/>
+                                </af:menu>
+                            </af:menuBar>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelStretchLayout id="pt_psl1" inlineStyle="background-color:#F5EFDF;" topHeight="51px"
+                                   bottomHeight="134px">
+                <f:facet name="start"/>
+                <f:facet name="end">
+                           
+                        </f:facet>
+                <f:facet name="top">
+                    
+                </f:facet>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                            <af:decorativeBox id="db1">
+                                <f:facet name="top"/>
+                                <f:facet name="center">
+                                    <af:panelGroupLayout id="pgl1">
+                                       
+                                            <f:facet name="first">
+                                            <af:panelFormLayout id="pfl2">
+                                                <af:inputText value="#{bindings.CandidateName.inputValue}"
+                                                              label="#{bindings.CandidateName.hints.label}"
+                                                              required="#{bindings.CandidateName.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.CandidateName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CandidateName.hints.precision}"
+                                                              shortDesc="#{bindings.CandidateName.hints.tooltip}"
+                                                              id="it3">
+                                                    <f:validator binding="#{bindings.CandidateName.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CandidateEmail.inputValue}"
+                                                              label="#{bindings.CandidateEmail.hints.label}"
+                                                              required="#{bindings.CandidateEmail.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.CandidateEmail.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CandidateEmail.hints.precision}"
+                                                              shortDesc="#{bindings.CandidateEmail.hints.tooltip}"
+                                                              id="it4">
+                                                    <f:validator binding="#{bindings.CandidateEmail.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CandidateResume.inputValue}"
+                                                              label="#{bindings.CandidateResume.hints.label}"
+                                                              required="#{bindings.CandidateResume.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.CandidateResume.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CandidateResume.hints.precision}"
+                                                              shortDesc="#{bindings.CandidateResume.hints.tooltip}"
+                                                              id="it5">
+                                                    <f:validator binding="#{bindings.CandidateResume.validator}"/>
+                                                </af:inputText>
+                                                <af:inputText value="#{bindings.CandidateGender.inputValue}"
+                                                              label="#{bindings.CandidateGender.hints.label}"
+                                                              required="#{bindings.CandidateGender.hints.mandatory}"
+                                                              readOnly="true"
+                                                              columns="#{bindings.CandidateGender.hints.displayWidth}"
+                                                              maximumLength="#{bindings.CandidateGender.hints.precision}"
+                                                              shortDesc="#{bindings.CandidateGender.hints.tooltip}"
+                                                              id="it6">
+                                                    <f:validator binding="#{bindings.CandidateGender.validator}"/>
+                                                </af:inputText>
+                                                <f:facet name="footer">
+                                                    <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                                        <af:button actionListener="#{bindings.First.execute}"
+                                                                   text="First" disabled="#{!bindings.First.enabled}"
+                                                                   partialSubmit="true" id="b1"/>
+                                                        <af:button actionListener="#{bindings.Previous.execute}"
+                                                                   text="Previous"
+                                                                   disabled="#{!bindings.Previous.enabled}"
+                                                                   partialSubmit="true" id="b2"/>
+                                                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                                   disabled="#{!bindings.Next.enabled}"
+                                                                   partialSubmit="true" id="b3"/>
+                                                        <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                                                   disabled="#{!bindings.Last.enabled}"
+                                                                   partialSubmit="true" id="b4"/>
+                                                    </af:panelGroupLayout>
+                                                </f:facet>
+                                            </af:panelFormLayout>
+                                        </f:facet>
+                                            <f:facet name="second"/>
+                                        <af:table value="#{bindings.CandidateBasicInfo1.collectionModel}" var="row"
+                                                  rows="#{bindings.CandidateBasicInfo1.rangeSize}"
+                                                  emptyText="#{bindings.CandidateBasicInfo1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.CandidateBasicInfo1.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.CandidateBasicInfo1.collectionModel.makeCurrent}"
+                                                  rowSelection="single"
+                                                  fetchSize="#{bindings.CandidateBasicInfo1.rangeSize}" id="t1"
+                                                  partialTriggers="::b1 ::b2 ::b3 ::b4">
+                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateName.label}"
+                                                       id="c1">
+                                                <af:outputText value="#{row.CandidateName}"
+                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateName.tooltip}"
+                                                               id="ot1"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateEmail.label}"
+                                                       id="c2">
+                                                <af:outputText value="#{row.CandidateEmail}"
+                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateEmail.tooltip}"
+                                                               id="ot2"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateResume.label}"
+                                                       id="c3">
+                                                <af:outputText value="#{row.CandidateResume}"
+                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateResume.tooltip}"
+                                                               id="ot3"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateGender.label}"
+                                                       id="c4">
+                                                <af:outputText value="#{row.CandidateGender}"
+                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateGender.tooltip}"
+                                                               id="ot4"/>
+                                            </af:column>
+                                            <af:column id="c5" headerText="Download">
+                                                <af:button text="DownLoad" id="b5"  inlineStyle="float: right;">
+                                                <af:fileDownloadActionListener filename="rushi_trivedi.pdf"   contentType="application/pdf; charset=utf-8"
+                                                           method="#{loginBean.downloadResume}"/> </af:button>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </f:facet>
+            </af:panelStretchLayout>
+        </f:facet>
+    </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="AkmrCandidateDataView1"
+    ViewObjectName="model.ViewObject.AkmrCandidateDataView"/>
+  <ViewUsage
+    Name="AkmrEventCandidateDetailsView1"
+    ViewObjectName="model.ViewObject.AkmrEventCandidateDetailsView"/>
+  <ViewUsage
+    Name="AkmrEventDetailsView1"
+    ViewObjectName="model.ViewObject.AkmrEventDetailsView"/>
+  <ViewUsage
+    Name="AkmrEventInterviewerDetailsView1"
+    ViewObjectName="model.ViewObject.AkmrEventInterviewerDetailsView"/>
+  <ViewUsage
+    Name="AkmrFeedbackDetailsView1"
+    ViewObjectName="model.ViewObject.AkmrFeedbackDetailsView"/>
+  <ViewUsage
+    Name="AkmrInterviewDetailsView1"
+    ViewObjectName="model.ViewObject.AkmrInterviewDetailsView"/>
+  <ViewUsage
+    Name="AkmrInterviewerDataView1"
+    ViewObjectName="model.ViewObject.AkmrInterviewerDataView"/>
+  <ViewUsage
+    Name="AkmrUsersMasterView1"
+    ViewObjectName="model.ViewObject.AkmrUsersMasterView"/>
+  <ViewUsage
+    Name="CandidatesAssignedInterviewer1"
+    ViewObjectName="model.ViewObject.CandidatesAssignedInterviewer"/>
+  <ViewUsage
+    Name="GetEventId1"
+    ViewObjectName="model.ViewObject.GetEventId"/>
+  <ViewUsage
+    Name="CandidateBasicInfo1"
+    ViewObjectName="model.ViewObject.CandidateBasicInfo"/>
+</AppModule>

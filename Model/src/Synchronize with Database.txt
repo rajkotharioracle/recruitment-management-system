@@ -1,0 +1,50 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :AkmrFeedbackDetails
+  Create Attribute for column: FEEDBACK_ID
+  Create Attribute for column: FEEDBACK_TIMESTAMP
+  Create Attribute for column: FEEDBACK_TECHNICAL_SKILLS
+  Create Attribute for column: FEEDBACK_PROBLEM_SOLVING
+  Create Attribute for column: FEEDBACK_PERSONAL_SKILLS
+  Create Attribute for column: FEEDBACK_OBSERVATIONS
+  Create Attribute for column: FEEDBACK_ACADEMIC_RIGOR
+  Create Attribute for column: FEEDBACK_OVERALL_ASSESSMENT
+  Create Attribute for column: FEEDBACK_RESULT
+  Key :SysC003976082
+    Add attribute to key for column FEEDBACK_ID
+Entity :AkmrUsersMaster
+  Create Attribute for column: EMAIL_ID
+  Create Attribute for column: USER_TYPE
+  Create Attribute for column: PASSWORD
+  Create Attribute for column: IS_ENABLED
+  Key :AkmrUMPk
+    Add attribute to key for column EMAIL_ID
+Entity :InterviewerDataEO
+  Create Key for Constraint: AKMR_I_DATA_FK1
+  Create Entity Association
+  Create Key for Constraint: AKMR_I_DATA_PK
+Entity :InterviewDetailsEO
+  Attribute :EndTime
+    Change Column type to TIMESTAMP
+    Change Mandatory to:true
+    Change Primary Key to:false
+  Attribute :StartTime
+    Change Column type to TIMESTAMP
+    Change Mandatory to:true
+    Change Primary Key to:false
+  Key :AkmrIDetFk1
+    Change Referenced Key Name to:AKMR_I_DATA_PK
+  Key :AkmrIDetPk
+    Remove key attribute StartTime
+    Remove key attribute EndTime
+Entity :EventDetailsEO
+  Attribute :EventEndTime
+    Change Column type to TIMESTAMP WITH LOCAL TIME ZONE
+    Change Primary Key to:false
+  Attribute :EventStartTime
+    Change Column type to TIMESTAMP WITH LOCAL TIME ZONE
+    Change Mandatory to:true
+    Change Primary Key to:false
+  Key :AkmrEventDetailsPk
+    Remove key attribute EventStartTime
+    Remove key attribute EventEndTime

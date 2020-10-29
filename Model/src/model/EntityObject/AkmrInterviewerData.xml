@@ -3,31 +3,18 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="InterviewerDataEO"
+  Name="AkmrInterviewerData"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="AKMR_INTERVIEWER_DATA"
-  AliasName="InterviewerDataEO"
+  AliasName="AkmrInterviewerData"
   BindingStyle="OracleName">
   <Attribute
     Name="InterviewerName"
     IsNotNull="true"
     Precision="50"
     ColumnName="INTERVIEWER_NAME"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="AKMR_INTERVIEWER_DATA">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="50"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="InterviewerPosition"
-    IsNotNull="true"
-    Precision="50"
-    ColumnName="INTERVIEWER_POSITION"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
@@ -51,6 +38,19 @@
     </DesignTime>
   </Attribute>
   <Attribute
+    Name="InterviewerPosition"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="INTERVIEWER_POSITION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="AKMR_INTERVIEWER_DATA">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
     Name="InterviewerMobNo"
     IsNotNull="true"
     Precision="14"
@@ -63,13 +63,6 @@
       <Attr Name="_DisplaySize" Value="14"/>
     </DesignTime>
   </Attribute>
-  <AccessorAttribute
-    Name="AkmrUsersMaster"
-    Association="model.EntityObject.AkmrIDataFk1Assoc"
-    AssociationEnd="model.EntityObject.AkmrIDataFk1Assoc.AkmrUsersMaster"
-    AssociationOtherEnd="model.EntityObject.AkmrIDataFk1Assoc.InterviewerDataEO"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
   <Key
     Name="AkmrIDataPk"
     PrimaryKey="true">
@@ -77,7 +70,7 @@
       <Attr Name="_DBObjectName" Value="AKMR_I_DATA_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewerDataEO.InterviewerEmail"/>
+      <Item Value="model.EntityObject.AkmrInterviewerData.InterviewerEmail"/>
     </AttrArray>
   </Key>
   <Key
@@ -89,7 +82,7 @@
       <Attr Name="_DBObjectName" Value="AKMR_I_DATA_FK1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.InterviewerDataEO.InterviewerEmail"/>
+      <Item Value="model.EntityObject.AkmrInterviewerData.InterviewerEmail"/>
     </AttrArray>
   </Key>
 </Entity>

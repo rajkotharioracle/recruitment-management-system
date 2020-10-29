@@ -3,40 +3,38 @@
 <!---->
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="AkmrFkEventId2Assoc"
+  Name="AkmrIDataFk1Assoc"
   Version="12.2.1.22.48"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="AkmrEventDetails"
+    Name="AkmrUsersMaster"
     Cardinality="1"
     Source="true"
-    Owner="model.EntityObject.AkmrEventDetails">
+    Owner="model.EntityObject.AkmrUsersMaster">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="AkmrEventDetails"/>
-      <Attr Name="_foreignKey" Value="model.EntityObject.AkmrEventDetails.AkmrEventDetailsPk"/>
+      <Attr Name="_finderName" Value="AkmrUsersMaster"/>
+      <Attr Name="_foreignKey" Value="model.EntityObject.AkmrUsersMaster.AkmrUMPk"/>
     </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.AkmrEventDetails.EventId"/>
-    </AttrArray>
+    <AttrArray Name="Attributes"/>
   </AssociationEnd>
   <AssociationEnd
-    Name="AkmrEventInterviewerDetails"
+    Name="InterviewerDataEO"
     Cardinality="-1"
-    Owner="model.EntityObject.AkmrEventInterviewerDetails">
+    Owner="model.EntityObject.InterviewerDataEO">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="AkmrEventInterviewerDetails"/>
-      <Attr Name="_foreignKey" Value="model.EntityObject.AkmrEventInterviewerDetails.AkmrFkEventId2"/>
+      <Attr Name="_finderName" Value="InterviewerDataEO"/>
+      <Attr Name="_foreignKey" Value="model.EntityObject.InterviewerDataEO.AkmrIDataFk1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.AkmrEventInterviewerDetails.EventId"/>
+      <Item Value="model.EntityObject.InterviewerDataEO.InterviewerEmail"/>
     </AttrArray>
   </AssociationEnd>
 </Association>
