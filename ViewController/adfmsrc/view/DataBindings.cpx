@@ -17,6 +17,8 @@
     <page path="/interviewer_dashboard.jsf" usageId="view_interviewer_dashboardPageDef"/>
     <page path="PageFlow#ExecuteWithParams" usageId="view_adfc_config___ExecuteWithParamsPageDef"/>
     <page path="/viewcandidate.jsf" usageId="view_viewcandidatePageDef"/>
+    <page path="/scheduledInterviews.jsf" usageId="view_scheduledInterviewsPageDef"/>
+    <page path="/login.jsf" usageId="view_loginPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_admin_templatePageDef" path="view.pageDefs.admin_templatePageDef"/>
@@ -29,6 +31,8 @@
     <page id="view_interviewer_dashboardPageDef" path="view.pageDefs.interviewer_dashboardPageDef"/>
     <page id="view_adfc_config___ExecuteWithParamsPageDef" path="view.pageDefs.adfc_config___ExecuteWithParamsPageDef"/>
     <page id="view_viewcandidatePageDef" path="view.pageDefs.viewcandidatePageDef"/>
+    <page id="view_scheduledInterviewsPageDef" path="view.pageDefs.scheduledInterviewsPageDef"/>
+    <page id="view_loginPageDef" path="view.pageDefs.loginPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="RecruitmentAppModuleDataControl" Package="model.EntityObject"

@@ -267,7 +267,6 @@
       <hash n="javaContentSet">
          <list n="constituent-sets">
             <hash>
-               <url n="content-folder-url" path="../../../../Desktop/"/>
                <list n="pattern-filters">
                   <string v="+MyADFUtil.java"/>
                </list>
@@ -390,6 +389,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Adfm"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -418,6 +421,17 @@
             <value n="isJDK" v="false"/>
          </hash>
       </list>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="../../../../Oracle/Middleware/Oracle_Home/oracle_common/modules/oracle.adf.model/adfm.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Adfm"/>
+               <value n="id" v="Adfm"/>
+            </hash>
+         </list>
+      </hash>
       <list n="libraryReferences">
          <hash>
             <value n="id" v="JSP Runtime"/>
@@ -517,6 +531,10 @@
          </hash>
          <hash>
             <value n="id" v="Resource Bundle Variable Resolver"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Adfm"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

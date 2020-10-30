@@ -6,7 +6,12 @@
   Name="AppModule"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="model.EntityObject.AppModuleImpl"
+  ComponentInterface="model.EntityObject.common.AppModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewUsage
     Name="AkmrCandidateDataView1"
     ViewObjectName="model.ViewObject.AkmrCandidateDataView"/>
@@ -40,4 +45,20 @@
   <ViewUsage
     Name="CandidateBasicInfo1"
     ViewObjectName="model.ViewObject.CandidateBasicInfo"/>
+  <ViewUsage
+    Name="ScheduledInterview1"
+    ViewObjectName="model.ViewObject.ScheduledInterview"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="getUserId"
+      MethodName="getUserId">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userName"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
 </AppModule>

@@ -34,7 +34,7 @@
                             <af:popup childCreation="deferred" autoCancel="disabled" id="pid"
                                       binding="#{loginB.myPopup}">
                                  <af:dialog id="d2">
-                                     <af:outputText value="A Popup!" id="ot1"/>
+                                     <af:outputText value="Invalid Username or Password!" id="ot1"/>
                                     <f:facet name="buttonBar"/>
                                  </af:dialog>
                              </af:popup>
@@ -48,7 +48,7 @@
                             <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center" valign="middle">
                                 <af:panelFormLayout id="pfl1">
                                     <f:facet name="footer">
-                                        <af:button text="Login" id="b1"/>
+                                        <af:button text="Login" id="b1" action="#{loginB.loginAction}"/>
                                     </f:facet>
                                     <af:inputText label="Username" id="it1" required="true"
                                                   binding="#{loginB.usernameInputText}"/>
