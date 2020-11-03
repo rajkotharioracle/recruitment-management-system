@@ -40,4 +40,7 @@
   <ViewUsage
     Name="CandidateBasicInfo1"
     ViewObjectName="model.ViewObject.CandidateBasicInfo"/>
+  <ViewUsage
+    Name="CandidateInterviewHistory1"
+    ViewObjectName="model.ViewObject.CandidateInterviewHistory"/>
 </AppModule>

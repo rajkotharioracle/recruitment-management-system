@@ -37,118 +37,145 @@
             <af:panelStretchLayout id="pt_psl1" inlineStyle="background-color:#F5EFDF;" topHeight="51px"
                                    bottomHeight="134px">
                 <f:facet name="start"/>
-                <f:facet name="end">
-                           
-                        </f:facet>
-                <f:facet name="top">
-                    
-                </f:facet>
+                <f:facet name="end"/>
+                <f:facet name="top"/>
                 <f:facet name="bottom"/>
                 <f:facet name="center">
                             <af:decorativeBox id="db1">
                                 <f:facet name="top"/>
                                 <f:facet name="center">
                                     <af:panelGroupLayout id="pgl1">
-                                       
-                                            <f:facet name="first">
-                                            <af:panelFormLayout id="pfl2">
-                                                <af:inputText value="#{bindings.CandidateName.inputValue}"
-                                                              label="#{bindings.CandidateName.hints.label}"
-                                                              required="#{bindings.CandidateName.hints.mandatory}"
-                                                              readOnly="true"
-                                                              columns="#{bindings.CandidateName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CandidateName.hints.precision}"
-                                                              shortDesc="#{bindings.CandidateName.hints.tooltip}"
-                                                              id="it3">
-                                                    <f:validator binding="#{bindings.CandidateName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CandidateEmail.inputValue}"
-                                                              label="#{bindings.CandidateEmail.hints.label}"
-                                                              required="#{bindings.CandidateEmail.hints.mandatory}"
-                                                              readOnly="true"
-                                                              columns="#{bindings.CandidateEmail.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CandidateEmail.hints.precision}"
-                                                              shortDesc="#{bindings.CandidateEmail.hints.tooltip}"
-                                                              id="it4">
-                                                    <f:validator binding="#{bindings.CandidateEmail.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CandidateResume.inputValue}"
-                                                              label="#{bindings.CandidateResume.hints.label}"
-                                                              required="#{bindings.CandidateResume.hints.mandatory}"
-                                                              readOnly="true"
-                                                              columns="#{bindings.CandidateResume.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CandidateResume.hints.precision}"
-                                                              shortDesc="#{bindings.CandidateResume.hints.tooltip}"
-                                                              id="it5">
-                                                    <f:validator binding="#{bindings.CandidateResume.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.CandidateGender.inputValue}"
-                                                              label="#{bindings.CandidateGender.hints.label}"
-                                                              required="#{bindings.CandidateGender.hints.mandatory}"
-                                                              readOnly="true"
-                                                              columns="#{bindings.CandidateGender.hints.displayWidth}"
-                                                              maximumLength="#{bindings.CandidateGender.hints.precision}"
-                                                              shortDesc="#{bindings.CandidateGender.hints.tooltip}"
-                                                              id="it6">
-                                                    <f:validator binding="#{bindings.CandidateGender.validator}"/>
-                                                </af:inputText>
-                                                <f:facet name="footer">
-                                                    <af:panelGroupLayout layout="horizontal" id="pgl3">
-                                                        <af:button actionListener="#{bindings.First.execute}"
-                                                                   text="First" disabled="#{!bindings.First.enabled}"
-                                                                   partialSubmit="true" id="b1"/>
-                                                        <af:button actionListener="#{bindings.Previous.execute}"
-                                                                   text="Previous"
-                                                                   disabled="#{!bindings.Previous.enabled}"
-                                                                   partialSubmit="true" id="b2"/>
-                                                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                                                   disabled="#{!bindings.Next.enabled}"
-                                                                   partialSubmit="true" id="b3"/>
-                                                        <af:button actionListener="#{bindings.Last.execute}" text="Last"
-                                                                   disabled="#{!bindings.Last.enabled}"
-                                                                   partialSubmit="true" id="b4"/>
-                                                    </af:panelGroupLayout>
-                                                </f:facet>
-                                            </af:panelFormLayout>
-                                        </f:facet>
-                                            <f:facet name="second"/>
-                                        <af:table value="#{bindings.CandidateBasicInfo1.collectionModel}" var="row"
-                                                  rows="#{bindings.CandidateBasicInfo1.rangeSize}"
-                                                  emptyText="#{bindings.CandidateBasicInfo1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                        <af:panelFormLayout id="pfl2">
+                                            <af:inputText value="#{bindings.CandidateName.inputValue}"
+                                                          label="#{bindings.CandidateName.hints.label}"
+                                                          required="#{bindings.CandidateName.hints.mandatory}"
+                                                          readOnly="true"
+                                                          columns="#{bindings.CandidateName.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CandidateName.hints.precision}"
+                                                          shortDesc="#{bindings.CandidateName.hints.tooltip}" id="it1">
+                                                <f:validator binding="#{bindings.CandidateName.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.CandidateEmail.inputValue}"
+                                                          label="#{bindings.CandidateEmail.hints.label}"
+                                                          required="#{bindings.CandidateEmail.hints.mandatory}"
+                                                          readOnly="true"
+                                                          columns="#{bindings.CandidateEmail.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CandidateEmail.hints.precision}"
+                                                          shortDesc="#{bindings.CandidateEmail.hints.tooltip}" id="it2">
+                                                <f:validator binding="#{bindings.CandidateEmail.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="" label="Download Resume" readOnly="true" id="it6">
+                                                <f:validator binding="#{bindings.CandidateEmail.validator}"/>
+                                            </af:inputText>
+                                            <af:button text="Download" id="b5">
+                                                <af:fileDownloadActionListener filename="resume.pdf"
+                                                                               contentType="application/pdf; charset=utf-8"
+                                                                               method="#{loginBean.downloadResume}"/>
+                                            </af:button>
+                                            <af:inputText value="#{bindings.CandidateGender.inputValue}"
+                                                          label="#{bindings.CandidateGender.hints.label}"
+                                                          required="#{bindings.CandidateGender.hints.mandatory}"
+                                                          readOnly="true"
+                                                          columns="#{bindings.CandidateGender.hints.displayWidth}"
+                                                          maximumLength="#{bindings.CandidateGender.hints.precision}"
+                                                          shortDesc="#{bindings.CandidateGender.hints.tooltip}"
+                                                          id="it4">
+                                                <f:validator binding="#{bindings.CandidateGender.validator}"/>
+                                            </af:inputText>
+                                        </af:panelFormLayout>
+                                        <af:spacer id="s1" height="20"/>
+                                        <af:table value="#{bindings.CandidateInterviewHistory1.collectionModel}"
+                                                  var="row" rows="#{bindings.CandidateInterviewHistory1.rangeSize}"
+                                                  emptyText="#{bindings.CandidateInterviewHistory1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                                   rowBandingInterval="0"
-                                                  selectedRowKeys="#{bindings.CandidateBasicInfo1.collectionModel.selectedRow}"
-                                                  selectionListener="#{bindings.CandidateBasicInfo1.collectionModel.makeCurrent}"
+                                                  selectedRowKeys="#{bindings.CandidateInterviewHistory1.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.CandidateInterviewHistory1.collectionModel.makeCurrent}"
                                                   rowSelection="single"
-                                                  fetchSize="#{bindings.CandidateBasicInfo1.rangeSize}" id="t1"
-                                                  partialTriggers="::b1 ::b2 ::b3 ::b4">
-                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateName.label}"
-                                                       id="c1">
-                                                <af:outputText value="#{row.CandidateName}"
-                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateName.tooltip}"
-                                                               id="ot1"/>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateEmail.label}"
+                                                  fetchSize="#{bindings.CandidateInterviewHistory1.rangeSize}"
+                                                  filterModel="#{bindings.CandidateInterviewHistory1Query.queryDescriptor}"
+                                                  filterVisible="true"
+                                                  queryListener="#{bindings.CandidateInterviewHistory1Query.processQuery}"
+                                                  varStatus="vs" id="t1">
+                                            <af:column sortProperty="#{bindings.CandidateInterviewHistory1.hints.InterviewerEmailId.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidateInterviewHistory1.hints.InterviewerEmailId.label}"
                                                        id="c2">
-                                                <af:outputText value="#{row.CandidateEmail}"
-                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateEmail.tooltip}"
-                                                               id="ot2"/>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateResume.label}"
-                                                       id="c3">
-                                                <af:outputText value="#{row.CandidateResume}"
-                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateResume.tooltip}"
-                                                               id="ot3"/>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.CandidateBasicInfo1.hints.CandidateGender.label}"
-                                                       id="c4">
-                                                <af:outputText value="#{row.CandidateGender}"
-                                                               shortDesc="#{bindings.CandidateBasicInfo1.hints.CandidateGender.tooltip}"
+                                                <af:outputText value="#{row.InterviewerEmailId}"
+                                                               shortDesc="#{bindings.CandidateInterviewHistory1.hints.InterviewerEmailId.tooltip}"
                                                                id="ot4"/>
                                             </af:column>
-                                            <af:column id="c5" headerText="Download">
-                                                <af:button text="DownLoad" id="b5"  inlineStyle="float: right;">
-                                                <af:fileDownloadActionListener filename="rushi_trivedi.pdf"   contentType="application/pdf; charset=utf-8"
-                                                           method="#{loginBean.downloadResume}"/> </af:button>
+                                            <af:column sortProperty="#{bindings.CandidateInterviewHistory1.hints.EventId.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidateInterviewHistory1.hints.EventId.label}"
+                                                       id="c3">
+                                                <af:outputText value="#{row.EventId}"
+                                                               shortDesc="#{bindings.CandidateInterviewHistory1.hints.EventId.tooltip}"
+                                                               id="ot5">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CandidateInterviewHistory1.hints.EventId.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidateInterviewHistory1.hints.FeedbackId.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidateInterviewHistory1.hints.FeedbackId.label}"
+                                                       id="c4">
+                                                <af:outputText value="#{row.FeedbackId}"
+                                                               shortDesc="#{bindings.CandidateInterviewHistory1.hints.FeedbackId.tooltip}"
+                                                               id="ot6">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CandidateInterviewHistory1.hints.FeedbackId.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidateInterviewHistory1.hints.RoundNo.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidateInterviewHistory1.hints.RoundNo.label}"
+                                                       id="c5">
+                                                <af:outputText value="#{row.RoundNo}"
+                                                               shortDesc="#{bindings.CandidateInterviewHistory1.hints.RoundNo.tooltip}"
+                                                               id="ot7">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.CandidateInterviewHistory1.hints.RoundNo.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidateInterviewHistory1.hints.Status.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidateInterviewHistory1.hints.Status.label}"
+                                                       id="c6">
+                                                <af:outputText value="#{row.Status}"
+                                                               shortDesc="#{bindings.CandidateInterviewHistory1.hints.Status.tooltip}"
+                                                               id="ot8"/>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidateInterviewHistory1.hints.StartTime.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidateInterviewHistory1.hints.StartTime.label}"
+                                                       id="c7">
+                                                <f:facet name="filter">
+                                                    <af:inputDate value="#{bindings.CandidateInterviewHistory1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.StartTime.value}"
+                                                                  id="id1">
+                                                        <af:convertDateTime pattern="#{bindings.CandidateInterviewHistory1.hints.StartTime.format}"/>
+                                                    </af:inputDate>
+                                                </f:facet>
+                                                <af:outputText value="#{row.StartTime}"
+                                                               shortDesc="#{bindings.CandidateInterviewHistory1.hints.StartTime.tooltip}"
+                                                               id="ot9">
+                                                    <af:convertDateTime pattern="#{bindings.CandidateInterviewHistory1.hints.StartTime.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.CandidateInterviewHistory1.hints.EndTime.name}"
+                                                       filterable="true" sortable="true"
+                                                       headerText="#{bindings.CandidateInterviewHistory1.hints.EndTime.label}"
+                                                       id="c8">
+                                                <f:facet name="filter">
+                                                    <af:inputDate value="#{bindings.CandidateInterviewHistory1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EndTime.value}"
+                                                                  id="id2">
+                                                        <af:convertDateTime pattern="#{bindings.CandidateInterviewHistory1.hints.EndTime.format}"/>
+                                                    </af:inputDate>
+                                                </f:facet>
+                                                <af:outputText value="#{row.EndTime}"
+                                                               shortDesc="#{bindings.CandidateInterviewHistory1.hints.EndTime.tooltip}"
+                                                               id="ot10">
+                                                    <af:convertDateTime pattern="#{bindings.CandidateInterviewHistory1.hints.EndTime.format}"/>
+                                                </af:outputText>
                                             </af:column>
                                         </af:table>
                                     </af:panelGroupLayout>

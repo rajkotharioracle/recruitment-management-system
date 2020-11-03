@@ -30,7 +30,7 @@
 from
   akmr_candidate_data
 where
-   akmr_candidate_data.candidate_email = 'rushi.trivedi@gmail.com']]></SQLQuery>
+   akmr_candidate_data.candidate_email = 'parth.pujara@gmail.com']]></SQLQuery>
   <ViewAttribute
     Name="CandidateName"
     IsUpdateable="false"

@@ -6,6 +6,10 @@
     <variableIterator id="variables"/>
     <iterator Binds="CandidateBasicInfo1" RangeSize="25" DataControl="AppModuleDataControl"
               id="CandidateBasicInfo1Iterator"/>
+    <iterator Binds="CandidateInterviewHistory1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CandidateInterviewHistory1Iterator"/>
+    <searchRegion Binds="CandidateInterviewHistory1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CandidateInterviewHistory1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CandidateBasicInfo1Iterator" id="CandidateName">
@@ -39,6 +43,20 @@
           <Item Value="CandidateEmail"/>
           <Item Value="CandidateResume"/>
           <Item Value="CandidateGender"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CandidateInterviewHistory1Iterator" id="CandidateInterviewHistory1">
+      <nodeDefinition DefName="model.ViewObject.CandidateInterviewHistory" Name="CandidateInterviewHistory10">
+        <AttrNames>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="InterviewerEmailId"/>
+          <Item Value="EventId"/>
+          <Item Value="FeedbackId"/>
+          <Item Value="RoundNo"/>
+          <Item Value="Status"/>
+          <Item Value="StartTime"/>
+          <Item Value="EndTime"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
