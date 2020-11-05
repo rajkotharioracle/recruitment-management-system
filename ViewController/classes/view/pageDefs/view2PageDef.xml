@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="view2PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="interviewdetailQB1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
+              id="interviewdetailQB1Iterator"/>
+    <searchRegion Binds="interviewdetailQB1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="interviewdetailQB1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="interviewdetailQB1Iterator" id="interviewdetailQB1">
+      <nodeDefinition DefName="model.ViewObjectQB.interviewdetailQB" Name="interviewdetailQB10">
+        <AttrNames>
+          <Item Value="CandidateName"/>
+          <Item Value="InterviewerName"/>
+          <Item Value="RoundNo"/>
+          <Item Value="StartTime"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CandidatesInInterview"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObject.CandidatesInInterview_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="eid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CandidatesInInterview1"
+    ViewObjectName="model.ViewObject.CandidatesInInterview"
+    RowLevelBinds="true"/>
+  <SQLQuery><![CDATA[SELECT EventCandidateDetailsEO.CANDIDATE_EMAIL_ID, 
+       EventCandidateDetailsEO.EVENT_ID, 
+       CandidateDataEO.CANDIDATE_NAME, 
+       CandidateDataEO.CANDIDATE_EMAIL
+FROM  AKMR_EVENT_CANDIDATE_DETAILS EventCandidateDetailsEO 
+join AKMR_CANDIDATE_DATA CandidateDataEO
+on  EventCandidateDetailsEO.CANDIDATE_EMAIL_ID= CandidateDataEO.CANDIDATE_EMAIL
+Where
+ EventCandidateDetailsEO.EVENT_ID=:eid]]></SQLQuery>
+  <EntityUsage
+    Name="EventCandidateDetailsEO"
+    Entity="model.EntityObject.EventCandidateDetailsEO"/>
+  <EntityUsage
+    Name="CandidateDataEO"
+    Entity="model.EntityObject.CandidateDataEO"
+    ReadOnly="true"
+    DeleteParticipant="false">
+    <DesignTime>
+      <Attr Name="_customjoin" Value="true"/>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="CandidateEmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateEmailId"
+    EntityUsage="EventCandidateDetailsEO"
+    AliasName="CANDIDATE_EMAIL_ID"/>
+  <ViewAttribute
+    Name="EventId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventId"
+    EntityUsage="EventCandidateDetailsEO"
+    AliasName="EVENT_ID"/>
+  <ViewAttribute
+    Name="CandidateName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateName"
+    EntityUsage="CandidateDataEO"
+    AliasName="CANDIDATE_NAME"/>
+  <ViewAttribute
+    Name="CandidateEmail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateEmail"
+    EntityUsage="CandidateDataEO"
+    AliasName="CANDIDATE_EMAIL"/>
+  <LOVUIHints
+    ListType="109"
+    MRUCount="0"
+    NullValueFlag="none">
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CandidateEmail"/>
+      <Item Value="CandidateEmailId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </LOVUIHints>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InterviewerEventHistory"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObject.InterviewerEventHistory_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="eid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="iid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="fid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT CandidateDataEO.CANDIDATE_EMAIL, 
+       CandidateDataEO.CANDIDATE_NAME, 
+       InterviewDetailsEO.CANDIDATE_EMAIL_ID, 
+       InterviewDetailsEO.INTERVIEWER_EMAIL_ID, 
+       InterviewDetailsEO.EVENT_ID, 
+       InterviewDetailsEO.START_TIME, 
+       InterviewDetailsEO.END_TIME, 
+       InterviewDetailsEO.FEEDBACK_ID, 
+       InterviewDetailsEO.ROUND_NO, 
+       InterviewDetailsEO.STATUS, 
+       FeedbackDetailsEO.FEEDBACK_ACADEMIC_RIGOR, 
+       FeedbackDetailsEO.FEEDBACK_ID AS FEEDBACK_ID1, 
+       FeedbackDetailsEO.FEEDBACK_TIMESTAMP, 
+       FeedbackDetailsEO.FEEDBACK_TECHNICAL_SKILLS, 
+       FeedbackDetailsEO.FEEDBACK_PROBLEM_SOLVING, 
+       FeedbackDetailsEO.FEEDBACK_PERSONAL_SKILLS, 
+       FeedbackDetailsEO.FEEDBACK_OBSERVATIONS, 
+       FeedbackDetailsEO.FEEDBACK_OVERALL_ASSESSMENT, 
+       FeedbackDetailsEO.FEEDBACK_RESULT
+FROM   AKMR_CANDIDATE_DATA CandidateDataEO
+join AKMR_INTERVIEW_DETAILS InterviewDetailsEO
+on CandidateDataEO.CANDIDATE_EMAIL = InterviewDetailsEO.CANDIDATE_EMAIL_ID
+join AKMR_FEEDBACK_DETAILS FeedbackDetailsEO 
+on FeedbackDetailsEO.FEEDBACK_ID=InterviewDetailsEO.FEEDBACK_ID
+where
+InterviewDetailsEO.INTERVIEWER_EMAIL_ID=:iid
+and
+InterviewDetailsEO.EVENT_ID=:eid
+and
+FeedbackDetailsEO.FEEDBACK_RESULT=:fid]]></SQLQuery>
+  <EntityUsage
+    Name="CandidateDataEO"
+    Entity="model.EntityObject.CandidateDataEO"/>
+  <EntityUsage
+    Name="InterviewDetailsEO"
+    Entity="model.EntityObject.InterviewDetailsEO"
+    Association="model.EntityObject.AkmrIDetFk2Assoc"
+    AssociationEnd="model.EntityObject.AkmrIDetFk2Assoc.InterviewDetailsEO"
+    SourceUsage="model.ViewObject.InterviewerEventHistory.CandidateDataEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.EntityObject.CandidateDataEO.CandidateEmail"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="FeedbackDetailsEO"
+    Entity="model.EntityObject.FeedbackDetailsEO"
+    ReadOnly="true"
+    DeleteParticipant="false">
+    <DesignTime>
+      <Attr Name="_customjoin" Value="true"/>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="CandidateEmail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateEmail"
+    EntityUsage="CandidateDataEO"
+    AliasName="CANDIDATE_EMAIL"/>
+  <ViewAttribute
+    Name="CandidateName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateName"
+    EntityUsage="CandidateDataEO"
+    AliasName="CANDIDATE_NAME"/>
+  <ViewAttribute
+    Name="CandidateEmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateEmailId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="CANDIDATE_EMAIL_ID"/>
+  <ViewAttribute
+    Name="InterviewerEmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerEmailId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="INTERVIEWER_EMAIL_ID"/>
+  <ViewAttribute
+    Name="EventId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="EVENT_ID"/>
+  <ViewAttribute
+    Name="StartTime"
+    PrecisionRule="true"
+    EntityAttrName="StartTime"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="START_TIME"/>
+  <ViewAttribute
+    Name="EndTime"
+    PrecisionRule="true"
+    EntityAttrName="EndTime"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="END_TIME"/>
+  <ViewAttribute
+    Name="FeedbackId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="FEEDBACK_ID"/>
+  <ViewAttribute
+    Name="RoundNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RoundNo"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="ROUND_NO"/>
+  <ViewAttribute
+    Name="Status"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="STATUS"/>
+  <ViewAttribute
+    Name="FeedbackAcademicRigor"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackAcademicRigor"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_ACADEMIC_RIGOR"/>
+  <ViewAttribute
+    Name="FeedbackId1"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackId"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_ID1"/>
+  <ViewAttribute
+    Name="FeedbackTimestamp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackTimestamp"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_TIMESTAMP"/>
+  <ViewAttribute
+    Name="FeedbackTechnicalSkills"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackTechnicalSkills"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_TECHNICAL_SKILLS"/>
+  <ViewAttribute
+    Name="FeedbackProblemSolving"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackProblemSolving"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_PROBLEM_SOLVING"/>
+  <ViewAttribute
+    Name="FeedbackPersonalSkills"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackPersonalSkills"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_PERSONAL_SKILLS"/>
+  <ViewAttribute
+    Name="FeedbackObservations"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackObservations"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_OBSERVATIONS"/>
+  <ViewAttribute
+    Name="FeedbackOverallAssessment"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackOverallAssessment"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_OVERALL_ASSESSMENT"/>
+  <ViewAttribute
+    Name="FeedbackResult"
+    PrecisionRule="true"
+    EntityAttrName="FeedbackResult"
+    EntityUsage="FeedbackDetailsEO"
+    AliasName="FEEDBACK_RESULT"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="CandidateEmail"/>
+    <Item Value="FeedbackAcademicRigor"/>
+    <Item Value="FeedbackId1"/>
+    <Item Value="FeedbackTimestamp"/>
+    <Item Value="FeedbackTechnicalSkills"/>
+    <Item Value="FeedbackProblemSolving"/>
+    <Item Value="FeedbackPersonalSkills"/>
+    <Item Value="FeedbackObservations"/>
+    <Item Value="FeedbackOverallAssessment"/>
+    <Item Value="FeedbackResult"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

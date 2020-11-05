@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UsersMasterVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <EntityUsage
+    Name="UsersMasterEO"
+    Entity="model.EntityObject.UsersMasterEO"/>
+  <ViewAttribute
+    Name="EmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmailId"
+    EntityUsage="UsersMasterEO"
+    AliasName="EMAIL_ID"/>
+  <ViewAttribute
+    Name="UserType"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserType"
+    EntityUsage="UsersMasterEO"
+    AliasName="USER_TYPE"/>
+  <ViewAttribute
+    Name="Password"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Password"
+    EntityUsage="UsersMasterEO"
+    AliasName="PASSWORD"/>
+  <ViewAttribute
+    Name="IsEnabled"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsEnabled"
+    EntityUsage="UsersMasterEO"
+    AliasName="IS_ENABLED"/>
+  <ViewLinkAccessor
+    Name="CandidateDataVO"
+    ViewLink="model.ViewObject.AkmrCDataFk1Link"
+    Type="oracle.jbo.Row"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="EventInterviewerDetailsVO"
+    ViewLink="model.ViewObject.AkmrEIDetFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="EventCandidateDetailsVO"
+    ViewLink="model.ViewObject.AkmrECDetFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

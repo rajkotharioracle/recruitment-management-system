@@ -10,7 +10,9 @@
   </view>
   <view id="Candidate_Lookup"></view>
   <view id="Interviewer_Lookup"></view>
-  <view id="Report"></view>
+  <view id="Report">
+    <page>/Report.jsf</page>
+  </view>
   <view id="Event_Lookup"></view>
   <view id="Event_Create"></view>
   <view id="Candidate_Interview"></view>
@@ -92,6 +94,7 @@
       <to-activity-id>createInterview</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
+
   <managed-bean id="__16">
     <managed-bean-name>Eventselection</managed-bean-name>
     <managed-bean-class>view.bean.EventSelection</managed-bean-class>
@@ -100,6 +103,11 @@
   <managed-bean id="__21">
     <managed-bean-name>CreateInterview</managed-bean-name>
     <managed-bean-class>view.bean.CreateInterview</managed-bean-class>
+    </managed-bean>
+  <managed-bean id="__22">
+    <managed-bean-name>setCompletedEvent</managed-bean-name>
+    <managed-bean-class>view.Event</managed-bean-class>
+    
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
 </adfc-config>

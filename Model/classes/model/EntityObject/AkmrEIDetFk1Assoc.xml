@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AkmrEIDetFk1Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="InterviewerDataEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EntityObject.InterviewerDataEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.InterviewerDataEO.InterviewerEmail"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="EventInterviewerDetailsEO"
+    Cardinality="-1"
+    Owner="model.EntityObject.EventInterviewerDetailsEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="EventInterviewerDetailsEO"/>
+      <Attr Name="_foreignKey" Value="model.EntityObject.EventInterviewerDetailsEO.AkmrEIDetFk1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.EventInterviewerDetailsEO.InterviewerEmailId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

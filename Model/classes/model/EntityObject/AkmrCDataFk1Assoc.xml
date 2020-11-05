@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AkmrCDataFk1Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="UsersMasterEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EntityObject.UsersMasterEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="UsersMasterEO"/>
+      <Attr Name="_foreignKey" Value="model.EntityObject.UsersMasterEO.AkmrUMPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.UsersMasterEO.EmailId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="CandidateDataEO"
+    Cardinality="1"
+    Owner="model.EntityObject.CandidateDataEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CandidateDataEO"/>
+      <Attr Name="_foreignKey" Value="model.EntityObject.CandidateDataEO.AkmrCDataFk1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EntityObject.CandidateDataEO.CandidateEmail"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

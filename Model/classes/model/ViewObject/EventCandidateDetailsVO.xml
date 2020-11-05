@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EventCandidateDetailsVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  SelectList="EventCandidateDetailsEO.EVENT_ID, 
+       EventCandidateDetailsEO.CANDIDATE_EMAIL_ID, 
+       EventCandidateDetailsEO.CURRENT_ROUND, 
+       EventCandidateDetailsEO.STATUS"
+  FromList="AKMR_EVENT_CANDIDATE_DETAILS EventCandidateDetailsEO"
+  Where="EventCandidateDetailsEO.EVENT_ID = :pid">
+  <Variable
+    Name="pid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="EventCandidateDetailsEO"
+    Entity="model.EntityObject.EventCandidateDetailsEO"/>
+  <ViewAttribute
+    Name="EventId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventId"
+    EntityUsage="EventCandidateDetailsEO"
+    AliasName="EVENT_ID"/>
+  <ViewAttribute
+    Name="CandidateEmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CandidateEmailId"
+    EntityUsage="EventCandidateDetailsEO"
+    AliasName="CANDIDATE_EMAIL_ID"/>
+  <ViewAttribute
+    Name="CurrentRound"
+    PrecisionRule="true"
+    EntityAttrName="CurrentRound"
+    EntityUsage="EventCandidateDetailsEO"
+    AliasName="CURRENT_ROUND"/>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="EventCandidateDetailsEO"
+    AliasName="STATUS"/>
+</ViewObject>
