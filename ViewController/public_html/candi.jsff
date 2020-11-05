@@ -34,7 +34,6 @@
     </af:column>
     <af:column id="c5" headerText="Find Interviewer">
       <af:button text="search" id="b1" action="search">
-        <af:setPropertyListener to="#{pageFlowScope.pid}" from="#{pageFlowScope.pid}" type="action"/>
         <af:setPropertyListener to="#{pageFlowScope.emid}" from="#{row.CandidateEmailId}" type="action"/>
       </af:button>
     </af:column>

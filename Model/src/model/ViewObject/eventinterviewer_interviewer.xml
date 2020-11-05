@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="eventinterviewer_interviewer"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObject.eventinterviewer_interviewer_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="EventInterviewerDetailsVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ViewObject.EventInterviewerDetailsVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="EventInterviewerDetailsVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ViewObject.EventInterviewerDetailsVO.InterviewerEmailId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="interviewerdataforeventpage"
+    Cardinality="-1"
+    Owner="model.ViewObject.interviewerdataforeventpage">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="interviewerdataforeventpage"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ViewObject.interviewerdataforeventpage.InterviewerEmailId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

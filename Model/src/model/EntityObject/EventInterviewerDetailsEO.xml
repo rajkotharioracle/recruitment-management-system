@@ -20,7 +20,9 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="InterviewerEmailId"
     IsNotNull="true"
@@ -30,7 +32,9 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
@@ -44,7 +48,9 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"/>
+    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="Status"
     IsNotNull="true"
@@ -53,7 +59,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="AKMR_EVENT_INTERVIEWER_DETAILS">
+    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -67,7 +75,9 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"/>
+    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
   <AccessorAttribute
     Name="EventDetailsEO"
     Association="model.EntityObject.AkmrFkEventId2Assoc"
@@ -76,9 +86,9 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
-    Name="UsersMasterEO"
+    Name="InterviewerDataEO"
     Association="model.EntityObject.AkmrEIDetFk1Assoc"
-    AssociationEnd="model.EntityObject.AkmrEIDetFk1Assoc.UsersMasterEO"
+    AssociationEnd="model.EntityObject.AkmrEIDetFk1Assoc.InterviewerDataEO"
     AssociationOtherEnd="model.EntityObject.AkmrEIDetFk1Assoc.EventInterviewerDetailsEO"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
@@ -106,7 +116,7 @@
     Name="AkmrEIDetFk1">
     <DesignTime>
       <Attr Name="_isCascadeDelete" Value="true"/>
-      <Attr Name="_referencedKey" Value="AKMR_U_M_PK"/>
+      <Attr Name="_referencedKey" Value="AKMR_I_DATA_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="AKMR_E_I_DET_FK1"/>
     </DesignTime>
@@ -126,4 +136,17 @@
       <Item Value="model.EntityObject.EventInterviewerDetailsEO.EventId"/>
     </AttrArray>
   </Key>
+  <Permission
+    target="model.EntityObject.EventInterviewerDetailsEO"
+    permissionClass="oracle.adf.share.security.authorization.EntityPermission">
+    <privilege-map
+      operation="read"
+      privilege="read"/>
+    <privilege-map
+      operation="update"
+      privilege="update"/>
+    <privilege-map
+      operation="removeCurrentRow"
+      privilege="delete"/>
+  </Permission>
 </Entity>

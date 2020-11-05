@@ -4,22 +4,118 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="interviewdetailQB1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
-              id="interviewdetailQB1Iterator"/>
-    <searchRegion Binds="interviewdetailQB1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="interviewdetailQB1Query"/>
+    <iterator Binds="EventCandidatefordetailpage1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="EventCandidatefordetailpage1Iterator"/>
+    <searchRegion Binds="EventCandidatefordetailpage1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="EventCandidatefordetailpage1Query"/>
+    <iterator Binds="eventdetailswithname1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="eventdetailswithname1Iterator"/>
+    <searchRegion Binds="eventdetailswithname1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="eventdetailswithname1Query"/>
+    <iterator Binds="interviewers1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="interviewers1Iterator"/>
+    <searchRegion Binds="interviewers1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="interviewers1Query"/>
+    <iterator Binds="EventInterviewerDetails1" RangeSize="10" DataControl="RecruitingAppManagementDataControl"
+              id="EventInterviewerDetails1Iterator"/>
+    <iterator Binds="EventCandidateDatawithName1" RangeSize="10" DataControl="RecruitingAppManagementDataControl"
+              id="EventCandidateDatawithName1Iterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="interviewdetailQB1Iterator" id="interviewdetailQB1">
-      <nodeDefinition DefName="model.ViewObjectQB.interviewdetailQB" Name="interviewdetailQB10">
+    <action IterBinding="EventCandidatefordetailpage1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="EventCandidatefordetailpage1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="EventCandidatefordetailpage1Iterator" id="EventCandidatefordetailpage1">
+      <nodeDefinition DefName="model.ViewObject.EventCandidatefordetailpage" Name="EventCandidatefordetailpage10">
         <AttrNames>
           <Item Value="CandidateName"/>
-          <Item Value="InterviewerName"/>
-          <Item Value="RoundNo"/>
-          <Item Value="StartTime"/>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="CurrentRound"/>
           <Item Value="Status"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="eventdetailswithname1Iterator" id="eventdetailswithname1">
+      <nodeDefinition DefName="model.ViewObject.eventdetailswithname" Name="eventdetailswithname10">
+        <AttrNames>
+          <Item Value="CandidateName"/>
+          <Item Value="InterviewerName"/>
+          <Item Value="EventId"/>
+          <Item Value="StartTime"/>
+          <Item Value="RoundNo"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Commit1" DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action id="Rollback1" DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <tree IterBinding="interviewers1Iterator" id="interviewers1">
+      <nodeDefinition DefName="model.ViewObject.interviewers" Name="interviewers10">
+        <AttrNames>
+          <Item Value="EventId"/>
+          <Item Value="InterviewerEmailId"/>
+          <Item Value="InterviewerMinLevel"/>
+          <Item Value="InterviewerMaxLevel"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="interviewers1Iterator" id="EventId1">
+      <AttrNames>
+        <Item Value="EventId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="interviewers1Iterator" id="InterviewerEmailId1">
+      <AttrNames>
+        <Item Value="InterviewerEmailId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="interviewers1Iterator" id="InterviewerMinLevel1">
+      <AttrNames>
+        <Item Value="InterviewerMinLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="interviewers1Iterator" id="InterviewerMaxLevel1">
+      <AttrNames>
+        <Item Value="InterviewerMaxLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="interviewers1Iterator" id="Status1">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="interviewers1Iterator" id="Delete1"
+            InstanceName="RecruitingAppManagementDataControl.interviewers1"
+            DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="interviewers1Iterator" id="Execute"
+            InstanceName="RecruitingAppManagementDataControl.interviewers1"
+            DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <methodAction id="getEventidforAssigning" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getEventidforAssigning" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventidforAssigning.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventidforAssigning_getEventidforAssigning_dataControl_dataProvider_getEventidforAssigning_result">
+      <NamedData NDName="eventid" NDValue="#{row.EventId}" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="EventInterviewerDetails1Iterator" id="EventId2">
+      <AttrNames>
+        <Item Value="EventId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="interviewers1Iterator" id="CreateInsert1"
+            InstanceName="RecruitingAppManagementDataControl.interviewers1"
+            DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="interviewers1Iterator" id="Create"
+            InstanceName="RecruitingAppManagementDataControl.interviewers1"
+            DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="true" Action="createRow"/>
   </bindings>
 </pageDefinition>

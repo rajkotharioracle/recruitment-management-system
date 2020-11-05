@@ -19,10 +19,10 @@
     <page path="/findinterviewer.jsff" usageId="view_findinterviewerPageDef"/>
     <page path="/candi.jsff" usageId="view_candiPageDef"/>
     <page path="/inter.jsff" usageId="view_interPageDef"/>
-    <page path="PageFlow#ExecuteWithParams" usageId="view_adfc_config___ExecuteWithParamsPageDef"/>
-    <page path="/WEB-INF/assigninterviewer.xml#assigninterviewer@ExecuteWithParams"
-          usageId="view_assigninterviewer_assigninterviewer_ExecuteWithParamsPageDef"/>
-    <page path="PageFlow#ExecuteWithParams1" usageId="view_adfc_config___ExecuteWithParams1PageDef"/>
+    <page path="/SelectCandidatetoassign.jsf" usageId="view_SelectCandidatetoassignPageDef"/>
+    <page path="/Dashboard.jsf" usageId="view_DashboardPageDef"/>
+    <page path="/popupforinterviewer.jsff" usageId="view_popupforinterviewerPageDef"/>
+    <page path="PageFlow#getEventidforAssigning" usageId="view_adfc_config___getEventidforAssigningPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_admin_templatePageDef" path="view.pageDefs.admin_templatePageDef"/>
@@ -37,11 +37,11 @@
     <page id="view_findinterviewerPageDef" path="view.pageDefs.findinterviewerPageDef"/>
     <page id="view_candiPageDef" path="view.pageDefs.candiPageDef"/>
     <page id="view_interPageDef" path="view.pageDefs.interPageDef"/>
-    <page id="view_adfc_config___ExecuteWithParamsPageDef" path="view.pageDefs.adfc_config___ExecuteWithParamsPageDef"/>
-    <page id="view_assigninterviewer_assigninterviewer_ExecuteWithParamsPageDef"
-          path="view.pageDefs.assigninterviewer_assigninterviewer_ExecuteWithParamsPageDef"/>
-    <page id="view_adfc_config___ExecuteWithParams1PageDef"
-          path="view.pageDefs.adfc_config___ExecuteWithParams1PageDef"/>
+    <page id="view_SelectCandidatetoassignPageDef" path="view.pageDefs.SelectCandidatetoassignPageDef"/>
+    <page id="view_DashboardPageDef" path="view.pageDefs.DashboardPageDef"/>
+    <page id="view_popupforinterviewerPageDef" path="view.pageDefs.popupforinterviewerPageDef"/>
+    <page id="view_adfc_config___getEventidforAssigningPageDef"
+          path="view.pageDefs.adfc_config___getEventidforAssigningPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="RecruitmentAppModuleDataControl" Package="model.EntityObject"

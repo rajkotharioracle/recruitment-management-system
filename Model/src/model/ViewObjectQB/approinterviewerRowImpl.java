@@ -16,8 +16,10 @@ public class approinterviewerRowImpl extends ViewRowImpl {
         InterviewerEmailId,
         InterviewerMinLevel,
         InterviewerMaxLevel,
-        Status;
+        Status,
+        EventId;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -39,11 +41,14 @@ public class approinterviewerRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int INTERVIEWERNAME = AttributesEnum.InterviewerName.index();
     public static final int INTERVIEWEREMAILID = AttributesEnum.InterviewerEmailId.index();
     public static final int INTERVIEWERMINLEVEL = AttributesEnum.InterviewerMinLevel.index();
     public static final int INTERVIEWERMAXLEVEL = AttributesEnum.InterviewerMaxLevel.index();
     public static final int STATUS = AttributesEnum.Status.index();
+    public static final int EVENTID = AttributesEnum.EventId.index();
 
     /**
      * This is the default constructor (do not remove).

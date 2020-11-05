@@ -21,5 +21,39 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction id="getEventId" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getEventId"
+                  IsViewObjectMethod="false" DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventId.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventId_getEventId_dataControl_dataProvider_getEventId_result">
+      <NamedData NDName="eventid" NDValue="#{row.EventId}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getEventIdforcandidate" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getEventIdforcandidate" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventIdforcandidate.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventIdforcandidate_getEventIdforcandidate_dataControl_dataProvider_getEventIdforcandidate_result">
+      <NamedData NDName="eventid" NDValue="#{row.EventId}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getEventIdforinterviewer" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getEventIdforinterviewer" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventIdforinterviewer.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventIdforinterviewer_getEventIdforinterviewer_dataControl_dataProvider_getEventIdforinterviewer_result">
+      <NamedData NDName="eventid" NDValue="#{row.EventId}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getEventIdforinterviewerforadd" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getEventIdforinterviewerforadd" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventIdforinterviewerforadd.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventIdforinterviewerforadd_getEventIdforinterviewerforadd_dataControl_dataProvider_getEventIdforinterviewerforadd_result">
+      <NamedData NDName="eventid" NDValue="#{row.EventId}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getEventIdforeventinterviewerforadd" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getEventIdforeventinterviewerforadd" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventIdforeventinterviewerforadd.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventIdforeventinterviewerforadd_getEventIdforeventinterviewerforadd_dataControl_dataProvider_getEventIdforeventinterviewerforadd_result">
+      <NamedData NDName="eventid" NDValue="#{row.EventId}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

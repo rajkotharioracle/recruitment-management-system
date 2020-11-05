@@ -88,8 +88,7 @@
     SQLType="TIMESTAMP"
     Type="oracle.jbo.domain.Date"
     ColumnType="NUMBER"
-    TableName="AKMR_INTERVIEW_DETAILS"
-    PrimaryKey="true">
+    TableName="AKMR_INTERVIEW_DETAILS">
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMAT
@@ -105,8 +104,7 @@
     SQLType="TIMESTAMP"
     Type="oracle.jbo.domain.Date"
     ColumnType="NUMBER"
-    TableName="AKMR_INTERVIEW_DETAILS"
-    PrimaryKey="true"/>
+    TableName="AKMR_INTERVIEW_DETAILS"/>
   <AccessorAttribute
     Name="EventDetailsEO"
     Association="model.EntityObject.AkmrFkEventId3Assoc"
@@ -131,8 +129,6 @@
       <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
       <Item Value="model.EntityObject.InterviewDetailsEO.InterviewerEmailId"/>
       <Item Value="model.EntityObject.InterviewDetailsEO.EventId"/>
-      <Item Value="model.EntityObject.InterviewDetailsEO.StartTime"/>
-      <Item Value="model.EntityObject.InterviewDetailsEO.EndTime"/>
     </AttrArray>
   </Key>
   <Key

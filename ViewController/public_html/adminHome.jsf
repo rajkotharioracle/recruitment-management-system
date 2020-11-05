@@ -65,9 +65,7 @@
                             </af:outputText>
                         </af:column>
                         <af:column id="c6" headerText="Detail">
-                            <af:button text="See Detail" id="b1" action="select">
-                                <af:setPropertyListener type="action" from="#{row.EventId}" to="#{pageFlowScope.pid}"/>
-                            </af:button>
+                            <af:button text="See Detail" id="b1" action="#{Eventselection.getEventDetail}"/>
                         </af:column>
                     </af:table>
                 </f:facet>

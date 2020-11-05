@@ -41,4 +41,9 @@
       <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
+  <AppModuleUsage
+    Name="RecruitingAppManagement"
+    FullName="model.EntityObject.RecruitingAppManagement"
+    ConfigurationName="model.EntityObject.RecruitingAppManagementShared"
+    SharedScope="2"/>
 </JboProject>

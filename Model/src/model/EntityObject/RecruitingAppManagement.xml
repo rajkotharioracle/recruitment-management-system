@@ -6,7 +6,14 @@
   Name="RecruitingAppManagement"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="model.EntityObject.RecruitingAppManagementImpl"
+  DefClass="model.EntityObject.RecruitingAppManagementDefImpl"
+  ComponentInterface="model.EntityObject.common.RecruitingAppManagement">
+  <DesignTime>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -28,6 +35,138 @@
   <ViewUsage
     Name="EventDetails1"
     ViewObjectName="model.ViewObject.EventDetailsVO"/>
+  <ViewUsage
+    Name="EventInterviewerDetails1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="EventCandidatefordetailpage1"
+    ViewObjectName="model.ViewObject.EventCandidatefordetailpage"/>
+  <ViewUsage
+    Name="interviewerdataforeventpage1"
+    ViewObjectName="model.ViewObject.interviewerdataforeventpage"/>
+  <ViewUsage
+    Name="UsersMaster1"
+    ViewObjectName="model.ViewObject.UsersMasterVO"/>
+  <ViewUsage
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO2"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="interviewerdataforeventpage2"
+    ViewObjectName="model.ViewObject.interviewerdataforeventpage"/>
+  <ViewUsage
+    Name="interviewers1"
+    ViewObjectName="model.ViewObject.interviewers"/>
+  <ViewLinkUsage
+    Name="interviewetforadding"
+    ViewLinkObjectName="model.ViewObject.interviewetforadding"
+    SrcViewUsageName="model.EntityObject.RecruitingAppManagement.InterviewerDataVO1"
+    DstViewUsageName="model.EntityObject.RecruitingAppManagement.EventInterviewerDetailsVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="eventinterviewer_interviewer"
+    ViewLinkObjectName="model.ViewObject.eventinterviewer_interviewer"
+    SrcViewUsageName="model.EntityObject.RecruitingAppManagement.EventInterviewerDetailsVO2"
+    DstViewUsageName="model.EntityObject.RecruitingAppManagement.interviewerdataforeventpage2"
+    Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="getEventId"
+      MethodName="getEventId">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventIdforcandidate"
+      MethodName="getEventIdforcandidate">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventIdforinterviewer"
+      MethodName="getEventIdforinterviewer">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventId"
+      MethodName="getEventId">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventIdforcandidate"
+      MethodName="getEventIdforcandidate">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventIdforinterviewer"
+      MethodName="getEventIdforinterviewer">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventIdforinterviewerforadd"
+      MethodName="getEventIdforinterviewerforadd">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventIdforeventinterviewerforadd"
+      MethodName="getEventIdforeventinterviewerforadd">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getEventidforAssigning"
+      MethodName="getEventidforAssigning">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

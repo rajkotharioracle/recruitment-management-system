@@ -25,18 +25,19 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="pid"
-    Kind="where"
-    Type="java.lang.String"/>
+    Name="pid1"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <SQLQuery><![CDATA[SELECT AKMR_CANDIDATE_DATA.CANDIDATE_NAME CANDIDATE_NAME,  
     AKMR_INTERVIEWER_DATA.INTERVIEWER_NAME INTERVIEWER_NAME,
     AKMR_INTERVIEW_DETAILS.ROUND_NO ROUND_NO, 
     AKMR_INTERVIEW_DETAILS.START_TIME START_TIME, 
-    AKMR_INTERVIEW_DETAILS.STATUS STATUS 
+    AKMR_INTERVIEW_DETAILS.STATUS STATUS,
+    AKMR_INTERVIEW_DETAILS.EVENT_ID EVENT_ID
      from AKMR_INTERVIEW_DETAILS join AKMR_CANDIDATE_DATA 
      on AKMR_INTERVIEW_DETAILS.CANDIDATE_EMAIL_ID = AKMR_CANDIDATE_DATA.CANDIDATE_EMAIL
      join AKMR_INTERVIEWER_DATA ON AKMR_INTERVIEW_DETAILS.INTERVIEWER_EMAIL_ID = AKMR_INTERVIEWER_DATA.INTERVIEWER_EMAIL
-     where AKMR_INTERVIEW_DETAILS.EVENT_ID= :pid and AKMR_INTERVIEW_DETAILS.STATUS = 'ongoing']]></SQLQuery>
+     where AKMR_INTERVIEW_DETAILS.STATUS = 'ongoing']]></SQLQuery>
   <ViewAttribute
     Name="CandidateName"
     IsUpdateable="false"
@@ -113,6 +114,54 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="EventId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="EVENT_ID"
+    Expression="EVENT_ID"
+    SQLType="NUMERIC"/>
+  <ViewCriteria
+    Name="interviewdetailQBCriteria"
+    ViewObjectName="model.ViewObjectQB.interviewdetailQB"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="interviewdetailQBCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="EventId"
+        ViewAttribute="EventId"
+        Operator="="
+        Conjunction="AND"
+        Value=":pid1"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

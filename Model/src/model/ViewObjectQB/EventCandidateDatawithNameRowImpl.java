@@ -17,7 +17,10 @@ public class EventCandidateDatawithNameRowImpl extends ViewRowImpl {
         CandidateName,
         CandidateEmailId,
         CurrentRound,
-        Status;
+        Status,
+        EventId,
+        InterviewerList,
+        approinterviewer1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -40,10 +43,15 @@ public class EventCandidateDatawithNameRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int CANDIDATENAME = AttributesEnum.CandidateName.index();
     public static final int CANDIDATEEMAILID = AttributesEnum.CandidateEmailId.index();
     public static final int CURRENTROUND = AttributesEnum.CurrentRound.index();
     public static final int STATUS = AttributesEnum.Status.index();
+    public static final int EVENTID = AttributesEnum.EventId.index();
+    public static final int INTERVIEWERLIST = AttributesEnum.InterviewerList.index();
+    public static final int APPROINTERVIEWER1 = AttributesEnum.approinterviewer1.index();
 
     /**
      * This is the default constructor (do not remove).

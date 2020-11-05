@@ -4,8 +4,24 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="assigninterviewer1" taskFlowId="/WEB-INF/assigninterviewer.xml#assigninterviewer"
-              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="EventCandidateDatawithName1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="EventCandidateDatawithName1Iterator"/>
+    <searchRegion Binds="EventCandidateDatawithName1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="EventCandidateDatawithName1Query"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="EventCandidateDatawithName1Iterator" id="EventCandidateDatawithName1">
+      <nodeDefinition DefName="model.ViewObjectQB.EventCandidateDatawithName" Name="EventCandidateDatawithName10">
+        <AttrNames>
+          <Item Value="CandidateName"/>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="CurrentRound"/>
+          <Item Value="Status"/>
+          <Item Value="EventId"/>
+          <Item Value="InterviewerList"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

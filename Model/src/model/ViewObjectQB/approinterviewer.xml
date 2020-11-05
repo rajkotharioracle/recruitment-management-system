@@ -10,7 +10,8 @@
   CustomQuery="true"
   RowClass="model.ViewObjectQB.approinterviewerRowImpl"
   ComponentClass="model.ViewObjectQB.approinterviewerImpl"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll"/>
     <Attr Name="_isExpertMode" Value="true"/>
@@ -23,32 +24,25 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="pid"
-    Kind="where"
-    Type="java.lang.String"/>
+    Name="round"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
   <Variable
-    Name="emid"
-    Kind="where"
+    Name="pid1"
+    Kind="viewcriteria"
     Type="java.lang.String"/>
   <SQLQuery><![CDATA[select
     AKMR_INTERVIEWER_DATA.INTERVIEWER_NAME INTERVIEWER_NAME,
     AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_EMAIL_ID INTERVIEWER_EMAIL_ID,
     AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MIN_LEVEL INTERVIEWER_MIN_LEVEL,
     AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MAX_LEVEL INTERVIEWER_MAX_LEVEL,
-    AKMR_EVENT_INTERVIEWER_DETAILS.STATUS STATUS
+    AKMR_EVENT_INTERVIEWER_DETAILS.STATUS STATUS,
+    AKMR_EVENT_INTERVIEWER_DETAILS.EVENT_ID
     from AKMR_EVENT_INTERVIEWER_DETAILS join AKMR_INTERVIEWER_DATA
-    on AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_EMAIL_ID = AKMR_INTERVIEWER_DATA.INTERVIEWER_EMAIL
-    where (select CURRENT_ROUND from AKMR_EVENT_CANDIDATE_DETAILS
-    where AKMR_EVENT_CANDIDATE_DETAILS.CANDIDATE_EMAIL_ID=  :emid) >= AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MIN_LEVEL and
-  (select CURRENT_ROUND from AKMR_EVENT_CANDIDATE_DETAILS
-  where AKMR_EVENT_CANDIDATE_DETAILS.CANDIDATE_EMAIL_ID= :emid )<= AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_MAX_LEVEL and
-    AKMR_EVENT_INTERVIEWER_DETAILS.EVENT_ID = :pid and
-    AKMR_EVENT_INTERVIEWER_DETAILS.STATUS = 'available']]></SQLQuery>
+    on AKMR_EVENT_INTERVIEWER_DETAILS.INTERVIEWER_EMAIL_ID = AKMR_INTERVIEWER_DATA.INTERVIEWER_EMAIL]]></SQLQuery>
   <ViewAttribute
     Name="InterviewerName"
     IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="INTERVIEWER_NAME"
@@ -82,7 +76,7 @@
     ColumnType="NUMBER"
     AliasName="INTERVIEWER_MIN_LEVEL"
     Expression="INTERVIEWER_MIN_LEVEL"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="InterviewerMaxLevel"
     IsPersistent="false"
@@ -93,7 +87,7 @@
     ColumnType="NUMBER"
     AliasName="INTERVIEWER_MAX_LEVEL"
     Expression="INTERVIEWER_MAX_LEVEL"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Status"
     IsPersistent="false"
@@ -108,6 +102,86 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="EventId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="EVENT_ID"
+    Expression="EVENT_ID"
+    SQLType="INTEGER"/>
+  <ViewCriteria
+    Name="approinterviewerCriteria"
+    ViewObjectName="model.ViewObjectQB.approinterviewer"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteria
+      Name="approinterviewerSubCriteria1"
+      ViewObjectName="model.ViewObjectQB.approinterviewer"
+      Conjunction="AND">
+      <ViewCriteriaRow
+        Name="approinterviewerSubCriteria1_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="InterviewerMinLevel"
+          ViewAttribute="InterviewerMinLevel"
+          Operator="&lt;="
+          Conjunction="AND"
+          Value=":round"
+          IsBindVarValue="true"
+          Required="Optional"/>
+        <ViewCriteriaItem
+          Name="InterviewerMaxLevel"
+          ViewAttribute="InterviewerMaxLevel"
+          Operator=">="
+          Conjunction="AND"
+          Value=":round"
+          IsBindVarValue="true"
+          Required="Optional"/>
+        <ViewCriteriaItem
+          Name="Status"
+          ViewAttribute="Status"
+          Operator="="
+          Conjunction="AND"
+          Value="available"
+          Required="Optional"
+          UpperColumns="0"/>
+        <ViewCriteriaItem
+          Name="approinterviewerCriteria_approinterviewerSubCriteria1_approinterviewerSubCriteria1_row_0_EventId"
+          ViewAttribute="EventId"
+          Operator="="
+          Conjunction="AND"
+          Value=":pid1"
+          IsBindVarValue="true"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="InterviewerEmailId"/>
+  </AttrArray>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

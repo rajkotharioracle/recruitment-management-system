@@ -6,7 +6,28 @@
   Name="eventdetailswithname"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectList="CandidateDataEO.CANDIDATE_NAME, 
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  AccessMode="DEFAULT"
+  RowClass="model.ViewObject.eventdetailswithnameRowImpl"
+  ComponentClass="model.ViewObject.eventdetailswithnameImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObject.eventdetailswithname_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pid1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT CandidateDataEO.CANDIDATE_NAME, 
        CandidateDataEO.CANDIDATE_EMAIL, 
        InterviewerDataEO.INTERVIEWER_NAME, 
        InterviewerDataEO.INTERVIEWER_EMAIL, 
@@ -16,22 +37,11 @@
        InterviewDetailsEO.START_TIME, 
        InterviewDetailsEO.END_TIME, 
        InterviewDetailsEO.ROUND_NO, 
-       InterviewDetailsEO.STATUS"
-  FromList="AKMR_CANDIDATE_DATA CandidateDataEO, AKMR_INTERVIEWER_DATA InterviewerDataEO, AKMR_INTERVIEW_DETAILS InterviewDetailsEO"
-  Where="InterviewDetailsEO.EVENT_ID = :pid"
-  BindingStyle="OracleName"
-  CustomQuery="false"
-  PageIterMode="Full">
-  <Properties>
-    <SchemaBasedProperties>
-      <LABEL
-        ResId="model.ViewObject.eventdetailswithname_LABEL"/>
-    </SchemaBasedProperties>
-  </Properties>
-  <Variable
-    Name="pid"
-    Kind="where"
-    Type="java.lang.String"/>
+       InterviewDetailsEO.STATUS
+FROM   AKMR_INTERVIEW_DETAILS InterviewDetailsEO join AKMR_CANDIDATE_DATA CandidateDataEO
+on InterviewDetailsEO.CANDIDATE_EMAIL_ID = CandidateDataEO.CANDIDATE_EMAIL join
+AKMR_INTERVIEWER_DATA InterviewerDataEO on
+InterviewDetailsEO.INTERVIEWER_EMAIL_ID = InterviewerDataEO.INTERVIEWER_EMAIL]]></SQLQuery>
   <EntityUsage
     Name="CandidateDataEO"
     Entity="model.EntityObject.CandidateDataEO"/>
@@ -138,6 +148,54 @@
     EntityAttrName="Status"
     EntityUsage="InterviewDetailsEO"
     AliasName="STATUS"/>
+  <ViewCriteria
+    Name="eventdetailswithnameCriteria"
+    ViewObjectName="model.ViewObject.eventdetailswithname"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteria
+      Name="eventdetailswithnameSubCriteria1"
+      ViewObjectName="model.ViewObject.eventdetailswithname"
+      Conjunction="AND">
+      <ViewCriteriaRow
+        Name="eventdetailswithnameSubCriteria1_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="EventId"
+          ViewAttribute="EventId"
+          Operator="="
+          Conjunction="AND"
+          Value=":pid1"
+          IsBindVarValue="true"
+          Required="Optional"/>
+        <ViewCriteriaItem
+          Name="Status"
+          ViewAttribute="Status"
+          Operator="="
+          Conjunction="AND"
+          Value="ongoing"
+          Required="Required"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="CandidateEmail"/>
     <Item Value="InterviewerEmail"/>

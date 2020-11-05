@@ -19,8 +19,10 @@ public class interviewdetailQBRowImpl extends ViewRowImpl {
         InterviewerName,
         RoundNo,
         StartTime,
-        Status;
+        Status,
+        EventId;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -50,6 +52,7 @@ public class interviewdetailQBRowImpl extends ViewRowImpl {
     public static final int ROUNDNO = AttributesEnum.RoundNo.index();
     public static final int STARTTIME = AttributesEnum.StartTime.index();
     public static final int STATUS = AttributesEnum.Status.index();
+    public static final int EVENTID = AttributesEnum.EventId.index();
 
     /**
      * This is the default constructor (do not remove).

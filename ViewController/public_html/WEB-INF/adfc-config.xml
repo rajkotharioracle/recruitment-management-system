@@ -18,16 +18,10 @@
   <view id="createInterview">
     <page>/createInterview.jsf</page>
   </view>
-  <method-call id="ExecuteWithParams">
-    <method>#{bindings.ExecuteWithParams.execute}</method>
+  <method-call id="getEventidforAssigning">
+    <method>#{bindings.getEventidforAssigning.execute}</method>
     <outcome>
-      <fixed-outcome>ExecuteWithParams</fixed-outcome>
-    </outcome>
-  </method-call>
-  <method-call id="ExecuteWithParams1">
-    <method>#{bindings.ExecuteWithParams.execute}</method>
-    <outcome>
-      <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      <fixed-outcome>getEventidforAssigning</fixed-outcome>
     </outcome>
   </method-call>
   <control-flow-rule id="__1">
@@ -61,7 +55,7 @@
     </control-flow-case>
     <control-flow-case id="__8">
       <from-outcome>select</from-outcome>
-      <to-activity-id>ExecuteWithParams</to-activity-id>
+      <to-activity-id>eventDetail</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__10">
@@ -85,25 +79,27 @@
       <to-activity-id>Feedback</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
-  <control-flow-rule id="__16">
-    <from-activity-id>ExecuteWithParams</from-activity-id>
-    <control-flow-case id="__17">
-      <from-outcome>ExecuteWithParams</from-outcome>
-      <to-activity-id>eventDetail</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
-  <control-flow-rule id="__18">
+  <control-flow-rule id="__17">
     <from-activity-id>eventDetail</from-activity-id>
-    <control-flow-case id="__19">
-      <from-outcome>createinterviews</from-outcome>
-      <to-activity-id>ExecuteWithParams1</to-activity-id>
+    <control-flow-case id="__18">
+      <to-activity-id>getEventidforAssigning</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
-  <control-flow-rule id="__20">
-    <from-activity-id>ExecuteWithParams1</from-activity-id>
-    <control-flow-case id="__21">
-      <from-outcome>ExecuteWithParams</from-outcome>
+  <control-flow-rule id="__19">
+    <from-activity-id>getEventidforAssigning</from-activity-id>
+    <control-flow-case id="__20">
+      <from-outcome>getEventidforAssigning</from-outcome>
       <to-activity-id>createInterview</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
+  <managed-bean id="__16">
+    <managed-bean-name>Eventselection</managed-bean-name>
+    <managed-bean-class>view.bean.EventSelection</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__21">
+    <managed-bean-name>CreateInterview</managed-bean-name>
+    <managed-bean-class>view.bean.CreateInterview</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

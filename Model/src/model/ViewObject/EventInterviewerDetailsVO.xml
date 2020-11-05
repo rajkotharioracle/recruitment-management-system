@@ -12,7 +12,32 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <Variable
+    Name="pid1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="RecruitingAppManagement_InterviewerDataVO1_1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"
+    AMUsageName="RecruitingAppManagement"
+    ViewInstanceName="InterviewerDataVO1"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_InterviewerEmailId"
+    ListVOName="RecruitingAppManagement_InterviewerDataVO1_1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InterviewerEmailId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InterviewerEmail"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="EventInterviewerDetailsEO"
     Entity="model.EntityObject.EventInterviewerDetailsEO"/>
@@ -29,7 +54,15 @@
     PrecisionRule="true"
     EntityAttrName="InterviewerEmailId"
     EntityUsage="EventInterviewerDetailsEO"
-    AliasName="INTERVIEWER_EMAIL_ID"/>
+    AliasName="INTERVIEWER_EMAIL_ID"
+    LOVName="LOV_InterviewerEmailId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InterviewerMaxLevel"
     IsNotNull="true"
@@ -51,4 +84,57 @@
     EntityAttrName="InterviewerMinLevel"
     EntityUsage="EventInterviewerDetailsEO"
     AliasName="INTERVIEWER_MIN_LEVEL"/>
+  <ViewCriteria
+    Name="EventInterviewerDetailsVOCriteria"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteria
+      Name="EventInterviewerDetailsVOSubCriteria1"
+      ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"
+      Conjunction="AND">
+      <ViewCriteriaRow
+        Name="EventInterviewerDetailsVOSubCriteria1_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="EventInterviewerDetailsVOSubCriteria1_EventInterviewerDetailsVOSubCriteria1_row_0_EventId"
+          ViewAttribute="EventId"
+          Operator="="
+          Conjunction="AND"
+          Value=":pid1"
+          ValidateBindVars="true"
+          IsBindVarValue="true"
+          Required="Required"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="InterviewerDataVO"
+    ViewLink="model.ViewObject.interviewetforadding"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="interviewerdataforeventpage"
+    ViewLink="model.ViewObject.eventinterviewer_interviewer"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
