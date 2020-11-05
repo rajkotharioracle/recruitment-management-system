@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="event_createPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EventDetails1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="EventDetails1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EventDetails1Iterator" id="EventName">
+      <AttrNames>
+        <Item Value="EventName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetails1Iterator" id="EventStatus">
+      <AttrNames>
+        <Item Value="EventStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetails1Iterator" id="EventStartTime">
+      <AttrNames>
+        <Item Value="EventStartTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventDetails1Iterator" id="EventMaxRounds">
+      <AttrNames>
+        <Item Value="EventMaxRounds"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

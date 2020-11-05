@@ -45,4 +45,20 @@
     EntityAttrName="InterviewerMobNo"
     EntityUsage="InterviewerDataEO"
     AliasName="INTERVIEWER_MOB_NO"/>
+  <ViewAttribute
+    Name="selectedInterviewer"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
 </ViewObject>

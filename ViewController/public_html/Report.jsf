@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Report.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelGridLayout id="pgl1" inlineStyle="border-style:solid;">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" columnSpan="2" marginEnd="5px" id="gc1">
+                                <af:outputText value="Select Event" id="ot1" inlineStyle="font-size:large;"/>
+                                <af:selectOneListbox value="#{bindings.CompletedEventsVO1.inputValue}"
+                                                     label="Completed Events"
+                                                     required="#{bindings.CompletedEventsVO1.hints.mandatory}"
+                                                     shortDesc="#{bindings.CompletedEventsVO1.hints.tooltip}" id="sol1"
+                                                     validator="#{setCompletedEvent.sol1_validator}"
+                                                     binding="#{setCompletedEvent.eventName}">
+                                    <f:selectItems value="#{bindings.CompletedEventsVO1.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.CompletedEventsVO1.validator}"/>
+                                </af:selectOneListbox>
+                                <af:button actionListener="#{bindings.setBindvar.execute}" text="Select"
+                                           disabled="#{!bindings.setBindvar.enabled}" id="b1"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                            <af:gridCell marginStart="5px" width="50%" id="gc2" halign="stretch">
+                                <af:outputText value="Selected Candidates" id="ot4" inlineStyle="font-size:large;"/>
+                                <af:table value="#{bindings.SelectedCandidatesVO1.collectionModel}" var="row"
+                                          rows="#{bindings.SelectedCandidatesVO1.rangeSize}"
+                                          emptyText="#{bindings.SelectedCandidatesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" fetchSize="#{bindings.SelectedCandidatesVO1.rangeSize}"
+                                          filterModel="#{bindings.SelectedCandidatesVO1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.SelectedCandidatesVO1Query.processQuery}"
+                                          varStatus="vs" id="t1" inlineStyle="max-height:inherit;">
+                                    <af:column sortProperty="#{bindings.SelectedCandidatesVO1.hints.CandidateEmailId.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SelectedCandidatesVO1.hints.CandidateEmailId.label}"
+                                               id="c1">
+                                        <af:outputText value="#{row.CandidateEmailId}"
+                                                       shortDesc="#{bindings.SelectedCandidatesVO1.hints.CandidateEmailId.tooltip}"
+                                                       id="ot2"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SelectedCandidatesVO1.hints.CandidateName.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SelectedCandidatesVO1.hints.CandidateName.label}"
+                                               id="c2">
+                                        <af:outputText value="#{row.CandidateName}"
+                                                       shortDesc="#{bindings.SelectedCandidatesVO1.hints.CandidateName.tooltip}"
+                                                       id="ot3"/>
+                                    </af:column>
+                                </af:table>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc3"
+                                         attributeChangeListener="#{setCompletedEvent.gc3_attributeChangeListener}"
+                                         halign="stretch">
+                                <af:outputText value="History of Candidate" id="ot5" inlineStyle="font-size:large;"/>
+                                <af:selectOneChoice value="#{bindings.CandidatesInInterview1.inputValue}"
+                                                    label="#{bindings.CandidatesInInterview1.label}"
+                                                    shortDesc="#{bindings.CandidatesInInterview1.hints.tooltip}"
+                                                    id="soc1" showRequired="true"
+                                                    validator="#{setCompletedEvent.soc1_validator}">
+                                    <f:selectItems value="#{bindings.CandidatesInInterview1.items}" id="si2"/>
+                                    <f:validator binding="#{bindings.CandidatesInInterview1.validator}"/>
+                                </af:selectOneChoice>
+                                <af:button actionListener="#{bindings.report_setCandidate.execute}"
+                                           text="Get History"
+                                           disabled="#{!bindings.report_setCandidate.enabled}" id="b2"/>
+                                <af:table value="#{bindings.CandidatesEventHistory1.collectionModel}" var="row"
+                                          rows="#{bindings.CandidatesEventHistory1.rangeSize}"
+                                          emptyText="#{bindings.CandidatesEventHistory1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          fetchSize="#{bindings.CandidatesEventHistory1.rangeSize}"
+                                          filterModel="#{bindings.CandidatesEventHistory1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.CandidatesEventHistory1Query.processQuery}"
+                                          varStatus="vs" id="t2">
+                                    <af:column sortProperty="#{bindings.CandidatesEventHistory1.hints.InterviewerName.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesEventHistory1.hints.InterviewerName.label}"
+                                               id="c3" width="101">
+                                        <af:outputText value="#{row.InterviewerName}"
+                                                       shortDesc="#{bindings.CandidatesEventHistory1.hints.InterviewerName.tooltip}"
+                                                       id="ot6"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesEventHistory1.hints.InterviewerEmail.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesEventHistory1.hints.InterviewerEmail.label}"
+                                               id="c4" width="99">
+                                        <af:outputText value="#{row.InterviewerEmail}"
+                                                       shortDesc="#{bindings.CandidatesEventHistory1.hints.InterviewerEmail.tooltip}"
+                                                       id="ot7"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesEventHistory1.hints.RoundNo.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesEventHistory1.hints.RoundNo.label}"
+                                               id="c5" width="100">
+                                        <af:outputText value="#{row.RoundNo}"
+                                                       shortDesc="#{bindings.CandidatesEventHistory1.hints.RoundNo.tooltip}"
+                                                       id="ot8">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CandidatesEventHistory1.hints.RoundNo.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesEventHistory1.hints.StartTime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesEventHistory1.hints.StartTime.label}"
+                                               id="c6" width="100">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.CandidatesEventHistory1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.StartTime.value}"
+                                                          id="id1">
+                                                <af:convertDateTime pattern="#{bindings.CandidatesEventHistory1.hints.StartTime.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.StartTime}"
+                                                       shortDesc="#{bindings.CandidatesEventHistory1.hints.StartTime.tooltip}"
+                                                       id="ot9">
+                                            <af:convertDateTime pattern="#{bindings.CandidatesEventHistory1.hints.StartTime.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesEventHistory1.hints.EndTime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesEventHistory1.hints.EndTime.label}"
+                                               id="c7" width="100">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.CandidatesEventHistory1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EndTime.value}"
+                                                          id="id2">
+                                                <af:convertDateTime pattern="#{bindings.CandidatesEventHistory1.hints.EndTime.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.EndTime}"
+                                                       shortDesc="#{bindings.CandidatesEventHistory1.hints.EndTime.tooltip}"
+                                                       id="ot10">
+                                            <af:convertDateTime pattern="#{bindings.CandidatesEventHistory1.hints.EndTime.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesEventHistory1.hints.FeedbackId.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesEventHistory1.hints.FeedbackId.label}"
+                                               id="c8" width="100">
+                                        <af:outputText value="#{row.FeedbackId}"
+                                                       shortDesc="#{bindings.CandidatesEventHistory1.hints.FeedbackId.tooltip}"
+                                                       id="ot11">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CandidatesEventHistory1.hints.FeedbackId.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesEventHistory1.hints.Status.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesEventHistory1.hints.Status.label}"
+                                               id="c9">
+                                        <af:outputText value="#{row.Status}"
+                                                       shortDesc="#{bindings.CandidatesEventHistory1.hints.Status.tooltip}"
+                                                       id="ot12"/>
+                                    </af:column>
+                                </af:table>
+                                <af:table value="#{bindings.CandiateStatus1.collectionModel}" var="row"
+                                          rows="#{bindings.CandiateStatus1.rangeSize}"
+                                          emptyText="#{bindings.CandiateStatus1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" fetchSize="#{bindings.CandiateStatus1.rangeSize}"
+                                          id="t3">
+                                    <af:column headerText="#{bindings.CandiateStatus1.hints.Status.label}" id="c10">
+                                        <af:outputText value="#{row.Status}"
+                                                       shortDesc="#{bindings.CandiateStatus1.hints.Status.tooltip}"
+                                                       id="ot19"/>
+                                    </af:column>
+                                </af:table>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="50%" id="gc4" halign="stretch">
+                                <af:outputText value="History of Interviewer" id="ot13" inlineStyle="font-size:large;"/>
+                                <af:selectOneListbox value="#{bindings.InterviewerwithSpecifcEventId1.inputValue}"
+                                                     label="#{bindings.InterviewerwithSpecifcEventId1.label}"
+                                                     shortDesc="#{bindings.InterviewerwithSpecifcEventId1.hints.tooltip}"
+                                                     id="sol2">
+                                    <f:selectItems value="#{bindings.InterviewerwithSpecifcEventId1.items}" id="si3"/>
+                                    <f:validator binding="#{bindings.InterviewerwithSpecifcEventId1.validator}"/>
+                                </af:selectOneListbox>
+                                <af:selectOneChoice label="Outcome" id="soc2"
+                                                    validator="#{setCompletedEvent.soc2_validator}"
+                                                    valueChangeListener="#{setCompletedEvent.report_outcome_valuechange}"
+                                                    binding="#{setCompletedEvent.report_outcome}">
+                                    <af:selectItem label="Pursue" value="pursue" id="si4"/>
+                                    <af:selectItem label="Reject" value="reject" id="si5"/>
+                                    <af:selectItem label="Hold" value="hold" id="si6"/>
+                                </af:selectOneChoice>
+                                <af:button actionListener="#{bindings.report_setInterviewer.execute}"
+                                           text="serach"
+                                           disabled="#{!bindings.report_setInterviewer.enabled}" id="b3"/>
+                                <af:table value="#{bindings.InterviewerEventHistory1.collectionModel}" var="row"
+                                          rows="#{bindings.InterviewerEventHistory1.rangeSize}"
+                                          emptyText="#{bindings.InterviewerEventHistory1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          fetchSize="#{bindings.InterviewerEventHistory1.rangeSize}"
+                                          filterModel="#{bindings.InterviewerEventHistory1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.InterviewerEventHistory1Query.processQuery}"
+                                          varStatus="vs" id="t4">
+                                    <af:column sortProperty="#{bindings.InterviewerEventHistory1.hints.CandidateEmail.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.InterviewerEventHistory1.hints.CandidateEmail.label}"
+                                               id="c11">
+                                        <af:outputText value="#{row.CandidateEmail}"
+                                                       shortDesc="#{bindings.InterviewerEventHistory1.hints.CandidateEmail.tooltip}"
+                                                       id="ot14"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.InterviewerEventHistory1.hints.CandidateName.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.InterviewerEventHistory1.hints.CandidateName.label}"
+                                               id="c12">
+                                        <af:outputText value="#{row.CandidateName}"
+                                                       shortDesc="#{bindings.InterviewerEventHistory1.hints.CandidateName.tooltip}"
+                                                       id="ot15"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.InterviewerEventHistory1.hints.RoundNo.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.InterviewerEventHistory1.hints.RoundNo.label}"
+                                               id="c13">
+                                        <af:outputText value="#{row.RoundNo}"
+                                                       shortDesc="#{bindings.InterviewerEventHistory1.hints.RoundNo.tooltip}"
+                                                       id="ot16"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.InterviewerEventHistory1.hints.StartTime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.InterviewerEventHistory1.hints.StartTime.label}"
+                                               id="c14">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.InterviewerEventHistory1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.StartTime.value}"
+                                                          id="id3">
+                                                <af:convertDateTime pattern="#{bindings.InterviewerEventHistory1.hints.StartTime.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.StartTime}"
+                                                       shortDesc="#{bindings.InterviewerEventHistory1.hints.StartTime.tooltip}"
+                                                       id="ot17"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.InterviewerEventHistory1.hints.EndTime.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.InterviewerEventHistory1.hints.EndTime.label}"
+                                               id="c15">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.InterviewerEventHistory1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EndTime.value}"
+                                                          id="id4">
+                                                <af:convertDateTime pattern="#{bindings.InterviewerEventHistory1.hints.EndTime.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:outputText value="#{row.EndTime}"
+                                                       shortDesc="#{bindings.InterviewerEventHistory1.hints.EndTime.tooltip}"
+                                                       id="ot18"/>
+                                    </af:column>
+                                </af:table>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc5"/>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+                <f:attribute name="pageTitle" value="Reports"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:setCompletedEvent-->
+</f:view>

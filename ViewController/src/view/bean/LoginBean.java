@@ -16,7 +16,7 @@ import javax.naming.InitialContext;
 
 import javax.servlet.http.HttpSession;
 
-import view.common.MyADFUtil;
+//import view.common.MyADFUtil;
 import view.common.SessionUtils;
 import view.common.LoginDAO;
 import javax.faces.bean.ManagedBean;

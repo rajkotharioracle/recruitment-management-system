@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="event_create3.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:table value="#{bindings.IntervieweriInEvent1.collectionModel}" var="row"
+                              rows="#{bindings.IntervieweriInEvent1.rangeSize}"
+                              emptyText="#{bindings.IntervieweriInEvent1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.IntervieweriInEvent1.collectionModel.selectedRow}"
+                              rowSelection="multiple" fetchSize="#{bindings.IntervieweriInEvent1.rangeSize}"
+                              filterModel="#{bindings.IntervieweriInEvent1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.IntervieweriInEvent1Query.processQuery}" varStatus="vs" id="t1">
+                        <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerName.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerName.label}" id="c1">
+                            <af:outputText value="#{row.InterviewerName}"
+                                           shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerName.tooltip}"
+                                           id="ot1"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.label}" id="c2">
+                            <af:outputText value="#{row.InterviewerEmail}"
+                                           shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.label}"
+                                   id="c3">
+                            <af:outputText value="#{row.InterviewerPosition}"
+                                           shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.tooltip}"
+                                           id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.label}"
+                                   id="c4">
+                            <af:inputText value="#{row.bindings.InterviewerMinLevel.inputValue}"
+                                          label="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.label}"
+                                          required="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.mandatory}"
+                                          columns="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.displayWidth}"
+                                          maximumLength="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.precision}"
+                                          shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.tooltip}"
+                                          id="it1">
+                                <f:validator binding="#{row.bindings.InterviewerMinLevel.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.format}"/>
+                            </af:inputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.name}"
+                                   filterable="true" sortable="true"
+                                   headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.label}"
+                                   id="c5">
+                            <af:inputText value="#{row.bindings.InterviewerMaxLevel.inputValue}"
+                                          label="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.label}"
+                                          required="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.mandatory}"
+                                          columns="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.displayWidth}"
+                                          maximumLength="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.precision}"
+                                          shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.tooltip}"
+                                          id="it2">
+                                <f:validator binding="#{row.bindings.InterviewerMaxLevel.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.format}"/>
+                            </af:inputText>
+                        </af:column>
+                    </af:table>
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit" id="b1"/>
+                    <af:button text="set eventid" id="b2" actionListener="#{setCompletedEvent.checkfun}"/>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

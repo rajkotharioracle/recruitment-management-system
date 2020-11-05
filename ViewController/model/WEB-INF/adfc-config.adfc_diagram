@@ -115,6 +115,8 @@
       <property
          name="y">-83.13281</property>
       <property
+         name="page">/Report.jsf</property>
+      <property
          name="exceptionHandler">false</property>
    </View>
    <View

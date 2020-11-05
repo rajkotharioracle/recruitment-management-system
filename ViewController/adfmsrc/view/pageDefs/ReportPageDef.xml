@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ReportPageDef"
+                Package="view.pageDefs">
+  <parameters>
+    <parameter id="evid" value="value"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CompletedEventsVO1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CompletedEventsVO1Iterator"/>
+    <iterator Binds="SelectedCandidatesVO1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="SelectedCandidatesVO1Iterator"/>
+    <searchRegion Binds="SelectedCandidatesVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SelectedCandidatesVO1Query"/>
+    <iterator Binds="CandidatesInInterview1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CandidatesInInterview1Iterator"/>
+    <iterator Binds="CandidatesEventHistory1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CandidatesEventHistory1Iterator"/>
+    <searchRegion Binds="CandidatesEventHistory1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CandidatesEventHistory1Query"/>
+    <iterator Binds="InterviewerEventHistory1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="InterviewerEventHistory1Iterator"/>
+    <searchRegion Binds="InterviewerEventHistory1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterviewerEventHistory1Query"/>
+    <iterator Binds="InterviewerwithSpecifcEventId1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="InterviewerwithSpecifcEventId1Iterator"/>
+    <iterator Binds="CandiateStatus1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CandiateStatus1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="CompletedEventsVO1Iterator" ListOperMode="navigation" ListIter="CompletedEventsVO1Iterator"
+          id="CompletedEventsVO1" DTSupportsMRU="false" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="EventId"/>
+        <Item Value="EventName"/>
+      </AttrNames>
+    </list>
+    <methodAction id="setBindvar" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setBindvar"
+                  IsViewObjectMethod="false" DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.setBindvar.dataControl.dataProvider"/>
+    <tree IterBinding="SelectedCandidatesVO1Iterator" id="SelectedCandidatesVO1">
+      <nodeDefinition DefName="model.ViewObjectQB.SelectedCandidatesVO" Name="SelectedCandidatesVO10">
+        <AttrNames>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="CandidateName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="CandidatesInInterview1Iterator" ListOperMode="navigation"
+          ListIter="CandidatesInInterview1Iterator" id="CandidatesInInterview1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="CandidateEmail"/>
+        <Item Value="CandidateName"/>
+      </AttrNames>
+    </list>
+    <methodAction id="report_setCandidate" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="report_setCandidate" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.report_setCandidate.dataControl.dataProvider"/>
+    <tree IterBinding="CandidatesEventHistory1Iterator" id="CandidatesEventHistory1">
+      <nodeDefinition DefName="model.ViewObject.CandidatesEventHistory" Name="CandidatesEventHistory10">
+        <AttrNames>
+          <Item Value="InterviewerName"/>
+          <Item Value="InterviewerEmail"/>
+          <Item Value="RoundNo"/>
+          <Item Value="StartTime"/>
+          <Item Value="EndTime"/>
+          <Item Value="FeedbackId"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="report_setInterviewer" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="report_setInterviewer" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.report_setInterviewer.dataControl.dataProvider"/>
+    <tree IterBinding="InterviewerEventHistory1Iterator" id="InterviewerEventHistory1">
+      <nodeDefinition DefName="model.ViewObject.InterviewerEventHistory" Name="InterviewerEventHistory10">
+        <AttrNames>
+          <Item Value="CandidateEmail"/>
+          <Item Value="CandidateName"/>
+          <Item Value="RoundNo"/>
+          <Item Value="StartTime"/>
+          <Item Value="EndTime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="InterviewerwithSpecifcEventId1Iterator" ListOperMode="navigation"
+          ListIter="InterviewerwithSpecifcEventId1Iterator" id="InterviewerwithSpecifcEventId1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="InterviewerEmail"/>
+        <Item Value="InterviewerName"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="CandiateStatus1Iterator" id="CandiateStatus1">
+      <nodeDefinition DefName="model.ViewObjectQB.CandiateStatus" Name="CandiateStatus10">
+        <AttrNames>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -6,7 +6,14 @@
   Name="RecruitingAppManagement"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="model.EntityObject.RecruitingAppManagementImpl"
+  DefClass="model.EntityObject.RecruitingAppManagementDefImpl"
+  ComponentInterface="model.EntityObject.common.RecruitingAppManagement">
+  <DesignTime>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -28,6 +35,72 @@
   <ViewUsage
     Name="EventDetails1"
     ViewObjectName="model.ViewObject.EventDetailsVO"/>
+  <ViewUsage
+    Name="CompletedEventsVO1"
+    ViewObjectName="model.ViewObject.CompletedEventsVO"/>
+  <ViewUsage
+    Name="SelectedCandidatesVO1"
+    ViewObjectName="model.ViewObjectQB.SelectedCandidatesVO"/>
+  <ViewUsage
+    Name="CandidatesInInterview1"
+    ViewObjectName="model.ViewObject.CandidatesInInterview"/>
+  <ViewUsage
+    Name="CandidatesEventHistory1"
+    ViewObjectName="model.ViewObject.CandidatesEventHistory"/>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="InterviewerEventHistory1"
+    ViewObjectName="model.ViewObject.InterviewerEventHistory"/>
+  <ViewUsage
+    Name="FeedbackDetailsVO1"
+    ViewObjectName="model.ViewObject.FeedbackDetailsVO"/>
+  <ViewUsage
+    Name="InterviewerwithSpecifcEventId1"
+    ViewObjectName="model.ViewObject.InterviewerwithSpecifcEventId"/>
+  <ViewUsage
+    Name="EventCandidateDetailsVO1"
+    ViewObjectName="model.ViewObject.EventCandidateDetailsVO"/>
+  <ViewUsage
+    Name="CandiateStatus1"
+    ViewObjectName="model.ViewObjectQB.CandiateStatus"/>
+  <ViewUsage
+    Name="CandidateDataVO1"
+    ViewObjectName="model.ViewObject.CandidateDataVO"/>
+  <ViewUsage
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
+  <ViewUsage
+    Name="InterviewersinEventID1"
+    ViewObjectName="model.ViewObject.InterviewersinEventID"/>
+  <ViewUsage
+    Name="IntervieweriInEvent1"
+    ViewObjectName="model.ViewObject.IntervieweriInEvent"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="setBindvar"
+      MethodName="setBindvar">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
+      Name="report_setCandidate"
+      MethodName="report_setCandidate">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
+      Name="report_setInterviewer"
+      MethodName="report_setInterviewer">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
