@@ -18,6 +18,10 @@ import javax.naming.InitialContext;
 
 import javax.servlet.http.HttpSession;
 
+<<<<<<< HEAD
+=======
+//import view.common.MyADFUtil;
+>>>>>>> RealMainFake
 import view.common.SessionUtils;
 import view.common.LoginDAO;
 import javax.faces.bean.ManagedBean;

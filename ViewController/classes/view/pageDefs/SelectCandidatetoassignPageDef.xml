@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="SelectCandidatetoassignPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EventCandidateDatawithName1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="EventCandidateDatawithName1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EventCandidateDatawithName1Iterator" id="EventCandidateDatawithName1">
+      <nodeDefinition DefName="model.ViewObjectQB.EventCandidateDatawithName" Name="EventCandidateDatawithName10">
+        <AttrNames>
+          <Item Value="CandidateName"/>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="CurrentRound"/>
+          <Item Value="Status"/>
+          <Item Value="InterviewerList"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

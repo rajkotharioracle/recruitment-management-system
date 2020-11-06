@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="AKMR_INTERVIEW_DETAILS"
   AliasName="InterviewDetailsEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.EntityObject.InterviewDetailsEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="CandidateEmailId"
     IsNotNull="true"
@@ -86,10 +91,16 @@
     Name="StartTime"
     ColumnName="START_TIME"
     SQLType="TIMESTAMP"
+<<<<<<< HEAD
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="AKMR_INTERVIEW_DETAILS"
     IsNotNull="true">
+=======
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_INTERVIEW_DETAILS">
+>>>>>>> RealMainFake
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMAT
@@ -103,10 +114,16 @@
     Name="EndTime"
     ColumnName="END_TIME"
     SQLType="TIMESTAMP"
+<<<<<<< HEAD
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
     TableName="AKMR_INTERVIEW_DETAILS"
     IsNotNull="true"/>
+=======
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_INTERVIEW_DETAILS"/>
+>>>>>>> RealMainFake
   <AccessorAttribute
     Name="EventDetailsEO"
     Association="model.EntityObject.AkmrFkEventId3Assoc"
@@ -131,6 +148,7 @@
       <Item Value="model.EntityObject.InterviewDetailsEO.CandidateEmailId"/>
       <Item Value="model.EntityObject.InterviewDetailsEO.InterviewerEmailId"/>
       <Item Value="model.EntityObject.InterviewDetailsEO.EventId"/>
+<<<<<<< HEAD
     </AttrArray>
   </Key>
   <Key
@@ -143,6 +161,8 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EntityObject.InterviewDetailsEO.EndTime"/>
+=======
+>>>>>>> RealMainFake
     </AttrArray>
   </Key>
   <Key

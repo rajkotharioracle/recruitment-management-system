@@ -49,11 +49,19 @@
   <Attribute
     Name="EventStartTime"
     ColumnName="EVENT_START_TIME"
+<<<<<<< HEAD
     SQLType="TIMESTAMPLTZ"
     Type="oracle.jbo.domain.TimestampLTZ"
     ColumnType="TIMESTAMP WITH LOCAL TIME ZONE"
     TableName="AKMR_EVENT_DETAILS"
     IsNotNull="true">
+=======
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_EVENT_DETAILS"
+    PrimaryKey="true">
+>>>>>>> RealMainFake
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMATTER
@@ -68,10 +76,18 @@
   <Attribute
     Name="EventEndTime"
     ColumnName="EVENT_END_TIME"
+<<<<<<< HEAD
     SQLType="TIMESTAMPLTZ"
     Type="oracle.jbo.domain.TimestampLTZ"
     ColumnType="TIMESTAMP WITH LOCAL TIME ZONE"
     TableName="AKMR_EVENT_DETAILS"/>
+=======
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="AKMR_EVENT_DETAILS"
+    PrimaryKey="true"/>
+>>>>>>> RealMainFake
   <Attribute
     Name="EventMaxRounds"
     IsNotNull="true"
@@ -102,6 +118,7 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+<<<<<<< HEAD
     Name="AkmrEventDetailsEventStartTimeCheck">
     <DesignTime>
       <Attr Name="_isNotNull" Value="true"/>
@@ -114,6 +131,8 @@
     </AttrArray>
   </Key>
   <Key
+=======
+>>>>>>> RealMainFake
     Name="AkmrEventDetailsPk"
     PrimaryKey="true">
     <DesignTime>
@@ -121,6 +140,11 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EntityObject.EventDetailsEO.EventId"/>
+<<<<<<< HEAD
+=======
+      <Item Value="model.EntityObject.EventDetailsEO.EventStartTime"/>
+      <Item Value="model.EntityObject.EventDetailsEO.EventEndTime"/>
+>>>>>>> RealMainFake
     </AttrArray>
   </Key>
   <Key

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="event_create.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.EventName.inputValue}" label="#{bindings.EventName.hints.label}"
+                                      required="#{bindings.EventName.hints.mandatory}"
+                                      columns="#{bindings.EventName.hints.displayWidth}"
+                                      maximumLength="#{bindings.EventName.hints.precision}"
+                                      shortDesc="#{bindings.EventName.hints.tooltip}" id="it1"
+                                      binding="#{setCompletedEvent.ename}">
+                            <f:validator binding="#{bindings.EventName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.EventStatus.inputValue}"
+                                      label="#{bindings.EventStatus.hints.label}"
+                                      required="#{bindings.EventStatus.hints.mandatory}"
+                                      columns="#{bindings.EventStatus.hints.displayWidth}"
+                                      maximumLength="#{bindings.EventStatus.hints.precision}"
+                                      shortDesc="#{bindings.EventStatus.hints.tooltip}" id="it2"
+                                      binding="#{setCompletedEvent.estatus}">
+                            <f:validator binding="#{bindings.EventStatus.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.EventStartTime.inputValue}"
+                                      label="#{bindings.EventStartTime.hints.label}"
+                                      required="#{bindings.EventStartTime.hints.mandatory}"
+                                      columns="#{bindings.EventStartTime.hints.displayWidth}"
+                                      shortDesc="#{bindings.EventStartTime.hints.tooltip}" id="id1"
+                                      binding="#{setCompletedEvent.estime}">
+                            <f:validator binding="#{bindings.EventStartTime.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.EventStartTime.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.EventMaxRounds.inputValue}"
+                                      label="#{bindings.EventMaxRounds.hints.label}"
+                                      required="#{bindings.EventMaxRounds.hints.mandatory}"
+                                      columns="#{bindings.EventMaxRounds.hints.displayWidth}"
+                                      maximumLength="#{bindings.EventMaxRounds.hints.precision}"
+                                      shortDesc="#{bindings.EventMaxRounds.hints.tooltip}" id="it3"
+                                      binding="#{setCompletedEvent.emaxrounds}">
+                            <f:validator binding="#{bindings.EventMaxRounds.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.EventMaxRounds.format}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:button text="Submit" id="b1" binding="#{setCompletedEvent.createEvent}"
+                                       actionListener="#{setCompletedEvent.createEvent1}"/>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:setCompletedEvent-->
+</f:view>

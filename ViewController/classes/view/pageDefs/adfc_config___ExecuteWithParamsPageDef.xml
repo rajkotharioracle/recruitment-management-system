@@ -3,6 +3,7 @@
                 id="adfc_config___ExecuteWithParamsPageDef" Package="view.pageDefs" SkipValidation="true">
   <parameters/>
   <executables>
+<<<<<<< HEAD
     <iterator Binds="CandidatesAssignedInterviewer1" RangeSize="25" DataControl="AppModuleDataControl"
               id="CandidatesAssignedInterviewer1Iterator" Refresh="never"/>
   </executables>
@@ -11,6 +12,15 @@
             Action="executeWithParams">
       <NamedData NDName="intid" NDType="java.lang.String"/>
       <NamedData NDName="eventid" NDType="java.lang.String"/>
+=======
+    <iterator Binds="interviewdetailQB1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="interviewdetailQB1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="interviewdetailQB1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pid" NDValue="#{pageFlowScope.pid}" NDType="java.lang.String"/>
+>>>>>>> RealMainFake
     </action>
   </bindings>
 </pageDefinition>

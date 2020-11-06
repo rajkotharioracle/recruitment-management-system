@@ -4,6 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+<<<<<<< HEAD
     <iterator Binds="InterviewDetailsVO1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
               id="InterviewDetailsVO1Iterator"/>
     <searchRegion Binds="InterviewDetailsVO1Iterator" Criteria=""
@@ -21,6 +22,22 @@
           <Item Value="Status"/>
           <Item Value="StartTime"/>
           <Item Value="EndTime"/>
+=======
+    <iterator Binds="interviewdetailQB1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
+              id="interviewdetailQB1Iterator"/>
+    <searchRegion Binds="interviewdetailQB1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="interviewdetailQB1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="interviewdetailQB1Iterator" id="interviewdetailQB1">
+      <nodeDefinition DefName="model.ViewObjectQB.interviewdetailQB" Name="interviewdetailQB10">
+        <AttrNames>
+          <Item Value="CandidateName"/>
+          <Item Value="InterviewerName"/>
+          <Item Value="RoundNo"/>
+          <Item Value="StartTime"/>
+          <Item Value="Status"/>
+>>>>>>> RealMainFake
         </AttrNames>
       </nodeDefinition>
     </tree>

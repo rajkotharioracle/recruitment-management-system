@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="adfc_config___getEventidforAssigningPageDef" Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="getEventidforAssigning" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getEventidforAssigning" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventidforAssigning.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventidforAssigning_getEventidforAssigning_dataControl_dataProvider_getEventidforAssigning_result">
+      <NamedData NDName="eventid" NDValue="#{pageFlowScope.pid}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

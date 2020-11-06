@@ -9,30 +9,74 @@
   <pageMap>
     <page path="/admin_template.jsf" usageId="view_admin_templatePageDef"/>
     <page path="/AddCandidate.jsf" usageId="view_AddCandidatePageDef"/>
-    <page path="/WEB-INF/event_detail.xml#event_detail@ExecuteWithParams"
-          usageId="view_event_detail_event_detail_ExecuteWithParamsPageDef"/>
     <page path="/view1.jsff" usageId="view_view1PageDef"/>
     <page path="/view2.jsff" usageId="view_view2PageDef"/>
     <page path="/adminHome.jsf" usageId="view_adminHomePageDef"/>
+<<<<<<< HEAD
     <page path="/interviewer_dashboard.jsf" usageId="view_interviewer_dashboardPageDef"/>
     <page path="PageFlow#ExecuteWithParams" usageId="view_adfc_config___ExecuteWithParamsPageDef"/>
     <page path="/viewcandidate.jsf" usageId="view_viewcandidatePageDef"/>
     <page path="/scheduledInterviews.jsf" usageId="view_scheduledInterviewsPageDef"/>
     <page path="/login.jsf" usageId="view_loginPageDef"/>
+=======
+    <page path="/WEB-INF/event_detail.xml#event_detail@ExecuteWithParams"
+          usageId="view_event_detail_event_detail_ExecuteWithParamsPageDef"/>
+    <page path="/eventDetail.jsf" usageId="view_eventDetailPageDef"/>
+    <page path="/createInterview.jsf" usageId="view_createInterviewPageDef"/>
+    <page path="/findinterviewer.jsff" usageId="view_findinterviewerPageDef"/>
+    <page path="/candi.jsff" usageId="view_candiPageDef"/>
+    <page path="/inter.jsff" usageId="view_interPageDef"/>
+    <page path="/SelectCandidatetoassign.jsf" usageId="view_SelectCandidatetoassignPageDef"/>
+    <page path="/Dashboard.jsf" usageId="view_DashboardPageDef"/>
+    <page path="/popupforinterviewer.jsff" usageId="view_popupforinterviewerPageDef"/>
+    <page path="PageFlow#getEventidforAssigning" usageId="view_adfc_config___getEventidforAssigningPageDef"/>
+    <page path="PageFlow#ExecuteWithParams" usageId="view_adfc_config___ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/assigninterviewer.xml#assigninterviewer@ExecuteWithParams"
+          usageId="view_assigninterviewer_assigninterviewer_ExecuteWithParamsPageDef"/>
+    <page path="PageFlow#ExecuteWithParams1" usageId="view_adfc_config___ExecuteWithParams1PageDef"/>
+    <page path="/Report.jsf" usageId="view_ReportPageDef"/>
+    <page path="/event_create.jsf" usageId="view_event_createPageDef"/>
+    <page path="/event_create1.jsf" usageId="view_event_create1PageDef"/>
+    <page path="/event_create2.jsf" usageId="view_event_create2PageDef"/>
+    <page path="/event_create3.jsf" usageId="view_event_create3PageDef"/>
+>>>>>>> RealMainFake
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_admin_templatePageDef" path="view.pageDefs.admin_templatePageDef"/>
     <page id="view_AddCandidatePageDef" path="view.pageDefs.AddCandidatePageDef"/>
-    <page id="view_event_detail_event_detail_ExecuteWithParamsPageDef"
-          path="view.pageDefs.event_detail_event_detail_ExecuteWithParamsPageDef"/>
     <page id="view_view1PageDef" path="view.pageDefs.view1PageDef"/>
     <page id="view_view2PageDef" path="view.pageDefs.view2PageDef"/>
     <page id="view_adminHomePageDef" path="view.pageDefs.adminHomePageDef"/>
+<<<<<<< HEAD
     <page id="view_interviewer_dashboardPageDef" path="view.pageDefs.interviewer_dashboardPageDef"/>
     <page id="view_adfc_config___ExecuteWithParamsPageDef" path="view.pageDefs.adfc_config___ExecuteWithParamsPageDef"/>
     <page id="view_viewcandidatePageDef" path="view.pageDefs.viewcandidatePageDef"/>
     <page id="view_scheduledInterviewsPageDef" path="view.pageDefs.scheduledInterviewsPageDef"/>
     <page id="view_loginPageDef" path="view.pageDefs.loginPageDef"/>
+=======
+    <page id="view_event_detail_event_detail_ExecuteWithParamsPageDef"
+          path="view.pageDefs.event_detail_event_detail_ExecuteWithParamsPageDef"/>
+    <page id="view_eventDetailPageDef" path="view.pageDefs.eventDetailPageDef"/>
+    <page id="view_createInterviewPageDef" path="view.pageDefs.createInterviewPageDef"/>
+    <page id="view_findinterviewerPageDef" path="view.pageDefs.findinterviewerPageDef"/>
+    <page id="view_candiPageDef" path="view.pageDefs.candiPageDef"/>
+    <page id="view_interPageDef" path="view.pageDefs.interPageDef"/>
+    <page id="view_SelectCandidatetoassignPageDef" path="view.pageDefs.SelectCandidatetoassignPageDef"/>
+    <page id="view_DashboardPageDef" path="view.pageDefs.DashboardPageDef"/>
+    <page id="view_popupforinterviewerPageDef" path="view.pageDefs.popupforinterviewerPageDef"/>
+    <page id="view_adfc_config___getEventidforAssigningPageDef"
+          path="view.pageDefs.adfc_config___getEventidforAssigningPageDef"/>
+    <page id="view_adfc_config___ExecuteWithParamsPageDef" path="view.pageDefs.adfc_config___ExecuteWithParamsPageDef"/>
+    <page id="view_assigninterviewer_assigninterviewer_ExecuteWithParamsPageDef"
+          path="view.pageDefs.assigninterviewer_assigninterviewer_ExecuteWithParamsPageDef"/>
+    <page id="view_adfc_config___ExecuteWithParams1PageDef"
+          path="view.pageDefs.adfc_config___ExecuteWithParams1PageDef"/>
+    <page id="view_ReportPageDef" path="view.pageDefs.ReportPageDef"/>
+    <page id="view_event_createPageDef" path="view.pageDefs.event_createPageDef"/>
+    <page id="view_event_create1PageDef" path="view.pageDefs.event_create1PageDef"/>
+    <page id="view_event_create2PageDef" path="view.pageDefs.event_create2PageDef"/>
+    <page id="view_event_create3PageDef" path="view.pageDefs.event_create3PageDef"/>
+>>>>>>> RealMainFake
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="RecruitmentAppModuleDataControl" Package="model.EntityObject"
@@ -40,10 +84,17 @@
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="RecruitmentAppModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+<<<<<<< HEAD
     <BC4JDataControl id="AppModuleDataControl" Package="model.EntityObject"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+=======
+    <BC4JDataControl id="RecruitingAppManagementDataControl" Package="model.EntityObject"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="RecruitingAppManagementLocal" syncMode="Immediate"
+>>>>>>> RealMainFake
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>

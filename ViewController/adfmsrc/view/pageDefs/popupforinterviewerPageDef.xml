@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="popupforinterviewerPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EventInterviewerDetails1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="EventInterviewerDetails1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EventInterviewerDetails1Iterator" id="EventId">
+      <AttrNames>
+        <Item Value="EventId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EventInterviewerDetails1Iterator" StaticList="false" Uses="LOV_InterviewerEmailId"
+          id="InterviewerEmailId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="EventInterviewerDetails1Iterator" id="InterviewerMaxLevel">
+      <AttrNames>
+        <Item Value="InterviewerMaxLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventInterviewerDetails1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EventInterviewerDetails1Iterator" id="InterviewerMinLevel">
+      <AttrNames>
+        <Item Value="InterviewerMinLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

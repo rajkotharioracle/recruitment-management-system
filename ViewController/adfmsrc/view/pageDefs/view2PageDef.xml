@@ -4,23 +4,20 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="InterviewDetailsVO1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
-              id="InterviewDetailsVO1Iterator"/>
-    <searchRegion Binds="InterviewDetailsVO1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterviewDetailsVO1Query"/>
+    <iterator Binds="interviewdetailQB1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
+              id="interviewdetailQB1Iterator"/>
+    <searchRegion Binds="interviewdetailQB1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="interviewdetailQB1Query"/>
   </executables>
   <bindings>
-    <tree IterBinding="InterviewDetailsVO1Iterator" id="InterviewDetailsVO1">
-      <nodeDefinition DefName="model.ViewObject.InterviewDetailsVO" Name="InterviewDetailsVO10">
+    <tree IterBinding="interviewdetailQB1Iterator" id="interviewdetailQB1">
+      <nodeDefinition DefName="model.ViewObjectQB.interviewdetailQB" Name="interviewdetailQB10">
         <AttrNames>
-          <Item Value="CandidateEmailId"/>
-          <Item Value="InterviewerEmailId"/>
-          <Item Value="EventId"/>
-          <Item Value="FeedbackId"/>
+          <Item Value="CandidateName"/>
+          <Item Value="InterviewerName"/>
           <Item Value="RoundNo"/>
-          <Item Value="Status"/>
           <Item Value="StartTime"/>
-          <Item Value="EndTime"/>
+          <Item Value="Status"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

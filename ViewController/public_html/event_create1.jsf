@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="event_create1.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:table value="#{bindings.CandidateDataVO1.collectionModel}" var="row"
+                              rows="#{bindings.CandidateDataVO1.rangeSize}"
+                              emptyText="#{bindings.CandidateDataVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" fetchSize="#{bindings.CandidateDataVO1.rangeSize}"
+                              filterModel="#{bindings.CandidateDataVO1Query.queryDescriptor}" filterVisible="true"
+                              queryListener="#{bindings.CandidateDataVO1Query.processQuery}" varStatus="vs" id="t1">
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.CandidateName.name}"
+                                   filterable="true" headerText="#{bindings.CandidateDataVO1.hints.CandidateName.label}"
+                                   id="c1">
+                            <af:outputText value="#{row.CandidateName}"
+                                           shortDesc="#{bindings.CandidateDataVO1.hints.CandidateName.tooltip}"
+                                           id="ot1"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.CandidateEmail.name}"
+                                   filterable="true"
+                                   headerText="#{bindings.CandidateDataVO1.hints.CandidateEmail.label}" id="c2">
+                            <af:outputText value="#{row.CandidateEmail}"
+                                           shortDesc="#{bindings.CandidateDataVO1.hints.CandidateEmail.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.CandidateMobile.name}"
+                                   filterable="true"
+                                   headerText="#{bindings.CandidateDataVO1.hints.CandidateMobile.label}" id="c3">
+                            <af:outputText value="#{row.CandidateMobile}"
+                                           shortDesc="#{bindings.CandidateDataVO1.hints.CandidateMobile.tooltip}"
+                                           id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.CandidateGender.name}"
+                                   filterable="true"
+                                   headerText="#{bindings.CandidateDataVO1.hints.CandidateGender.label}" id="c4">
+                            <af:outputText value="#{row.CandidateGender}"
+                                           shortDesc="#{bindings.CandidateDataVO1.hints.CandidateGender.tooltip}"
+                                           id="ot4"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.CandidateDob.name}" filterable="true"
+                                   headerText="#{bindings.CandidateDataVO1.hints.CandidateDob.label}" id="c5">
+                            <f:facet name="filter">
+                                <af:inputDate value="#{bindings.CandidateDataVO1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CandidateDob.value}"
+                                              id="id1">
+                                    <af:convertDateTime pattern="#{bindings.CandidateDataVO1.hints.CandidateDob.format}"/>
+                                </af:inputDate>
+                            </f:facet>
+                            <af:outputText value="#{row.CandidateDob}"
+                                           shortDesc="#{bindings.CandidateDataVO1.hints.CandidateDob.tooltip}" id="ot5">
+                                <af:convertDateTime pattern="#{bindings.CandidateDataVO1.hints.CandidateDob.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.PreviousEventId.name}"
+                                   filterable="true"
+                                   headerText="#{bindings.CandidateDataVO1.hints.PreviousEventId.label}" id="c6">
+                            <af:outputText value="#{row.PreviousEventId}"
+                                           shortDesc="#{bindings.CandidateDataVO1.hints.PreviousEventId.tooltip}"
+                                           id="ot6">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.CandidateDataVO1.hints.PreviousEventId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.CandidateId.name}" filterable="true"
+                                   headerText="#{bindings.CandidateDataVO1.hints.CandidateId.label}" id="c7">
+                            <af:outputText value="#{row.CandidateId}"
+                                           shortDesc="#{bindings.CandidateDataVO1.hints.CandidateId.tooltip}" id="ot7">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.CandidateDataVO1.hints.CandidateId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.CandidateDataVO1.hints.selectCandidate.name}"
+                                   filterable="true"
+                                   headerText="#{bindings.CandidateDataVO1.hints.selectCandidate.label}" id="c8">
+                            <af:selectBooleanCheckbox value="#{row.bindings.selectCandidate.inputValue}"
+                                                      label="#{row.bindings.selectCandidate.label}"
+                                                      shortDesc="#{bindings.CandidateDataVO1.hints.selectCandidate.tooltip}"
+                                                      id="sbc1"/>
+                        </af:column>
+                    </af:table>
+                    <af:button text="button 1" id="b1" actionListener="#{setCompletedEvent.SetCandidates}"/>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

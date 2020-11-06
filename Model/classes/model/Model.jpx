@@ -9,18 +9,30 @@
   PackageName="model">
   <DesignTime>
     <Attr Name="_DTExpressionTypeChecking" Value="true"/>
+<<<<<<< HEAD
     <Attr Name="_appModuleNames0" Value="model.EntityObject.RecruitmentAppModule"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_jprName" Value="../../Model.jpr"/>
     <Attr Name="_NamedConnection" Value="Connection_DB"/>
+=======
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_jprName" Value="../../Model.jpr"/>
+    <Attr Name="_NamedConnection" Value="Connection_DB"/>
+    <Attr Name="_appModuleNames0" Value="model.EntityObject.RecruitingAppManagement"/>
+>>>>>>> RealMainFake
   </DesignTime>
   <Containee
     Name="EntityObject"
     PackageName="model.EntityObject"
     ObjectType="JboPackage">
     <DesignTime>
+<<<<<<< HEAD
       <Attr Name="_AS" Value="true"/>
       <Attr Name="_EO" Value="true"/>
+=======
+      <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AS" Value="true"/>
+>>>>>>> RealMainFake
       <Attr Name="_AM" Value="true"/>
     </DesignTime>
   </Containee>
@@ -29,8 +41,28 @@
     PackageName="model.ViewObject"
     ObjectType="JboPackage">
     <DesignTime>
+<<<<<<< HEAD
       <Attr Name="_VL" Value="true"/>
       <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
+=======
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="ViewObjectQB"
+    PackageName="model.ViewObjectQB"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <AppModuleUsage
+    Name="RecruitingAppManagement"
+    FullName="model.EntityObject.RecruitingAppManagement"
+    ConfigurationName="model.EntityObject.RecruitingAppManagementShared"
+    SharedScope="2"/>
+>>>>>>> RealMainFake
 </JboProject>

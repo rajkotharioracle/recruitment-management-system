@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="event_create2PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InterviewerDataVO1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="InterviewerDataVO1Iterator"/>
+    <searchRegion Binds="InterviewerDataVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterviewerDataVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InterviewerDataVO1Iterator" id="InterviewerDataVO1">
+      <nodeDefinition DefName="model.ViewObject.InterviewerDataVO" Name="InterviewerDataVO10">
+        <AttrNames>
+          <Item Value="InterviewerName"/>
+          <Item Value="InterviewerPosition"/>
+          <Item Value="InterviewerEmail"/>
+          <Item Value="InterviewerMobNo"/>
+          <Item Value="selectedInterviewer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="InterviewerDataVO1Iterator" id="selectedInterviewer" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="selectedInterviewer"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

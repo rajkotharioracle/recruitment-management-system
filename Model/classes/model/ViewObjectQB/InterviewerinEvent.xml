@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InterviewerinEvent"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObjectQB.InterviewerinEvent_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="eid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select
+AKMR_EVENT_INTERVIEWER_DETAILS.event_id,
+AKMR_EVENT_INTERVIEWER_DETAILS.interviewer_email_id,
+AKMR_EVENT_INTERVIEWER_DETAILS.interviewer_max_level,
+AKMR_EVENT_INTERVIEWER_DETAILS.interviewer_min_level,
+AKMR_INTERVIEWER_DATA.interviewer_name,
+AKMR_INTERVIEWER_DATA.interviewer_email,
+AKMR_INTERVIEWER_DATA.interviewer_position
+from
+AKMR_INTERVIEWER_DATA join AKMR_EVENT_INTERVIEWER_DETAILS
+on
+AKMR_INTERVIEWER_DATA.interviewer_email=AKMR_EVENT_INTERVIEWER_DETAILS.interviewer_email_id
+where
+AKMR_EVENT_INTERVIEWER_DETAILS.event_id=:eid]]></SQLQuery>
+  <ViewAttribute
+    Name="EventId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    AliasName="EVENT_ID"
+    Expression="EVENT_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="InterviewerEmailId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INTERVIEWER_EMAIL_ID"
+    Expression="INTERVIEWER_EMAIL_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InterviewerMaxLevel"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="INTERVIEWER_MAX_LEVEL"
+    Expression="INTERVIEWER_MAX_LEVEL"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="InterviewerMinLevel"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Scale="0"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="INTERVIEWER_MIN_LEVEL"
+    Expression="INTERVIEWER_MIN_LEVEL"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="InterviewerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INTERVIEWER_NAME"
+    Expression="INTERVIEWER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InterviewerEmail"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INTERVIEWER_EMAIL"
+    Expression="INTERVIEWER_EMAIL"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InterviewerPosition"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="INTERVIEWER_POSITION"
+    Expression="INTERVIEWER_POSITION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

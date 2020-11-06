@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="interviewetforadding"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="model.EntityObject.AkmrEIDetFk1Assoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObject.interviewetforadding_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="InterviewerDataVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ViewObject.InterviewerDataVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="InterviewerDataVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ViewObject.InterviewerDataVO.InterviewerEmail"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EventInterviewerDetailsVO"
+    Cardinality="-1"
+    Owner="model.ViewObject.EventInterviewerDetailsVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="EventInterviewerDetailsVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ViewObject.EventInterviewerDetailsVO.InterviewerEmailId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

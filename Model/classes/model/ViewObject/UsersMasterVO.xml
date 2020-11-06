@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
+<<<<<<< HEAD
   PageIterMode="Full">
+=======
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+>>>>>>> RealMainFake
   <EntityUsage
     Name="UsersMasterEO"
     Entity="model.EntityObject.UsersMasterEO"/>

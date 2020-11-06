@@ -10,19 +10,17 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="UsersMasterEO"
+    Name="InterviewerDataEO"
     Cardinality="1"
     Source="true"
-    Owner="model.EntityObject.UsersMasterEO">
+    Owner="model.EntityObject.InterviewerDataEO">
     <DesignTime>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="UsersMasterEO"/>
-      <Attr Name="_foreignKey" Value="model.EntityObject.UsersMasterEO.AkmrUMPk"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.EntityObject.UsersMasterEO.EmailId"/>
+      <Item Value="model.EntityObject.InterviewerDataEO.InterviewerEmail"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd

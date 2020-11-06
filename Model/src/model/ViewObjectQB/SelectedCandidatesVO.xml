@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SelectedCandidatesVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  AccessMode="DEFAULT"
+  ComponentClass="model.ViewObjectQB.SelectedCandidatesVOImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObjectQB.SelectedCandidatesVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="evid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select 
+akmr_event_candidate_details.candidate_email_id,akmr_candidate_data.candidate_name,akmr_event_candidate_details.event_id
+from
+akmr_event_candidate_details join akmr_candidate_data on akmr_event_candidate_details.candidate_email_id=akmr_candidate_data.candidate_email  
+where 
+akmr_event_candidate_details.status='selected' and akmr_event_candidate_details.event_id=:evid]]></SQLQuery>
+  <ViewAttribute
+    Name="CandidateEmailId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CANDIDATE_EMAIL_ID"
+    Expression="CANDIDATE_EMAIL_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CandidateName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CANDIDATE_NAME"
+    Expression="CANDIDATE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EventId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="EVENT_ID"
+    Expression="EVENT_ID"
+    SQLType="NUMERIC"/>
+  <ViewCriteria
+    Name="SelectedCandidatesVOCriteria"
+    ViewObjectName="model.ViewObjectQB.SelectedCandidatesVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SelectedCandidatesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="EventId"
+        ViewAttribute="EventId"
+        Operator="="
+        Conjunction="AND"
+        Value=":Eid"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

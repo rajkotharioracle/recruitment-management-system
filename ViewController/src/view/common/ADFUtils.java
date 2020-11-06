@@ -9,9 +9,20 @@ import javax.el.MethodExpression;
 import javax.el.ValueExpression;
 
 import javax.faces.context.FacesContext;
+<<<<<<< HEAD
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.DataControlFrame;
+=======
+import oracle.adf.model.BindingContainer;
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.DataControlFrame;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCIteratorBinding;
+
+
+
+>>>>>>> RealMainFake
 
 
 /**
@@ -93,6 +104,7 @@ Object.class, paramTypes);
 return exp.invoke(elContext, params);
 }
 
+<<<<<<< HEAD
 /**
 * Sets a value into an EL object. Provides similar functionality to
 * the <af:setActionListener> tag, except the from is
@@ -103,6 +115,9 @@ return exp.invoke(elContext, params);
 * @param el EL object to assign a value
 * @param val Value to assign
 */
+=======
+
+>>>>>>> RealMainFake
 public static void setEL(String el, Object val) {
 FacesContext facesContext = FacesContext.getCurrentInstance();
 ELContext elContext = facesContext.getELContext();
@@ -114,4 +129,38 @@ Object.class);
 
 exp.setValue(elContext, val);
 }
+<<<<<<< HEAD
 }
+=======
+    public static DCIteratorBinding findIterator(String name) {
+    DCIteratorBinding iter =
+    getDCBindingContainer().findIteratorBinding(name);
+    if (iter == null) {
+    throw new RuntimeException("Iterator '" + name + "' not found");
+    }
+    return iter;
+    }
+    public static DCIteratorBinding findIterator(String bindingContainer, String iterator) {
+    DCBindingContainer bindings =
+    (DCBindingContainer)JSFUtils.resolveExpression("#{" + bindingContainer + "}");
+    if (bindings == null) {
+    throw new RuntimeException("Binding container '" +
+    bindingContainer + "' not found");
+    }
+    DCIteratorBinding iter = bindings.findIteratorBinding(iterator);
+    if (iter == null) {
+    throw new RuntimeException("Iterator '" + iterator + "' not found");
+    }
+    return iter;
+    }
+    
+    public static DCBindingContainer getDCBindingContainer() {
+    return (DCBindingContainer)getBindingContainer();
+    }
+    public static BindingContainer getBindingContainer() {
+    return (BindingContainer)JSFUtils.resolveExpression("#{bindings}");
+    }
+
+}
+
+>>>>>>> RealMainFake

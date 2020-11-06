@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:dialog id="d1" closeIconVisible="false" dialogListener="#{Eventselection.commitrollbackforaddinterviewer}">
+    <f:facet name="buttonBar"/>
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.EventId.inputValue}" label="#{bindings.EventId.hints.label}"
+                    required="#{bindings.EventId.hints.mandatory}" columns="#{bindings.EventId.hints.displayWidth}"
+                    maximumLength="#{bindings.EventId.hints.precision}" shortDesc="#{bindings.EventId.hints.tooltip}"
+                    id="it1">
+        <f:validator binding="#{bindings.EventId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.EventId.format}"/>
+      </af:inputText>
+      <af:selectOneChoice value="#{bindings.InterviewerEmailId.inputValue}" label="#{bindings.InterviewerEmailId.label}"
+                          required="#{bindings.InterviewerEmailId.hints.mandatory}"
+                          shortDesc="#{bindings.InterviewerEmailId.hints.tooltip}" id="soc1">
+        <f:selectItems value="#{bindings.InterviewerEmailId.items}" id="si1"/>
+        <f:validator binding="#{bindings.InterviewerEmailId.validator}"/>
+      </af:selectOneChoice>
+      <af:inputText value="#{bindings.InterviewerMaxLevel.inputValue}"
+                    label="#{bindings.InterviewerMaxLevel.hints.label}"
+                    required="#{bindings.InterviewerMaxLevel.hints.mandatory}"
+                    columns="#{bindings.InterviewerMaxLevel.hints.displayWidth}"
+                    maximumLength="#{bindings.InterviewerMaxLevel.hints.precision}"
+                    shortDesc="#{bindings.InterviewerMaxLevel.hints.tooltip}" id="it2">
+        <f:validator binding="#{bindings.InterviewerMaxLevel.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.InterviewerMaxLevel.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Status.inputValue}" label="#{bindings.Status.hints.label}"
+                    required="#{bindings.Status.hints.mandatory}" columns="#{bindings.Status.hints.displayWidth}"
+                    maximumLength="#{bindings.Status.hints.precision}" shortDesc="#{bindings.Status.hints.tooltip}"
+                    id="it3">
+        <f:validator binding="#{bindings.Status.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.InterviewerMinLevel.inputValue}"
+                    label="#{bindings.InterviewerMinLevel.hints.label}"
+                    required="#{bindings.InterviewerMinLevel.hints.mandatory}"
+                    columns="#{bindings.InterviewerMinLevel.hints.displayWidth}"
+                    maximumLength="#{bindings.InterviewerMinLevel.hints.precision}"
+                    shortDesc="#{bindings.InterviewerMinLevel.hints.tooltip}" id="it4">
+        <f:validator binding="#{bindings.InterviewerMinLevel.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.InterviewerMinLevel.format}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+  </af:dialog>
+</jsp:root>

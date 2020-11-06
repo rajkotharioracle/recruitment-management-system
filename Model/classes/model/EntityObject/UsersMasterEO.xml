@@ -66,6 +66,7 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
+<<<<<<< HEAD
     Name="EventInterviewerDetailsEO"
     Association="model.EntityObject.AkmrEIDetFk1Assoc"
     AssociationEnd="model.EntityObject.AkmrEIDetFk1Assoc.EventInterviewerDetailsEO"
@@ -73,12 +74,24 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <AccessorAttribute
+=======
+>>>>>>> RealMainFake
     Name="EventCandidateDetailsEO"
     Association="model.EntityObject.AkmrECDetFk1Assoc"
     AssociationEnd="model.EntityObject.AkmrECDetFk1Assoc.EventCandidateDetailsEO"
     AssociationOtherEnd="model.EntityObject.AkmrECDetFk1Assoc.UsersMasterEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+<<<<<<< HEAD
+=======
+  <AccessorAttribute
+    Name="InterviewerDataEO"
+    Association="model.EntityObject.AkmrIDataFk1Assoc"
+    AssociationEnd="model.EntityObject.AkmrIDataFk1Assoc.InterviewerDataEO"
+    AssociationOtherEnd="model.EntityObject.AkmrIDataFk1Assoc.UsersMasterEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+>>>>>>> RealMainFake
   <Key
     Name="AkmrUMPk"
     PrimaryKey="true">

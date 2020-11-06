@@ -62,6 +62,25 @@
     EntityAttrName="CandidateId"
     EntityUsage="CandidateDataEO"
     AliasName="CANDIDATE_ID"/>
+<<<<<<< HEAD
+=======
+  <ViewAttribute
+    Name="selectCandidate"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+>>>>>>> RealMainFake
   <ViewLinkAccessor
     Name="InterviewDetailsVO"
     ViewLink="model.ViewObject.AkmrIDetFk2Link"

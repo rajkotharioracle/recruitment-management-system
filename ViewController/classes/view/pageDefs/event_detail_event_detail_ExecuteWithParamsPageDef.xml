@@ -3,11 +3,19 @@
                 id="event_detail_event_detail_ExecuteWithParamsPageDef" Package="view.pageDefs" SkipValidation="true">
   <parameters/>
   <executables>
+<<<<<<< HEAD
     <iterator Binds="InterviewDetailsVO1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
               id="InterviewDetailsVO1Iterator" Refresh="never"/>
   </executables>
   <bindings>
     <action IterBinding="InterviewDetailsVO1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+=======
+    <iterator Binds="interviewdetailQB1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
+              id="interviewdetailQB1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="interviewdetailQB1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+>>>>>>> RealMainFake
             Action="executeWithParams">
       <NamedData NDName="pid" NDValue="#{pageFlowScope.pid}" NDType="java.lang.String"/>
     </action>

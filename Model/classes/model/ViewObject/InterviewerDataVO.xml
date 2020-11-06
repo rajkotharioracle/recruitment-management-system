@@ -14,6 +14,21 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+<<<<<<< HEAD
+=======
+  <Variable
+    Name="pid1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InterviewerDataVOCriteria"
+      FullName="model.ViewObject.InterviewerDataVO.InterviewerDataVOCriteria"/>
+  </ViewAccessor>
+>>>>>>> RealMainFake
   <EntityUsage
     Name="InterviewerDataEO"
     Entity="model.EntityObject.InterviewerDataEO"/>
@@ -45,4 +60,95 @@
     EntityAttrName="InterviewerMobNo"
     EntityUsage="InterviewerDataEO"
     AliasName="INTERVIEWER_MOB_NO"/>
+<<<<<<< HEAD
+=======
+    <ViewAttribute
+    Name="selectedInterviewer"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+
+  <ViewCriteria
+    Name="InterviewerDataVOCriteria"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="InterviewerDataVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="InterviewerDataVOCriteria_InterviewerDataVOCriteria_row_0_EventInterviewerDetailsVO"
+        ViewAttribute="EventInterviewerDetailsVO"
+        Operator="NOT EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="EventInterviewerDetailsVONestedCriteria"
+          ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="EventInterviewerDetailsVONestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="EventInterviewerDetailsVONestedCriteria_EventInterviewerDetailsVONestedCriteria_row_0_EventId"
+              ViewAttribute="EventId"
+              Operator="="
+              Conjunction="AND"
+              Value=":pid1"
+              Required="Optional"
+              IsBindVarValue="true">
+              <CompOper
+                Name="EventInterviewerDetailsVONestedCriteria_EventInterviewerDetailsVONestedCriteria_row_0_EventId_Oper"
+                ToDo="1"
+                OperDescStrCode="EventInterviewerDetailsVONestedCriteria_EventInterviewerDetailsVONestedCriteria_row_0_EventId_Oper_CompOper_0"
+                Oper="IN"
+                MinCardinality="0"
+                MaxCardinality="0"/>
+            </ViewCriteriaItem>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="EventInterviewerDetailsVO"
+    ViewLink="model.ViewObject.interviewetforadding"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+
+>>>>>>> RealMainFake
 </ViewObject>

@@ -68,6 +68,14 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
+<<<<<<< HEAD
+=======
+    Name="EventInterviewerDetailsVO"
+    ViewLink="model.ViewObject.AkmrFkEventId2Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+>>>>>>> RealMainFake
     Name="InterviewDetailsVO"
     ViewLink="model.ViewObject.AkmrFkEventId3Link"
     Type="oracle.jbo.RowIterator"

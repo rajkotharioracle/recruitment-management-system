@@ -9,14 +9,27 @@
   <view id="interviewerHome">
     <page>/interviewer_dashboard.jsf</page>
   </view>
-  <view id="eventDetail"></view>
+  <view id="eventDetail">
+    <page>/eventDetail.jsf</page>
+    </view>
   <view id="Candidate_Lookup"></view>
   <view id="Interviewer_Lookup"></view>
-  <view id="Report"></view>
+  <view id="Report">
+    <page>/Report.jsf</page>
+  </view>
   <view id="Event_Lookup"></view>
   <view id="Event_Create"></view>
   <view id="Candidate_Interview"></view>
   <view id="Feedback"></view>
+  <view id="createInterview">
+    <page>/createInterview.jsf</page>
+  </view>
+  <method-call id="getEventidforAssigning">
+    <method>#{bindings.getEventidforAssigning.execute}</method>
+    <outcome>
+      <fixed-outcome>getEventidforAssigning</fixed-outcome>
+    </outcome>
+  </method-call>
   <control-flow-rule id="__1">
     <from-activity-id>Login</from-activity-id>
     <control-flow-case id="__2">
@@ -42,13 +55,13 @@
       <from-outcome>generateReport</from-outcome>
       <to-activity-id>Report</to-activity-id>
     </control-flow-case>
-    <control-flow-case id="__8">
-      <from-outcome>eventDetail</from-outcome>
-      <to-activity-id>eventDetail</to-activity-id>
-    </control-flow-case>
     <control-flow-case id="__9">
       <from-outcome>gotoInterviewer</from-outcome>
       <to-activity-id>Interviewer_Lookup</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__8">
+      <from-outcome>select</from-outcome>
+      <to-activity-id>eventDetail</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__10">
@@ -72,4 +85,33 @@
       <to-activity-id>Feedback</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
+  <control-flow-rule id="__17">
+    <from-activity-id>eventDetail</from-activity-id>
+    <control-flow-case id="__18">
+      <to-activity-id>getEventidforAssigning</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__19">
+    <from-activity-id>getEventidforAssigning</from-activity-id>
+    <control-flow-case id="__20">
+      <from-outcome>getEventidforAssigning</from-outcome>
+      <to-activity-id>createInterview</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+
+  <managed-bean id="__16">
+    <managed-bean-name>Eventselection</managed-bean-name>
+    <managed-bean-class>view.bean.EventSelection</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__21">
+    <managed-bean-name>CreateInterview</managed-bean-name>
+    <managed-bean-class>view.bean.CreateInterview</managed-bean-class>
+    </managed-bean>
+  <managed-bean id="__22">
+    <managed-bean-name>setCompletedEvent</managed-bean-name>
+    <managed-bean-class>view.Event</managed-bean-class>
+    
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CompletedEventsVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectList="EventDetailsEO.EVENT_ID, 
+       EventDetailsEO.EVENT_START_TIME, 
+       EventDetailsEO.EVENT_END_TIME, 
+       EventDetailsEO.EVENT_STATUS, 
+       EventDetailsEO.EVENT_NAME"
+  FromList="AKMR_EVENT_DETAILS EventDetailsEO"
+  Where="EventDetailsEO.EVENT_STATUS='ended'"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT"
+  RowClass="model.ViewObject.CompletedEventsVORowImpl"
+  ComponentClass="model.ViewObject.CompletedEventsVOImpl"
+  DefClass="model.ViewObject.CompletedEventsVODefImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Def|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.ViewObject.CompletedEventsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="CompletedEventsVO1"
+    ViewObjectName="model.ViewObject.CompletedEventsVO"
+    RowLevelBinds="true"/>
+  <EntityUsage
+    Name="EventDetailsEO"
+    Entity="model.EntityObject.EventDetailsEO"/>
+  <ViewAttribute
+    Name="EventId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventId"
+    EntityUsage="EventDetailsEO"
+    AliasName="EVENT_ID"/>
+  <ViewAttribute
+    Name="EventStartTime"
+    PrecisionRule="true"
+    EntityAttrName="EventStartTime"
+    EntityUsage="EventDetailsEO"
+    AliasName="EVENT_START_TIME"/>
+  <ViewAttribute
+    Name="EventEndTime"
+    PrecisionRule="true"
+    EntityAttrName="EventEndTime"
+    EntityUsage="EventDetailsEO"
+    AliasName="EVENT_END_TIME"/>
+  <ViewAttribute
+    Name="EventStatus"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventStatus"
+    EntityUsage="EventDetailsEO"
+    AliasName="EVENT_STATUS"/>
+  <ViewAttribute
+    Name="EventName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventName"
+    EntityUsage="EventDetailsEO"
+    AliasName="EVENT_NAME"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

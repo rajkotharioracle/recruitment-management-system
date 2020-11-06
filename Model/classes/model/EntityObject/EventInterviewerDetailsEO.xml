@@ -20,7 +20,13 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+<<<<<<< HEAD
     PrimaryKey="true"/>
+=======
+    PrimaryKey="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
+>>>>>>> RealMainFake
   <Attribute
     Name="InterviewerEmailId"
     IsNotNull="true"
@@ -30,7 +36,13 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+<<<<<<< HEAD
     PrimaryKey="true">
+=======
+    PrimaryKey="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+>>>>>>> RealMainFake
     <DesignTime>
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
@@ -44,7 +56,13 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
+<<<<<<< HEAD
     TableName="AKMR_EVENT_INTERVIEWER_DETAILS"/>
+=======
+    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
+>>>>>>> RealMainFake
   <Attribute
     Name="Status"
     IsNotNull="true"
@@ -53,7 +71,13 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
+<<<<<<< HEAD
     TableName="AKMR_EVENT_INTERVIEWER_DETAILS">
+=======
+    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+>>>>>>> RealMainFake
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -67,7 +91,13 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
+<<<<<<< HEAD
     TableName="AKMR_EVENT_INTERVIEWER_DETAILS"/>
+=======
+    TableName="AKMR_EVENT_INTERVIEWER_DETAILS"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
+>>>>>>> RealMainFake
   <AccessorAttribute
     Name="EventDetailsEO"
     Association="model.EntityObject.AkmrFkEventId2Assoc"
@@ -76,9 +106,15 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
+<<<<<<< HEAD
     Name="UsersMasterEO"
     Association="model.EntityObject.AkmrEIDetFk1Assoc"
     AssociationEnd="model.EntityObject.AkmrEIDetFk1Assoc.UsersMasterEO"
+=======
+    Name="InterviewerDataEO"
+    Association="model.EntityObject.AkmrEIDetFk1Assoc"
+    AssociationEnd="model.EntityObject.AkmrEIDetFk1Assoc.InterviewerDataEO"
+>>>>>>> RealMainFake
     AssociationOtherEnd="model.EntityObject.AkmrEIDetFk1Assoc.EventInterviewerDetailsEO"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
@@ -106,7 +142,11 @@
     Name="AkmrEIDetFk1">
     <DesignTime>
       <Attr Name="_isCascadeDelete" Value="true"/>
+<<<<<<< HEAD
       <Attr Name="_referencedKey" Value="AKMR_U_M_PK"/>
+=======
+      <Attr Name="_referencedKey" Value="AKMR_I_DATA_PK"/>
+>>>>>>> RealMainFake
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="AKMR_E_I_DET_FK1"/>
     </DesignTime>
@@ -126,4 +166,20 @@
       <Item Value="model.EntityObject.EventInterviewerDetailsEO.EventId"/>
     </AttrArray>
   </Key>
+<<<<<<< HEAD
+=======
+  <Permission
+    target="model.EntityObject.EventInterviewerDetailsEO"
+    permissionClass="oracle.adf.share.security.authorization.EntityPermission">
+    <privilege-map
+      operation="read"
+      privilege="read"/>
+    <privilege-map
+      operation="update"
+      privilege="update"/>
+    <privilege-map
+      operation="removeCurrentRow"
+      privilege="delete"/>
+  </Permission>
+>>>>>>> RealMainFake
 </Entity>

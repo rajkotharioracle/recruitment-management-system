@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="candiPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EventCandidateDatawithName1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="EventCandidateDatawithName1Iterator"/>
+    <searchRegion Binds="EventCandidateDatawithName1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="EventCandidateDatawithName1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EventCandidateDatawithName1Iterator" id="EventCandidateDatawithName1">
+      <nodeDefinition DefName="model.ViewObjectQB.EventCandidateDatawithName" Name="EventCandidateDatawithName10">
+        <AttrNames>
+          <Item Value="CandidateName"/>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="CurrentRound"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

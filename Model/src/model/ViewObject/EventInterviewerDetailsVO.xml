@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <Variable
+    Name="eid"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="EventInterviewerDetailsEO"
     Entity="model.EntityObject.EventInterviewerDetailsEO"/>
@@ -51,4 +56,55 @@
     EntityAttrName="InterviewerMinLevel"
     EntityUsage="EventInterviewerDetailsEO"
     AliasName="INTERVIEWER_MIN_LEVEL"/>
+  <ViewCriteria
+    Name="EventInterviewerDetailsVOCriteria"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="EventInterviewerDetailsVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="EventInterviewerDetailsVOCriteria_EventInterviewerDetailsVOCriteria_row_0_EventId"
+        ViewAttribute="EventId"
+        Operator="="
+        Conjunction="AND"
+        Value=":eid"
+        IsBindVarValue="true"
+        Required="Required"
+        ValidateBindVars="true"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <RowFinders>
+    <ExpressionRowFinder
+      Name="RowFinder">
+      <ViewCriteriaUsage
+        Name="EventInterviewerDetailsVOCriteria"
+        FullName="model.ViewObject.EventInterviewerDetailsVO.EventInterviewerDetailsVOCriteria"/>
+      <VarExpressionMap
+        Name="RowFinderMap">
+        <VariableExpressionMapping
+          Name="eid"
+          Variable="eid"/>
+      </VarExpressionMap>
+    </ExpressionRowFinder>
+  </RowFinders>
 </ViewObject>

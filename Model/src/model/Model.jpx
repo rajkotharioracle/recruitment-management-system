@@ -13,6 +13,10 @@
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_jprName" Value="../../Model.jpr"/>
     <Attr Name="_NamedConnection" Value="Connection_DB"/>
+<<<<<<< HEAD
+=======
+    <Attr Name="_appModuleNames0" Value="model.EntityObject.RecruitingAppManagement"/>
+>>>>>>> RealMainFake
   </DesignTime>
   <Containee
     Name="EntityObject"
@@ -33,4 +37,17 @@
       <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
+  <Containee
+    Name="ViewObjectQB"
+    PackageName="model.ViewObjectQB"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <AppModuleUsage
+    Name="RecruitingAppManagement"
+    FullName="model.EntityObject.RecruitingAppManagement"
+    ConfigurationName="model.EntityObject.RecruitingAppManagementShared"
+    SharedScope="2"/>
 </JboProject>

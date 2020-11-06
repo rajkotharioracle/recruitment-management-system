@@ -64,12 +64,28 @@
     </DesignTime>
   </Attribute>
   <AccessorAttribute
+<<<<<<< HEAD
     Name="AkmrUsersMaster"
     Association="model.EntityObject.AkmrIDataFk1Assoc"
     AssociationEnd="model.EntityObject.AkmrIDataFk1Assoc.AkmrUsersMaster"
     AssociationOtherEnd="model.EntityObject.AkmrIDataFk1Assoc.InterviewerDataEO"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+=======
+    Name="UsersMasterEO"
+    Association="model.EntityObject.AkmrIDataFk1Assoc"
+    AssociationEnd="model.EntityObject.AkmrIDataFk1Assoc.UsersMasterEO"
+    AssociationOtherEnd="model.EntityObject.AkmrIDataFk1Assoc.InterviewerDataEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="EventInterviewerDetailsEO"
+    Association="model.EntityObject.AkmrEIDetFk1Assoc"
+    AssociationEnd="model.EntityObject.AkmrEIDetFk1Assoc.EventInterviewerDetailsEO"
+    AssociationOtherEnd="model.EntityObject.AkmrEIDetFk1Assoc.InterviewerDataEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+>>>>>>> RealMainFake
   <Key
     Name="AkmrIDataPk"
     PrimaryKey="true">
@@ -92,4 +108,20 @@
       <Item Value="model.EntityObject.InterviewerDataEO.InterviewerEmail"/>
     </AttrArray>
   </Key>
+<<<<<<< HEAD
+=======
+  <Permission
+    target="model.EntityObject.InterviewerDataEO"
+    permissionClass="oracle.adf.share.security.authorization.EntityPermission">
+    <privilege-map
+      operation="read"
+      privilege="read"/>
+    <privilege-map
+      operation="update"
+      privilege="update"/>
+    <privilege-map
+      operation="removeCurrentRow"
+      privilege="delete"/>
+  </Permission>
+>>>>>>> RealMainFake
 </Entity>
