@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="scheduledInterviewsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ScheduledInterview1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ScheduledInterview1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ScheduledInterview1Iterator" id="ScheduledInterview1">
+      <nodeDefinition DefName="model.ViewObject.ScheduledInterview" Name="ScheduledInterview10">
+        <AttrNames>
+          <Item Value="InterviewerEmailId"/>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="RoundNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="getUserId" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getUserId"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.getUserId.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.getUserId_getUserId_dataControl_dataProvider_getUserId_result">
+      <NamedData NDName="userName" NDValue="#{loginB.userName}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

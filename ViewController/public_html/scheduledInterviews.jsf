@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Dashboard | Interviewer" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter orientation="vertical" splitterPosition="102" id="pt_ps1">
+        <f:facet name="first">
+            <af:panelGridLayout id="pt_pgl1" inlineStyle="background-color:#302D2A;">
+                <af:gridRow marginTop="5px" height="auto" id="pt_gr1">
+                    <af:gridCell marginStart="5px" width="34%" id="pt_gc1">
+                        <af:image id="pt_i1" source="/Oracle-Emblem-removebg-preview.png"
+                                  inlineStyle="height:100px;margin-left:10px;" shortDesc="Oracle Logo"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" id="pt_gc2">
+                        <af:outputText value="Recuritment Managment System" id="pt_ot1"
+                                       inlineStyle="color:White; font-size:xx-large;padding-top:20px;"/><br/>
+                                <af:panelGroupLayout id="pgl2">
+                                    <af:panelFormLayout id="pfl1" inlineStyle="color:White;">
+                                        
+                                    </af:panelFormLayout>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="pt_gc3">
+                        <af:panelGroupLayout id="pt_pgl2" layout="horizontal" halign="right">
+                            <af:menuBar id="pt_mb2">
+                                <af:menu text="#{sessionScope.userName}" id="pt_m1">
+                                    <af:commandMenuItem text="Logout" id="pt_cmi1"/>
+                                </af:menu>
+                            </af:menuBar>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelStretchLayout id="pt_psl1" inlineStyle="background-color:#F5EFDF;" topHeight="51px"
+                                   bottomHeight="134px">
+                <f:facet name="start"/>
+                <f:facet name="end">
+                           
+                        </f:facet>
+                <f:facet name="top">
+                    
+                </f:facet>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                            <af:decorativeBox id="db1">
+                                <f:facet name="top"/>
+                                <f:facet name="center">
+                                    <af:panelGroupLayout id="pgl1">
+                                        <af:table value="#{bindings.ScheduledInterview1.collectionModel}" var="row"
+                                                  rows="#{bindings.ScheduledInterview1.rangeSize}"
+                                                  emptyText="#{bindings.ScheduledInterview1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.ScheduledInterview1.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.ScheduledInterview1.collectionModel.makeCurrent}"
+                                                  rowSelection="single"
+                                                  fetchSize="#{bindings.ScheduledInterview1.rangeSize}" id="t1">
+                                            <af:column headerText="#{bindings.ScheduledInterview1.hints.InterviewerEmailId.label}"
+                                                       id="c1">
+                                                <af:outputText value="#{row.InterviewerEmailId}"
+                                                               shortDesc="#{bindings.ScheduledInterview1.hints.InterviewerEmailId.tooltip}"
+                                                               id="ot1"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.ScheduledInterview1.hints.CandidateEmailId.label}"
+                                                       id="c2">
+                                                <af:outputText value="#{row.CandidateEmailId}"
+                                                               shortDesc="#{bindings.ScheduledInterview1.hints.CandidateEmailId.tooltip}"
+                                                               id="ot2"/>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.ScheduledInterview1.hints.RoundNo.label}"
+                                                       id="c3">
+                                                <af:outputText value="#{row.RoundNo}"
+                                                               shortDesc="#{bindings.ScheduledInterview1.hints.RoundNo.tooltip}"
+                                                               id="ot3">
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.ScheduledInterview1.hints.RoundNo.format}"/>
+                                                </af:outputText>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </f:facet>
+            </af:panelStretchLayout>
+        </f:facet>
+    </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>

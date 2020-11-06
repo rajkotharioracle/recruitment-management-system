@@ -22,22 +22,22 @@ import view.common.SessionUtils;
 import view.common.LoginDAO;
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
-import javax.swing.JOptionPane;
-import java.io.Serializable;
-
-import java.util.Iterator;
-
 import javax.faces.bean.SessionScoped;
-
 import javax.swing.JFrame;
-
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
-import oracle.jbo.domain.BlobDomain;
+import oracle.binding.OperationBinding;
+
+import view.common.ADFUtils;
+import view.common.JSFUtils;
+
 
 @ManagedBean
 @SessionScoped
 public class LoginBean implements Serializable{
+    
+    
     
     private static final long serialVersionUID = 1094801825228386363L;
     
@@ -114,6 +114,7 @@ public class LoginBean implements Serializable{
     
     public String loginAction() {
         String user = usernameInputText.getValue().toString();
+        System.out.println("User   "+ user);
         String pwd = passwordInputText.getValue().toString();
         
             String valid = LoginDAO.validate(user, pwd);
@@ -122,24 +123,31 @@ public class LoginBean implements Serializable{
                     HttpSession session = SessionUtils.getSession();
                     session.setAttribute("username", user);
                     System.out.println("SUCCESS "+ valid);
+                    
+                    
+                    
+                    //Session management code
+                    DCBindingContainer bindings = (DCBindingContainer)ADFUtils.evaluateEL("#{bindings}");
+                    System.out.println("bindings....");
+                    OperationBinding opBinding = bindings.getOperationBinding("getUserId");
+                    System.out.println("opbindings....");
+                    String userID = (String)opBinding.execute();
+                    System.out.println("userID...." + userID);
+                    JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+userID);
+                    //JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+user);                    
+                    
+                    
+                    
                     switch (valid){
-                    case "admin" : return "Dashboard";
-                    case "interviewer" : return "interviewer_dashboard";
-                    case "candidate" : return "candidate_dashboard";
-                    default : return "login";
+                    case "admin" : return "adminHome.jsf";
+                    //case "interviewer" : return "interviewer_dashboard.jsf";
+                    case "interviewer" : return "scheduledInterviews.jsf";
+                    case "candidate" : return "candidate_dashboard.jsf";
+                    default : return "login.jsf";
                     }
                     //return "Dashboard";
             } else {
                 System.out.println("INValiiiiiid");
-                    //JOptionPane.showMessageDialog(null, "YOUR INFORMATION HERE", "InfoBox: " + "TITLE BAR MESSAGE", JOptionPane.INFORMATION_MESSAGE);
-                    //f=new JFrame();  
-                    //JOptionPane.showMessageDialog(f,"Hello, Welcome to Javatpoint.");
-                    /*FacesContext.getCurrentInstance().addMessage(
-                                    null,
-                                    new FacesMessage(FacesMessage.SEVERITY_WARN,
-                                                    "Incorrect Username and Passowrd",
-                                                    "Please enter correct username and Password"));
-                    */
                     RichPopup.PopupHints hints = new RichPopup.PopupHints();
                     this.myPopup.show(hints);
                     System.out.println("INValiiiiiid 3");
@@ -148,7 +156,8 @@ public class LoginBean implements Serializable{
                 return "login";
             }
     }
-
+    
+    
 
     public void setMyPopup(RichPopup myPopup) {
         this.myPopup = myPopup;
@@ -159,24 +168,6 @@ public class LoginBean implements Serializable{
         return myPopup;
     }
     
-    public void downloadResume(FacesContext facesContext, OutputStream outputStream)                             {
-                              // get row containing file that you want to download
-                             
-                             Iterator<Row> rowiterator = sheet.iterator();
-                             while(rowIterator.hasNext()){
-                             Row row = rowIterator.next();
-                             BlobDomain blob = (BlobDomain) row.getAttribute("CandidateResume");
-                               try {
-                                 IOUtils.copy(blob.getInputStream(), outputStream);
-                                blob.closeInputStream();
-                                    outputStream.flush();
-                              } catch (IOException e) {
-                                   e.printStackTrace();
-       FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,                  e.getMessage(), "");
-                                facesContext.addMessage(null, msg);
-                              }}
-                           }
-
 
 }
 

@@ -16,7 +16,7 @@
                         <af:outputText value="Recuritment Managment System" id="pt_ot1"
                                        inlineStyle="color:White; font-size:xx-large;padding-top:20px;"/><br/>
                                 <af:panelGroupLayout id="pgl2">
-                                    <af:panelFormLayout id="pfl1" inlineStyle="color:White;">
+                                   <!-- <af:panelFormLayout id="pfl1" inlineStyle="color:White;">
                                         <af:inputText value="#{bindings.EventId.inputValue}"
                                                       label="#{bindings.EventId.hints.label}"
                                                       required="#{bindings.EventId.hints.mandatory}" readOnly="true"
@@ -35,7 +35,7 @@
                                                       shortDesc="#{bindings.EventName.hints.tooltip}" id="it2">
                                             <f:validator binding="#{bindings.EventName.validator}"/>
                                         </af:inputText>
-                                    </af:panelFormLayout>
+                                    </af:panelFormLayout> -->
                                 </af:panelGroupLayout>
                             </af:gridCell>
                     <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="pt_gc3">
@@ -58,15 +58,69 @@
                            
                         </f:facet>
                 <f:facet name="top">
-                    
-                </f:facet>
+                            <af:decorativeBox id="db2">
+                                <f:facet name="top"/>
+                                <f:facet name="center"/>
+                            </af:decorativeBox>
+                        </f:facet>
                 <f:facet name="bottom"/>
                 <f:facet name="center">
                             <af:decorativeBox id="db1">
-                                <f:facet name="top"/>
+                                <f:facet name="top">
+                                    <af:panelFormLayout id="pfl2">
+                                        <af:inputText value="#{bindings.Status.inputValue}"
+                                                      label="#{bindings.Status.hints.label}"
+                                                      required="#{bindings.Status.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.Status.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Status.hints.precision}"
+                                                      shortDesc="#{bindings.Status.hints.tooltip}" id="it3">
+                                            <f:validator binding="#{bindings.Status.validator}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                </f:facet>
                                 <f:facet name="center">
                                     <af:panelGroupLayout id="pgl1">
-                                        <af:panelSplitter id="ps1" splitterPosition="253" orientation="horizontal">
+                                        <af:panelSplitter id="ps1" splitterPosition="600" orientation="horizontal">
+                                            <f:facet name="second">
+                                                <af:table value="#{bindings.UpcomingCandidatesInterview2.collectionModel}"
+                                                          var="row"
+                                                          rows="#{bindings.UpcomingCandidatesInterview2.rangeSize}"
+                                                          emptyText="#{bindings.UpcomingCandidatesInterview2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                          rowBandingInterval="0"
+                                                          selectedRowKeys="#{bindings.UpcomingCandidatesInterview2.collectionModel.selectedRow}"
+                                                          selectionListener="#{bindings.UpcomingCandidatesInterview2.collectionModel.makeCurrent}"
+                                                          rowSelection="single"
+                                                          fetchSize="#{bindings.UpcomingCandidatesInterview2.rangeSize}"
+                                                          filterModel="#{bindings.UpcomingCandidatesInterview2Query.queryDescriptor}"
+                                                          filterVisible="true"
+                                                          queryListener="#{bindings.UpcomingCandidatesInterview2Query.processQuery}"
+                                                          varStatus="vs" id="t2">
+                                                    <af:column sortProperty="#{bindings.UpcomingCandidatesInterview2.hints.CandidateEmailId.name}"
+                                                               filterable="true" sortable="true"
+                                                               headerText="#{bindings.UpcomingCandidatesInterview2.hints.CandidateEmailId.label}"
+                                                               id="c5" width="200">
+                                                        <af:outputText value="#{row.CandidateEmailId}"
+                                                                       shortDesc="#{bindings.UpcomingCandidatesInterview2.hints.CandidateEmailId.tooltip}"
+                                                                       id="ot3"/>
+                                                    </af:column>
+                                                    <af:column sortProperty="#{bindings.UpcomingCandidatesInterview2.hints.RoundNo.name}"
+                                                               filterable="true" sortable="true"
+                                                               headerText="#{bindings.UpcomingCandidatesInterview2.hints.RoundNo.label}"
+                                                               id="c6">
+                                                        <af:outputText value="#{row.RoundNo}"
+                                                                       shortDesc="#{bindings.UpcomingCandidatesInterview2.hints.RoundNo.tooltip}"
+                                                                       id="ot4">
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.UpcomingCandidatesInterview2.hints.RoundNo.format}"/>
+                                                        </af:outputText>
+                                                    </af:column>
+                                                    <af:column id="c8" headerText="Start Interview">
+                                                    <af:link text="Start Interview" icon="/power.png"
+                                                                  id="i2"
+                                                              actionListener="#{interviewerDashboardBean.startInterview}"/>
+                                                    </af:column>
+                                                </af:table>
+                                            </f:facet>
                                             <f:facet name="first">
                                                 <af:table value="#{bindings.CandidatesAssignedInterviewer1.collectionModel}"
                                                           var="row"
@@ -84,10 +138,12 @@
                                                     <af:column sortProperty="#{bindings.CandidatesAssignedInterviewer1.hints.CandidateEmailId.name}"
                                                                filterable="true" sortable="true"
                                                                headerText="#{bindings.CandidatesAssignedInterviewer1.hints.CandidateEmailId.label}"
-                                                               id="c1">
+                                                               id="c1" width="200" displayIndex="-1"
+                                                               binding="#{interviewerDashboardBean.emailCand}">
                                                         <af:outputText value="#{row.CandidateEmailId}"
                                                                        shortDesc="#{bindings.CandidatesAssignedInterviewer1.hints.CandidateEmailId.tooltip}"
-                                                                       id="ot1"/>
+                                                                       id="ot1"
+                                                                       binding="#{interviewerDashboardBean.candidateEmail}"/>
                                                     </af:column>
                                                     <af:column sortProperty="#{bindings.CandidatesAssignedInterviewer1.hints.RoundNo.name}"
                                                                filterable="true" sortable="true"
@@ -100,9 +156,18 @@
                                                                               pattern="#{bindings.CandidatesAssignedInterviewer1.hints.RoundNo.format}"/>
                                                         </af:outputText>
                                                     </af:column>
+                                                    <af:column id="c3" headerText="Accept Interview">
+                                                        <af:link text="Accept Interview" icon="/check.png"
+                                                                  id="i1"
+                                                              actionListener="#{interviewerDashboardBean.acceptInterview}"/>
+                                                    </af:column>
+                                                    <af:column id="c4" headerText="Decline Interview">
+                                                    <af:link text="Decline Interview" icon="/rejected.png"
+                                                                  id="i2"
+                                                              actionListener="#{interviewerDashboardBean.declineInterview}"/>
+                                                    </af:column>
                                                 </af:table>
                                             </f:facet>
-                                            <f:facet name="second"/>
                                         </af:panelSplitter>
                                     </af:panelGroupLayout>
                                 </f:facet>

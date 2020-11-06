@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="view1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EventDetailsVO1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
+              id="EventDetailsVO1Iterator"/>
+    <searchRegion Binds="EventDetailsVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EventDetailsVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EventDetailsVO1Iterator" id="EventDetailsVO1">
+      <nodeDefinition DefName="model.ViewObject.EventDetailsVO" Name="EventDetailsVO10">
+        <AttrNames>
+          <Item Value="EventId"/>
+          <Item Value="EventName"/>
+          <Item Value="EventStatus"/>
+          <Item Value="EventStartTime"/>
+          <Item Value="EventMaxRounds"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="EventDetailsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="RecruitmentAppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

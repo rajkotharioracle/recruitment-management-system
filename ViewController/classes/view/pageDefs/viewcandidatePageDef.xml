@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="viewcandidatePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidateBasicInfo1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CandidateBasicInfo1Iterator"/>
+    <iterator Binds="CandidateInterviewHistory1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CandidateInterviewHistory1Iterator"/>
+    <searchRegion Binds="CandidateInterviewHistory1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CandidateInterviewHistory1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CandidateBasicInfo1Iterator" id="CandidateName">
+      <AttrNames>
+        <Item Value="CandidateName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateBasicInfo1Iterator" id="CandidateEmail">
+      <AttrNames>
+        <Item Value="CandidateEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateBasicInfo1Iterator" id="CandidateResume">
+      <AttrNames>
+        <Item Value="CandidateResume"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateBasicInfo1Iterator" id="CandidateGender">
+      <AttrNames>
+        <Item Value="CandidateGender"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CandidateBasicInfo1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CandidateBasicInfo1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CandidateBasicInfo1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CandidateBasicInfo1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="CandidateBasicInfo1Iterator" id="CandidateBasicInfo1">
+      <nodeDefinition DefName="model.ViewObject.CandidateBasicInfo" Name="CandidateBasicInfo10">
+        <AttrNames>
+          <Item Value="CandidateName"/>
+          <Item Value="CandidateEmail"/>
+          <Item Value="CandidateResume"/>
+          <Item Value="CandidateGender"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CandidateInterviewHistory1Iterator" id="CandidateInterviewHistory1">
+      <nodeDefinition DefName="model.ViewObject.CandidateInterviewHistory" Name="CandidateInterviewHistory10">
+        <AttrNames>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="InterviewerEmailId"/>
+          <Item Value="EventId"/>
+          <Item Value="FeedbackId"/>
+          <Item Value="RoundNo"/>
+          <Item Value="Status"/>
+          <Item Value="StartTime"/>
+          <Item Value="EndTime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="admin_templatePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InterviewDetailsVO1" RangeSize="25" DataControl="RecruitmentAppModuleDataControl"
+              id="InterviewDetailsVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="CandidateEmailId">
+      <AttrNames>
+        <Item Value="CandidateEmailId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="InterviewerEmailId">
+      <AttrNames>
+        <Item Value="InterviewerEmailId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="EventId">
+      <AttrNames>
+        <Item Value="EventId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="FeedbackId">
+      <AttrNames>
+        <Item Value="FeedbackId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="RoundNo">
+      <AttrNames>
+        <Item Value="RoundNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="StartTime">
+      <AttrNames>
+        <Item Value="StartTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InterviewDetailsVO1Iterator" id="EndTime">
+      <AttrNames>
+        <Item Value="EndTime"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InterviewDetailsVO1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="InterviewDetailsVO1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="InterviewDetailsVO1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="InterviewDetailsVO1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+</pageDefinition>

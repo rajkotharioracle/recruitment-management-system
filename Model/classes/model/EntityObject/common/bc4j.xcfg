@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="model.EntityObject.RecruitmentAppModule">
+    <AppModuleConfig name="RecruitmentAppModuleLocal" jbo.project="model.Model"
+                     ApplicationName="model.EntityObject.RecruitmentAppModule" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/Connection_DBDS"/>
+      <Security AppModuleJndiName="model.EntityObject.RecruitmentAppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="RecruitmentAppModuleShared" jbo.project="model.Model"
+                     ApplicationName="model.EntityObject.RecruitmentAppModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/Connection_DBDS"/>
+      <Security AppModuleJndiName="model.EntityObject.RecruitmentAppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+  <AppModuleConfigBag ApplicationName="model.EntityObject.AppModule">
+    <AppModuleConfig name="AppModuleLocal" jbo.project="model.Model" ApplicationName="model.EntityObject.AppModule"
+                     DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/Connection_DBDS"/>
+      <Security AppModuleJndiName="model.EntityObject.AppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AppModuleShared" jbo.project="model.Model" ApplicationName="model.EntityObject.AppModule"
+                     DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/Connection_DBDS"/>
+      <Security AppModuleJndiName="model.EntityObject.AppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

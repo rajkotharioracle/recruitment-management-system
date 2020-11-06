@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InterviewerDataVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <EntityUsage
+    Name="InterviewerDataEO"
+    Entity="model.EntityObject.InterviewerDataEO"/>
+  <ViewAttribute
+    Name="InterviewerName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerName"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_NAME"/>
+  <ViewAttribute
+    Name="InterviewerPosition"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerPosition"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_POSITION"/>
+  <ViewAttribute
+    Name="InterviewerEmail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerEmail"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_EMAIL"/>
+  <ViewAttribute
+    Name="InterviewerMobNo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerMobNo"
+    EntityUsage="InterviewerDataEO"
+    AliasName="INTERVIEWER_MOB_NO"/>
+</ViewObject>
