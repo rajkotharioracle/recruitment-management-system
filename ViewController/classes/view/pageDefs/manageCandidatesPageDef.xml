@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="manageCandidatesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidateDataVO1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CandidateDataVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CandidateDataVO1Iterator" id="CandidateDataVO1">
+      <nodeDefinition DefName="model.ViewObject.CandidateDataVO" Name="CandidateDataVO10">
+        <AttrNames>
+          <Item Value="CandidateId"/>
+          <Item Value="CandidateEmail"/>
+          <Item Value="CandidateName"/>
+          <Item Value="CandidateMobile"/>
+          <Item Value="CandidateGender"/>
+          <Item Value="CandidateDob"/>
+          <Item Value="PreviousEventId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CandidateDataVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="RecruitingAppManagementDataControl"/>
+  </bindings>
+</pageDefinition>

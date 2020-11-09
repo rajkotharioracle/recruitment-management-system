@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="candidateLookupPagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidateInfo1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CandidateInfo1Iterator"/>
+    <searchRegion Binds="CandidateInfo1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CandidateInfo1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CandidateInfo1Iterator" id="CandidateInfo1">
+      <nodeDefinition DefName="model.ViewObject.CandidateInfo" Name="CandidateInfo10">
+        <AttrNames>
+          <Item Value="CandidateDob"/>
+          <Item Value="CandidateEmail"/>
+          <Item Value="CandidateGender"/>
+          <Item Value="CandidateId"/>
+          <Item Value="CandidateMobile"/>
+          <Item Value="CandidateName"/>
+          <Item Value="PreviousEventId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CandidateInfo1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CandidateInfo1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="RecruitingAppManagementDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="RecruitingAppManagementDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -106,23 +106,26 @@
     Name="scheduledInterviews1"
     ViewObjectName="model.ViewObjectQB.scheduledInterviews"/>
   <ViewUsage
+    Name="SchedEvents1"
+    ViewObjectName="model.ViewObject.SchedEvents"/>
+  <ViewUsage
     Name="EventInterviewerDetailsVO1"
     ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewUsage
     Name="InterviewerDataVO1"
     ViewObjectName="model.ViewObject.InterviewerDataVO"/>
   <ViewUsage
-    Name="SchedEvents1"
-    ViewObjectName="model.ViewObject.SchedEvents"/>
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="CandidateInfo1"
+    ViewObjectName="model.ViewObject.CandidateInfo"/>
   <ViewLinkUsage
     Name="interviewetforadding"
     ViewLinkObjectName="model.ViewObject.interviewetforadding"
     SrcViewUsageName="model.EntityObject.RecruitingAppManagement.InterviewerDataVO1"
     DstViewUsageName="model.EntityObject.RecruitingAppManagement.EventInterviewerDetailsVO1"
     Reversed="false"/>
-  <ViewUsage
-    Name="EventInterviewerDetailsVO1"
-    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewLinkUsage
     Name="eventinterviewer_interviewer"
     ViewLinkObjectName="model.ViewObject.eventinterviewer_interviewer"

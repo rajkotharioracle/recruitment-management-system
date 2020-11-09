@@ -33,6 +33,9 @@
     <page path="/event_create2.jsf" usageId="view_event_create2PageDef"/>
     <page path="/event_create3.jsf" usageId="view_event_create3PageDef"/>
     <page path="/event_info.jsf" usageId="view_event_infoPageDef"/>
+    <page path="/addNewCandidate.jsf" usageId="view_addNewCandidatePageDef"/>
+    <page path="/manageCandidates.jsf" usageId="view_manageCandidatesPageDef"/>
+    <page path="/candidateLookupPage.jsf" usageId="view_candidateLookupPagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_admin_templatePageDef" path="view.pageDefs.admin_templatePageDef"/>
@@ -63,6 +66,9 @@
     <page id="view_event_create2PageDef" path="view.pageDefs.event_create2PageDef"/>
     <page id="view_event_create3PageDef" path="view.pageDefs.event_create3PageDef"/>
     <page id="view_event_infoPageDef" path="view.pageDefs.event_infoPageDef"/>
+    <page id="view_addNewCandidatePageDef" path="view.pageDefs.addNewCandidatePageDef"/>
+    <page id="view_manageCandidatesPageDef" path="view.pageDefs.manageCandidatesPageDef"/>
+    <page id="view_candidateLookupPagePageDef" path="view.pageDefs.candidateLookupPagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="RecruitmentAppModuleDataControl" Package="model.EntityObject"
