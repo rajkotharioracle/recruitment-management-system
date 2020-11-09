@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="event_info.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="50%" id="gc1">
+                                <af:selectOneChoice value="#{bindings.SchedEvents1.inputValue}"
+                                                    label="#{bindings.SchedEvents1.label}"
+                                                    required="#{bindings.SchedEvents1.hints.mandatory}"
+                                                    shortDesc="#{bindings.SchedEvents1.hints.tooltip}" id="soc1">
+                                    <f:selectItems value="#{bindings.SchedEvents1.items}" id="si1"/>
+                                    <f:validator binding="#{bindings.SchedEvents1.validator}"/>
+                                </af:selectOneChoice>
+                                <af:button text="Select event" id="b1"
+                                           actionListener="#{setCompletedEvent.EventInfo_seteid}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                                <af:button text="Create event" id="b2"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch">
+                                <af:table value="#{bindings.IntervieweriInEvent1.collectionModel}" var="row"
+                                          rows="#{bindings.IntervieweriInEvent1.rangeSize}"
+                                          emptyText="#{bindings.IntervieweriInEvent1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.IntervieweriInEvent1.collectionModel.selectedRow}"
+                                          rowSelection="multiple" fetchSize="#{bindings.IntervieweriInEvent1.rangeSize}"
+                                          filterModel="#{bindings.IntervieweriInEvent1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.IntervieweriInEvent1Query.processQuery}"
+                                          varStatus="vs" id="t1">
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.EventId.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.EventId.label}"
+                                               id="c1">
+                                        <af:inputText value="#{row.bindings.EventId.inputValue}"
+                                                      label="#{bindings.IntervieweriInEvent1.hints.EventId.label}"
+                                                      required="#{bindings.IntervieweriInEvent1.hints.EventId.mandatory}"
+                                                      columns="#{bindings.IntervieweriInEvent1.hints.EventId.displayWidth}"
+                                                      maximumLength="#{bindings.IntervieweriInEvent1.hints.EventId.precision}"
+                                                      shortDesc="#{bindings.IntervieweriInEvent1.hints.EventId.tooltip}"
+                                                      id="it1">
+                                            <f:validator binding="#{row.bindings.EventId.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.IntervieweriInEvent1.hints.EventId.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerEmailId.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerEmailId.label}"
+                                               id="c2">
+                                        <af:selectOneChoice value="#{row.bindings.InterviewerEmailId.inputValue}"
+                                                            label="#{row.bindings.InterviewerEmailId.label}"
+                                                            required="#{bindings.IntervieweriInEvent1.hints.InterviewerEmailId.mandatory}"
+                                                            shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerEmailId.tooltip}"
+                                                            id="soc2">
+                                            <f:selectItems value="#{row.bindings.InterviewerEmailId.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.InterviewerEmailId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.label}"
+                                               id="c3">
+                                        <af:inputText value="#{row.bindings.InterviewerMaxLevel.inputValue}"
+                                                      label="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.label}"
+                                                      required="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.mandatory}"
+                                                      columns="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.displayWidth}"
+                                                      maximumLength="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.precision}"
+                                                      shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.tooltip}"
+                                                      id="it2">
+                                            <f:validator binding="#{row.bindings.InterviewerMaxLevel.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.IntervieweriInEvent1.hints.InterviewerMaxLevel.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.label}"
+                                               id="c4">
+                                        <af:inputText value="#{row.bindings.InterviewerMinLevel.inputValue}"
+                                                      label="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.label}"
+                                                      required="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.mandatory}"
+                                                      columns="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.displayWidth}"
+                                                      maximumLength="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.precision}"
+                                                      shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.tooltip}"
+                                                      id="it3">
+                                            <f:validator binding="#{row.bindings.InterviewerMinLevel.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.IntervieweriInEvent1.hints.InterviewerMinLevel.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.label}"
+                                               id="c5">
+                                        <af:inputText value="#{row.bindings.InterviewerEmail.inputValue}"
+                                                      label="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.label}"
+                                                      required="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.mandatory}"
+                                                      columns="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.displayWidth}"
+                                                      maximumLength="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.precision}"
+                                                      shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerEmail.tooltip}"
+                                                      id="it4">
+                                            <f:validator binding="#{row.bindings.InterviewerEmail.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerName.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerName.label}"
+                                               id="c6">
+                                        <af:inputText value="#{row.bindings.InterviewerName.inputValue}"
+                                                      label="#{bindings.IntervieweriInEvent1.hints.InterviewerName.label}"
+                                                      required="#{bindings.IntervieweriInEvent1.hints.InterviewerName.mandatory}"
+                                                      columns="#{bindings.IntervieweriInEvent1.hints.InterviewerName.displayWidth}"
+                                                      maximumLength="#{bindings.IntervieweriInEvent1.hints.InterviewerName.precision}"
+                                                      shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerName.tooltip}"
+                                                      id="it5">
+                                            <f:validator binding="#{row.bindings.InterviewerName.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.label}"
+                                               id="c7">
+                                        <af:inputText value="#{row.bindings.InterviewerPosition.inputValue}"
+                                                      label="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.label}"
+                                                      required="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.mandatory}"
+                                                      columns="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.displayWidth}"
+                                                      maximumLength="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.precision}"
+                                                      shortDesc="#{bindings.IntervieweriInEvent1.hints.InterviewerPosition.tooltip}"
+                                                      id="it6">
+                                            <f:validator binding="#{row.bindings.InterviewerPosition.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.IntervieweriInEvent1.hints.Status.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.IntervieweriInEvent1.hints.Status.label}" id="c8">
+                                        <af:inputText value="#{row.bindings.Status.inputValue}"
+                                                      label="#{bindings.IntervieweriInEvent1.hints.Status.label}"
+                                                      required="#{bindings.IntervieweriInEvent1.hints.Status.mandatory}"
+                                                      columns="#{bindings.IntervieweriInEvent1.hints.Status.displayWidth}"
+                                                      maximumLength="#{bindings.IntervieweriInEvent1.hints.Status.precision}"
+                                                      shortDesc="#{bindings.IntervieweriInEvent1.hints.Status.tooltip}"
+                                                      id="it7">
+                                            <f:validator binding="#{row.bindings.Status.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Interviewer"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b3"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                           disabled="#{!bindings.Commit.enabled}" id="b4"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="stretch">
+                                <af:table value="#{bindings.CandidatesInInterview1.collectionModel}" var="row"
+                                          rows="#{bindings.CandidatesInInterview1.rangeSize}"
+                                          emptyText="#{bindings.CandidatesInInterview1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.CandidatesInInterview1.collectionModel.selectedRow}"
+                                          rowSelection="multiple"
+                                          fetchSize="#{bindings.CandidatesInInterview1.rangeSize}"
+                                          filterModel="#{bindings.CandidatesInInterview1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.CandidatesInInterview1Query.processQuery}"
+                                          varStatus="vs" id="t2">
+                                    <af:column sortProperty="#{bindings.CandidatesInInterview1.hints.CandidateEmailId.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesInInterview1.hints.CandidateEmailId.label}"
+                                               id="c9">
+                                        <af:selectOneChoice value="#{row.bindings.CandidateEmailId.inputValue}"
+                                                            label="#{row.bindings.CandidateEmailId.label}"
+                                                            required="#{bindings.CandidatesInInterview1.hints.CandidateEmailId.mandatory}"
+                                                            shortDesc="#{bindings.CandidatesInInterview1.hints.CandidateEmailId.tooltip}"
+                                                            id="soc3">
+                                            <f:selectItems value="#{row.bindings.CandidateEmailId.items}" id="si3"/>
+                                            <f:validator binding="#{row.bindings.CandidateEmailId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesInInterview1.hints.EventId.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesInInterview1.hints.EventId.label}"
+                                               id="c10">
+                                        <af:inputText value="#{row.bindings.EventId.inputValue}"
+                                                      label="#{bindings.CandidatesInInterview1.hints.EventId.label}"
+                                                      required="#{bindings.CandidatesInInterview1.hints.EventId.mandatory}"
+                                                      columns="#{bindings.CandidatesInInterview1.hints.EventId.displayWidth}"
+                                                      maximumLength="#{bindings.CandidatesInInterview1.hints.EventId.precision}"
+                                                      shortDesc="#{bindings.CandidatesInInterview1.hints.EventId.tooltip}"
+                                                      id="it8">
+                                            <f:validator binding="#{row.bindings.EventId.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.CandidatesInInterview1.hints.EventId.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesInInterview1.hints.CandidateName.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesInInterview1.hints.CandidateName.label}"
+                                               id="c11">
+                                        <af:inputText value="#{row.bindings.CandidateName.inputValue}"
+                                                      label="#{bindings.CandidatesInInterview1.hints.CandidateName.label}"
+                                                      required="#{bindings.CandidatesInInterview1.hints.CandidateName.mandatory}"
+                                                      columns="#{bindings.CandidatesInInterview1.hints.CandidateName.displayWidth}"
+                                                      maximumLength="#{bindings.CandidatesInInterview1.hints.CandidateName.precision}"
+                                                      shortDesc="#{bindings.CandidatesInInterview1.hints.CandidateName.tooltip}"
+                                                      id="it9">
+                                            <f:validator binding="#{row.bindings.CandidateName.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.CandidatesInInterview1.hints.CandidateEmail.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.CandidatesInInterview1.hints.CandidateEmail.label}"
+                                               id="c12">
+                                        <af:inputText value="#{row.bindings.CandidateEmail.inputValue}"
+                                                      label="#{bindings.CandidatesInInterview1.hints.CandidateEmail.label}"
+                                                      required="#{bindings.CandidatesInInterview1.hints.CandidateEmail.mandatory}"
+                                                      columns="#{bindings.CandidatesInInterview1.hints.CandidateEmail.displayWidth}"
+                                                      maximumLength="#{bindings.CandidatesInInterview1.hints.CandidateEmail.precision}"
+                                                      shortDesc="#{bindings.CandidatesInInterview1.hints.CandidateEmail.tooltip}"
+                                                      id="it10">
+                                            <f:validator binding="#{row.bindings.CandidateEmail.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                                <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Candidate"
+                                           disabled="#{!bindings.CreateInsert1.enabled}" id="b6"/>
+                                <af:button actionListener="#{bindings.Commit1.execute}" text="Save"
+                                           disabled="#{!bindings.Commit1.enabled}" id="b5"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

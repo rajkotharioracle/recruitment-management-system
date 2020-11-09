@@ -59,6 +59,7 @@ import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.binding.BindingContainer;
 
 import oracle.jbo.RowSetIterator;
+import java.math.BigDecimal;
 
 
 public class Event {
@@ -381,6 +382,26 @@ public  String geteid()
         
         
         
+        
+    }
+
+    public void EventInfo_seteid(ActionEvent actionEvent) {
+        // Add event code here...
+        
+        BindingContext bctx = BindingContext.getCurrent();
+                BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("SchedEvents1Iterator");
+        ViewObject vo=candi_itr.getViewObject();
+        Row curRow=vo.getCurrentRow();
+        BigDecimal x = (BigDecimal) curRow.getAttribute("EventId");
+        DCIteratorBinding candi_itr1 =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
+        ViewObject vo1=candi_itr1.getViewObject();
+        DCIteratorBinding candi_itr2 =(DCIteratorBinding)bindings.get("CandidatesInInterview1Iterator");
+        ViewObject vo2=candi_itr2.getViewObject();
+        vo1.setNamedWhereClauseParam("eid", x);
+        vo2.setNamedWhereClauseParam("eid", x);
+        vo1.executeQuery();
+        vo2.executeQuery();
         
     }
 }
