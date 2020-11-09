@@ -16,7 +16,10 @@ import model.ViewObject.interviewersImpl;
 
 import model.ViewObjectQB.EventCandidateDatawithNameImpl;
 import model.ViewObjectQB.approinterviewerImpl;
+import model.ViewObjectQB.givenInterviewerImpl;
 import model.ViewObjectQB.interviewdetailQBImpl;
+
+import model.ViewObjectQB.scheduledInterviewsImpl;
 
 import oracle.jbo.Row;
 import oracle.jbo.server.ApplicationModuleImpl;
@@ -125,10 +128,23 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
         return (usersVORow != null) ? usersVORow.getAttribute("EVENT_ID").toString(): null;
     }
     
+    public String getEventIdforScheduledinterview(String eventid){
+    //       System.out.println("hello" + eventid);
+        ViewObjectImpl usersVO = this.getscheduledInterviews1();
+        usersVO.setApplyViewCriteriaName("scheduledInterviewsCriteria");
+        usersVO.setNamedWhereClauseParam("pid1",eventid);
+        usersVO.executeQuery();
+    //        System.out.println(usersVO);
+        Row usersVORow = usersVO.first();
+    //        System.out.println(usersVORow);
+    //      System.out.println(usersVORow.getAttribute("EVENT_ID").toString());
+        return (usersVORow != null) ? usersVORow.getAttribute("EVENT_ID").toString(): null;
+    }
+    
     public String getEventIdforcandidate(String eventid){
         //System.out.println("hello" + eventid);
-        ViewObjectImpl usersVO = this.getEventCandidatefordetailpage1();
-        usersVO.setApplyViewCriteriaName("EventCandidatefordetailpageCriteria");
+        ViewObjectImpl usersVO = this.gettest1();
+        usersVO.setApplyViewCriteriaName("testCriteria");
         usersVO.setNamedWhereClauseParam("pid1",eventid);
         usersVO.executeQuery();
     //        System.out.println(usersVO);
@@ -152,6 +168,8 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     }
     
     
+    
+    
     public String getEventIdforinterviewerforadd(String eventid){
        // System.out.println("hello" + eventid);
         ViewObjectImpl usersVO = this.getInterviewerDataVO1();
@@ -164,6 +182,8 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     //      System.out.println(usersVORow.getAttribute("EVENT_ID").toString());
         return (usersVORow != null) ? usersVORow.getAttribute("EVENT_ID").toString(): null;
     }
+    
+    
     
     public String getEventIdforeventinterviewerforadd(String eventid){
        // System.out.println("hello" + eventid);
@@ -184,10 +204,11 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
         ViewObjectImpl usersVO = this.getEventCandidateDatawithName1();
         usersVO.setApplyViewCriteriaName("EventCandidateDatawithNameCriteria");
         usersVO.setNamedWhereClauseParam("pid",eventId);
+        System.out.println("Query: " + usersVO.getQuery());
         usersVO.executeQuery();
-    //        System.out.println(usersVO);
+        System.out.println(usersVO);
         Row usersVORow = usersVO.first();
-    //        System.out.println(usersVORow);
+        System.out.println(usersVORow);
     //      System.out.println(usersVORow.getAttribute("EVENT_ID").toString());
         return (usersVORow != null) ? usersVORow.getAttribute("EVENT_ID").toString(): null;
     }
@@ -294,7 +315,7 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
             ViewObject vo2=getCandidatesInInterview1(); //candidates in this event
 
             ViewObject vo3=getCandidatesEventHistory1();
-            ViewObject vo4=getInterviewerwithSpecifcEventId1();
+            ViewObject vo4=getIntervieweriInEvent1();
             ViewObject vo5 = getInterviewerEventHistory1();
             ViewObject vo6=getCandiateStatus1();
                      Row currentRow= vo1.getCurrentRow();
@@ -329,7 +350,10 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     
     
     public void report_setInterviewer()
-    {ViewObject vo4 = getInterviewerwithSpecifcEventId1();
+    {//this funtion is running from bean now
+        
+        
+        ViewObject vo4 = getIntervieweriInEvent1();
          ViewObject vo5 = getInterviewerEventHistory1();
          Row currentRow= vo4.getCurrentRow();
       String x = (String) currentRow.getAttribute("InterviewerEmail");
@@ -370,13 +394,6 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
         return (ViewObjectImpl) findViewObject("FeedbackDetailsVO1");
     }
 
-    /**
-     * Container's getter for InterviewerwithSpecifcEventId1.
-     * @return InterviewerwithSpecifcEventId1
-     */
-    public ViewObjectImpl getInterviewerwithSpecifcEventId1() {
-        return (ViewObjectImpl) findViewObject("InterviewerwithSpecifcEventId1");
-    }
 
     /**
      * Container's getter for EventCandidateDetailsVO1.
@@ -420,9 +437,7 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     }
 
     /**
-     * Container's getter for ViewObj1.
-     * @return ViewObj1
-     */
+
     public ViewObjImpl getViewObj1() {
         return (ViewObjImpl) findViewObject("ViewObj1");
     }
@@ -449,5 +464,49 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
      */
     public UpcomingInterviewsImpl getUpcomingInterviews1() {
         return (UpcomingInterviewsImpl) findViewObject("UpcomingInterviews1");
+
+    }
+    public ViewObjectImpl gettest1() {
+        return (ViewObjectImpl) findViewObject("test1");
+    }
+
+    /**
+     * Container's getter for givenInterviewer1.
+     * @return givenInterviewer1
+     */
+    public givenInterviewerImpl getgivenInterviewer1() {
+        return (givenInterviewerImpl) findViewObject("givenInterviewer1");
+    }
+
+    /**
+     * Container's getter for popupinterviewer1.
+     * @return popupinterviewer1
+     */
+    public ViewObjectImpl getpopupinterviewer1() {
+        return (ViewObjectImpl) findViewObject("popupinterviewer1");
+    }
+
+    /**
+     * Container's getter for newcandidateadd1.
+     * @return newcandidateadd1
+     */
+    public ViewObjectImpl getnewcandidateadd1() {
+        return (ViewObjectImpl) findViewObject("newcandidateadd1");
+    }
+
+    /**
+     * Container's getter for scheduledInterviews1.
+     * @return scheduledInterviews1
+     */
+    public scheduledInterviewsImpl getscheduledInterviews1() {
+        return (scheduledInterviewsImpl) findViewObject("scheduledInterviews1");
+    }
+
+    /**
+     * Container's getter for SchedEvents1.
+     * @return SchedEvents1
+     */
+    public ViewObjectImpl getSchedEvents1() {
+        return (ViewObjectImpl) findViewObject("SchedEvents1");
     }
 }

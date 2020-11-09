@@ -13,6 +13,7 @@
     <Attr Name="_jprName" Value="../../Model.jpr"/>
     <Attr Name="_NamedConnection" Value="Connection_DB"/>
     <Attr Name="_appModuleNames0" Value="model.EntityObject.RecruitingAppManagement"/>
+    <Attr Name="_appModuleNames1" Value="model.ViewObject.RecruitingAppManagement"/>
   </DesignTime>
   <Containee
     Name="EntityObject"
@@ -22,6 +23,7 @@
       <Attr Name="_EO" Value="true"/>
       <Attr Name="_AS" Value="true"/>
       <Attr Name="_AM" Value="true"/>
+      <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee
@@ -31,6 +33,7 @@
     <DesignTime>
       <Attr Name="_VO" Value="true"/>
       <Attr Name="_VL" Value="true"/>
+      <Attr Name="_AM" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

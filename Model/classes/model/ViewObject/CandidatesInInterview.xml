@@ -27,6 +27,26 @@
     Name="CandidatesInInterview1"
     ViewObjectName="model.ViewObject.CandidatesInInterview"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RecruitingAppManagement_CandidateDataVO1_1"
+    ViewObjectName="model.ViewObject.CandidateDataVO"
+    AMUsageName="RecruitingAppManagement"
+    ViewInstanceName="CandidateDataVO1"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CandidateEmailId"
+    ListVOName="RecruitingAppManagement_CandidateDataVO1_1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CandidateEmailId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CandidateEmail"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT EventCandidateDetailsEO.CANDIDATE_EMAIL_ID, 
        EventCandidateDetailsEO.EVENT_ID, 
        CandidateDataEO.CANDIDATE_NAME, 
@@ -54,7 +74,15 @@ Where
     PrecisionRule="true"
     EntityAttrName="CandidateEmailId"
     EntityUsage="EventCandidateDetailsEO"
-    AliasName="CANDIDATE_EMAIL_ID"/>
+    AliasName="CANDIDATE_EMAIL_ID"
+    LOVName="LOV_CandidateEmailId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EventId"
     IsNotNull="true"

@@ -59,6 +59,7 @@ import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.binding.BindingContainer;
 
 import oracle.jbo.RowSetIterator;
+import java.math.BigDecimal;
 
 
 public class Event {
@@ -350,6 +351,7 @@ public  String geteid()
 
     public void checkfun(ActionEvent actionEvent) {
         // Add event code here...   INSTEAD of this function ,pass bind variable directly from previous page.
+        
         BindingContext bctx = BindingContext.getCurrent();
                 BindingContainer bindings = bctx.getCurrentBindingsEntry();
         DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
@@ -357,5 +359,49 @@ public  String geteid()
         
         vo.setNamedWhereClauseParam("eid","5");
         vo.executeQuery();
+    }
+
+    public void report_setInterviewerId(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContext bctx = BindingContext.getCurrent();
+                BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
+        
+        ViewObject vo=candi_itr.getViewObject();
+        Row curRow= vo.getCurrentRow();
+        String x = (String) curRow.getAttribute("InterviewerEmailId");
+        
+        String y = (String) report_outcome.getValue();
+       System.out.println(y);
+        DCIteratorBinding candi_itr1 =(DCIteratorBinding)bindings.get("InterviewerEventHistory1Iterator");
+        ViewObject vo1=candi_itr1.getViewObject();
+        vo1.setNamedWhereClauseParam("iid", x);
+        vo1.setNamedWhereClauseParam("fid", y);
+        vo1.executeQuery();
+        
+        
+        
+        
+        
+    }
+
+    public void EventInfo_seteid(ActionEvent actionEvent) {
+        // Add event code here...
+        
+        BindingContext bctx = BindingContext.getCurrent();
+                BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("SchedEvents1Iterator");
+        ViewObject vo=candi_itr.getViewObject();
+        Row curRow=vo.getCurrentRow();
+        BigDecimal x = (BigDecimal) curRow.getAttribute("EventId");
+        DCIteratorBinding candi_itr1 =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
+        ViewObject vo1=candi_itr1.getViewObject();
+        DCIteratorBinding candi_itr2 =(DCIteratorBinding)bindings.get("CandidatesInInterview1Iterator");
+        ViewObject vo2=candi_itr2.getViewObject();
+        vo1.setNamedWhereClauseParam("eid", x);
+        vo2.setNamedWhereClauseParam("eid", x);
+        vo1.executeQuery();
+        vo2.executeQuery();
+        
     }
 }

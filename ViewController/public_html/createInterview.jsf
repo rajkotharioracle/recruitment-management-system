@@ -11,7 +11,6 @@
                               emptyText="#{bindings.EventCandidateDatawithName1.viewable ? 'No data to display.' : 'Access Denied.'}"
                               rowBandingInterval="0"
                               selectedRowKeys="#{bindings.EventCandidateDatawithName1.collectionModel.selectedRow}"
-                              selectionListener="#{bindings.EventCandidateDatawithName1.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.EventCandidateDatawithName1.rangeSize}"
                               filterModel="#{bindings.EventCandidateDatawithName1Query.queryDescriptor}"
                               filterVisible="true"
@@ -21,73 +20,45 @@
                                    filterable="true" sortable="true"
                                    headerText="#{bindings.EventCandidateDatawithName1.hints.CandidateName.label}"
                                    id="c1">
-                            <af:inputText value="#{row.bindings.CandidateName.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.CandidateName.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.CandidateName.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.CandidateName.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.CandidateName.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateName.tooltip}"
-                                          id="it1">
-                                <f:validator binding="#{row.bindings.CandidateName.validator}"/>
-                            </af:inputText>
+                            <af:outputText value="#{row.CandidateName}"
+                                           shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateName.tooltip}"
+                                           id="ot1"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.name}"
                                    filterable="true" sortable="true"
                                    headerText="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.label}"
                                    id="c2">
-                            <af:inputText value="#{row.bindings.CandidateEmailId.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.tooltip}"
-                                          id="it2" binding="#{CreateInterview.candemid}">
-                                <f:validator binding="#{row.bindings.CandidateEmailId.validator}"/>
-                            </af:inputText>
+                            <af:outputText value="#{row.CandidateEmailId}"
+                                           shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.tooltip}"
+                                           id="ot2" binding="#{interviewassign.candemid2}"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.name}"
                                    filterable="true" sortable="true"
                                    headerText="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.label}"
                                    id="c3">
-                            <af:inputText value="#{row.bindings.CurrentRound.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.tooltip}"
-                                          id="it3" binding="#{CreateInterview.currRound}">
-                                <f:validator binding="#{row.bindings.CurrentRound.validator}"/>
+                            <af:outputText value="#{row.CurrentRound}"
+                                           shortDesc="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.tooltip}"
+                                           id="ot3" binding="#{interviewassign.currRound2}">
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.format}"/>
-                            </af:inputText>
+                            </af:outputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.Status.name}"
                                    filterable="true" sortable="true"
                                    headerText="#{bindings.EventCandidateDatawithName1.hints.Status.label}" id="c4">
-                            <af:inputText value="#{row.bindings.Status.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.Status.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.Status.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.Status.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.Status.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.Status.tooltip}"
-                                          id="it4">
-                                <f:validator binding="#{row.bindings.Status.validator}"/>
-                            </af:inputText>
+                            <af:outputText value="#{row.Status}"
+                                           shortDesc="#{bindings.EventCandidateDatawithName1.hints.Status.tooltip}"
+                                           id="ot4"/>
                         </af:column>
                         <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.EventId.name}"
                                    filterable="true" sortable="true"
                                    headerText="#{bindings.EventCandidateDatawithName1.hints.EventId.label}" id="c5">
-                            <af:inputText value="#{row.bindings.EventId.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.EventId.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.EventId.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.EventId.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.EventId.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.EventId.tooltip}"
-                                          id="it5" binding="#{CreateInterview.eventId}">
-                                <f:validator binding="#{row.bindings.EventId.validator}"/>
+                            <af:outputText value="#{row.EventId}"
+                                           shortDesc="#{bindings.EventCandidateDatawithName1.hints.EventId.tooltip}"
+                                           id="ot5" binding="#{interviewassign.eventId2}">
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.EventCandidateDatawithName1.hints.EventId.format}"/>
-                            </af:inputText>
+                            </af:outputText>
                         </af:column>
                         <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.InterviewerList.name}"
                                    filterable="true" sortable="true"
@@ -97,15 +68,15 @@
                                                 label="#{row.bindings.InterviewerList.label}"
                                                 required="#{bindings.EventCandidateDatawithName1.hints.InterviewerList.mandatory}"
                                                 shortDesc="#{bindings.EventCandidateDatawithName1.hints.InterviewerList.tooltip}"
-                                                id="soc1" binding="#{CreateInterview.intemid}"
-                                                valueChangeListener="#{CreateInterview.forintervieweremailid}">
+                                                readOnly="false" id="soc1" binding="#{interviewassign.intemid2}"
+                                                valueChangeListener="#{interviewassign.nameof}">
                                 <f:selectItems value="#{row.bindings.InterviewerList.items}" id="si1"/>
                                 <f:validator binding="#{row.bindings.InterviewerList.validator}"/>
                                 <f:attribute name="rowIndexVal" value="#{row.bindings.InterviewerList.items[row.bindings.InterviewerList.inputValue].label}"/>
                             </af:selectOneChoice>
                         </af:column>
-                        <af:column id="c7" headerText="Submit">
-                            <af:button text="Submit" id="b1" action="#{CreateInterview.onsubmit}"/>
+                        <af:column id="c7">
+                            <af:button text="Submit" id="b1" action="#{interviewassign.onSubmit}"/>
                         </af:column>
                     </af:table>
                 </f:facet>

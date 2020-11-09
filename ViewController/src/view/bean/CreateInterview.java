@@ -13,9 +13,12 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
+import oracle.adf.view.rich.component.rich.data.RichColumn;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
 
 import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
+
+import oracle.adf.view.rich.component.rich.output.RichOutputText;
 
 import view.common.DataConnect;
 import oracle.adf.model.BindingContext;
@@ -29,11 +32,12 @@ import view.common.ADFUtils;
 
 
 public class CreateInterview {
-    private RichInputText candemid;
-    private RichInputText currRound;
-    private RichInputText eventId;
-    private RichSelectOneChoice intemid;
     public String intervieweremailid;
+    private RichOutputText candemid2;
+    private RichOutputText currRound2;
+    private RichSelectOneChoice intemid2;
+    private RichOutputText eventId2;
+
     public CreateInterview() {
     }
     public void forintervieweremailid(ValueChangeEvent valueChangeEvent) {
@@ -44,9 +48,9 @@ public class CreateInterview {
     }
     public String onsubmit() throws SQLException {
         // Add event code here...
-        int eventid = Integer.parseInt(eventId.getValue().toString());
-        String candemailid = candemid.getValue().toString();
-        int round = Integer.parseInt(currRound.getValue().toString()) + 1;
+        int eventid = Integer.parseInt(eventId2.getValue().toString());
+        String candemailid = candemid2.getValue().toString();
+        int round = Integer.parseInt(currRound2.getValue().toString()) + 1;
         //String intemailid = this.forintervieweremailid();
         System.out.println(candemailid+" "+intervieweremailid+" "+eventid+" "+round);
         Connection con = null;
@@ -61,37 +65,36 @@ public class CreateInterview {
         return null;
     }
 
-    public void setCandemid(RichInputText candemid) {
-        this.candemid = candemid;
+
+    public void setCandemid2(RichOutputText candemid2) {
+        this.candemid2 = candemid2;
     }
 
-    public RichInputText getCandemid() {
-        return candemid;
+    public RichOutputText getCandemid2() {
+        return candemid2;
     }
 
-    public void setCurrRound(RichInputText currRound) {
-        this.currRound = currRound;
+    public void setCurrRound2(RichOutputText currRound2) {
+        this.currRound2 = currRound2;
     }
 
-    public RichInputText getCurrRound() {
-        return currRound;
+    public RichOutputText getCurrRound2() {
+        return currRound2;
     }
 
-    public void setEventId(RichInputText eventId) {
-        this.eventId = eventId;
+    public void setIntemid2(RichSelectOneChoice intemid2) {
+        this.intemid2 = intemid2;
     }
 
-    public RichInputText getEventId() {
-        return eventId;
+    public RichSelectOneChoice getIntemid2() {
+        return intemid2;
     }
 
-    public void setIntemid(RichSelectOneChoice intemid) {
-        this.intemid = intemid;
+    public void setEventId2(RichOutputText eventId2) {
+        this.eventId2 = eventId2;
     }
 
-    public RichSelectOneChoice getIntemid() {
-        return intemid;
+    public RichOutputText getEventId2() {
+        return eventId2;
     }
-
-
 }

@@ -55,5 +55,12 @@
                   ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventIdforeventinterviewerforadd_getEventIdforeventinterviewerforadd_dataControl_dataProvider_getEventIdforeventinterviewerforadd_result">
       <NamedData NDName="eventid" NDValue="#{row.EventId}" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="getEventIdforScheduledinterview" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getEventIdforScheduledinterview" IsViewObjectMethod="false"
+                  DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getEventIdforScheduledinterview.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getEventIdforScheduledinterview_getEventIdforScheduledinterview_dataControl_dataProvider_getEventIdforScheduledinterview_result">
+      <NamedData NDName="eventid" NDValue="#{row.EventId" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

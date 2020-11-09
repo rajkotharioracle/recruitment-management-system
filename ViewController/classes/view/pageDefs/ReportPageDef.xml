@@ -22,10 +22,10 @@
               id="InterviewerEventHistory1Iterator"/>
     <searchRegion Binds="InterviewerEventHistory1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="InterviewerEventHistory1Query"/>
-    <iterator Binds="InterviewerwithSpecifcEventId1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
-              id="InterviewerwithSpecifcEventId1Iterator"/>
     <iterator Binds="CandiateStatus1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
               id="CandiateStatus1Iterator"/>
+    <iterator Binds="IntervieweriInEvent1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="IntervieweriInEvent1Iterator"/>
   </executables>
   <bindings>
     <list IterBinding="CompletedEventsVO1Iterator" ListOperMode="navigation" ListIter="CompletedEventsVO1Iterator"
@@ -86,14 +86,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="InterviewerwithSpecifcEventId1Iterator" ListOperMode="navigation"
-          ListIter="InterviewerwithSpecifcEventId1Iterator" id="InterviewerwithSpecifcEventId1" DTSupportsMRU="false"
-          SelectItemValueMode="ListObject">
-      <AttrNames>
-        <Item Value="InterviewerEmail"/>
-        <Item Value="InterviewerName"/>
-      </AttrNames>
-    </list>
     <tree IterBinding="CandiateStatus1Iterator" id="CandiateStatus1">
       <nodeDefinition DefName="model.ViewObjectQB.CandiateStatus" Name="CandiateStatus10">
         <AttrNames>
@@ -101,5 +93,12 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <list IterBinding="IntervieweriInEvent1Iterator" ListOperMode="navigation" ListIter="IntervieweriInEvent1Iterator"
+          id="IntervieweriInEvent1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="InterviewerEmailId"/>
+        <Item Value="InterviewerName"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>

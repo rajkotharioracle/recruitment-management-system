@@ -61,6 +61,9 @@
     <AttrArray Name="ListAttrNames">
       <Item Value="InterviewerEmailId"/>
     </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="InterviewerEmailId"/>
+    </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
   <SQLQuery><![CDATA[select
@@ -109,14 +112,14 @@ AKMR_CANDIDATE_DATA.CANDIDATE_NAME CANDIDATE_NAME,
   </ViewAttribute>
   <ViewAttribute
     Name="CurrentRound"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="CURRENT_ROUND"
     Expression="CURRENT_ROUND"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Status"
     IsUpdateable="false"
@@ -159,6 +162,20 @@ AKMR_CANDIDATE_DATA.CANDIDATE_NAME CANDIDATE_NAME,
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="newRound"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"
+    IsQueriable="false">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="EventCandidateDatawithNameRow"/>
+  </ViewAttribute>
   <ViewCriteria
     Name="EventCandidateDatawithNameCriteria"
     ViewObjectName="model.ViewObjectQB.EventCandidateDatawithName"
@@ -195,8 +212,7 @@ AKMR_CANDIDATE_DATA.CANDIDATE_NAME CANDIDATE_NAME,
           Operator="="
           Conjunction="AND"
           Value="available"
-          UpperColumns="1"
-          Required="Required"/>
+          Required="Optional"/>
         <ViewCriteriaItem
           Name="EventId"
           ViewAttribute="EventId"

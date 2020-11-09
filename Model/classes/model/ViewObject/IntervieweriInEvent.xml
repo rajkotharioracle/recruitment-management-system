@@ -8,7 +8,8 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
@@ -22,13 +23,34 @@
     Name="eid"
     Kind="where"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="RecruitingAppManagement_InterviewerDataVO1_1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"
+    AMUsageName="RecruitingAppManagement"
+    ViewInstanceName="InterviewerDataVO1"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_InterviewerEmailId"
+    ListVOName="RecruitingAppManagement_InterviewerDataVO1_1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="InterviewerEmailId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InterviewerEmail"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT EventInterviewerDetailsEO.EVENT_ID, 
        EventInterviewerDetailsEO.INTERVIEWER_EMAIL_ID, 
        EventInterviewerDetailsEO.INTERVIEWER_MAX_LEVEL, 
        EventInterviewerDetailsEO.INTERVIEWER_MIN_LEVEL, 
        InterviewerDataEO.INTERVIEWER_EMAIL, 
        InterviewerDataEO.INTERVIEWER_NAME, 
-       InterviewerDataEO.INTERVIEWER_POSITION
+       InterviewerDataEO.INTERVIEWER_POSITION,
+       EventInterviewerDetailsEO.STATUS
 FROM  AKMR_EVENT_INTERVIEWER_DETAILS EventInterviewerDetailsEO join AKMR_INTERVIEWER_DATA InterviewerDataEO
 on InterviewerDataEO.INTERVIEWER_EMAIL=EventInterviewerDetailsEO.INTERVIEWER_EMAIL_ID
 where
@@ -40,7 +62,6 @@ EventInterviewerDetailsEO.EVENT_ID=:eid]]></SQLQuery>
     Name="InterviewerDataEO"
     Entity="model.EntityObject.InterviewerDataEO"
     ReadOnly="true"
-    Reference="false"
     DeleteParticipant="false">
     <DesignTime>
       <Attr Name="_customjoin" Value="true"/>
@@ -59,7 +80,15 @@ EventInterviewerDetailsEO.EVENT_ID=:eid]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="InterviewerEmailId"
     EntityUsage="EventInterviewerDetailsEO"
-    AliasName="INTERVIEWER_EMAIL_ID"/>
+    AliasName="INTERVIEWER_EMAIL_ID"
+    LOVName="LOV_InterviewerEmailId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InterviewerMaxLevel"
     IsNotNull="true"
@@ -95,6 +124,12 @@ EventInterviewerDetailsEO.EVENT_ID=:eid]]></SQLQuery>
     EntityAttrName="InterviewerPosition"
     EntityUsage="InterviewerDataEO"
     AliasName="INTERVIEWER_POSITION"/>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    AliasName="STATUS"
+    EntityAttrName="Status"
+    EntityUsage="EventInterviewerDetailsEO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

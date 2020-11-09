@@ -37,7 +37,8 @@
                                           required="#{bindings.EventDetails1.hints.EventStatus.mandatory}"
                                           columns="#{bindings.EventDetails1.hints.EventStatus.displayWidth}"
                                           maximumLength="#{bindings.EventDetails1.hints.EventStatus.precision}"
-                                          shortDesc="#{bindings.EventDetails1.hints.EventStatus.tooltip}" id="it1">
+                                          shortDesc="#{bindings.EventDetails1.hints.EventStatus.tooltip}" id="it1"
+                                          readOnly="true">
                                 <f:validator binding="#{row.bindings.EventStatus.validator}"/>
                             </af:inputText>
                         </af:column>
@@ -65,7 +66,9 @@
                             </af:outputText>
                         </af:column>
                         <af:column id="c6" headerText="Detail">
-                            <af:button text="See Detail" id="b1" action="#{Eventselection.getEventDetail}"/>
+                            <af:button text="See Detail" id="b1" action="#{Eventselection.getEventDetail}">
+                                <af:setActionListener from="#{row.EventId}" to="#{pageFlowScope.eveid}"/>
+                            </af:button>
                         </af:column>
                     </af:table>
                 </f:facet>

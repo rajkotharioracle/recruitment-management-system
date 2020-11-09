@@ -1,0 +1,12 @@
+//Groovy Scripts for model.EntityObject.popupinterviewer
+
+package model.EntityObject
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="givenInterviewer1", name="id")
+def id_givenInterviewer1_BindVariable_BoundParameter()
+{
+//EventId
+}
+

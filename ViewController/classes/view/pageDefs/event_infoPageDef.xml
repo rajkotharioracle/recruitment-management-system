@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="event_infoPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SchedEvents1" RangeSize="25" DataControl="RecruitingAppManagementDataControl1"
+              id="SchedEvents1Iterator"/>
+    <iterator Binds="IntervieweriInEvent1" RangeSize="25" DataControl="RecruitingAppManagementDataControl6"
+              id="IntervieweriInEvent1Iterator"/>
+    <searchRegion Binds="IntervieweriInEvent1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="IntervieweriInEvent1Query"/>
+    <iterator Binds="IntervieweriInEvent1" RangeSize="25" DataControl="RecruitingAppManagementDataControl7"
+              id="IntervieweriInEvent1Iterator1"/>
+    <iterator Binds="CandidatesInInterview1" RangeSize="25" DataControl="RecruitingAppManagementDataControl9"
+              id="CandidatesInInterview1Iterator"/>
+    <searchRegion Binds="CandidatesInInterview1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CandidatesInInterview1Query"/>
+    <iterator Binds="CandidatesInInterview1" RangeSize="25" DataControl="RecruitingAppManagementDataControl11"
+              id="CandidatesInInterview1Iterator1"/>
+  </executables>
+  <bindings>
+    <list IterBinding="SchedEvents1Iterator" ListOperMode="navigation" ListIter="SchedEvents1Iterator"
+          id="SchedEvents1" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="EventId"/>
+        <Item Value="EventName"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="IntervieweriInEvent1Iterator" id="IntervieweriInEvent1">
+      <nodeDefinition DefName="model.ViewObject.IntervieweriInEvent" Name="IntervieweriInEvent10">
+        <AttrNames>
+          <Item Value="EventId"/>
+          <Item Value="InterviewerEmailId"/>
+          <Item Value="InterviewerMaxLevel"/>
+          <Item Value="InterviewerMinLevel"/>
+          <Item Value="InterviewerEmail"/>
+          <Item Value="InterviewerName"/>
+          <Item Value="InterviewerPosition"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="IntervieweriInEvent1Iterator1" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="RecruitingAppManagementDataControl8"/>
+    <tree IterBinding="CandidatesInInterview1Iterator" id="CandidatesInInterview1">
+      <nodeDefinition DefName="model.ViewObject.CandidatesInInterview" Name="CandidatesInInterview10">
+        <AttrNames>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="EventId"/>
+          <Item Value="CandidateName"/>
+          <Item Value="CandidateEmail"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit1" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="RecruitingAppManagementDataControl10"/>
+    <action IterBinding="CandidatesInInterview1Iterator1" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

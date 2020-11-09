@@ -285,7 +285,7 @@
       from="View14"
       to="MethodCall30">
       <property
-         name="fromOutcome">*</property>
+         name="fromOutcome">assigning</property>
       <property
          name="sdm:polyPoints">R50,789.0,28.738281,931.5088,144.23438,L50</property>
    </ControlFlowCase>

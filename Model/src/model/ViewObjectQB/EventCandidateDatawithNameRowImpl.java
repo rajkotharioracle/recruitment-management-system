@@ -20,6 +20,7 @@ public class EventCandidateDatawithNameRowImpl extends ViewRowImpl {
         Status,
         EventId,
         InterviewerList,
+        newRound,
         approinterviewer1;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -51,6 +52,7 @@ public class EventCandidateDatawithNameRowImpl extends ViewRowImpl {
     public static final int STATUS = AttributesEnum.Status.index();
     public static final int EVENTID = AttributesEnum.EventId.index();
     public static final int INTERVIEWERLIST = AttributesEnum.InterviewerList.index();
+    public static final int NEWROUND = AttributesEnum.newRound.index();
     public static final int APPROINTERVIEWER1 = AttributesEnum.approinterviewer1.index();
 
     /**

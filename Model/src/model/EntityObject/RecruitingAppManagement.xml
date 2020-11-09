@@ -76,9 +76,6 @@
     Name="FeedbackDetailsVO1"
     ViewObjectName="model.ViewObject.FeedbackDetailsVO"/>
   <ViewUsage
-    Name="InterviewerwithSpecifcEventId1"
-    ViewObjectName="model.ViewObject.InterviewerwithSpecifcEventId"/>
-  <ViewUsage
     Name="EventCandidateDetailsVO1"
     ViewObjectName="model.ViewObject.EventCandidateDetailsVO"/>
   <ViewUsage
@@ -100,6 +97,24 @@
     Name="InterviewerCurrentStatus1"
     ViewObjectName="model.ViewObject.InterviewerCurrentStatus"/>
   <ViewUsage
+    Name="test1"
+    ViewObjectName="model.ViewObject.test"/>
+  <ViewUsage
+    Name="givenInterviewer1"
+    ViewObjectName="model.ViewObjectQB.givenInterviewer"/>
+  <ViewUsage
+    Name="popupinterviewer1"
+    ViewObjectName="model.EntityObject.popupinterviewer"/>
+  <ViewUsage
+    Name="newcandidateadd1"
+    ViewObjectName="model.ViewObject.newcandidateadd"/>
+  <ViewUsage
+    Name="scheduledInterviews1"
+    ViewObjectName="model.ViewObjectQB.scheduledInterviews"/>
+  <ViewUsage
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
+  <ViewUsage
     Name="EventInterviewerDetailsVO1"
     ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewUsage
@@ -111,6 +126,9 @@
   <ViewUsage
     Name="UpcomingInterviews1"
     ViewObjectName="model.ViewObject.UpcomingInterviews"/>
+<ViewUsage
+    Name="SchedEvents1"
+    ViewObjectName="model.ViewObject.SchedEvents"/>
   <ViewLinkUsage
     Name="interviewetforadding"
     ViewLinkObjectName="model.ViewObject.interviewetforadding"
@@ -239,10 +257,18 @@
         Name="_return_type_"
         Type="void"/>
     </Method>
+    <Method
+      Name="getEventIdforScheduledinterview"
+      MethodName="getEventIdforScheduledinterview">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
   </ClientInterface>
-  <ViewUsage
-    Name="InterviewerDataVO1"
-    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
+
 
 
     
