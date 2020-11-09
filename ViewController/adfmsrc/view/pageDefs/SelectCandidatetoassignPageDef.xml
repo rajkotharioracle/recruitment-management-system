@@ -4,20 +4,32 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="EventCandidateDatawithName1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
-              id="EventCandidateDatawithName1Iterator"/>
+    <iterator Binds="popupinterviewer1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="popupinterviewer1Iterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="EventCandidateDatawithName1Iterator" id="EventCandidateDatawithName1">
-      <nodeDefinition DefName="model.ViewObjectQB.EventCandidateDatawithName" Name="EventCandidateDatawithName10">
-        <AttrNames>
-          <Item Value="CandidateName"/>
-          <Item Value="CandidateEmailId"/>
-          <Item Value="CurrentRound"/>
-          <Item Value="Status"/>
-          <Item Value="InterviewerList"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
+    <attributeValues IterBinding="popupinterviewer1Iterator" id="EventId">
+      <AttrNames>
+        <Item Value="EventId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="popupinterviewer1Iterator" StaticList="false" Uses="LOV_InterviewerEmailId"
+          id="InterviewerEmailId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="popupinterviewer1Iterator" id="InterviewerMinLevel">
+      <AttrNames>
+        <Item Value="InterviewerMinLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="popupinterviewer1Iterator" id="InterviewerMaxLevel">
+      <AttrNames>
+        <Item Value="InterviewerMaxLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="popupinterviewer1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="popupinterviewer1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
   </bindings>
 </pageDefinition>

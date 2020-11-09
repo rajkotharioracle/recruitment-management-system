@@ -84,6 +84,7 @@
   <control-flow-rule id="__17">
     <from-activity-id>eventDetail</from-activity-id>
     <control-flow-case id="__18">
+      <from-outcome>assigning</from-outcome>
       <to-activity-id>getEventidforAssigning</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
@@ -108,6 +109,11 @@
     <managed-bean-name>setCompletedEvent</managed-bean-name>
     <managed-bean-class>view.Event</managed-bean-class>
     
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__23">
+    <managed-bean-name>interviewassign</managed-bean-name>
+    <managed-bean-class>view.bean.interviewassign</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
 </adfc-config>

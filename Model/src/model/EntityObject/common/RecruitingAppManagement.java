@@ -21,5 +21,6 @@ public interface RecruitingAppManagement extends ApplicationModule {
 
     void report_setInterviewer();
 
+    String getEventIdforScheduledinterview(String eventid);
 }
 

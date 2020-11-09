@@ -6,86 +6,50 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
                 <f:facet name="body">
-                    <af:outputText value="pid for this is #{pageFlowScope.pid} and email id is #{pageFlowScope.emid}" id="ot5"/>
-                    <af:table value="#{bindings.EventCandidateDatawithName1.collectionModel}" var="row"
-                              rows="#{bindings.EventCandidateDatawithName1.rangeSize}"
-                              emptyText="#{bindings.EventCandidateDatawithName1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                              rowBandingInterval="0"
-                              selectedRowKeys="#{bindings.EventCandidateDatawithName1.collectionModel.selectedRow}"
-                              selectionListener="#{bindings.EventCandidateDatawithName1.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.EventCandidateDatawithName1.rangeSize}"
-                              id="t1">
-                        <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CandidateName.name}"
-                                   sortable="true"
-                                   headerText="#{bindings.EventCandidateDatawithName1.hints.CandidateName.label}"
-                                   id="c1">
-                            <af:inputText value="#{row.bindings.CandidateName.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.CandidateName.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.CandidateName.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.CandidateName.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.CandidateName.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateName.tooltip}"
-                                          id="it1">
-                                <f:validator binding="#{row.bindings.CandidateName.validator}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.name}"
-                                   sortable="true"
-                                   headerText="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.label}"
-                                   id="c2">
-                            <af:inputText value="#{row.bindings.CandidateEmailId.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.CandidateEmailId.tooltip}"
-                                          id="it2">
-                                <f:validator binding="#{row.bindings.CandidateEmailId.validator}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.name}"
-                                   sortable="true"
-                                   headerText="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.label}"
-                                   id="c3">
-                            <af:inputText value="#{row.bindings.CurrentRound.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.tooltip}"
-                                          id="it3">
-                                <f:validator binding="#{row.bindings.CurrentRound.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.EventCandidateDatawithName1.hints.CurrentRound.format}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.Status.name}"
-                                   sortable="true"
-                                   headerText="#{bindings.EventCandidateDatawithName1.hints.Status.label}" id="c4">
-                            <af:inputText value="#{row.bindings.Status.inputValue}"
-                                          label="#{bindings.EventCandidateDatawithName1.hints.Status.label}"
-                                          required="#{bindings.EventCandidateDatawithName1.hints.Status.mandatory}"
-                                          columns="#{bindings.EventCandidateDatawithName1.hints.Status.displayWidth}"
-                                          maximumLength="#{bindings.EventCandidateDatawithName1.hints.Status.precision}"
-                                          shortDesc="#{bindings.EventCandidateDatawithName1.hints.Status.tooltip}"
-                                          id="it4">
-                                <f:validator binding="#{row.bindings.Status.validator}"/>
-                            </af:inputText>
-                        </af:column>
-                        <af:column sortProperty="#{bindings.EventCandidateDatawithName1.hints.InterviewerList.name}"
-                                   sortable="true"
-                                   headerText="#{bindings.EventCandidateDatawithName1.hints.InterviewerList.label}"
-                                   id="c5">
-                            <af:selectOneChoice value="#{row.bindings.InterviewerList.inputValue}"
-                                                label="#{row.bindings.InterviewerList.label}"
-                                                required="#{bindings.EventCandidateDatawithName1.hints.InterviewerList.mandatory}"
-                                                shortDesc="#{bindings.EventCandidateDatawithName1.hints.InterviewerList.tooltip}"
-                                                id="soc1">
-                                <f:selectItems value="#{row.bindings.InterviewerList.items}" id="si1"/>
-                                <f:validator binding="#{row.bindings.InterviewerList.validator}"/>
-                            </af:selectOneChoice>
-                        </af:column>
-                    </af:table>
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.EventId.inputValue}" label="#{bindings.EventId.hints.label}"
+                                      required="#{bindings.EventId.hints.mandatory}"
+                                      columns="#{bindings.EventId.hints.displayWidth}"
+                                      maximumLength="#{bindings.EventId.hints.precision}"
+                                      shortDesc="#{bindings.EventId.hints.tooltip}" id="it1" autoSubmit="true">
+                            <f:validator binding="#{bindings.EventId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.EventId.format}"/>
+                        </af:inputText>
+                        <af:selectOneChoice value="#{bindings.InterviewerEmailId.inputValue}"
+                                            label="#{bindings.InterviewerEmailId.label}"
+                                            required="#{bindings.InterviewerEmailId.hints.mandatory}"
+                                            shortDesc="#{bindings.InterviewerEmailId.hints.tooltip}" id="soc1">
+                            <f:selectItems value="#{bindings.InterviewerEmailId.items}" id="si1"/>
+                            <f:validator binding="#{bindings.InterviewerEmailId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.InterviewerMinLevel.inputValue}"
+                                      label="#{bindings.InterviewerMinLevel.hints.label}"
+                                      required="#{bindings.InterviewerMinLevel.hints.mandatory}"
+                                      columns="#{bindings.InterviewerMinLevel.hints.displayWidth}"
+                                      maximumLength="#{bindings.InterviewerMinLevel.hints.precision}"
+                                      shortDesc="#{bindings.InterviewerMinLevel.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.InterviewerMinLevel.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.InterviewerMinLevel.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.InterviewerMaxLevel.inputValue}"
+                                      label="#{bindings.InterviewerMaxLevel.hints.label}"
+                                      required="#{bindings.InterviewerMaxLevel.hints.mandatory}"
+                                      columns="#{bindings.InterviewerMaxLevel.hints.displayWidth}"
+                                      maximumLength="#{bindings.InterviewerMaxLevel.hints.precision}"
+                                      shortDesc="#{bindings.InterviewerMaxLevel.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.InterviewerMaxLevel.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.InterviewerMaxLevel.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Status.inputValue}" label="#{bindings.Status.hints.label}"
+                                      required="#{bindings.Status.hints.mandatory}"
+                                      columns="#{bindings.Status.hints.displayWidth}"
+                                      maximumLength="#{bindings.Status.hints.precision}"
+                                      shortDesc="#{bindings.Status.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.Status.validator}"/>
+                        </af:inputText>
+                        <af:button actionListener="#{bindings.Create.execute}" text="Create"
+                                   disabled="#{!bindings.Create.enabled}" id="b1"/>
+                    </af:panelFormLayout>
                 </f:facet>
             </af:pageTemplate>
         </af:form>

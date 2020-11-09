@@ -138,6 +138,8 @@ exp.setValue(elContext, val);
     public static BindingContainer getBindingContainer() {
     return (BindingContainer)JSFUtils.resolveExpression("#{bindings}");
     }
-
+    public DCBindingContainer getBindings() {
+            return (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        }
 }
 

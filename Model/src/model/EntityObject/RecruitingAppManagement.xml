@@ -49,12 +49,6 @@
     Name="UsersMaster1"
     ViewObjectName="model.ViewObject.UsersMasterVO"/>
   <ViewUsage
-    Name="InterviewerDataVO1"
-    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
-  <ViewUsage
-    Name="EventInterviewerDetailsVO1"
-    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
-  <ViewUsage
     Name="EventInterviewerDetailsVO2"
     ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewUsage
@@ -105,6 +99,21 @@
   <ViewUsage
     Name="IntervieweriInEvent1"
     ViewObjectName="model.ViewObject.IntervieweriInEvent"/>
+  <ViewUsage
+    Name="test1"
+    ViewObjectName="model.ViewObject.test"/>
+  <ViewUsage
+    Name="givenInterviewer1"
+    ViewObjectName="model.ViewObjectQB.givenInterviewer"/>
+  <ViewUsage
+    Name="popupinterviewer1"
+    ViewObjectName="model.EntityObject.popupinterviewer"/>
+  <ViewUsage
+    Name="newcandidateadd1"
+    ViewObjectName="model.ViewObject.newcandidateadd"/>
+  <ViewUsage
+    Name="scheduledInterviews1"
+    ViewObjectName="model.ViewObjectQB.scheduledInterviews"/>
   <ViewLinkUsage
     Name="interviewetforadding"
     ViewLinkObjectName="model.ViewObject.interviewetforadding"
@@ -117,10 +126,6 @@
     SrcViewUsageName="model.EntityObject.RecruitingAppManagement.EventInterviewerDetailsVO2"
     DstViewUsageName="model.EntityObject.RecruitingAppManagement.interviewerdataforeventpage2"
     Reversed="false"/>
-  
-  
-  
-  
   <ClientInterface
     Name="__clientInterface">
     <Method
@@ -212,14 +217,14 @@
       <Parameter
         Name="eventid"
         Type="java.lang.String"/>
-        </Method>
-        <Method
+    </Method>
+    <Method
       Name="setBindvar"
       MethodName="setBindvar">
       <Return
         Name="_return_type_"
         Type="void"/>
-     </Method>
+    </Method>
     <Method
       Name="report_setCandidate"
       MethodName="report_setCandidate">
@@ -234,7 +239,23 @@
         Name="_return_type_"
         Type="void"/>
     </Method>
-      </ClientInterface>
+    <Method
+      Name="getEventIdforScheduledinterview"
+      MethodName="getEventIdforScheduledinterview">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
 
 
     

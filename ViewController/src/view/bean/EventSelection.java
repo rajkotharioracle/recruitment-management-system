@@ -25,6 +25,7 @@ import java.sql.SQLException;
 
 import java.util.Map;
 
+import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 
 import oracle.adf.share.ADFContext;
@@ -51,25 +52,29 @@ public class EventSelection {
                             OperationBinding opBinding1 = bindings.getOperationBinding("getEventIdforcandidate");
                             OperationBinding opBinding2 = bindings.getOperationBinding("getEventIdforinterviewer");
                             OperationBinding opBinding3 = bindings.getOperationBinding("getEventIdforinterviewerforadd");
-                            OperationBinding opBinding4 = bindings.getOperationBinding("getEventIdforeventinterviewerforadd");                            //System.out.println("opbindings....");
+                            OperationBinding opBinding4 = bindings.getOperationBinding("getEventIdforeventinterviewerforadd"); 
+                            OperationBinding opBinding5 = bindings.getOperationBinding("getEventIdforScheduledinterview");
+                            //System.out.println("opbindings....");
                             String userID = (String)opBinding.execute();
                             String userID1 = (String)opBinding1.execute();
                             String userID2 = (String)opBinding2.execute();
                             String userID3 = (String)opBinding3.execute();
                             String userID4 = (String)opBinding4.execute();
+                            String userID5 = (String)opBinding4.execute();
                             //System.out.println("userID...." + userID);
                             JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID);
                             JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID1);
                             JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID2);
                             JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID3); 
                             JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID4);
+                            JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID5);
         return "eventDetail.jsf";
     }
 
     public void createwithparamsforevenid(PopupFetchEvent popupFetchEvent) {
         // Add event code here...
         BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
-        OperationBinding opb = bc.getOperationBinding("Create");
+        OperationBinding opb = bc.getOperationBinding("Create1");
         opb.execute();
         System.out.println("createinsert happened");
     }
@@ -104,7 +109,7 @@ public class EventSelection {
             BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
             OperationBinding opbdelete = bc.getOperationBinding("Delete1");
             opbdelete.execute();
-            OperationBinding opb = bc.getOperationBinding("Commit");
+            OperationBinding opb = bc.getOperationBinding("Commit1");
             opb.execute();
             OperationBinding opb1 = bc.getOperationBinding("Execute");
             opb1.execute();
@@ -179,24 +184,34 @@ public class EventSelection {
         return inminlev;
     }
 
-    public String getEventidforAssigningclass() {
+    /*public String getEventidforAssigningclass() {
         // Add event code here...
         DCBindingContainer bindings = (DCBindingContainer)ADFUtils.evaluateEL("#{bindings}");
-        OperationBinding opBinding = bindings.getOperationBinding("getEventidforAssigning");
+        OperationBinding opBinding = (OperationBinding)bindings.get("getEventidforAssigning");
         //opBinding.getParamsMap().put(key, value)
-        //opBinding.getParamsMap().put("eventId",temp);
+        String temp = fetcheventid();
+        opBinding.getParamsMap().put("eventId",temp);
         String userID = (String)opBinding.execute();
         JSFUtils.setManagedBeanValue("pageFlowScope.pid", ""+userID);
         return "createInterview.jsf";
-    }
+    }*/
     
-    public void fetcheventid(){
-        BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
-        AttributeBinding opbdelete = (AttributeBinding) bc.getControlBinding("EventId2");
-        String pass  = opbdelete.getInputValue().toString();
-        FacesContext fctx = FacesContext.getCurrentInstance();
-        Map pageFlowScope=AdfFacesContext.getCurrentInstance().getPageFlowScope();
-        pageFlowScope.put("pid",pass);
+    public String fetcheventid(){
+        
+    
+        /*DCBindingContainer bindings = (DCBindingContainer)ADFUtils.evaluateEL("#{bindings}");
+        OperationBinding opBinding = (OperationBinding)bindings.get("getEventidforAssigning");
+        opBinding.execute();
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        NavigationHandler navHandler = facesContext.getApplication().getNavigationHandler();
+        navHandler.handleNavigation(facesContext, null, "assigning");
+        //JSFUtils.setManagedBeanValue("pageFlowScope.pid", ""+userID);
+        //return "createInterview.jsf";*/
+        DCBindingContainer bindings = (DCBindingContainer)ADFUtils.evaluateEL("#{bindings}");
+        OperationBinding opBinding = bindings.getOperationBinding("getEventidforAssigning");
+        String userID = (String)opBinding.execute();
+        JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID);
+        return "createInterview";
     }
 
     public void setEventidfor(RichOutputText eventidfor) {
@@ -206,39 +221,42 @@ public class EventSelection {
     public RichOutputText getEventidfor() {
         return eventidfor;
     }
+
+    public void commitrollbackforcandidate(DialogEvent dialogEvent) {
+        // Add event code here...
+        if (DialogEvent.Outcome.ok == dialogEvent.getOutcome().ok) {
+            BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding opb = bc.getOperationBinding("Commit1");
+            opb.execute();
+            OperationBinding opb1 = bc.getOperationBinding("Execute1");
+            opb1.execute();
+            System.out.println("commit happened");
+        } else {
+            BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding opb = bc.getOperationBinding("Rollback1");
+            opb.execute();
+        }
+    }
+
+    public void createforcandi(PopupFetchEvent popupFetchEvent) {
+        // Add event code here...
+        BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding opb = bc.getOperationBinding("Create3");
+        opb.execute();
+        System.out.println("createinsert happened");
+    }
+
+    public void deletecandidate(DialogEvent dialogEvent) {
+        // Add event code here...
+        if (DialogEvent.Outcome.ok == dialogEvent.getOutcome().ok) {
+            BindingContainer bc = BindingContext.getCurrent().getCurrentBindingsEntry();
+            OperationBinding opbdelete = bc.getOperationBinding("Delete");
+            opbdelete.execute();
+            OperationBinding opb = bc.getOperationBinding("Commit1");
+            opb.execute();
+            OperationBinding opb1 = bc.getOperationBinding("Execute1");
+            opb1.execute();
+        }
+    }
 }
 
-
-
-
-/*public void createEvent1(ActionEvent actionEvent)  throws SQLException, ParseException {
-                String name = ename.getValue().toString();
-                String status = estatus.getValue().toString();
-                String startTime = estime.getValue().toString();
-                //startTime = TO_TIMESTAMP_TZ(startTime,‘YYYY/MM/DD HH:MI:SS TZH:TZM’);
-                System.out.println(“Creating events ...... 1 ” + startTime);
-                int maxRounds=Integer.parseInt(emaxrounds.getValue().toString());
-                Connection con = null;
-                PreparedStatement ps = null;
-                con = DataConnect.getConnection();
-                ps = con.prepareStatement(“Insert into AKMR_EVENT_DETAILS VALUES(NULL,?,?,?,NULL,?)“);
-                ps.setString(1, name);
-                ps.setString(2, status);
-                SimpleDateFormat dateFormat = new SimpleDateFormat(“dd-mm-yyyy hh:mm:ss a”);
-                Date parsedDate = dateFormat.parse(startTime);
-                Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
-                ps.setTimestamp(3, timestamp);
-                System.out.println(“Creating events ...... ts ” + timestamp);
-                ps.setInt(4, maxRounds);
-                System.out.println(“Creating events ...... 2 ” + ps);
-                //ResultSet rs = ps.executeQuery();
-                int rs = ps.executeUpdate();
-                System.out.println(“Creating events done ...... “);
-                //ResultSet rs = ps.executeUpdate();
-                if (rs==1) {
-                        //result found, means valid inputs
-                        System.out.println(“Creating events SUCCESS......“);
-                        //return null;
-                }
-            }
-}*/

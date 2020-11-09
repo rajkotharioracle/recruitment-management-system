@@ -167,7 +167,7 @@
           Conjunction="AND"
           Value="available"
           Required="Optional"
-          UpperColumns="0"/>
+          UpperColumns="1"/>
         <ViewCriteriaItem
           Name="approinterviewerCriteria_approinterviewerSubCriteria1_approinterviewerSubCriteria1_row_0_EventId"
           ViewAttribute="EventId"

@@ -7,173 +7,380 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
                 <f:facet name="body">
+                    <af:button text="End Event" id="b4" inlineStyle="background-color:transparent;"/>
+                    <af:button text="Continue/Pause Event" id="b5"/>
                     <af:panelGridLayout id="pgl1">
                         <af:gridRow marginTop="5px" height="auto" id="gr1">
                             <af:gridCell marginStart="5px" width="50%" id="gc1" halign="stretch">
                                 <af:outputFormatted value="Ongoing Interviews" id="of3"/>
-                                <af:table value="#{bindings.eventdetailswithname1.collectionModel}" var="row"
-                                          rows="#{bindings.eventdetailswithname1.rangeSize}"
-                                          emptyText="#{bindings.eventdetailswithname1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
-                                          selectedRowKeys="#{bindings.eventdetailswithname1.collectionModel.selectedRow}"
-                                          selectionListener="#{bindings.eventdetailswithname1.collectionModel.makeCurrent}"
-                                          rowSelection="none" fetchSize="#{bindings.eventdetailswithname1.rangeSize}"
-                                          filterModel="#{bindings.eventdetailswithname1Query.queryDescriptor}"
-                                          filterVisible="true"
-                                          queryListener="#{bindings.eventdetailswithname1Query.processQuery}"
-                                          varStatus="vs" id="t1">
-                                    <af:column sortProperty="#{bindings.eventdetailswithname1.hints.CandidateName.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.eventdetailswithname1.hints.CandidateName.label}"
-                                               id="c1">
-                                        <af:outputText value="#{row.CandidateName}"
-                                                       shortDesc="#{bindings.eventdetailswithname1.hints.CandidateName.tooltip}"
-                                                       id="ot1"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.eventdetailswithname1.hints.InterviewerName.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.eventdetailswithname1.hints.InterviewerName.label}"
-                                               id="c2">
-                                        <af:outputText value="#{row.InterviewerName}"
-                                                       shortDesc="#{bindings.eventdetailswithname1.hints.InterviewerName.tooltip}"
-                                                       id="ot2"/>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.eventdetailswithname1.hints.EventId.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.eventdetailswithname1.hints.EventId.label}"
-                                               id="c3">
-                                        <af:outputText value="#{row.EventId}"
-                                                       shortDesc="#{bindings.eventdetailswithname1.hints.EventId.tooltip}"
-                                                       id="ot3" binding="#{Eventselection.eventidfor}">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.eventdetailswithname1.hints.EventId.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.eventdetailswithname1.hints.StartTime.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.eventdetailswithname1.hints.StartTime.label}"
-                                               id="c4">
-                                        <f:facet name="filter">
-                                            <af:inputDate value="#{bindings.eventdetailswithname1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.StartTime.value}"
-                                                          id="id1">
+                                <af:panelCollection id="pc4">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.eventdetailswithname1.collectionModel}" var="row"
+                                              rows="#{bindings.eventdetailswithname1.rangeSize}"
+                                              emptyText="#{bindings.eventdetailswithname1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.eventdetailswithname1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.eventdetailswithname1.collectionModel.makeCurrent}"
+                                              rowSelection="none"
+                                              fetchSize="#{bindings.eventdetailswithname1.rangeSize}"
+                                              filterModel="#{bindings.eventdetailswithname1Query.queryDescriptor}"
+                                              filterVisible="true"
+                                              queryListener="#{bindings.eventdetailswithname1Query.processQuery}"
+                                              varStatus="vs" id="t1">
+                                        <af:column sortProperty="#{bindings.eventdetailswithname1.hints.CandidateName.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.eventdetailswithname1.hints.CandidateName.label}"
+                                                   id="c1">
+                                            <af:outputText value="#{row.CandidateName}"
+                                                           shortDesc="#{bindings.eventdetailswithname1.hints.CandidateName.tooltip}"
+                                                           id="ot1"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.eventdetailswithname1.hints.InterviewerName.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.eventdetailswithname1.hints.InterviewerName.label}"
+                                                   id="c2">
+                                            <af:outputText value="#{row.InterviewerName}"
+                                                           shortDesc="#{bindings.eventdetailswithname1.hints.InterviewerName.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.eventdetailswithname1.hints.EventId.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.eventdetailswithname1.hints.EventId.label}"
+                                                   id="c3">
+                                            <af:outputText value="#{row.EventId}"
+                                                           shortDesc="#{bindings.eventdetailswithname1.hints.EventId.tooltip}"
+                                                           id="ot3" binding="#{Eventselection.eventidfor}">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.eventdetailswithname1.hints.EventId.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.eventdetailswithname1.hints.StartTime.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.eventdetailswithname1.hints.StartTime.label}"
+                                                   id="c4">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.eventdetailswithname1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.StartTime.value}"
+                                                              id="id1">
+                                                    <af:convertDateTime pattern="#{bindings.eventdetailswithname1.hints.StartTime.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:outputText value="#{row.StartTime}"
+                                                           shortDesc="#{bindings.eventdetailswithname1.hints.StartTime.tooltip}"
+                                                           id="ot4">
                                                 <af:convertDateTime pattern="#{bindings.eventdetailswithname1.hints.StartTime.format}"/>
-                                            </af:inputDate>
-                                        </f:facet>
-                                        <af:outputText value="#{row.StartTime}"
-                                                       shortDesc="#{bindings.eventdetailswithname1.hints.StartTime.tooltip}"
-                                                       id="ot4">
-                                            <af:convertDateTime pattern="#{bindings.eventdetailswithname1.hints.StartTime.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.eventdetailswithname1.hints.RoundNo.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.eventdetailswithname1.hints.RoundNo.label}"
-                                               id="c5">
-                                        <af:outputText value="#{row.RoundNo}"
-                                                       shortDesc="#{bindings.eventdetailswithname1.hints.RoundNo.tooltip}"
-                                                       id="ot5">
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.eventdetailswithname1.hints.RoundNo.format}"/>
-                                        </af:outputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.eventdetailswithname1.hints.Status.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.eventdetailswithname1.hints.Status.label}"
-                                               id="c10">
-                                        <af:outputText value="#{row.Status}"
-                                                       shortDesc="#{bindings.eventdetailswithname1.hints.Status.tooltip}"
-                                                       id="ot6"/>
-                                    </af:column>
-                                    <af:column id="c16">
-                                        <af:button text="create Interview" id="b1"
-                                                   action="#{Eventselection.getEventidforAssigningclass}"/>
-                                    </af:column>
-                                </af:table>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.eventdetailswithname1.hints.RoundNo.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.eventdetailswithname1.hints.RoundNo.label}"
+                                                   id="c5">
+                                            <af:outputText value="#{row.RoundNo}"
+                                                           shortDesc="#{bindings.eventdetailswithname1.hints.RoundNo.tooltip}"
+                                                           id="ot5">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.eventdetailswithname1.hints.RoundNo.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
-                                <af:button text="button 1" id="b9"
-                                           action="#{Eventselection.fetcheventid}"/>
+                                <af:outputFormatted value="Scheduled Interviews" id="of4"/>
+                                <af:panelCollection id="pc3">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                    <f:facet name="secondaryToolbar">
+                                        <af:toolbar id="t6">
+                                            <af:button text="Schedule new interview" id="b9" action="#{Eventselection.fetcheventid}"/>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <af:table value="#{bindings.scheduledInterviews1.collectionModel}" var="row"
+                                              rows="#{bindings.scheduledInterviews1.rangeSize}"
+                                              emptyText="#{bindings.scheduledInterviews1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              fetchSize="#{bindings.scheduledInterviews1.rangeSize}"
+                                              filterModel="#{bindings.scheduledInterviews1Query.queryDescriptor}"
+                                              filterVisible="true"
+                                              queryListener="#{bindings.scheduledInterviews1Query.processQuery}"
+                                              varStatus="vs" id="t7">
+                                        <af:column sortProperty="#{bindings.scheduledInterviews1.hints.EventId.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.scheduledInterviews1.hints.EventId.label}"
+                                                   id="c10">
+                                            <af:outputText value="#{row.EventId}"
+                                                           shortDesc="#{bindings.scheduledInterviews1.hints.EventId.tooltip}"
+                                                           id="ot6">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.scheduledInterviews1.hints.EventId.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.scheduledInterviews1.hints.CandidateName.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.scheduledInterviews1.hints.CandidateName.label}"
+                                                   id="c16">
+                                            <af:outputText value="#{row.CandidateName}"
+                                                           shortDesc="#{bindings.scheduledInterviews1.hints.CandidateName.tooltip}"
+                                                           id="ot16"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.scheduledInterviews1.hints.InterviewerName.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.scheduledInterviews1.hints.InterviewerName.label}"
+                                                   id="c17">
+                                            <af:outputText value="#{row.InterviewerName}"
+                                                           shortDesc="#{bindings.scheduledInterviews1.hints.InterviewerName.tooltip}"
+                                                           id="ot17"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.scheduledInterviews1.hints.RoundNo.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.scheduledInterviews1.hints.RoundNo.label}"
+                                                   id="c18">
+                                            <af:outputText value="#{row.RoundNo}"
+                                                           shortDesc="#{bindings.scheduledInterviews1.hints.RoundNo.tooltip}"
+                                                           id="ot18">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.scheduledInterviews1.hints.RoundNo.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.scheduledInterviews1.hints.Status.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.scheduledInterviews1.hints.Status.label}"
+                                                   id="c19">
+                                            <af:outputText value="#{row.Status}"
+                                                           shortDesc="#{bindings.scheduledInterviews1.hints.Status.tooltip}"
+                                                           id="ot19"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
-                            <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch">
+                            <af:gridCell marginStart="5px" width="40%" id="gc3" halign="stretch">
                                 <af:outputFormatted value="Registered Candidates" id="of1"/>
                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
                                     <f:facet name="secondaryToolbar">
                                         <af:toolbar id="t3">
-                                            <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                                       text="Add" disabled="#{!bindings.CreateInsert.enabled}"
-                                                       id="b2" icon="#{resource['images:add_24.png']}"/>
-                                            <af:spacer id="s1"/>
-                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                       disabled="#{!bindings.Delete.enabled}" id="b3"
-                                                       icon="#{resource['images:delete_24.png']}"/>
-                                            <af:spacer id="s2"/>
-                                            <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                                                       disabled="#{!bindings.Commit.enabled}" id="b4"
-                                                       icon="#{resource['images:save_24.png']}"/>
-                                            <af:spacer id="s3"/>
-                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
-                                                       id="b5" icon="#{resource['images:rollback_24.png']}">
-                                                <af:resetActionListener/>
+                                            <af:button text="Add" id="b1" icon="#{resource['images:add_24.png']}">
+                                                <af:showPopupBehavior popupId="p4" align="afterEnd"
+                                                                      triggerType="action"/>
                                             </af:button>
-                                            <af:spacer id="s4"/>
+                                            <af:spacer id="s1"/>
+                                            <af:button text="Update" id="b2"
+                                                       icon="#{resource['images:details_24.png']}">
+                                                <af:showPopupBehavior popupId="p5" triggerType="action"
+                                                                      align="afterEnd"/>
+                                            </af:button>
+                                            <af:spacer id="s2"/>
+                                            <af:button text="Remove" id="b3"
+                                                       icon="#{resource['images:delete_24.png']}">
+                                                <af:showPopupBehavior popupId="p6" triggerType="action"
+                                                                      align="afterEnd"/>
+                                            </af:button>
+                                            <af:spacer id="s3"/>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p4"
+                                                      popupFetchListener="#{Eventselection.createforcandi}">
+                                                <af:dialog id="d5" title="Add Candidate"
+                                                           dialogListener="#{Eventselection.commitrollbackforcandidate}">
+                                                    <f:facet name="buttonBar"/>
+                                                    <af:panelFormLayout id="pfl4">
+                                                        <af:inputText value="#{bindings.EventId4.inputValue}"
+                                                                      label="#{bindings.EventId4.hints.label}"
+                                                                      required="#{bindings.EventId4.hints.mandatory}"
+                                                                      columns="#{bindings.EventId4.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.EventId4.hints.precision}"
+                                                                      shortDesc="#{bindings.EventId4.hints.tooltip}"
+                                                                      id="it15">
+                                                            <f:validator binding="#{bindings.EventId4.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.EventId4.format}"/>
+                                                        </af:inputText>
+                                                        <af:selectOneChoice value="#{bindings.CandidateEmailId1.inputValue}"
+                                                                            label="#{bindings.CandidateEmailId1.label}"
+                                                                            required="#{bindings.CandidateEmailId1.hints.mandatory}"
+                                                                            shortDesc="#{bindings.CandidateEmailId1.hints.tooltip}"
+                                                                            id="soc2">
+                                                            <f:selectItems value="#{bindings.CandidateEmailId1.items}"
+                                                                           id="si2"/>
+                                                            <f:validator binding="#{bindings.CandidateEmailId1.validator}"/>
+                                                        </af:selectOneChoice>
+                                                        <af:inputText value="#{bindings.CurrentRound1.inputValue}"
+                                                                      label="#{bindings.CurrentRound1.hints.label}"
+                                                                      required="#{bindings.CurrentRound1.hints.mandatory}"
+                                                                      columns="#{bindings.CurrentRound1.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.CurrentRound1.hints.precision}"
+                                                                      shortDesc="#{bindings.CurrentRound1.hints.tooltip}"
+                                                                      id="it16">
+                                                            <f:validator binding="#{bindings.CurrentRound1.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.CurrentRound1.format}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.Status3.inputValue}"
+                                                                      label="#{bindings.Status3.hints.label}"
+                                                                      required="#{bindings.Status3.hints.mandatory}"
+                                                                      columns="#{bindings.Status3.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.Status3.hints.precision}"
+                                                                      shortDesc="#{bindings.Status3.hints.tooltip}"
+                                                                      id="it17">
+                                                            <f:validator binding="#{bindings.Status3.validator}"/>
+                                                        </af:inputText>
+                                                    </af:panelFormLayout>
+                                                </af:dialog>
+                                            </af:popup>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
+                                                <af:dialog id="d6" title="Update Candidate"
+                                                           dialogListener="#{Eventselection.commitrollbackforcandidate}">
+                                                    <f:facet name="buttonBar"/>
+                                                    <af:panelFormLayout id="pfl5">
+                                                        <af:inputText value="#{bindings.EventId.inputValue}"
+                                                                      label="#{bindings.EventId.hints.label}"
+                                                                      required="#{bindings.EventId.hints.mandatory}"
+                                                                      columns="#{bindings.EventId.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.EventId.hints.precision}"
+                                                                      shortDesc="#{bindings.EventId.hints.tooltip}"
+                                                                      id="it19">
+                                                            <f:validator binding="#{bindings.EventId.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.EventId.format}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.CandidateEmailId.inputValue}"
+                                                                      label="#{bindings.CandidateEmailId.hints.label}"
+                                                                      required="#{bindings.CandidateEmailId.hints.mandatory}"
+                                                                      columns="#{bindings.CandidateEmailId.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.CandidateEmailId.hints.precision}"
+                                                                      shortDesc="#{bindings.CandidateEmailId.hints.tooltip}"
+                                                                      id="it20">
+                                                            <f:validator binding="#{bindings.CandidateEmailId.validator}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.CurrentRound.inputValue}"
+                                                                      label="#{bindings.CurrentRound.hints.label}"
+                                                                      required="#{bindings.CurrentRound.hints.mandatory}"
+                                                                      columns="#{bindings.CurrentRound.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.CurrentRound.hints.precision}"
+                                                                      shortDesc="#{bindings.CurrentRound.hints.tooltip}"
+                                                                      id="it21">
+                                                            <f:validator binding="#{bindings.CurrentRound.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.CurrentRound.format}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.Status.inputValue}"
+                                                                      label="#{bindings.Status.hints.label}"
+                                                                      required="#{bindings.Status.hints.mandatory}"
+                                                                      columns="#{bindings.Status.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.Status.hints.precision}"
+                                                                      shortDesc="#{bindings.Status.hints.tooltip}"
+                                                                      id="it22">
+                                                            <f:validator binding="#{bindings.Status.validator}"/>
+                                                        </af:inputText>
+                                                    </af:panelFormLayout>
+                                                </af:dialog>
+                                            </af:popup>
+                                            <af:popup childCreation="deferred" autoCancel="disabled" id="p6">
+                                                <af:dialog id="d7" title="Are you sure to delete below candidate?"
+                                                           dialogListener="#{Eventselection.deletecandidate}">
+                                                    <f:facet name="buttonBar"/>
+                                                    <af:panelFormLayout id="pfl6">
+                                                        <af:inputText value="#{bindings.EventId.inputValue}"
+                                                                      label="#{bindings.EventId.hints.label}"
+                                                                      required="#{bindings.EventId.hints.mandatory}"
+                                                                      readOnly="true"
+                                                                      columns="#{bindings.EventId.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.EventId.hints.precision}"
+                                                                      shortDesc="#{bindings.EventId.hints.tooltip}"
+                                                                      id="it23">
+                                                            <f:validator binding="#{bindings.EventId.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.EventId.format}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.CandidateEmailId.inputValue}"
+                                                                      label="#{bindings.CandidateEmailId.hints.label}"
+                                                                      required="#{bindings.CandidateEmailId.hints.mandatory}"
+                                                                      readOnly="true"
+                                                                      columns="#{bindings.CandidateEmailId.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.CandidateEmailId.hints.precision}"
+                                                                      shortDesc="#{bindings.CandidateEmailId.hints.tooltip}"
+                                                                      id="it24">
+                                                            <f:validator binding="#{bindings.CandidateEmailId.validator}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.CurrentRound.inputValue}"
+                                                                      label="#{bindings.CurrentRound.hints.label}"
+                                                                      required="#{bindings.CurrentRound.hints.mandatory}"
+                                                                      readOnly="true"
+                                                                      columns="#{bindings.CurrentRound.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.CurrentRound.hints.precision}"
+                                                                      shortDesc="#{bindings.CurrentRound.hints.tooltip}"
+                                                                      id="it25">
+                                                            <f:validator binding="#{bindings.CurrentRound.validator}"/>
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.CurrentRound.format}"/>
+                                                        </af:inputText>
+                                                        <af:inputText value="#{bindings.Status.inputValue}"
+                                                                      label="#{bindings.Status.hints.label}"
+                                                                      required="#{bindings.Status.hints.mandatory}"
+                                                                      readOnly="true"
+                                                                      columns="#{bindings.Status.hints.displayWidth}"
+                                                                      maximumLength="#{bindings.Status.hints.precision}"
+                                                                      shortDesc="#{bindings.Status.hints.tooltip}"
+                                                                      id="it26">
+                                                            <f:validator binding="#{bindings.Status.validator}"/>
+                                                        </af:inputText>
+                                                    </af:panelFormLayout>
+                                                </af:dialog>
+                                            </af:popup>
                                         </af:toolbar>
                                     </f:facet>
-                                    <af:table value="#{bindings.EventCandidatefordetailpage1.collectionModel}" var="row"
-                                              rows="#{bindings.EventCandidatefordetailpage1.rangeSize}"
-                                              emptyText="#{bindings.EventCandidatefordetailpage1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.test1.collectionModel}" var="row"
+                                              rows="#{bindings.test1.rangeSize}"
+                                              emptyText="#{bindings.test1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                               rowBandingInterval="0"
-                                              fetchSize="#{bindings.EventCandidatefordetailpage1.rangeSize}"
-                                              filterModel="#{bindings.EventCandidatefordetailpage1Query.queryDescriptor}"
-                                              filterVisible="true"
-                                              queryListener="#{bindings.EventCandidatefordetailpage1Query.processQuery}"
-                                              varStatus="vs" id="t2" partialTriggers="::b2 ::b3">
-                                        <af:column id="c18" width="10"/>
-                                        <af:column sortProperty="#{bindings.EventCandidatefordetailpage1.hints.CandidateName.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.EventCandidatefordetailpage1.hints.CandidateName.label}"
-                                                   id="c6">
-                                            <af:outputText value="#{row.CandidateName}"
-                                                           shortDesc="#{bindings.EventCandidatefordetailpage1.hints.CandidateName.tooltip}"
-                                                           id="ot7"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.EventCandidatefordetailpage1.hints.CandidateEmailId.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.EventCandidatefordetailpage1.hints.CandidateEmailId.label}"
-                                                   id="c7">
-                                            <af:outputText value="#{row.CandidateEmailId}"
-                                                           shortDesc="#{bindings.EventCandidatefordetailpage1.hints.CandidateEmailId.tooltip}"
-                                                           id="ot8"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.EventCandidatefordetailpage1.hints.CurrentRound.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.EventCandidatefordetailpage1.hints.CurrentRound.label}"
+                                              selectedRowKeys="#{bindings.test1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.test1.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.test1.rangeSize}"
+                                              filterModel="#{bindings.test1Query.queryDescriptor}" filterVisible="true"
+                                              queryListener="#{bindings.test1Query.processQuery}" varStatus="vs"
+                                              id="t2" partialTriggers="::b2 ::b3">
+                                        <af:column sortProperty="#{bindings.test1.hints.EventId.name}" filterable="true"
+                                                   sortable="true" headerText="#{bindings.test1.hints.EventId.label}"
                                                    id="c8">
-                                            <af:outputText value="#{row.CurrentRound}"
-                                                           shortDesc="#{bindings.EventCandidatefordetailpage1.hints.CurrentRound.tooltip}"
-                                                           id="ot9">
+                                            <af:outputText value="#{row.EventId}"
+                                                           shortDesc="#{bindings.test1.hints.EventId.tooltip}" id="ot9">
                                                 <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.EventCandidatefordetailpage1.hints.CurrentRound.format}"/>
+                                                                  pattern="#{bindings.test1.hints.EventId.format}"/>
                                             </af:outputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.EventCandidatefordetailpage1.hints.Status.name}"
+                                        <af:column sortProperty="#{bindings.test1.hints.CandidateEmailId.name}"
                                                    filterable="true" sortable="true"
-                                                   headerText="#{bindings.EventCandidatefordetailpage1.hints.Status.label}"
+                                                   headerText="#{bindings.test1.hints.CandidateEmailId.label}" id="c6">
+                                            <af:outputText value="#{row.CandidateEmailId}"
+                                                           shortDesc="#{bindings.test1.hints.CandidateEmailId.tooltip}"
+                                                           id="ot7"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.test1.hints.CurrentRound.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.test1.hints.CurrentRound.label}" id="c7">
+                                            <af:outputText value="#{row.CurrentRound}"
+                                                           shortDesc="#{bindings.test1.hints.CurrentRound.tooltip}"
+                                                           id="ot8">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.test1.hints.CurrentRound.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.test1.hints.Status.name}" filterable="true"
+                                                   sortable="true" headerText="#{bindings.test1.hints.Status.label}"
                                                    id="c9">
                                             <af:outputText value="#{row.Status}"
-                                                           shortDesc="#{bindings.EventCandidatefordetailpage1.hints.Status.tooltip}"
+                                                           shortDesc="#{bindings.test1.hints.Status.tooltip}"
                                                            id="ot10"/>
                                         </af:column>
                                     </af:table>
-                                    <f:facet name="statusbar"/>
                                 </af:panelCollection>
                                 <af:spacer id="s6"/>
                             </af:gridCell>
-                            <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="stretch">
+                            <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc4" halign="stretch">
                                 <af:outputFormatted value="Interviewers List" id="of2"/>
                                 <af:panelCollection id="pc2">
                                     <f:facet name="menus"/>
@@ -199,67 +406,70 @@
                                                       contentDelivery="lazyUncached"
                                                       popupFetchListener="#{Eventselection.createwithparamsforevenid}">
                                                 <af:dialog id="d2"
-                                                           dialogListener="#{Eventselection.commitrollbackforaddinterviewer}">
-                                                    <f:facet name="buttonBar"/>
-                                                    <af:panelFormLayout id="pfl1">
-                                                        <af:inputText value="#{bindings.EventId1.inputValue}"
-                                                                      label="#{bindings.EventId1.hints.label}"
-                                                                      required="#{bindings.EventId1.hints.mandatory}"
-                                                                      columns="#{bindings.EventId1.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.EventId1.hints.precision}"
-                                                                      shortDesc="#{bindings.EventId1.hints.tooltip}"
-                                                                      id="it7">
-                                                            <f:validator binding="#{bindings.EventId1.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.EventId1.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.InterviewerEmailId1.inputValue}"
-                                                                      label="#{bindings.InterviewerEmailId1.hints.label}"
-                                                                      required="#{bindings.InterviewerEmailId1.hints.mandatory}"
-                                                                      columns="#{bindings.InterviewerEmailId1.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.InterviewerEmailId1.hints.precision}"
-                                                                      shortDesc="#{bindings.InterviewerEmailId1.hints.tooltip}"
-                                                                      id="it8">
-                                                            <f:validator binding="#{bindings.InterviewerEmailId1.validator}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.InterviewerMinLevel1.inputValue}"
-                                                                      label="#{bindings.InterviewerMinLevel1.hints.label}"
-                                                                      required="#{bindings.InterviewerMinLevel1.hints.mandatory}"
-                                                                      columns="#{bindings.InterviewerMinLevel1.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.InterviewerMinLevel1.hints.precision}"
-                                                                      shortDesc="#{bindings.InterviewerMinLevel1.hints.tooltip}"
-                                                                      id="it9">
-                                                            <f:validator binding="#{bindings.InterviewerMinLevel1.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.InterviewerMinLevel1.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.InterviewerMaxLevel1.inputValue}"
-                                                                      label="#{bindings.InterviewerMaxLevel1.hints.label}"
-                                                                      required="#{bindings.InterviewerMaxLevel1.hints.mandatory}"
-                                                                      columns="#{bindings.InterviewerMaxLevel1.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.InterviewerMaxLevel1.hints.precision}"
-                                                                      shortDesc="#{bindings.InterviewerMaxLevel1.hints.tooltip}"
-                                                                      id="it10">
-                                                            <f:validator binding="#{bindings.InterviewerMaxLevel1.validator}"/>
-                                                            <af:convertNumber groupingUsed="false"
-                                                                              pattern="#{bindings.InterviewerMaxLevel1.format}"/>
-                                                        </af:inputText>
-                                                        <af:inputText value="#{bindings.Status1.inputValue}"
-                                                                      label="#{bindings.Status1.hints.label}"
-                                                                      required="#{bindings.Status1.hints.mandatory}"
-                                                                      columns="#{bindings.Status1.hints.displayWidth}"
-                                                                      maximumLength="#{bindings.Status1.hints.precision}"
-                                                                      shortDesc="#{bindings.Status1.hints.tooltip}"
-                                                                      id="it15">
-                                                            <f:validator binding="#{bindings.Status1.validator}"/>
-                                                        </af:inputText>
-                                                    </af:panelFormLayout>
+                                                           dialogListener="#{Eventselection.commitrollbackforaddinterviewer}"
+                                                           title="Add interviewer">
+                                                    <f:facet name="buttonBar">
+                                                        <af:panelFormLayout id="pfl1">
+                                                            <af:inputText value="#{bindings.EventId3.inputValue}"
+                                                                          label="#{bindings.EventId3.hints.label}"
+                                                                          required="#{bindings.EventId3.hints.mandatory}"
+                                                                          columns="#{bindings.EventId3.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.EventId3.hints.precision}"
+                                                                          shortDesc="#{bindings.EventId3.hints.tooltip}"
+                                                                          id="it7">
+                                                                <f:validator binding="#{bindings.EventId3.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.EventId3.format}"/>
+                                                            </af:inputText>
+                                                            <af:selectOneChoice value="#{bindings.InterviewerEmailId.inputValue}"
+                                                                                label="#{bindings.InterviewerEmailId.label}"
+                                                                                required="#{bindings.InterviewerEmailId.hints.mandatory}"
+                                                                                shortDesc="#{bindings.InterviewerEmailId.hints.tooltip}"
+                                                                                id="soc1">
+                                                                <f:selectItems value="#{bindings.InterviewerEmailId.items}"
+                                                                               id="si1"/>
+                                                                <f:validator binding="#{bindings.InterviewerEmailId.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:inputText value="#{bindings.InterviewerMinLevel.inputValue}"
+                                                                          label="#{bindings.InterviewerMinLevel.hints.label}"
+                                                                          required="#{bindings.InterviewerMinLevel.hints.mandatory}"
+                                                                          columns="#{bindings.InterviewerMinLevel.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.InterviewerMinLevel.hints.precision}"
+                                                                          shortDesc="#{bindings.InterviewerMinLevel.hints.tooltip}"
+                                                                          id="it8">
+                                                                <f:validator binding="#{bindings.InterviewerMinLevel.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.InterviewerMinLevel.format}"/>
+                                                            </af:inputText>
+                                                            <af:inputText value="#{bindings.InterviewerMaxLevel.inputValue}"
+                                                                          label="#{bindings.InterviewerMaxLevel.hints.label}"
+                                                                          required="#{bindings.InterviewerMaxLevel.hints.mandatory}"
+                                                                          columns="#{bindings.InterviewerMaxLevel.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.InterviewerMaxLevel.hints.precision}"
+                                                                          shortDesc="#{bindings.InterviewerMaxLevel.hints.tooltip}"
+                                                                          id="it9">
+                                                                <f:validator binding="#{bindings.InterviewerMaxLevel.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.InterviewerMaxLevel.format}"/>
+                                                            </af:inputText>
+                                                            <af:inputText value="#{bindings.Status2.inputValue}"
+                                                                          label="#{bindings.Status2.hints.label}"
+                                                                          required="#{bindings.Status2.hints.mandatory}"
+                                                                          columns="#{bindings.Status2.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.Status2.hints.precision}"
+                                                                          shortDesc="#{bindings.Status2.hints.tooltip}"
+                                                                          id="it10">
+                                                                <f:validator binding="#{bindings.Status2.validator}"/>
+                                                            </af:inputText>
+                                                        </af:panelFormLayout>
+                                                    </f:facet>
                                                 </af:dialog>
                                             </af:popup>
                                             <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
                                                       contentDelivery="lazyUncached">
                                                 <af:dialog id="d3"
-                                                           dialogListener="#{Eventselection.commitrollbackforaddinterviewer}">
+                                                           dialogListener="#{Eventselection.commitrollbackforaddinterviewer}"
+                                                           title="Update Interviewer">
                                                     <f:facet name="buttonBar"/>
                                                     <af:panelFormLayout id="pfl2">
                                                         <af:inputText value="#{bindings.EventId1.inputValue}"
