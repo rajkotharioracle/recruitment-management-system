@@ -1,7 +1,12 @@
 package model.EntityObject;
 
 import model.EntityObject.common.RecruitingAppManagement;
+
+import model.ViewObject.CandidatesAssignedInterviewImpl;
 import model.ViewObject.EventCandidatefordetailpageImpl;
+import model.ViewObject.InterviewerCurrentStatusImpl;
+import model.ViewObject.UpcomingInterviewsImpl;
+import model.ViewObject.ViewObjImpl;
 import model.ViewObject.eventdetailswithnameImpl;
 
 
@@ -432,9 +437,35 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     }
 
     /**
-     * Container's getter for test1.
-     * @return test1
+
+    public ViewObjImpl getViewObj1() {
+        return (ViewObjImpl) findViewObject("ViewObj1");
+    }
+
+    /**
+     * Container's getter for InterviewerCurrentStatus1.
+     * @return InterviewerCurrentStatus1
      */
+    public InterviewerCurrentStatusImpl getInterviewerCurrentStatus1() {
+        return (InterviewerCurrentStatusImpl) findViewObject("InterviewerCurrentStatus1");
+    }
+
+    /**
+     * Container's getter for CandidatesAssignedInterview1.
+     * @return CandidatesAssignedInterview1
+     */
+    public CandidatesAssignedInterviewImpl getCandidatesAssignedInterview1() {
+        return (CandidatesAssignedInterviewImpl) findViewObject("CandidatesAssignedInterview1");
+    }
+
+    /**
+     * Container's getter for UpcomingInterviews1.
+     * @return UpcomingInterviews1
+     */
+    public UpcomingInterviewsImpl getUpcomingInterviews1() {
+        return (UpcomingInterviewsImpl) findViewObject("UpcomingInterviews1");
+
+    }
     public ViewObjectImpl gettest1() {
         return (ViewObjectImpl) findViewObject("test1");
     }
