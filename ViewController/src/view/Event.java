@@ -350,6 +350,7 @@ public  String geteid()
 
     public void checkfun(ActionEvent actionEvent) {
         // Add event code here...   INSTEAD of this function ,pass bind variable directly from previous page.
+        
         BindingContext bctx = BindingContext.getCurrent();
                 BindingContainer bindings = bctx.getCurrentBindingsEntry();
         DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
@@ -357,5 +358,29 @@ public  String geteid()
         
         vo.setNamedWhereClauseParam("eid","5");
         vo.executeQuery();
+    }
+
+    public void report_setInterviewerId(ActionEvent actionEvent) {
+        // Add event code here...
+        BindingContext bctx = BindingContext.getCurrent();
+                BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
+        
+        ViewObject vo=candi_itr.getViewObject();
+        Row curRow= vo.getCurrentRow();
+        String x = (String) curRow.getAttribute("InterviewerEmailId");
+        
+        String y = (String) report_outcome.getValue();
+       System.out.println(y);
+        DCIteratorBinding candi_itr1 =(DCIteratorBinding)bindings.get("InterviewerEventHistory1Iterator");
+        ViewObject vo1=candi_itr1.getViewObject();
+        vo1.setNamedWhereClauseParam("iid", x);
+        vo1.setNamedWhereClauseParam("fid", y);
+        vo1.executeQuery();
+        
+        
+        
+        
+        
     }
 }

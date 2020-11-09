@@ -171,22 +171,20 @@
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="50%" id="gc4" halign="stretch">
                                 <af:outputText value="History of Interviewer" id="ot13" inlineStyle="font-size:large;"/>
-                                <af:selectOneListbox value="#{bindings.InterviewerwithSpecifcEventId1.inputValue}"
-                                                     label="#{bindings.InterviewerwithSpecifcEventId1.label}"
-                                                     shortDesc="#{bindings.InterviewerwithSpecifcEventId1.hints.tooltip}"
-                                                     id="sol2">
-                                    <f:selectItems value="#{bindings.InterviewerwithSpecifcEventId1.items}" id="si3"/>
-                                    <f:validator binding="#{bindings.InterviewerwithSpecifcEventId1.validator}"/>
-                                </af:selectOneListbox>
-                                <af:selectOneChoice label="Outcome" id="soc2"
-                                                    validator="#{setCompletedEvent.soc2_validator}"
-                                                    valueChangeListener="#{setCompletedEvent.report_outcome_valuechange}"
-                                                    binding="#{setCompletedEvent.report_outcome}">
-                                    <af:selectItem label="Pursue" value="pursue" id="si4"/>
-                                    <af:selectItem label="Reject" value="reject" id="si5"/>
-                                    <af:selectItem label="Hold" value="hold" id="si6"/>
+                                <af:selectOneChoice value="#{bindings.IntervieweriInEvent1.inputValue}"
+                                                    label="#{bindings.IntervieweriInEvent1.label}"
+                                                    shortDesc="#{bindings.IntervieweriInEvent1.hints.tooltip}"
+                                                    id="soc2">
+                                    <f:selectItems value="#{bindings.IntervieweriInEvent1.items}" id="si3"/>
+                                    <f:validator binding="#{bindings.IntervieweriInEvent1.validator}"/>
                                 </af:selectOneChoice>
-                                <af:button actionListener="#{bindings.report_setInterviewer.execute}"
+                                <af:selectOneChoice label="Outcome" id="soc3"
+                                                    binding="#{setCompletedEvent.report_outcome}">
+                                    <af:selectItem label="pursue" value="pursue" id="si4"/>
+                                    <af:selectItem label="hold" value="hold" id="si5"/>
+                                    <af:selectItem label="reject" value="reject" id="si6"/>
+                                </af:selectOneChoice>
+                                <af:button actionListener="#{setCompletedEvent.report_setInterviewerId}"
                                            text="serach"
                                            disabled="#{!bindings.report_setInterviewer.enabled}" id="b3"/>
                                 <af:table value="#{bindings.InterviewerEventHistory1.collectionModel}" var="row"

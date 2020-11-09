@@ -23,5 +23,8 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="EventCandidateDatawithName1Iterator" id="Execute"
+            InstanceName="RecruitingAppManagementDataControl.EventCandidateDatawithName1"
+            DataControl="RecruitingAppManagementDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

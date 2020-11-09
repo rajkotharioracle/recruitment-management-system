@@ -310,7 +310,7 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
             ViewObject vo2=getCandidatesInInterview1(); //candidates in this event
 
             ViewObject vo3=getCandidatesEventHistory1();
-            ViewObject vo4=getInterviewerwithSpecifcEventId1();
+            ViewObject vo4=getIntervieweriInEvent1();
             ViewObject vo5 = getInterviewerEventHistory1();
             ViewObject vo6=getCandiateStatus1();
                      Row currentRow= vo1.getCurrentRow();
@@ -345,7 +345,10 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     
     
     public void report_setInterviewer()
-    {ViewObject vo4 = getInterviewerwithSpecifcEventId1();
+    {//this funtion is running from bean now
+        
+        
+        ViewObject vo4 = getIntervieweriInEvent1();
          ViewObject vo5 = getInterviewerEventHistory1();
          Row currentRow= vo4.getCurrentRow();
       String x = (String) currentRow.getAttribute("InterviewerEmail");
@@ -386,13 +389,6 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
         return (ViewObjectImpl) findViewObject("FeedbackDetailsVO1");
     }
 
-    /**
-     * Container's getter for InterviewerwithSpecifcEventId1.
-     * @return InterviewerwithSpecifcEventId1
-     */
-    public ViewObjectImpl getInterviewerwithSpecifcEventId1() {
-        return (ViewObjectImpl) findViewObject("InterviewerwithSpecifcEventId1");
-    }
 
     /**
      * Container's getter for EventCandidateDetailsVO1.

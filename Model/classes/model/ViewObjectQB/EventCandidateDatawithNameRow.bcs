@@ -1,0 +1,12 @@
+//Groovy Scripts for model.ViewObjectQB.EventCandidateDatawithName
+
+package model.ViewObjectQB
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="newRound")
+def newRound_ExpressionScript_Expression()
+{
+CurrentRound+1
+}
+
