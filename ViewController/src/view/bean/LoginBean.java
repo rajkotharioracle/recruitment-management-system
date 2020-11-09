@@ -30,6 +30,16 @@ import javax.swing.JFrame;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
 
+
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCIteratorBinding;
+
+import oracle.binding.BindingContainer;
+import view.common.ADFUtils;
+import view.common.JSFUtils;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.binding.OperationBinding;
+
 @ManagedBean
 @SessionScoped
 public class LoginBean implements Serializable{
@@ -107,7 +117,7 @@ public class LoginBean implements Serializable{
     }
 */
     
-    public String loginAction() {
+   /* public String loginAction() {
         String user = usernameInputText.getValue().toString();
         String pwd = passwordInputText.getValue().toString();
         
@@ -129,17 +139,49 @@ public class LoginBean implements Serializable{
                     //JOptionPane.showMessageDialog(null, "YOUR INFORMATION HERE", "InfoBox: " + "TITLE BAR MESSAGE", JOptionPane.INFORMATION_MESSAGE);
                     //f=new JFrame();  
                     //JOptionPane.showMessageDialog(f,"Hello, Welcome to Javatpoint.");
-                    /*FacesContext.getCurrentInstance().addMessage(
-                                    null,
-                                    new FacesMessage(FacesMessage.SEVERITY_WARN,
-                                                    "Incorrect Username and Passowrd",
-                                                    "Please enter correct username and Password"));
-                    */
+                    
                     RichPopup.PopupHints hints = new RichPopup.PopupHints();
                     this.myPopup.show(hints);
                     System.out.println("INValiiiiiid 3");
         
 
+                return "login";
+            }
+    }*/
+
+   public String loginAction() {
+        String user = usernameInputText.getValue().toString();
+        System.out.println("User   "+ user);
+        String pwd = passwordInputText.getValue().toString();
+            String valid = LoginDAO.validate(user, pwd);
+            if (valid!=null) {
+                    System.out.println("Valiiiiiid");
+                    HttpSession session = SessionUtils.getSession();
+                    session.setAttribute("username", user);
+                    System.out.println("SUCCESS "+ valid);
+                    //Session management code
+                    DCBindingContainer bindings = (DCBindingContainer)ADFUtils.evaluateEL("#{bindings}");
+                    System.out.println("bindings....");
+                        OperationBinding opBinding = bindings.getOperationBinding("getUserId");
+                    System.out.println("opbindings....");
+                    String userID = (String)opBinding.execute();
+                    System.out.println("userID...." + userID);
+                    JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+userID);
+                    //JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+user);                    
+                    switch (valid){
+                    //case "admin" : return "adminHome.jsf";
+                    case "admin" : return "events_home.jsf";
+                    //case "interviewer" : return "interviewer_dashboard.jsf";
+                    case "interviewer" : return "scheduledInterviews.jsf";
+                    case "candidate" : return "candidate_dashboard.jsf";
+                    default : return "login.jsf";
+                    }
+                    //return "Dashboard";
+            } else {
+                System.out.println("INValiiiiiid");
+                    RichPopup.PopupHints hints = new RichPopup.PopupHints();
+                    this.myPopup.show(hints);
+                    System.out.println("INValiiiiiid 3");
                 return "login";
             }
     }
