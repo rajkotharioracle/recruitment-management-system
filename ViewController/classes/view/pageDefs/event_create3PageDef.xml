@@ -10,18 +10,20 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="IntervieweriInEvent1Query"/>
   </executables>
   <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="RecruitingAppManagementDataControl"/>
     <tree IterBinding="IntervieweriInEvent1Iterator" id="IntervieweriInEvent1">
       <nodeDefinition DefName="model.ViewObject.IntervieweriInEvent" Name="IntervieweriInEvent10">
         <AttrNames>
-          <Item Value="InterviewerName"/>
-          <Item Value="InterviewerEmail"/>
-          <Item Value="InterviewerPosition"/>
-          <Item Value="InterviewerMinLevel"/>
+          <Item Value="EventId"/>
+          <Item Value="InterviewerEmailId"/>
           <Item Value="InterviewerMaxLevel"/>
+          <Item Value="InterviewerMinLevel"/>
+          <Item Value="InterviewerEmail"/>
+          <Item Value="InterviewerName"/>
+          <Item Value="Status"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
-            DataControl="RecruitingAppManagementDataControl"/>
   </bindings>
 </pageDefinition>

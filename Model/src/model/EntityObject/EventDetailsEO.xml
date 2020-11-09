@@ -52,8 +52,7 @@
     SQLType="TIMESTAMP"
     Type="oracle.jbo.domain.Date"
     ColumnType="NUMBER"
-    TableName="AKMR_EVENT_DETAILS"
-    PrimaryKey="true">
+    TableName="AKMR_EVENT_DETAILS">
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMATTER
@@ -71,8 +70,7 @@
     SQLType="TIMESTAMP"
     Type="oracle.jbo.domain.Date"
     ColumnType="NUMBER"
-    TableName="AKMR_EVENT_DETAILS"
-    PrimaryKey="true"/>
+    TableName="AKMR_EVENT_DETAILS"/>
   <Attribute
     Name="EventMaxRounds"
     IsNotNull="true"
@@ -110,8 +108,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EntityObject.EventDetailsEO.EventId"/>
-      <Item Value="model.EntityObject.EventDetailsEO.EventStartTime"/>
-      <Item Value="model.EntityObject.EventDetailsEO.EventEndTime"/>
     </AttrArray>
   </Key>
   <Key
