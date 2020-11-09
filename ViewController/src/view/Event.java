@@ -275,7 +275,7 @@ public  String geteid()
                 ADFContext adfCtx = ADFContext.getCurrent();
                      Map pageFlowScope = adfCtx.getPageFlowScope();
                      pageFlowScope.put("ec_ename", name);
-                pageFlowScope.put("ec_emaxr", maxRounds);
+                pageFlowScope.put("ec_emaxr", String.valueOf(maxRounds));
                 System.out.println(pageFlowScope.get(name));
                 ps = con.prepareStatement("Insert into AKMR_EVENT_DETAILS VALUES(NULL,?,?,?,NULL,?)");
                 ps.setString(1, name);
@@ -364,8 +364,8 @@ public  String geteid()
         adfFacesContext = AdfFacesContext.getCurrentInstance();
         Map _pageFlowScope = adfFacesContext.getPageFlowScope();
         String ec_name =(String) _pageFlowScope.get("ec_ename");
-        String x = (String) _pageFlowScope.get("ec_ename");
-        int y = Integer.parseInt(x);
+        String x = (String) _pageFlowScope.get("ec_emaxr");
+        int y =Integer.parseInt(x);  
         System.out.println(ec_name);
         // String ec_maxr = (String) pageFlowScope.get("ec_emaxr");
         // System.out.println(ec_maxr);
@@ -408,15 +408,33 @@ public  String geteid()
         System.out.println("Funtion ended");
     }
 
-    public void checkfun(ActionEvent actionEvent) {
+    public void checkfun(ActionEvent actionEvent) throws SQLException {
         // Add event code here...   INSTEAD of this function ,pass bind variable directly from previous page.
+        AdfFacesContext adfFacesContext = null;
+        adfFacesContext = AdfFacesContext.getCurrentInstance();
+        Map _pageFlowScope = adfFacesContext.getPageFlowScope();
+        String ec_name =(String) _pageFlowScope.get("ec_ename");
+        System.out.println("Funtion called");
+        Connection con = null;
+        PreparedStatement ps = null;
+        con = DataConnect.getConnection();
+        PreparedStatement rs=null;
+        rs=con.prepareStatement("Select EVENT_ID from akmr_event_details where EVENT_NAME=?");
+        rs.setString(1,ec_name);
+        ResultSet q=rs.executeQuery();
+        int eid=0;
+        if(q.next())
+        
+        {          eid= q.getInt(1);}
+
+        q.close();
         
         BindingContext bctx = BindingContext.getCurrent();
                 BindingContainer bindings = bctx.getCurrentBindingsEntry();
         DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
         ViewObject vo=candi_itr.getViewObject();
         
-        vo.setNamedWhereClauseParam("eid","5");
+        vo.setNamedWhereClauseParam("eid",eid);
         vo.executeQuery();
     }
 
@@ -444,9 +462,9 @@ public  String geteid()
         
     }
 
-    public void EventInfo_seteid(ActionEvent actionEvent) {
+    public void EventInfo_seteid(ActionEvent actionEvent) throws SQLException {
         // Add event code here...
-        
+      
         BindingContext bctx = BindingContext.getCurrent();
                 BindingContainer bindings = bctx.getCurrentBindingsEntry();
         DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("SchedEvents1Iterator");
@@ -461,6 +479,44 @@ public  String geteid()
         vo2.setNamedWhereClauseParam("eid", x);
         vo1.executeQuery();
         vo2.executeQuery();
+        
+    }
+
+    public void ChangeInterviewer_level(ActionEvent actionEvent) throws SQLException {
+        // Add event code here...
+        AdfFacesContext adfFacesContext = null;
+        adfFacesContext = AdfFacesContext.getCurrentInstance();
+        Map _pageFlowScope = adfFacesContext.getPageFlowScope();
+        String ec_name =(String) _pageFlowScope.get("ec_ename");
+        // System.out.println("Funtion called");
+        Connection con = null;
+        PreparedStatement ps = null;
+        con = DataConnect.getConnection();
+        PreparedStatement rs=null;
+        rs=con.prepareStatement("Select EVENT_ID from akmr_event_details where EVENT_NAME=?");
+        rs.setString(1,ec_name);
+        ResultSet q=rs.executeQuery();
+        int eid=0;
+        if(q.next())
+        
+        {          eid= q.getInt(1);}
+
+        q.close();
+        
+        
+        BindingContext bctx = BindingContext.getCurrent();
+                BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("IntervieweriInEvent1Iterator");
+        ViewObject vo=candi_itr.getViewObject();
+        Row curRow=vo.getCurrentRow();
+        int x=Integer.parseInt(curRow.getAttribute("InterviewerMaxLevel").toString());
+        int y=Integer.parseInt(curRow.getAttribute("InterviewerMinLevel").toString());
+        ps=con.prepareStatement("UPDATE akmr_event_interviewer_details SET interviewer_max_level=?,interviewer_min_level=? where event_id=? and interviewer_email_id=? ");
+        ps.setInt(1,x);
+        ps.setInt(2,y);
+        ps.setInt(3,eid);
+        ps.setString(4,(String)curRow.getAttribute("InterviewerEmailId"));
+        ps.executeUpdate();
         
     }
 }

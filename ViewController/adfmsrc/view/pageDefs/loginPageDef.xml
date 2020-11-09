@@ -12,5 +12,11 @@
                   ReturnName="data.RecruitingAppManagementDataControl.methodResults.getUserId_getUserId_dataControl_dataProvider_getUserId_result">
       <NamedData NDName="userName" NDValue="#{loginBean.usernameInputText.value}" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="getUserId2" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getUserId2"
+                  IsViewObjectMethod="false" DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getUserId2.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getUserId2_getUserId2_dataControl_dataProvider_getUserId2_result">
+      <NamedData NDName="userName" NDValue="#{loginBean.usernameInputText.value}" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

@@ -49,7 +49,8 @@
                                                       id="sbc1"/>
                         </af:column>
                     </af:table>
-                    <af:button text="Select" id="b1" actionListener="#{setCompletedEvent.setInterviewers}"/>
+                    <af:button text="Select" id="b1" actionListener="#{setCompletedEvent.setInterviewers}"
+                               action="create4"/>
                     <af:activeOutputText value="#{pageFlowScope.ec_emaxr}" id="aot1"/>
                 </f:facet>
             </af:pageTemplate>

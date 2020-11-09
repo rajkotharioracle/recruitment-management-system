@@ -24,5 +24,7 @@ public interface RecruitingAppManagement extends ApplicationModule {
     String getEventIdforScheduledinterview(String eventid);
 
     String getUserId(String userName);
+
+    String getUserId2(String userName);
 }
 

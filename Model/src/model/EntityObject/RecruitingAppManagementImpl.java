@@ -519,6 +519,17 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
             usersVO.setNamedWhereClauseParam("loggedInUserName",userName);
             usersVO.executeQuery();
             Row usersVORow = usersVO.first();
+            System.out.println("Row .... " + usersVORow);
+            return (usersVORow != null) ? usersVORow.getAttribute("INTERVIEWER_EMAIL_ID").toString() : null;
+            }
+    
+    public String getUserId2(String userName) {
+            System.out.println("IN getuserid2 ...... " + userName.toString());
+            ViewObjectImpl usersVO = this.getUpcomingInterviews1();
+            usersVO.setApplyViewCriteriaName("UpcomingInterviewsCriteria");
+            usersVO.setNamedWhereClauseParam("userInput",userName);
+            usersVO.executeQuery();
+            Row usersVORow = usersVO.first();
             return (usersVORow != null) ? usersVORow.getAttribute("INTERVIEWER_EMAIL_ID").toString() : null;
             }
 }

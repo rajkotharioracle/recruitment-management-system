@@ -12,8 +12,10 @@ public class UpcomingInterviewsRowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     protected enum AttributesEnum {
+        InterviewerEmailId,
         CandidateEmailId,
-        RoundNo;
+        RoundNo,
+        Status;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -37,8 +39,11 @@ public class UpcomingInterviewsRowImpl extends ViewRowImpl {
         }
     }
 
+
+    public static final int INTERVIEWEREMAILID = AttributesEnum.InterviewerEmailId.index();
     public static final int CANDIDATEEMAILID = AttributesEnum.CandidateEmailId.index();
     public static final int ROUNDNO = AttributesEnum.RoundNo.index();
+    public static final int STATUS = AttributesEnum.Status.index();
 
     /**
      * This is the default constructor (do not remove).

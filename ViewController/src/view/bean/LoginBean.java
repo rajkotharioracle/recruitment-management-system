@@ -167,6 +167,14 @@ public class LoginBean implements Serializable{
                     String userID = (String)opBinding.execute();
                     System.out.println("userID...." + userID);
                     JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+userID);
+                    
+                opBinding = bindings.getOperationBinding("getUserId2");
+                System.out.println("opbindings....");
+                String userID2 = (String)opBinding.execute();
+                System.out.println("userID...." + userID2);
+                JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+userID2);
+                    
+                    
                     //JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+user);                    
                     switch (valid){
                     //case "admin" : return "adminHome.jsf";

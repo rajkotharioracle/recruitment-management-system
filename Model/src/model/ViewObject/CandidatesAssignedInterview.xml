@@ -23,6 +23,10 @@
         ResId="model.ViewObject.CandidatesAssignedInterview_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="loggedInUserName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[Select
   akmr_interview_details.interviewer_email_id,
   akmr_interview_details.candidate_email_id,
@@ -95,8 +99,9 @@ from
           ViewAttribute="InterviewerEmailId"
           Operator="="
           Conjunction="AND"
-          Value="loggedInUserName"
-          Required="Optional"/>
+          Value=":loggedInUserName"
+          Required="Optional"
+          IsBindVarValue="true"/>
       </ViewCriteriaRow>
     </ViewCriteria>
   </ViewCriteria>
