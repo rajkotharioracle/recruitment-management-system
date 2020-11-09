@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="loginPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="getUserId" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getUserId"
+                  IsViewObjectMethod="false" DataControl="RecruitingAppManagementDataControl"
+                  InstanceName="bindings.getUserId.dataControl.dataProvider"
+                  ReturnName="data.RecruitingAppManagementDataControl.methodResults.getUserId_getUserId_dataControl_dataProvider_getUserId_result">
+      <NamedData NDName="userName" NDValue="#{loginBean.usernameInputText.value}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

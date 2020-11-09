@@ -170,9 +170,9 @@ public class LoginBean implements Serializable{
                     //JSFUtils.setManagedBeanValue("sessionScope.loggedInUserID", ""+user);                    
                     switch (valid){
                     //case "admin" : return "adminHome.jsf";
-                    case "admin" : return "events_home.jsf";
+                    case "admin" : return "adminHome.jsf";
                     //case "interviewer" : return "interviewer_dashboard.jsf";
-                    case "interviewer" : return "scheduledInterviews.jsf";
+                    case "interviewer" : return "interviewer_dashboard.jsf";
                     case "candidate" : return "candidate_dashboard.jsf";
                     default : return "login.jsf";
                     }

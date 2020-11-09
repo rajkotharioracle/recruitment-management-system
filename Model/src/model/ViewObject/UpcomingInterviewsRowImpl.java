@@ -36,6 +36,7 @@ public class UpcomingInterviewsRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int CANDIDATEEMAILID = AttributesEnum.CandidateEmailId.index();
     public static final int ROUNDNO = AttributesEnum.RoundNo.index();
 

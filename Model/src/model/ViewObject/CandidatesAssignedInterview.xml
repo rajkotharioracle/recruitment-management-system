@@ -10,7 +10,8 @@
   CustomQuery="true"
   RowClass="model.ViewObject.CandidatesAssignedInterviewRowImpl"
   ComponentClass="model.ViewObject.CandidatesAssignedInterviewImpl"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll"/>
     <Attr Name="_isExpertMode" Value="true"/>
@@ -23,45 +24,82 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery><![CDATA[Select
+  akmr_interview_details.interviewer_email_id,
   akmr_interview_details.candidate_email_id,
   akmr_interview_details.round_no
 from
-  akmr_interview_details
-where
-  akmr_interview_details.interviewer_email_id = 'raj.kothari@oracle.com'
-  and akmr_interview_details.event_id = 4
-  and  akmr_interview_details.status ='assigned']]></SQLQuery>
+  akmr_interview_details]]></SQLQuery>
+  <EntityUsage
+    Name="InterviewDetailsEO"
+    Entity="model.EntityObject.InterviewDetailsEO"/>
+  <ViewAttribute
+    Name="InterviewerEmailId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="InterviewerEmailId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="INTERVIEWER_EMAIL_ID"/>
   <ViewAttribute
     Name="CandidateEmailId"
-    IsUpdateable="false"
-    IsPersistent="false"
+    IsNotNull="true"
     PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="CANDIDATE_EMAIL_ID"
-    Expression="CANDIDATE_EMAIL_ID"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="50"/>
-    </DesignTime>
-  </ViewAttribute>
+    EntityAttrName="CandidateEmailId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="CANDIDATE_EMAIL_ID"/>
   <ViewAttribute
     Name="RoundNo"
-    IsUpdateable="false"
-    IsPersistent="false"
+    IsNotNull="true"
     PrecisionRule="true"
-    Precision="3"
-    Scale="0"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    AliasName="ROUND_NO"
-    Expression="ROUND_NO"
-    SQLType="NUMERIC"/>
-  <AttrArray Name="KeyAttributes">
-    <Item Value="CandidateEmailId"/>
-    <Item Value="RoundNo"/>
-  </AttrArray>
+    EntityAttrName="RoundNo"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="ROUND_NO"/>
+  <ViewAttribute
+    Name="EventId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EventId"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="EVENT_ID"/>
+  <ViewCriteria
+    Name="findByUserName"
+    ViewObjectName="model.ViewObject.CandidatesAssignedInterview"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteria
+      Name="CandidatesAssignedInterviewSubCriteria1"
+      ViewObjectName="model.ViewObject.CandidatesAssignedInterview"
+      Conjunction="AND">
+      <ViewCriteriaRow
+        Name="CandidatesAssignedInterviewSubCriteria1_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="InterviewerEmailId"
+          ViewAttribute="InterviewerEmailId"
+          Operator="="
+          Conjunction="AND"
+          Value="loggedInUserName"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

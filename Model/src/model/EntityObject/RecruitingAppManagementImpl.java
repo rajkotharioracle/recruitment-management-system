@@ -74,6 +74,8 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
         return (EventCandidateDatawithNameImpl) findViewObject("EventCandidateDatawithName1");
     }
 
+    
+
     /**
      * Container's getter for interviewdetailQB1.
      * @return interviewdetailQB1
@@ -509,4 +511,14 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     public ViewObjectImpl getSchedEvents1() {
         return (ViewObjectImpl) findViewObject("SchedEvents1");
     }
+    
+    public String getUserId(String userName) {
+            System.out.println("IN getuserid ...... " + userName.toString());
+            ViewObjectImpl usersVO = this.getCandidatesAssignedInterview1();
+            usersVO.setApplyViewCriteriaName("findByUserName");
+            usersVO.setNamedWhereClauseParam("loggedInUserName",userName);
+            usersVO.executeQuery();
+            Row usersVORow = usersVO.first();
+            return (usersVORow != null) ? usersVORow.getAttribute("INTERVIEWER_EMAIL_ID").toString() : null;
+            }
 }

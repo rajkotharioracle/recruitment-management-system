@@ -26,11 +26,7 @@
   akmr_interview_details.candidate_email_id,
   akmr_interview_details.round_no
 from
-  akmr_interview_details
-where
-  akmr_interview_details.interviewer_email_id = 'raj.kothari@oracle.com'
-  and akmr_interview_details.event_id = 4
-  and  akmr_interview_details.status ='assigned']]></SQLQuery>
+  akmr_interview_details]]></SQLQuery>
   <ViewAttribute
     Name="CandidateEmailId"
     IsUpdateable="false"
@@ -57,7 +53,7 @@ where
     ColumnType="NUMBER"
     AliasName="ROUND_NO"
     Expression="ROUND_NO"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="CandidateEmailId"/>
     <Item Value="RoundNo"/>

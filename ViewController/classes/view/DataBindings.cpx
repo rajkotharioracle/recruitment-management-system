@@ -34,6 +34,7 @@
     <page path="/event_create3.jsf" usageId="view_event_create3PageDef"/>
     <page path="/interviewer_dashboard.jsf" usageId="view_interviewer_dashboardPageDef"/>
     <page path="/event_info.jsf" usageId="view_event_infoPageDef"/>
+    <page path="/login.jsf" usageId="view_loginPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_admin_templatePageDef" path="view.pageDefs.admin_templatePageDef"/>
@@ -65,6 +66,7 @@
     <page id="view_event_create3PageDef" path="view.pageDefs.event_create3PageDef"/>
     <page id="view_interviewer_dashboardPageDef" path="view.pageDefs.interviewer_dashboardPageDef"/>
     <page id="view_event_infoPageDef" path="view.pageDefs.event_infoPageDef"/>
+    <page id="view_loginPageDef" path="view.pageDefs.loginPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="RecruitmentAppModuleDataControl" Package="model.EntityObject"

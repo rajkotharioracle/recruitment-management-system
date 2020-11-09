@@ -115,9 +115,6 @@
     Name="InterviewerDataVO1"
     ViewObjectName="model.ViewObject.InterviewerDataVO"/>
   <ViewUsage
-    Name="EventInterviewerDetailsVO1"
-    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
-  <ViewUsage
     Name="InterviewerDataVO1"
     ViewObjectName="model.ViewObject.InterviewerDataVO"/>
   <ViewUsage
@@ -129,6 +126,9 @@
 <ViewUsage
     Name="SchedEvents1"
     ViewObjectName="model.ViewObject.SchedEvents"/>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewLinkUsage
     Name="interviewetforadding"
     ViewLinkObjectName="model.ViewObject.interviewetforadding"
@@ -265,6 +265,16 @@
         Type="java.lang.String"/>
       <Parameter
         Name="eventid"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getUserId"
+      MethodName="getUserId">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userName"
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>

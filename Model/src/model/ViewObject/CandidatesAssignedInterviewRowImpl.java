@@ -8,13 +8,20 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class CandidatesAssignedInterviewRowImpl extends ViewRowImpl {
+
+
+    public static final int ENTITY_INTERVIEWDETAILSEO = 0;
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     protected enum AttributesEnum {
+        InterviewerEmailId,
         CandidateEmailId,
-        RoundNo;
+        RoundNo,
+        EventId;
         private static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         protected int index() {
@@ -36,8 +43,12 @@ public class CandidatesAssignedInterviewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
+    public static final int INTERVIEWEREMAILID = AttributesEnum.InterviewerEmailId.index();
     public static final int CANDIDATEEMAILID = AttributesEnum.CandidateEmailId.index();
     public static final int ROUNDNO = AttributesEnum.RoundNo.index();
+    public static final int EVENTID = AttributesEnum.EventId.index();
 
     /**
      * This is the default constructor (do not remove).
