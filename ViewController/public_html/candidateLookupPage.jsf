@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="candidateLookupPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/adminTemplateDef.jsf" id="pt1">
+                <f:facet name="body">
+                <af:panelGroupLayout id="pgl1" layout="vertical" halign="center">
+                <af:spacer width="10" height="10" id="as1"/>
+                <af:panelGroupLayout    id="pgl2" layout="horizontal">
+                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                                       disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                       disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b3"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="b4">
+                                <af:resetActionListener/>
+                            </af:button>
+                            <f:facet name="separator">
+                                <af:spacer id="s1" height="10"/>
+                            </f:facet>
+                        </af:panelGroupLayout> 
+                <af:spacer width="10" height="10" id="as2"/>
+                        <af:panelCollection id="pc1">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar"/>
+                            <af:table value="#{bindings.CandidateInfo1.collectionModel}" var="row"
+                                      rows="#{bindings.CandidateInfo1.rangeSize}"
+                                      emptyText="#{bindings.CandidateInfo1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.CandidateInfo1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.CandidateInfo1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.CandidateInfo1.rangeSize}"
+                                      filterModel="#{bindings.CandidateInfo1Query.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.CandidateInfo1Query.processQuery}" varStatus="vs"
+                                      id="t1" autoHeightRows="-1"
+                                      partialTriggers=":::b1 :::b2" columnStretching="none" width="500px">
+                                <af:column sortProperty="#{bindings.CandidateInfo1.hints.CandidateDob.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CandidateInfo1.hints.CandidateDob.label}" id="c1">
+                                    <f:facet name="filter">
+                                        <af:inputDate value="#{bindings.CandidateInfo1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CandidateDob.value}"
+                                                      id="id1">
+                                            <af:convertDateTime pattern="#{bindings.CandidateInfo1.hints.CandidateDob.format}"/>
+                                        </af:inputDate>
+                                    </f:facet>
+                                    <af:inputDate value="#{row.bindings.CandidateDob.inputValue}"
+                                                  label="#{bindings.CandidateInfo1.hints.CandidateDob.label}"
+                                                  required="#{bindings.CandidateInfo1.hints.CandidateDob.mandatory}"
+                                                  columns="#{bindings.CandidateInfo1.hints.CandidateDob.displayWidth}"
+                                                  shortDesc="#{bindings.CandidateInfo1.hints.CandidateDob.tooltip}"
+                                                  id="id2">
+                                        <f:validator binding="#{row.bindings.CandidateDob.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.CandidateInfo1.hints.CandidateDob.format}"/>
+                                    </af:inputDate>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CandidateInfo1.hints.CandidateEmail.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CandidateInfo1.hints.CandidateEmail.label}" id="c2">
+                                    <af:inputText value="#{row.bindings.CandidateEmail.inputValue}"
+                                                  label="#{bindings.CandidateInfo1.hints.CandidateEmail.label}"
+                                                  required="#{bindings.CandidateInfo1.hints.CandidateEmail.mandatory}"
+                                                  columns="#{bindings.CandidateInfo1.hints.CandidateEmail.displayWidth}"
+                                                  maximumLength="#{bindings.CandidateInfo1.hints.CandidateEmail.precision}"
+                                                  shortDesc="#{bindings.CandidateInfo1.hints.CandidateEmail.tooltip}"
+                                                  id="it1">
+                                        <f:validator binding="#{row.bindings.CandidateEmail.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CandidateInfo1.hints.CandidateGender.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CandidateInfo1.hints.CandidateGender.label}" id="c3">
+                                    <af:inputText value="#{row.bindings.CandidateGender.inputValue}"
+                                                  label="#{bindings.CandidateInfo1.hints.CandidateGender.label}"
+                                                  required="#{bindings.CandidateInfo1.hints.CandidateGender.mandatory}"
+                                                  columns="#{bindings.CandidateInfo1.hints.CandidateGender.displayWidth}"
+                                                  maximumLength="#{bindings.CandidateInfo1.hints.CandidateGender.precision}"
+                                                  shortDesc="#{bindings.CandidateInfo1.hints.CandidateGender.tooltip}"
+                                                  id="it2">
+                                        <f:validator binding="#{row.bindings.CandidateGender.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CandidateInfo1.hints.CandidateId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CandidateInfo1.hints.CandidateId.label}" id="c4">
+                                    <af:inputText value="#{row.bindings.CandidateId.inputValue}"
+                                                  label="#{bindings.CandidateInfo1.hints.CandidateId.label}"
+                                                  required="#{bindings.CandidateInfo1.hints.CandidateId.mandatory}"
+                                                  columns="#{bindings.CandidateInfo1.hints.CandidateId.displayWidth}"
+                                                  maximumLength="#{bindings.CandidateInfo1.hints.CandidateId.precision}"
+                                                  shortDesc="#{bindings.CandidateInfo1.hints.CandidateId.tooltip}"
+                                                  id="it3">
+                                        <f:validator binding="#{row.bindings.CandidateId.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CandidateInfo1.hints.CandidateId.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CandidateInfo1.hints.CandidateMobile.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CandidateInfo1.hints.CandidateMobile.label}" id="c5">
+                                    <af:inputText value="#{row.bindings.CandidateMobile.inputValue}"
+                                                  label="#{bindings.CandidateInfo1.hints.CandidateMobile.label}"
+                                                  required="#{bindings.CandidateInfo1.hints.CandidateMobile.mandatory}"
+                                                  columns="#{bindings.CandidateInfo1.hints.CandidateMobile.displayWidth}"
+                                                  maximumLength="#{bindings.CandidateInfo1.hints.CandidateMobile.precision}"
+                                                  shortDesc="#{bindings.CandidateInfo1.hints.CandidateMobile.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.CandidateMobile.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CandidateInfo1.hints.CandidateName.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CandidateInfo1.hints.CandidateName.label}" id="c6">
+                                    <af:inputText value="#{row.bindings.CandidateName.inputValue}"
+                                                  label="#{bindings.CandidateInfo1.hints.CandidateName.label}"
+                                                  required="#{bindings.CandidateInfo1.hints.CandidateName.mandatory}"
+                                                  columns="#{bindings.CandidateInfo1.hints.CandidateName.displayWidth}"
+                                                  maximumLength="#{bindings.CandidateInfo1.hints.CandidateName.precision}"
+                                                  shortDesc="#{bindings.CandidateInfo1.hints.CandidateName.tooltip}"
+                                                  id="it5">
+                                        <f:validator binding="#{row.bindings.CandidateName.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.CandidateInfo1.hints.PreviousEventId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.CandidateInfo1.hints.PreviousEventId.label}" id="c7">
+                                    <af:inputText value="#{row.bindings.PreviousEventId.inputValue}"
+                                                  label="#{bindings.CandidateInfo1.hints.PreviousEventId.label}"
+                                                  required="#{bindings.CandidateInfo1.hints.PreviousEventId.mandatory}"
+                                                  columns="#{bindings.CandidateInfo1.hints.PreviousEventId.displayWidth}"
+                                                  maximumLength="#{bindings.CandidateInfo1.hints.PreviousEventId.precision}"
+                                                  shortDesc="#{bindings.CandidateInfo1.hints.PreviousEventId.tooltip}"
+                                                  id="it6">
+                                        <f:validator binding="#{row.bindings.PreviousEventId.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.CandidateInfo1.hints.PreviousEventId.format}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                            <f:facet name="statusbar"/>
+                        </af:panelCollection>
+                    </af:panelGroupLayout>
+                </f:facet>
+                
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

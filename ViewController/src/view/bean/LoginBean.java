@@ -24,11 +24,23 @@ import java.io.Serializable;
 import javax.swing.JOptionPane;
 import java.io.Serializable;
 
+import java.sql.SQLException;
+
 import javax.faces.bean.SessionScoped;
+
+import javax.faces.event.ActionEvent;
 
 import javax.swing.JFrame;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichInputDate;
+
+import oracle.jbo.ViewObject;
+
+import view.common.DataConnect;
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.binding.BindingContainer;
 
 @ManagedBean
 @SessionScoped
@@ -41,6 +53,13 @@ public class LoginBean implements Serializable{
     
     JFrame f;
     private RichPopup myPopup;
+    private RichInputText candName;
+    private RichInputText candEmail;
+    private RichInputText candMobile;
+    private RichInputText candGender;
+    private RichInputDate candDob;
+    private RichInputText candPreEventId;
+    private RichInputText candId;
 
     /*private String msg;
 
@@ -153,8 +172,136 @@ public class LoginBean implements Serializable{
     public RichPopup getMyPopup() {
         return myPopup;
     }
+    
+    public void setCandName(RichInputText candName) {
+        this.candName = candName;
+    }
+
+    public RichInputText getCandName() {
+        return candName;
+    }
+
+    public void setCandEmail(RichInputText candEmail) {
+        this.candEmail = candEmail;
+    }
+
+    public RichInputText getCandEmail() {
+        return candEmail;
+    }
+
+    public void setCandMobile(RichInputText candMobile) {
+        this.candMobile = candMobile;
+    }
+
+    public RichInputText getCandMobile() {
+        return candMobile;
+    }
+
+    public void setCandGender(RichInputText candGender) {
+        this.candGender = candGender;
+    }
+
+    public RichInputText getCandGender() {
+        return candGender;
+    }
+
+    public void setCandDob(RichInputDate candDob) {
+        this.candDob = candDob;
+    }
+
+    public RichInputDate getCandDob() {
+        return candDob;
+    }
+
+    public void setCandPreEventId(RichInputText candPreEventId) {
+        this.candPreEventId = candPreEventId;
+    }
+
+    public RichInputText getCandPreEventId() {
+        return candPreEventId;
+    }
+
+    public void setCandId(RichInputText candId) {
+        this.candId = candId;
+    }
+
+    public RichInputText getCandId() {
+        return candId;
+    }
+
+    public void addNewCandidate(ActionEvent actionEvent) throws SQLException {
+        // Add event code here...
+        System.out.println("Funtion called");
+               String name = candName.getValue().toString();
+               String email = candEmail.getValue().toString();
+               String mobile = candMobile.getValue().toString();
+               //int mobile=Integer.parseInt(candMobile.getValue().toString());
+               String gender = candGender.getValue().toString();
+               String dob = candDob.getValue().toString();
+               int preEventId=Integer.parseInt(candPreEventId.getValue().toString());
+               int id=Integer.parseInt(candId.getValue().toString());
+               Connection con = null;
+               PreparedStatement ps = null;
+               con = DataConnect.getConnection();
+               //ps = con.prepareStatement("Select EMAIL_ID, PASSWORD from AKMR_USERS_MASTER where EMAIL_ID = ? and PASSWORD = ?");
+               System.out.println("preparing stmt ....");
+               ps = con.prepareStatement("insert into akmr_users_master values(?,'candidate','#00000#',0)");
+               ps.setString(1, email);
+               System.out.println("executing stmt .... email "+email);
+               ps.executeUpdate();
+               System.out.println("First insert done");
+               //DataConnect.close(con);
+               //con = null;
+               //ps = null;
+               //con = DataConnect.getConnection();
+               ps = con.prepareStatement("insert into akmr_candidate_data values(?, ?, ?, ?, ?, ?, ?, NULL)");
+               ps.setString(1, name);
+               ps.setString(2, email);
+               ps.setString(3, mobile);
+               ps.setString(4, gender);
+               ps.setDate(5, java.sql.Date.valueOf("2013-09-04"));  
+               ps.setInt(6, preEventId);
+               ps.setInt(7, id);
+               int rs = ps.executeUpdate();
+               if(rs ==1){
+                   System.out.println("New candidate added");
+                   }
+               else{
+                   }
+    }
 
 
+    public void updateCandidate(ActionEvent actionEvent) throws SQLException {
+        // Add event code here...
+        /*System.out.println("Funtion called");
+        BindingContext bctx = BindingContext.getCurrent();
+        BindingContainer bindings = bctx.getCurrentBindingsEntry();
+        DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("CandidateDataVO1Iterator");
+        ViewObject vo=candi_itr.getViewObject();
+        Row [] selectedRows=vo.getFilteredRows("selectCandidate",true);
+        Connection con = null;
+        PreparedStatement ps = null;
+        con = DataConnect.getConnection();
+        for(Row row :selectedRows)
+        {
+        
+            System.out.println(row.getAttribute("CandidateMobile"));
+           System.out.println(row.getAttribute("PreviousEventId"));
+          
+           //ps = con.prepareStatement("Delete from AKMR_CANDIDATE_DATA where CANDIDATE_EMAIL = ?");
+               ps = con.prepareStatement("UPDATE AKMR_CANDIDATE_DATA SET CANDIDATE_NAME = ?, CANDIDATE_EMAIL= ?, CANDIDATE_MOBILE = ?, CANDIDATE_GENDER = ?, PREVIOUS_EVENT_ID = ? WHERE CANDIDATE_EMAIL = ?");
+               ps.setString(1, (String) row.getAttribute("CandidateName"));
+               ps.setString(2, (String) row.getAttribute("CandidateEmail"));
+               ps.setInt(3, Integer.parseInt((String) row.getAttribute("CandidateMobile")));
+               ps.setString(4, (String) row.getAttribute("CandidateGender"));
+               ps.setString(5, (String) row.getAttribute("PreviousEventId"));
+               ps.setString(6, (String) row.getAttribute("CandidateEmail"));
+               System.out.println("Going for Candidate update");
+               ps.executeUpdate();
+               System.out.println("Candidate update done 1");
+           }
+        System.out.println("Candidate update done 2");*/
+    }
 }
 
 /*

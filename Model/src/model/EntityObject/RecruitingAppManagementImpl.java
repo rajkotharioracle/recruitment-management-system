@@ -478,4 +478,12 @@ public class RecruitingAppManagementImpl extends ApplicationModuleImpl implement
     public ViewObjectImpl getSchedEvents1() {
         return (ViewObjectImpl) findViewObject("SchedEvents1");
     }
+
+    /**
+     * Container's getter for CandidateInfo1.
+     * @return CandidateInfo1
+     */
+    public ViewObjectImpl getCandidateInfo1() {
+        return (ViewObjectImpl) findViewObject("CandidateInfo1");
+    }
 }
