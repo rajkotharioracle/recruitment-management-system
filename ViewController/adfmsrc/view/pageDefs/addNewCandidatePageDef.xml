@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="addNewCandidatePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidateDataVO1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CandidateDataVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CandidateDataVO1Iterator" id="CandidateName">
+      <AttrNames>
+        <Item Value="CandidateName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateDataVO1Iterator" id="CandidateEmail">
+      <AttrNames>
+        <Item Value="CandidateEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateDataVO1Iterator" id="CandidateMobile">
+      <AttrNames>
+        <Item Value="CandidateMobile"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateDataVO1Iterator" id="CandidateGender">
+      <AttrNames>
+        <Item Value="CandidateGender"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateDataVO1Iterator" id="CandidateDob">
+      <AttrNames>
+        <Item Value="CandidateDob"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateDataVO1Iterator" id="PreviousEventId">
+      <AttrNames>
+        <Item Value="PreviousEventId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CandidateDataVO1Iterator" id="CandidateId">
+      <AttrNames>
+        <Item Value="CandidateId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
