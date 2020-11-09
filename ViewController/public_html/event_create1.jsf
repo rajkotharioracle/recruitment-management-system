@@ -80,7 +80,9 @@
                                                       id="sbc1"/>
                         </af:column>
                     </af:table>
-                    <af:button text="button 1" id="b1" actionListener="#{setCompletedEvent.SetCandidates}"/>
+                    <af:button text="button 1" id="b1" actionListener="#{setCompletedEvent.SetCandidates}"
+                               action="create3"/>
+                    <af:outputText value="#{pageFlowScope.ec_ename}" id="ot8"/>
                 </f:facet>
             </af:pageTemplate>
         </af:form>

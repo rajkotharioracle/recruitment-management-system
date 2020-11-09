@@ -7,6 +7,6 @@ import oracle.jbo.script.annotation.TransientValueExpression;
 @TransientValueExpression(attributeName="newRound")
 def newRound_ExpressionScript_Expression()
 {
-CurrentRound+1
+
 }
 

@@ -60,7 +60,7 @@ public class EventSelection {
                             String userID2 = (String)opBinding2.execute();
                             String userID3 = (String)opBinding3.execute();
                             String userID4 = (String)opBinding4.execute();
-                            String userID5 = (String)opBinding4.execute();
+                            String userID5 = (String)opBinding5.execute();
                             //System.out.println("userID...." + userID);
                             JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID);
                             JSFUtils.setManagedBeanValue("pageFlowScope.pid1", ""+userID1);

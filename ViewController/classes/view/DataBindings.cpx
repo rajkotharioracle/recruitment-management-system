@@ -32,6 +32,7 @@
     <page path="/event_create1.jsf" usageId="view_event_create1PageDef"/>
     <page path="/event_create2.jsf" usageId="view_event_create2PageDef"/>
     <page path="/event_create3.jsf" usageId="view_event_create3PageDef"/>
+    <page path="/interviewer_dashboard.jsf" usageId="view_interviewer_dashboardPageDef"/>
     <page path="/event_info.jsf" usageId="view_event_infoPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
@@ -62,6 +63,7 @@
     <page id="view_event_create1PageDef" path="view.pageDefs.event_create1PageDef"/>
     <page id="view_event_create2PageDef" path="view.pageDefs.event_create2PageDef"/>
     <page id="view_event_create3PageDef" path="view.pageDefs.event_create3PageDef"/>
+    <page id="view_interviewer_dashboardPageDef" path="view.pageDefs.interviewer_dashboardPageDef"/>
     <page id="view_event_infoPageDef" path="view.pageDefs.event_infoPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>

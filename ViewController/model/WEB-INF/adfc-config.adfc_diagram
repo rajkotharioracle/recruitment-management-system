@@ -30,19 +30,6 @@
       <property
          name="exceptionHandler">false</property>
    </View>
-   <View
-      id="View10">
-      <property
-         name="activityId">interviewerHome</property>
-      <property
-         name="x">287.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>interviewerHome&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">247.33594</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase12"
@@ -52,16 +39,6 @@
          name="fromOutcome">login1</property>
       <property
          name="sdm:polyPoints">R46,151.0,150.10156,284.18848,22.636719,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase13"
-      from="View3"
-      to="View10">
-      <property
-         name="fromOutcome">login2</property>
-      <property
-         name="sdm:polyPoints">R54,151.0,157.10156,246.0,247.26953,L50</property>
    </ControlFlowCase>
    <View
       id="View14">
@@ -119,29 +96,6 @@
       <property
          name="exceptionHandler">false</property>
    </View>
-   <View
-      id="View13">
-      <property
-         name="activityId">Event_Lookup</property>
-      <property
-         name="x">365.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>Event_Lookup&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">-169.26562</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase14"
-      from="View4"
-      to="View13">
-      <property
-         name="fromOutcome">gotoEvent</property>
-      <property
-         name="sdm:polyPoints">T44,321.68848,-33.774734,365.0,-115.33203,B50</property>
-   </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase15"
@@ -171,75 +125,6 @@
          name="fromOutcome">gotoInterviewer</property>
       <property
          name="sdm:polyPoints">R58,366.18848,29.636719,478.0,144.66797,L50</property>
-   </ControlFlowCase>
-   <View
-      id="View19">
-      <property
-         name="activityId">Event_Create</property>
-      <property
-         name="x">519.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>Event_Create&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">-311.53125</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase20"
-      from="View13"
-      to="View19">
-      <property
-         name="fromOutcome">addEvent</property>
-      <property
-         name="sdm:polyPoints">T50,365.0,-223.33203,478.0,-311.59766,L50</property>
-   </ControlFlowCase>
-   <View
-      id="View21">
-      <property
-         name="activityId">Candidate_Interview</property>
-      <property
-         name="x">526.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>Candidate_Interview&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">285.46875</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <View
-      id="View22">
-      <property
-         name="activityId">Feedback</property>
-      <property
-         name="x">693.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>Feedback&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">246.73438</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase23"
-      from="View10"
-      to="View21">
-      <property
-         name="fromOutcome">Show_Candidate</property>
-      <property
-         name="sdm:polyPoints">R50,328.0,247.26953,485.0,285.40234,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase24"
-      from="View21"
-      to="View22">
-      <property
-         name="fromOutcome">Give</property>
-      <property
-         name="sdm:polyPoints">R50,567.0,285.40234,652.0,246.66797,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -298,5 +183,180 @@
          name="fromOutcome">getEventidforAssigning</property>
       <property
          name="sdm:polyPoints">R50,1013.5088,144.23438,1165.0713,71.50391,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View30">
+      <property
+         name="activityId">event_info</property>
+      <property
+         name="x">294.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>event_info&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">-168.63281</property>
+      <property
+         name="page">/event_info.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="View4"
+      to="View30">
+      <property
+         name="fromOutcome">event</property>
+      <property
+         name="sdm:polyPoints">T44,321.68848,-31.363281,294.5,-114.69922,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View35">
+      <property
+         name="activityId">event_create</property>
+      <property
+         name="x">392.53027</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>event_create&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">-294.6328</property>
+      <property
+         name="page">/event_create.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase36"
+      from="View30"
+      to="View35">
+      <property
+         name="fromOutcome">create1</property>
+      <property
+         name="sdm:polyPoints">T50,294.5,-222.69922,351.53027,-294.69922,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View37">
+      <property
+         name="activityId">event_create1</property>
+      <property
+         name="x">586.3242</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>event_create1&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">-317.76562</property>
+      <property
+         name="page">/event_create1.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View40">
+      <property
+         name="activityId">event_create2</property>
+      <property
+         name="x">744.3242</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>event_create2&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">-329.76562</property>
+      <property
+         name="page">/event_create2.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase41"
+      from="View37"
+      to="View40">
+      <property
+         name="fromOutcome">create3</property>
+      <property
+         name="sdm:polyPoints">R50,627.3242,-317.83203,703.3242,-329.83203,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View42">
+      <property
+         name="activityId">event_create3</property>
+      <property
+         name="x">879.3242</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>event_create3&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">-320.76562</property>
+      <property
+         name="page">/event_create3.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase43"
+      from="View40"
+      to="View42">
+      <property
+         name="fromOutcome">create4</property>
+      <property
+         name="sdm:polyPoints">R50,785.3242,-329.83203,838.3242,-320.83203,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase45"
+      from="View35"
+      to="View37">
+      <property
+         name="fromOutcome">create2</property>
+      <property
+         name="sdm:polyPoints">R50,433.53027,-294.69922,545.3242,-317.83203,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View39">
+      <property
+         name="activityId">interviewer_dashboard</property>
+      <property
+         name="x">362.98242</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>interviewer_dashboard&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">274.3672</property>
+      <property
+         name="page">/interviewer_dashboard.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase40"
+      from="View3"
+      to="View39">
+      <property
+         name="fromOutcome">login2</property>
+      <property
+         name="sdm:polyPoints">R54,151.0,157.10156,321.98242,274.30078,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View41">
+      <property
+         name="activityId">viewcandidate</property>
+      <property
+         name="x">630.1035</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>viewcandidate&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">261.10156</property>
+      <property
+         name="page">/viewcandidate.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase42"
+      from="View39"
+      to="View41">
+      <property
+         name="fromOutcome">candidatedet</property>
+      <property
+         name="sdm:polyPoints">R50,403.98242,274.30078,589.1035,261.03516,L50</property>
    </ControlFlowCase>
 </SDM>

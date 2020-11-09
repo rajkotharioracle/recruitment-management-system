@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="interviewer_dashboardPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CandidatesAssignedInterview1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="CandidatesAssignedInterview1Iterator"/>
+    <searchRegion Binds="CandidatesAssignedInterview1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CandidatesAssignedInterview1Query"/>
+    <iterator Binds="UpcomingInterviews1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="UpcomingInterviews1Iterator"/>
+    <iterator Binds="InterviewerCurrentStatus1" RangeSize="25" DataControl="RecruitingAppManagementDataControl"
+              id="InterviewerCurrentStatus1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CandidatesAssignedInterview1Iterator" id="CandidatesAssignedInterview1">
+      <nodeDefinition DefName="model.ViewObject.CandidatesAssignedInterview" Name="CandidatesAssignedInterview10">
+        <AttrNames>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="RoundNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="UpcomingInterviews1Iterator" id="UpcomingInterviews1">
+      <nodeDefinition DefName="model.ViewObject.UpcomingInterviews" Name="UpcomingInterviews10">
+        <AttrNames>
+          <Item Value="CandidateEmailId"/>
+          <Item Value="RoundNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="InterviewerCurrentStatus1Iterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

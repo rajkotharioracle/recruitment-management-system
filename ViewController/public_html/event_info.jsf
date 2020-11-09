@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="event_info.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
@@ -9,6 +10,7 @@
                     <af:panelGridLayout id="pgl1">
                         <af:gridRow marginTop="5px" height="auto" id="gr1">
                             <af:gridCell marginStart="5px" width="50%" id="gc1">
+                                <af:outputText value="Scheduled Events" id="ot1" inlineStyle="font-size:large;"/>
                                 <af:selectOneChoice value="#{bindings.SchedEvents1.inputValue}"
                                                     label="#{bindings.SchedEvents1.label}"
                                                     required="#{bindings.SchedEvents1.hints.mandatory}"
@@ -20,11 +22,12 @@
                                            actionListener="#{setCompletedEvent.EventInfo_seteid}"/>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
-                                <af:button text="Create event" id="b2"/>
+                                <af:button text="Create event" id="b2" destination="event_create.jsf"/>
                             </af:gridCell>
                         </af:gridRow>
                         <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                             <af:gridCell marginStart="5px" width="50%" id="gc3" halign="stretch">
+                                <af:outputText value="Registered Interviewers" id="ot2" inlineStyle="font-size:large;"/>
                                 <af:table value="#{bindings.IntervieweriInEvent1.collectionModel}" var="row"
                                           rows="#{bindings.IntervieweriInEvent1.rangeSize}"
                                           emptyText="#{bindings.IntervieweriInEvent1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -154,10 +157,10 @@
                                 </af:table>
                                 <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add Interviewer"
                                            disabled="#{!bindings.CreateInsert.enabled}" id="b3"/>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                                           disabled="#{!bindings.Commit.enabled}" id="b4"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b4"/>
                             </af:gridCell>
                             <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" halign="stretch">
+                                <af:outputText value="Registered Candidates" id="ot4" inlineStyle="font-size:large;"/>
                                 <af:table value="#{bindings.CandidatesInInterview1.collectionModel}" var="row"
                                           rows="#{bindings.CandidatesInInterview1.rangeSize}"
                                           emptyText="#{bindings.CandidatesInInterview1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -229,8 +232,7 @@
                                 </af:table>
                                 <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Candidate"
                                            disabled="#{!bindings.CreateInsert1.enabled}" id="b6"/>
-                                <af:button actionListener="#{bindings.Commit1.execute}" text="Save"
-                                           disabled="#{!bindings.Commit1.enabled}" id="b5"/>
+                                <af:button actionListener="#{bindings.Commit1.execute}" text="Save" id="b5"/>
                             </af:gridCell>
                         </af:gridRow>
                     </af:panelGridLayout>

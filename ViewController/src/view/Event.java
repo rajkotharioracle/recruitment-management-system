@@ -61,6 +61,11 @@ import oracle.binding.BindingContainer;
 import oracle.jbo.RowSetIterator;
 import java.math.BigDecimal;
 
+import java.util.Map;
+
+import oracle.adf.share.ADFContext;
+import oracle.adf.view.rich.context.AdfFacesContext;
+
 
 public class Event {
     private RichSelectOneListbox eventName;
@@ -250,6 +255,7 @@ public  String geteid()
         return createEvent;
     }
 
+    @SuppressWarnings("unchecked")
     public String createEvent1(ActionEvent actionEvent)  throws SQLException, ParseException {
     
                 String name = ename.getValue().toString();
@@ -261,6 +267,16 @@ public  String geteid()
                 Connection con = null;
                 PreparedStatement ps = null;
                 con = DataConnect.getConnection();
+                //AdfFacesContext adfFacesContext = null;
+                //adfFacesContext = AdfFacesContext.getCurrentInstance();
+               // Map _pageFlowScope = adfFacesContext.getPageFlowScope();
+                //_pageFlowScope.put("ec_ename",name);
+                
+                ADFContext adfCtx = ADFContext.getCurrent();
+                     Map pageFlowScope = adfCtx.getPageFlowScope();
+                     pageFlowScope.put("ec_ename", name);
+                pageFlowScope.put("ec_emaxr", maxRounds);
+                System.out.println(pageFlowScope.get(name));
                 ps = con.prepareStatement("Insert into AKMR_EVENT_DETAILS VALUES(NULL,?,?,?,NULL,?)");
                 ps.setString(1, name);
                 ps.setString(2, status);
@@ -296,21 +312,41 @@ public  String geteid()
 
 
     public void SetCandidates(ActionEvent actionEvent) throws SQLException {
+        AdfFacesContext adfFacesContext = null;
+        adfFacesContext = AdfFacesContext.getCurrentInstance();
+        Map _pageFlowScope = adfFacesContext.getPageFlowScope();
+        String ec_name = (String) _pageFlowScope.get("ec_ename");
+        System.out.println(ec_name);
+       // String ec_maxr = (String) pageFlowScope.get("ec_emaxr");
+       // System.out.println(ec_maxr);
         System.out.println("Funtion called");
-         BindingContext bctx = BindingContext.getCurrent();
+        Connection con = null;
+        PreparedStatement ps = null;
+        con = DataConnect.getConnection();
+        PreparedStatement rs=null;
+        rs=con.prepareStatement("Select EVENT_ID from akmr_event_details where EVENT_NAME=?");
+        rs.setString(1,ec_name);
+        ResultSet q=rs.executeQuery();
+        int eid=0;
+        if(q.next())
+        
+        {          eid= q.getInt(1);}
+
+        q.close();
+            //ec_emaxr
+        BindingContext bctx = BindingContext.getCurrent();
         BindingContainer bindings = bctx.getCurrentBindingsEntry();
         DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("CandidateDataVO1Iterator");
         ViewObject vo=candi_itr.getViewObject();
         Row [] selectedRows=vo.getFilteredRows("selectCandidate",true);
-        Connection con = null;
-        PreparedStatement ps = null;
-        con = DataConnect.getConnection();
+        
         for(Row row :selectedRows)
         {System.out.println("Inside loop");
             //System.out.println(row.getAttribute("CandidateName"));
            // System.out.println(row.getAttribute("CandidateEmail"));
             ps = con.prepareStatement("Insert into AKMR_EVENT_CANDIDATE_DETAILS VALUES(?,?,?,?)");
-            ps.setInt(1,5); //add event id from previous page
+            
+            ps.setInt(1,eid); //add event id from previous page
             ps.setString(2, (String) row.getAttribute("CandidateEmail"));
             ps.setInt(3,0);
             ps.setString(4,"Available");
@@ -324,22 +360,45 @@ public  String geteid()
     public void setInterviewers(ActionEvent actionEvent) throws SQLException {
         // Add event code here...
         System.out.println("Funtion called");
+        AdfFacesContext adfFacesContext = null;
+        adfFacesContext = AdfFacesContext.getCurrentInstance();
+        Map _pageFlowScope = adfFacesContext.getPageFlowScope();
+        String ec_name =(String) _pageFlowScope.get("ec_ename");
+        String x = (String) _pageFlowScope.get("ec_ename");
+        int y = Integer.parseInt(x);
+        System.out.println(ec_name);
+        // String ec_maxr = (String) pageFlowScope.get("ec_emaxr");
+        // System.out.println(ec_maxr);
+        System.out.println("Funtion called");
+        Connection con = null;
+        PreparedStatement ps = null;
+        con = DataConnect.getConnection();
+        PreparedStatement rs=null;
+        rs=con.prepareStatement("Select EVENT_ID from akmr_event_details where EVENT_NAME=?");
+        rs.setString(1,ec_name);
+        ResultSet q=rs.executeQuery();
+        int eid=0;
+        if(q.next())
+        
+        {          eid= q.getInt(1);}
+
+        q.close();
          BindingContext bctx = BindingContext.getCurrent();
         BindingContainer bindings = bctx.getCurrentBindingsEntry();
         DCIteratorBinding candi_itr =(DCIteratorBinding)bindings.get("InterviewerDataVO1Iterator");
         ViewObject vo=candi_itr.getViewObject();
         Row [] selectedRows=vo.getFilteredRows("selectedInterviewer",true);
-        Connection con = null;
-        PreparedStatement ps = null;
+       
+       
         con = DataConnect.getConnection();
         for(Row row :selectedRows)
         {System.out.println("Inside loop");
             //System.out.println(row.getAttribute("CandidateName"));
            // System.out.println(row.getAttribute("CandidateEmail"));
             ps = con.prepareStatement("Insert into AKMR_EVENT_INTERVIEWER_DETAILS VALUES(?,?,?,?,?)");
-            ps.setInt(1,5); //add event id from previous page
+            ps.setInt(1,eid); //add event id from previous page
             ps.setString(2, (String) row.getAttribute("InterviewerEmail"));
-            ps.setInt(3,7); //SET USING PARAMETER PREVIOUS PAGE
+            ps.setInt(3,y); //SET USING PARAMETER PREVIOUS PAGE
             ps.setString(4,"Available");
             ps.setInt(5,1);
                 ps.executeUpdate();

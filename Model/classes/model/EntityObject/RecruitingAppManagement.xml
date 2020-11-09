@@ -91,6 +91,12 @@
     Name="IntervieweriInEvent1"
     ViewObjectName="model.ViewObject.IntervieweriInEvent"/>
   <ViewUsage
+    Name="ViewObj1"
+    ViewObjectName="model.ViewObject.ViewObj"/>
+  <ViewUsage
+    Name="InterviewerCurrentStatus1"
+    ViewObjectName="model.ViewObject.InterviewerCurrentStatus"/>
+  <ViewUsage
     Name="test1"
     ViewObjectName="model.ViewObject.test"/>
   <ViewUsage
@@ -106,12 +112,21 @@
     Name="scheduledInterviews1"
     ViewObjectName="model.ViewObjectQB.scheduledInterviews"/>
   <ViewUsage
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
+  <ViewUsage
     Name="EventInterviewerDetailsVO1"
     ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewUsage
     Name="InterviewerDataVO1"
     ViewObjectName="model.ViewObject.InterviewerDataVO"/>
   <ViewUsage
+    Name="CandidatesAssignedInterview1"
+    ViewObjectName="model.ViewObject.CandidatesAssignedInterview"/>
+  <ViewUsage
+    Name="UpcomingInterviews1"
+    ViewObjectName="model.ViewObject.UpcomingInterviews"/>
+<ViewUsage
     Name="SchedEvents1"
     ViewObjectName="model.ViewObject.SchedEvents"/>
   <ViewLinkUsage
@@ -253,9 +268,7 @@
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>
-  <ViewUsage
-    Name="InterviewerDataVO1"
-    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
+
 
 
     

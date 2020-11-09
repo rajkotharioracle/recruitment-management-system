@@ -4,7 +4,6 @@
   <view id="adminHome">
     <page>/adminHome.jsf</page>
   </view>
-  <view id="interviewerHome"></view>
   <view id="eventDetail">
     <page>/eventDetail.jsf</page>
   </view>
@@ -13,10 +12,6 @@
   <view id="Report">
     <page>/Report.jsf</page>
   </view>
-  <view id="Event_Lookup"></view>
-  <view id="Event_Create"></view>
-  <view id="Candidate_Interview"></view>
-  <view id="Feedback"></view>
   <view id="createInterview">
     <page>/createInterview.jsf</page>
   </view>
@@ -26,6 +21,27 @@
       <fixed-outcome>getEventidforAssigning</fixed-outcome>
     </outcome>
   </method-call>
+  <view id="event_info">
+    <page>/event_info.jsf</page>
+  </view>
+  <view id="event_create">
+    <page>/event_create.jsf</page>
+  </view>
+  <view id="event_create1">
+    <page>/event_create1.jsf</page>
+  </view>
+  <view id="event_create2">
+    <page>/event_create2.jsf</page>
+  </view>
+  <view id="event_create3">
+    <page>/event_create3.jsf</page>
+  </view>
+  <view id="interviewer_dashboard">
+    <page>/interviewer_dashboard.jsf</page>
+  </view>
+  <view id="viewcandidate">
+    <page>/viewcandidate.jsf</page>
+  </view>
   <control-flow-rule id="__1">
     <from-activity-id>Login</from-activity-id>
     <control-flow-case id="__2">
@@ -34,15 +50,11 @@
     </control-flow-case>
     <control-flow-case id="__3">
       <from-outcome>login2</from-outcome>
-      <to-activity-id>interviewerHome</to-activity-id>
+      <to-activity-id>interviewer_dashboard</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__4">
     <from-activity-id>adminHome</from-activity-id>
-    <control-flow-case id="__5">
-      <from-outcome>gotoEvent</from-outcome>
-      <to-activity-id>Event_Lookup</to-activity-id>
-    </control-flow-case>
     <control-flow-case id="__6">
       <from-outcome>gotoCandidate</from-outcome>
       <to-activity-id>Candidate_Lookup</to-activity-id>
@@ -59,26 +71,9 @@
       <from-outcome>select</from-outcome>
       <to-activity-id>eventDetail</to-activity-id>
     </control-flow-case>
-  </control-flow-rule>
-  <control-flow-rule id="__10">
-    <from-activity-id>Event_Lookup</from-activity-id>
-    <control-flow-case id="__11">
-      <from-outcome>addEvent</from-outcome>
-      <to-activity-id>Event_Create</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
-  <control-flow-rule id="__12">
-    <from-activity-id>interviewerHome</from-activity-id>
-    <control-flow-case id="__13">
-      <from-outcome>Show_Candidate</from-outcome>
-      <to-activity-id>Candidate_Interview</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
-  <control-flow-rule id="__14">
-    <from-activity-id>Candidate_Interview</from-activity-id>
-    <control-flow-case id="__15">
-      <from-outcome>Give</from-outcome>
-      <to-activity-id>Feedback</to-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>event</from-outcome>
+      <to-activity-id>event_info</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__17">
@@ -95,7 +90,41 @@
       <to-activity-id>createInterview</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
-
+  <control-flow-rule id="__10">
+    <from-activity-id>event_info</from-activity-id>
+    <control-flow-case id="__11">
+      <from-outcome>create1</from-outcome>
+      <to-activity-id>event_create</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__28">
+    <from-activity-id>event_create1</from-activity-id>
+    <control-flow-case id="__29">
+      <from-outcome>create3</from-outcome>
+      <to-activity-id>event_create2</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__30">
+    <from-activity-id>event_create2</from-activity-id>
+    <control-flow-case id="__31">
+      <from-outcome>create4</from-outcome>
+      <to-activity-id>event_create3</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__32">
+    <from-activity-id>event_create</from-activity-id>
+    <control-flow-case id="__33">
+      <from-outcome>create2</from-outcome>
+      <to-activity-id>event_create1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__12">
+    <from-activity-id>interviewer_dashboard</from-activity-id>
+    <control-flow-case id="__13">
+      <from-outcome>candidatedet</from-outcome>
+      <to-activity-id>viewcandidate</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
   <managed-bean id="__16">
     <managed-bean-name>Eventselection</managed-bean-name>
     <managed-bean-class>view.bean.EventSelection</managed-bean-class>

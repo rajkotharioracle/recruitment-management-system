@@ -7,12 +7,12 @@ import oracle.jbo.script.annotation.AccessorParameterExpression;
 @AccessorParameterExpression(accessorName="approinterviewer1", name="pid1")
 def pid1_approinterviewer1_BindVariable_BoundParameter()
 {
-//EventId
+EventId
 }
 
 @AccessorParameterExpression(accessorName="approinterviewer1", name="round")
 def round_approinterviewer1_BindVariable_BoundParameter()
 {
-CurrentRound
+newRound
 }
 

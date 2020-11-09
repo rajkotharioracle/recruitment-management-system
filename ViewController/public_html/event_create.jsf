@@ -14,6 +14,8 @@
                                       shortDesc="#{bindings.EventName.hints.tooltip}" id="it1"
                                       binding="#{setCompletedEvent.ename}">
                             <f:validator binding="#{bindings.EventName.validator}"/>
+                            <af:setPropertyListener from="#{bindings.EventName.inputValue}"
+                                                    to="#{pageFlowScope.ec_ename}" type="valueChange"/>
                         </af:inputText>
                         <af:inputText value="#{bindings.EventStatus.inputValue}"
                                       label="#{bindings.EventStatus.hints.label}"
@@ -45,7 +47,10 @@
                         </af:inputText>
                         <f:facet name="footer">
                             <af:button text="Submit" id="b1" binding="#{setCompletedEvent.createEvent}"
-                                       actionListener="#{setCompletedEvent.createEvent1}"/>
+                                       actionListener="#{setCompletedEvent.createEvent1}" action="create2">
+                                <af:setActionListener from="#{bindings.EventName.inputValue}"
+                                                      to="#{pageFlowScope.ec_ename}"/>
+                            </af:button>
                         </f:facet>
                     </af:panelFormLayout>
                 </f:facet>
