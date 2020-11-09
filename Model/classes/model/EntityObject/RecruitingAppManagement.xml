@@ -49,12 +49,6 @@
     Name="UsersMaster1"
     ViewObjectName="model.ViewObject.UsersMasterVO"/>
   <ViewUsage
-    Name="InterviewerDataVO1"
-    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
-  <ViewUsage
-    Name="EventInterviewerDetailsVO1"
-    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
-  <ViewUsage
     Name="EventInterviewerDetailsVO2"
     ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewUsage
@@ -105,12 +99,27 @@
   <ViewUsage
     Name="InterviewerCurrentStatus1"
     ViewObjectName="model.ViewObject.InterviewerCurrentStatus"/>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
+  <ViewUsage
+    Name="CandidatesAssignedInterview1"
+    ViewObjectName="model.ViewObject.CandidatesAssignedInterview"/>
+  <ViewUsage
+    Name="UpcomingInterviews1"
+    ViewObjectName="model.ViewObject.UpcomingInterviews"/>
   <ViewLinkUsage
     Name="interviewetforadding"
     ViewLinkObjectName="model.ViewObject.interviewetforadding"
     SrcViewUsageName="model.EntityObject.RecruitingAppManagement.InterviewerDataVO1"
     DstViewUsageName="model.EntityObject.RecruitingAppManagement.EventInterviewerDetailsVO1"
     Reversed="false"/>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewLinkUsage
     Name="eventinterviewer_interviewer"
     ViewLinkObjectName="model.ViewObject.eventinterviewer_interviewer"
@@ -231,9 +240,6 @@
         Type="void"/>
     </Method>
   </ClientInterface>
-  <ViewUsage
-    Name="EventInterviewerDetailsVO1"
-    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
   <ViewUsage
     Name="InterviewerDataVO1"
     ViewObjectName="model.ViewObject.InterviewerDataVO"/>
