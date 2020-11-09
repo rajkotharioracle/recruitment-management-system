@@ -76,9 +76,6 @@
     Name="CandidatesEventHistory1"
     ViewObjectName="model.ViewObject.CandidatesEventHistory"/>
   <ViewUsage
-    Name="EventInterviewerDetailsVO1"
-    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
-  <ViewUsage
     Name="InterviewerEventHistory1"
     ViewObjectName="model.ViewObject.InterviewerEventHistory"/>
   <ViewUsage
@@ -97,14 +94,17 @@
     Name="CandidateDataVO1"
     ViewObjectName="model.ViewObject.CandidateDataVO"/>
   <ViewUsage
-    Name="InterviewerDataVO1"
-    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
-  <ViewUsage
     Name="InterviewersinEventID1"
     ViewObjectName="model.ViewObject.InterviewersinEventID"/>
   <ViewUsage
     Name="IntervieweriInEvent1"
     ViewObjectName="model.ViewObject.IntervieweriInEvent"/>
+  <ViewUsage
+    Name="ViewObj1"
+    ViewObjectName="model.ViewObject.ViewObj"/>
+  <ViewUsage
+    Name="InterviewerCurrentStatus1"
+    ViewObjectName="model.ViewObject.InterviewerCurrentStatus"/>
   <ViewLinkUsage
     Name="interviewetforadding"
     ViewLinkObjectName="model.ViewObject.interviewetforadding"
@@ -117,10 +117,6 @@
     SrcViewUsageName="model.EntityObject.RecruitingAppManagement.EventInterviewerDetailsVO2"
     DstViewUsageName="model.EntityObject.RecruitingAppManagement.interviewerdataforeventpage2"
     Reversed="false"/>
-  
-  
-  
-  
   <ClientInterface
     Name="__clientInterface">
     <Method
@@ -212,14 +208,14 @@
       <Parameter
         Name="eventid"
         Type="java.lang.String"/>
-        </Method>
-        <Method
+    </Method>
+    <Method
       Name="setBindvar"
       MethodName="setBindvar">
       <Return
         Name="_return_type_"
         Type="void"/>
-     </Method>
+    </Method>
     <Method
       Name="report_setCandidate"
       MethodName="report_setCandidate">
@@ -234,7 +230,13 @@
         Name="_return_type_"
         Type="void"/>
     </Method>
-      </ClientInterface>
+  </ClientInterface>
+  <ViewUsage
+    Name="EventInterviewerDetailsVO1"
+    ViewObjectName="model.ViewObject.EventInterviewerDetailsVO"/>
+  <ViewUsage
+    Name="InterviewerDataVO1"
+    ViewObjectName="model.ViewObject.InterviewerDataVO"/>
 
 
     
