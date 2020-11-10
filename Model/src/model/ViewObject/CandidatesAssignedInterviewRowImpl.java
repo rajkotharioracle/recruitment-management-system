@@ -19,7 +19,8 @@ public class CandidatesAssignedInterviewRowImpl extends ViewRowImpl {
         InterviewerEmailId,
         CandidateEmailId,
         RoundNo,
-        EventId;
+        EventId,
+        Status;
         private static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -49,6 +50,7 @@ public class CandidatesAssignedInterviewRowImpl extends ViewRowImpl {
     public static final int CANDIDATEEMAILID = AttributesEnum.CandidateEmailId.index();
     public static final int ROUNDNO = AttributesEnum.RoundNo.index();
     public static final int EVENTID = AttributesEnum.EventId.index();
+    public static final int STATUS = AttributesEnum.Status.index();
 
     /**
      * This is the default constructor (do not remove).

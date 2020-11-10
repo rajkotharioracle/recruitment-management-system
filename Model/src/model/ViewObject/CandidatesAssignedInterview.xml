@@ -30,7 +30,9 @@
   <SQLQuery><![CDATA[Select
   akmr_interview_details.interviewer_email_id,
   akmr_interview_details.candidate_email_id,
-  akmr_interview_details.round_no
+  akmr_interview_details.round_no,
+  akmr_interview_details.event_id,
+  akmr_interview_details.status
 from
   akmr_interview_details]]></SQLQuery>
   <EntityUsage
@@ -64,6 +66,13 @@ from
     EntityAttrName="EventId"
     EntityUsage="InterviewDetailsEO"
     AliasName="EVENT_ID"/>
+  <ViewAttribute
+    Name="Status"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="InterviewDetailsEO"
+    AliasName="STATUS"/>
   <ViewCriteria
     Name="findByUserName"
     ViewObjectName="model.ViewObject.CandidatesAssignedInterview"
@@ -102,6 +111,13 @@ from
           Value=":loggedInUserName"
           Required="Optional"
           IsBindVarValue="true"/>
+        <ViewCriteriaItem
+          Name="Status"
+          ViewAttribute="Status"
+          Operator="="
+          Conjunction="AND"
+          Value="requested"
+          Required="Optional"/>
       </ViewCriteriaRow>
     </ViewCriteria>
   </ViewCriteria>

@@ -129,6 +129,13 @@ from
           Value=":userInput"
           Required="Optional"
           IsBindVarValue="true"/>
+        <ViewCriteriaItem
+          Name="Status"
+          ViewAttribute="Status"
+          Operator="="
+          Conjunction="AND"
+          Value="assigned"
+          Required="Optional"/>
       </ViewCriteriaRow>
     </ViewCriteria>
   </ViewCriteria>
